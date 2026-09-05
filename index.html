@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- saved from url=(0055)file:///D:/MadeByMySelf/DreamGacha/dream-gacha-v12.html -->
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -118,6 +119,18 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .choice-category-chip.included{background:#72519a;border-color:#72519a;color:#fff;box-shadow:0 0 0 2px rgba(114,81,154,.12)}
 .choice-category-chip.excluded{background:#f5e3e8;border-color:#ddb5c1;color:#914c60;text-decoration:line-through}
 .choice-category-help{font-size:.7rem;color:var(--muted);line-height:1.55;margin-top:7px}
+
+.mobile-category-mode{display:none;margin-top:8px;padding:8px;border:1px solid var(--line);border-radius:12px;background:#faf8fd}
+.mobile-category-mode-label{font-size:.69rem;color:var(--muted);font-weight:900;margin-bottom:6px}
+.mobile-category-mode-buttons{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.mobile-category-mode-btn{border:1px solid var(--line);background:#fff;color:#62586b;border-radius:10px;padding:8px 10px;font-size:.76rem;font-weight:900}
+.mobile-category-mode-btn.active[data-mobile-category-mode="include"]{background:#72519a;border-color:#72519a;color:#fff}
+.mobile-category-mode-btn.active[data-mobile-category-mode="exclude"]{background:#f5e3e8;border-color:#ddb5c1;color:#914c60}
+@media (hover:none), (pointer:coarse){
+ .mobile-category-mode{display:block}
+ .choice-category-help{display:none}
+}
+
 .choice-category-help b{color:#5b4177}
 .result-category-status{font-size:.69rem;color:var(--muted);font-weight:800;margin-top:5px;min-height:1.3em}
 .result-category-status .include{color:#664387}
@@ -1512,7 +1525,7 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
   </section>
 </section>
 </main>
-<footer>v0.17 / 完全バックアップ名に時分秒を追加 / 1ファイル完結 / サーバー不要</footer>
+<footer>v0.18 / スマホ向けカテゴリ設定・除外モード切替 / 1ファイル完結 / サーバー不要</footer>
 </div>
 <div class="quick-nav" id="managerQuickNav" aria-label="キャラ管理クイック移動" hidden="">
   <button type="button" id="jumpTop">↑ 上へ</button>
@@ -1525,6 +1538,13 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
     <div class="choice-category-wrap" id="choiceCategoryWrap" hidden="">
       <div class="choice-category-title" id="choiceCategoryTitle">カテゴリ</div>
       <div class="choice-category-chips" id="choiceCategoryChips"></div>
+      <div class="mobile-category-mode" id="mobileCategoryMode">
+        <div class="mobile-category-mode-label">スマホ操作モード</div>
+        <div class="mobile-category-mode-buttons">
+          <button type="button" class="mobile-category-mode-btn active" data-mobile-category-mode="include">設定する</button>
+          <button type="button" class="mobile-category-mode-btn" data-mobile-category-mode="exclude">除外する</button>
+        </div>
+      </div>
       <div class="choice-category-help"><b>左クリック</b>：そのカテゴリに設定 ／ 同じものをもう一度左クリックで解除　　<b>右クリック</b>：そのカテゴリを除外 ／ もう一度右クリックで解除</div>
     </div>
     <div class="choice-note">選んだだけでは固定されません。次のガチャでも残したい場合は、結果カードの「🔒 固定」をONにしてください。</div>
@@ -1980,7 +2000,7 @@ function migrateAmbiguousDio(){
 
 function save(msg=false){
  localStorage.setItem("dreamGachaSettings",JSON.stringify({
-   version:17,characters:state.characters,pools:state.pools,basePrompt:state.basePrompt,
+   version:18,characters:state.characters,pools:state.pools,basePrompt:state.basePrompt,
    freeExtra:$("#freeExtra").value,deletedSeedIds:[...state.deletedSeedIds],
    characterId:state.characterId,values:state.values,locks:state.locks,
    filters:{...state.filters,tags:[...state.filters.tags]},manage:state.manage,
@@ -2000,6 +2020,7 @@ function switchScreen(name){
 
 
 let chooserKey=null;
+let mobileCategoryMode="include";
 function chooserEntries(key){
  if(key==="character"){
    return baseFilteredCharacters().filter(c=>categoryPass("character",c)).map(c=>({
@@ -2014,7 +2035,10 @@ function renderChooserCategoryChips(){
  if(!chooserKey)return;
  const counts=categoryCounts(chooserKey),order=categoryOrderFor(chooserKey);
  $("#choiceCategoryWrap").hidden=!order.length;
- $("#choiceCategoryTitle").textContent=`${CATEGORY_LABELS[chooserKey]||"カテゴリ"}（左＝設定 / 右＝除外）`;
+ const isTouch=window.matchMedia("(hover:none), (pointer:coarse)").matches;
+ $("#choiceCategoryTitle").textContent=isTouch
+   ?`${CATEGORY_LABELS[chooserKey]||"カテゴリ"}`
+   :`${CATEGORY_LABELS[chooserKey]||"カテゴリ"}（左＝設定 / 右＝除外）`;
  $("#choiceCategoryChips").innerHTML=
    `<button type="button" class="choice-category-chip" data-category-clear="${esc(chooserKey)}">条件クリア</button>`+
    order.filter(c=>(counts.get(c)||0)>0).map(c=>{
@@ -2025,7 +2049,8 @@ function renderChooserCategoryChips(){
 }
 function openChooser(key){
  if(key!=="character")syncScenario();
- chooserKey=key;
+ chooserKey=key;mobileCategoryMode="include";
+ document.querySelectorAll("[data-mobile-category-mode]").forEach(b=>b.classList.toggle("active",b.dataset.mobileCategoryMode==="include"));
  $("#choiceTitle").textContent=`${META[key].label}を候補から選ぶ`;
  $("#choiceSearch").value="";
  renderChooserCategoryChips();renderChooserList();
@@ -2524,7 +2549,7 @@ function fullBackupPayload(){
    schema:"dream-gacha.full-backup",
    version:1,
    app:"夢小説シチュガチャ",
-   appVersion:17,
+   appVersion:18,
    exportedAt:new Date().toISOString(),
    data:{
      characters:state.characters.map(c=>({...c,tags:[...(c.tags||[])]})),
@@ -2627,12 +2652,18 @@ function init(){
  $("#choiceCategoryChips").addEventListener("click",e=>{
    const clear=e.target.closest("[data-category-clear]");if(clear)return clearCategoryRules(clear.dataset.categoryClear);
    const b=e.target.closest("[data-category-name]");if(!b||!chooserKey)return;
-   setCategoryInclude(chooserKey,b.dataset.categoryName);
+   const isTouch=window.matchMedia("(hover:none), (pointer:coarse)").matches;
+   if(isTouch&&mobileCategoryMode==="exclude")toggleCategoryExclude(chooserKey,b.dataset.categoryName);
+   else setCategoryInclude(chooserKey,b.dataset.categoryName);
  });
  $("#choiceCategoryChips").addEventListener("contextmenu",e=>{
    const b=e.target.closest("[data-category-name]");if(!b||!chooserKey)return;
    e.preventDefault();toggleCategoryExclude(chooserKey,b.dataset.categoryName);
  });
+ document.querySelectorAll("[data-mobile-category-mode]").forEach(b=>b.addEventListener("click",()=>{
+   mobileCategoryMode=b.dataset.mobileCategoryMode;
+   document.querySelectorAll("[data-mobile-category-mode]").forEach(x=>x.classList.toggle("active",x===b));
+ }));
  $("#choiceList").addEventListener("click",e=>{const b=e.target.closest("[data-choice-value]");if(b)chooseValue(b.dataset.choiceValue)});
  $("#choiceModal").addEventListener("click",e=>{if(e.target===$("#choiceModal"))closeChooser()});
  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#choiceModal").hidden)closeChooser()});
