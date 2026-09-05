@@ -1513,7 +1513,7 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
   </section>
 </section>
 </main>
-<footer>v0.16 / 全項目カテゴリ化・左クリック設定・右クリック除外 / 1ファイル完結 / サーバー不要</footer>
+<footer>v0.17 / 完全バックアップ名に時分秒を追加 / 1ファイル完結 / サーバー不要</footer>
 </div>
 <div class="quick-nav" id="managerQuickNav" aria-label="キャラ管理クイック移動" hidden="">
   <button type="button" id="jumpTop">↑ 上へ</button>
@@ -1981,7 +1981,7 @@ function migrateAmbiguousDio(){
 
 function save(msg=false){
  localStorage.setItem("dreamGachaSettings",JSON.stringify({
-   version:16,characters:state.characters,pools:state.pools,basePrompt:state.basePrompt,
+   version:17,characters:state.characters,pools:state.pools,basePrompt:state.basePrompt,
    freeExtra:$("#freeExtra").value,deletedSeedIds:[...state.deletedSeedIds],
    characterId:state.characterId,values:state.values,locks:state.locks,
    filters:{...state.filters,tags:[...state.filters.tags]},manage:state.manage,
@@ -2525,7 +2525,7 @@ function fullBackupPayload(){
    schema:"dream-gacha.full-backup",
    version:1,
    app:"夢小説シチュガチャ",
-   appVersion:16,
+   appVersion:17,
    exportedAt:new Date().toISOString(),
    data:{
      characters:state.characters.map(c=>({...c,tags:[...(c.tags||[])]})),
@@ -2552,8 +2552,12 @@ function fullBackupPayload(){
    }
  };
 }
+function backupTimestamp(){
+ const d=new Date(),pad=n=>String(n).padStart(2,"0");
+ return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`;
+}
 function exportFullBackup(){
- const stamp=new Date().toISOString().slice(0,10).replace(/-/g,"");
+ const stamp=backupTimestamp();
  downloadJson(fullBackupPayload(),`dream-gacha-full-backup-${stamp}.json`);
  showToast("完全バックアップを書き出しました");
 }
