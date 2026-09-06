@@ -385,12 +385,19 @@ async function deleteNovelArchive(id){const n=novelCache.find(n=>n.id===id);if(!
 
 
 function switchScreen(name){
- document.querySelectorAll(".screen").forEach(el=>el.hidden=el.id!==`screen-${name}`);
- document.querySelectorAll(".tab-btn").forEach(b=>b.classList.toggle("active",b.dataset.screen===name));
+ const screen=document.querySelector(`#screen-${name}`);if(!screen)return;
+ document.querySelectorAll(".screen").forEach(el=>el.hidden=el!==screen);
+ document.querySelectorAll(".tab-btn").forEach(b=>{const active=b.dataset.screen===name;b.classList.toggle("active",active);b.setAttribute("aria-selected",String(active));b.tabIndex=active?0:-1});
  if(name==="manager") renderManager();
  if(name==="library") renderLibrary();
  $("#managerQuickNav").hidden=name!=="manager";
- window.scrollTo({top:0,behavior:"smooth"});
+ document.title=`${{gacha:"ガチャ",library:"ライブラリ",manager:"キャラ管理",help:"使い方"}[name]}｜夢小説シチュガチャ`;
+ window.scrollTo?.({top:0,behavior:"smooth"});
+}
+
+function goToScreen(name,targetId){
+ switchScreen(name);
+ if(targetId)setTimeout(()=>document.querySelector(`#${targetId}`)?.scrollIntoView({behavior:"smooth",block:"start"}),120);
 }
 
 
@@ -985,7 +992,12 @@ function showToast(m){const e=$("#toast");e.textContent=m;e.classList.add("show"
 function init(){
  load();renderResultCards();renderPoolEditors();renderGachaFilters();renderAddTagPicker();renderLibrary();
 
- document.querySelectorAll(".tab-btn").forEach(b=>b.addEventListener("click",()=>switchScreen(b.dataset.screen)));
+ const tabs=[...document.querySelectorAll(".tab-btn")];
+ tabs.forEach((b,index)=>{
+  b.addEventListener("click",()=>switchScreen(b.dataset.screen));
+  b.addEventListener("keydown",e=>{if(!["ArrowLeft","ArrowRight","Home","End"].includes(e.key))return;e.preventDefault();const next=e.key==="Home"?0:e.key==="End"?tabs.length-1:(index+(e.key==="ArrowRight"?1:-1)+tabs.length)%tabs.length;switchScreen(tabs[next].dataset.screen);tabs[next].focus()});
+ });
+ document.addEventListener("click",e=>{const b=e.target.closest("[data-go-screen]");if(b)goToScreen(b.dataset.goScreen,b.dataset.scrollTarget)});
   $("#choiceClose").addEventListener("click",closeChooser);
   $("#choiceSearch").addEventListener("input",renderChooserList);
   $("#choiceCategoryClear").addEventListener("click",()=>{if(chooserKey)clearCategoryRules(chooserKey)});

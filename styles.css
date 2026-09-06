@@ -14,13 +14,14 @@ body{
 }
 button,input,select,textarea{font:inherit}
 button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(118,83,166,.3);outline-offset:3px}
 .wrap{width:min(1080px,calc(100% - 28px));margin:0 auto}
 header{padding:28px 0 14px}
 .eyebrow{color:var(--accent);font-size:.76rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
 h1{margin:2px 0 0;font-size:clamp(1.8rem,5vw,3rem);line-height:1.18;letter-spacing:-.03em}
 .lead{margin:8px 0 0;color:var(--muted);max-width:780px}
 .tabs{display:flex;gap:8px;margin:14px 0 2px;position:sticky;top:0;z-index:20;padding:8px 0;background:linear-gradient(var(--bg) 72%,transparent)}
-.tab-btn{border:1px solid var(--line);background:rgba(255,255,255,.92);padding:10px 16px;border-radius:999px;font-weight:900;color:var(--muted);box-shadow:0 5px 18px rgba(52,33,72,.05)}
+.tab-btn{border:1px solid var(--line);background:rgba(255,255,255,.92);min-height:44px;padding:10px 16px;border-radius:999px;font-weight:900;color:var(--muted);box-shadow:0 5px 18px rgba(52,33,72,.05);white-space:nowrap}
 .tab-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
 .screen[hidden]{display:none!important}
 .panel{background:rgba(255,255,255,.92);border:1px solid rgba(232,224,239,.95);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-top:16px;backdrop-filter:blur(10px)}
@@ -140,7 +141,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 
 .lock-label{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:.79rem;user-select:none}
 .lock-label input,.row-check,.select-all{accent-color:var(--accent);width:17px;height:17px}
-.primary,.secondary,.small-btn,.danger-btn,.ok-btn{border:0;border-radius:13px;padding:11px 14px;font-weight:900;transition:.15s ease}
+.primary,.secondary,.small-btn,.danger-btn,.ok-btn{border:0;border-radius:13px;min-height:42px;padding:11px 14px;font-weight:900;transition:.15s ease}
 .primary{color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 8px 22px rgba(118,83,166,.20)}
 .secondary{background:var(--soft);color:#533b74}
 .small-btn{border:1px solid var(--line);background:#fff;color:var(--text);padding:7px 10px;font-size:.8rem}
@@ -214,6 +215,10 @@ summary::after{content:"＋";float:right;color:var(--muted)} details[open] summa
 .manager-form .full{grid-column:1/-1}
 .form-actions{display:flex;gap:8px;flex-wrap:wrap}
 .manager-note{margin:0 0 12px;color:var(--muted);font-size:.85rem}
+.manager-guide{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:15px}
+.manager-guide>div{display:grid;gap:2px;border:1px solid var(--line);border-radius:14px;background:var(--panel2);padding:11px 13px}
+.manager-guide strong{font-size:.82rem;color:#5b4177}
+.manager-guide span{font-size:.76rem;color:var(--muted);line-height:1.55}
 .pager-note{margin-top:10px;color:var(--muted);font-size:.78rem}
 .quick-nav{position:fixed;right:max(14px,env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom));z-index:50;display:flex;flex-direction:column;gap:7px}
 .quick-nav[hidden]{display:none!important}
@@ -222,6 +227,37 @@ summary::after{content:"＋";float:right;color:var(--muted)} details[open] summa
 footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
 .toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#2f2936;color:#fff;border-radius:999px;padding:10px 16px;font-size:.83rem;font-weight:900;transition:.2s ease;z-index:99;box-shadow:0 10px 30px rgba(0,0,0,.18);max-width:calc(100% - 28px);text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
+
+.help-screen{padding-top:16px}
+.help-hero{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 28px;border:1px solid #ded1ea;border-radius:var(--radius);background:linear-gradient(135deg,#f1e9fa 0%,#fff 52%,#fff3f8 100%);box-shadow:var(--shadow)}
+.help-hero h2{font-size:clamp(1.35rem,3vw,1.8rem);line-height:1.3;margin:3px 0 6px}
+.help-hero p{margin:0;color:var(--muted);max-width:680px}
+.help-hero .primary{flex:0 0 auto}
+.help-local-nav{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 0}
+.help-local-nav a{display:inline-flex;align-items:center;min-height:40px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.88);padding:7px 12px;color:#5a407d;font-size:.78rem;font-weight:900;text-decoration:none}
+.help-section{scroll-margin-top:76px}
+.help-steps{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.help-step{display:grid;grid-template-columns:38px 1fr;gap:11px;align-items:start;border:1px solid var(--line);border-radius:16px;background:var(--panel2);padding:15px}
+.step-number{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));font-weight:950}
+.help-step h3,.help-detail-card h3{margin:0 0 5px;font-size:.98rem}
+.help-step p{margin:0;color:var(--muted);font-size:.84rem}
+.text-action{border:0;background:transparent;color:var(--accent);font-size:.8rem;font-weight:950;padding:8px 0 0;text-align:left}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:28px 3px 12px}
+.section-heading h2{margin:2px 0 0;font-size:1.25rem}
+.section-heading p{margin:0;color:var(--muted);font-size:.82rem}
+.help-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.help-detail-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.94);padding:17px;box-shadow:0 8px 25px rgba(52,33,72,.05)}
+.help-card-icon{font-size:1.35rem;margin-bottom:5px}
+.help-detail-card ul{margin:5px 0 16px;padding-left:1.25em;color:#564d5e;font-size:.81rem;line-height:1.65}
+.help-detail-card li+li{margin-top:5px}
+.help-detail-card .secondary{margin-top:auto;width:100%}
+.data-guide .panel-body p{margin:0 0 10px;color:#554c5d}
+.data-guide .panel-body p:last-of-type{padding:11px 13px;border-radius:13px;background:#fff7df;color:#6e5317}
+.faq-list{display:grid;gap:8px}
+.faq-list details{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}
+.faq-list details[open]{border-color:#d5c2e5;background:#fcfaff}
+.faq-list summary{padding:13px 15px;font-size:.86rem}
+.faq-list p{margin:0;padding:0 15px 14px;color:var(--muted);font-size:.83rem}
 @media(max-width:780px){
   .choice-modal{align-items:flex-end;padding:0}
   .choice-dialog{width:100%;max-height:92dvh;border-radius:20px 20px 0 0;padding-bottom:env(safe-area-inset-bottom)}
@@ -244,12 +280,20 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
  .char-row .work-cell,.char-row .tags-cell,.char-row .height-cell,.char-row .row-actions{grid-column:2}
  .row-actions{justify-content:flex-start} .tag-head{align-items:flex-start;flex-direction:column} .tag-mode{width:100%}
  .inline-editor-grid{grid-template-columns:1fr 1fr}
- .tabs{overflow-x:auto} #output{min-height:390px}
+ .tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;background:rgba(247,244,251,.96)}
+ .tab-btn{min-width:0;padding:9px 5px;font-size:.75rem;box-shadow:0 3px 12px rgba(52,33,72,.04)}
+ .panel-head{align-items:flex-start;flex-wrap:wrap}
+ .favorite-btn,.favorite-toggle-btn,.status-filter-btn,.tag-chip,.situation-filter-chip{min-height:42px}
+ .manager-guide,.help-steps,.help-detail-grid{grid-template-columns:1fr}
+ .help-hero{align-items:flex-start;flex-direction:column;padding:20px}
+ .help-hero .primary{width:100%}
+ .section-heading{align-items:flex-start;flex-direction:column;gap:5px}
+ #output{min-height:390px}
 }
 @media(max-width:480px){
   .choice-category-chips{grid-template-columns:1fr}
   .manage-filters{grid-template-columns:1fr} .stats{grid-template-columns:1fr 1fr;gap:6px}
- .stat{padding:9px} .stat .n{font-size:1.1rem} .tab-btn{padding:9px 13px}
+ .stat{padding:9px} .stat .n{font-size:1.1rem} .tab-btn{padding:8px 2px;font-size:.68rem}
  .inline-editor-grid{grid-template-columns:1fr}
 }
 

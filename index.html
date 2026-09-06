@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0055)file:///D:/MadeByMySelf/DreamGacha/dream-gacha-v12.html -->
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -11,22 +10,23 @@
 <header id="pageTop">
   <div class="eyebrow">Dream Scenario Gacha</div>
   <h1>夢小説シチュガチャ</h1>
-  <p class="lead">作品・時系列順の部/編・分類済み印象タグ・お気に入りで推し候補を絞ってガチャ。キャラ管理では一括操作とJSONファイル入出力もできます。</p>
+  <p class="lead">好きなキャラとシチュエーションを組み合わせ、夢小説用プロンプトの作成から作品の保存までひとつに。</p>
 </header>
 
-<nav class="tabs" aria-label="画面切り替え">
-  <button class="tab-btn active" data-screen="gacha">🎲 ガチャ</button>
-  <button class="tab-btn" data-screen="library">📚 ライブラリ</button>
-  <button class="tab-btn" data-screen="manager">👤 キャラ管理</button>
+<nav class="tabs" aria-label="ページ切り替え" role="tablist">
+  <button class="tab-btn active" id="tab-gacha" data-screen="gacha" role="tab" aria-controls="screen-gacha" aria-selected="true" tabindex="0">🎲 ガチャ</button>
+  <button class="tab-btn" id="tab-library" data-screen="library" role="tab" aria-controls="screen-library" aria-selected="false" tabindex="-1">📚 ライブラリ</button>
+  <button class="tab-btn" id="tab-manager" data-screen="manager" role="tab" aria-controls="screen-manager" aria-selected="false" tabindex="-1">👤 キャラ管理</button>
+  <button class="tab-btn" id="tab-help" data-screen="help" role="tab" aria-controls="screen-help" aria-selected="false" tabindex="-1">❓ 使い方</button>
 </nav>
 
 <main>
-<section class="screen" id="screen-gacha">
+<section class="screen" id="screen-gacha" role="tabpanel" aria-labelledby="tab-gacha">
   <section class="panel">
     <div class="panel-head"><h2>ガチャ結果</h2><span class="label">アーカイブ済みキャラは抽選対象外</span></div>
     <div class="panel-body">
       <div class="filter-box">
-        <div class="filter-title"><strong>キャラを絞り込む</strong><span class="count-badge" id="candidateCount">候補 21人</span></div>
+        <div class="filter-title"><strong>キャラを絞り込む</strong><span class="count-badge" id="candidateCount">候補を集計中</span></div>
         <div class="field shared-search">
           <label for="gachaSearch">キャラ検索 <span class="label">（管理画面と共通）</span></label>
           <input id="gachaSearch" type="text" placeholder="名前・作品・部・タグで検索">
@@ -52,12 +52,12 @@
               <label>キャラ印象タグ <span class="label">（類義語を統合済み／条件内の人数）</span></label>
               <select class="tag-mode" id="tagMode"><option value="all">選択タグすべて一致</option><option value="any">選択タグいずれか一致</option></select>
             </div>
-            <div class="tag-groups" id="tagChips"><section class="tag-group"><div class="tag-group-title"><span>年齢・距離感</span><span class="tag-group-total">3タグ</span></div><div class="tag-chips"><button type="button" class="tag-chip" data-tag="年上系"><span>年上系</span><span class="tag-count">11</span></button><button type="button" class="tag-chip" data-tag="同年代系"><span>同年代系</span><span class="tag-count">7</span></button><button type="button" class="tag-chip" data-tag="年下系"><span>年下系</span><span class="tag-count">3</span></button></div></section><section class="tag-group"><div class="tag-group-title"><span>性格・雰囲気</span><span class="tag-group-total">6タグ</span></div><div class="tag-chips"><button type="button" class="tag-chip" data-tag="誠実"><span>誠実</span><span class="tag-count">5</span></button><button type="button" class="tag-chip" data-tag="不器用"><span>不器用</span><span class="tag-count">4</span></button><button type="button" class="tag-chip" data-tag="包容力"><span>包容力</span><span class="tag-count">4</span></button><button type="button" class="tag-chip" data-tag="一途"><span>一途</span><span class="tag-count">3</span></button><button type="button" class="tag-chip" data-tag="マイペース"><span>マイペース</span><span class="tag-count">2</span></button><button type="button" class="tag-chip" data-tag="明るい"><span>明るい</span><span class="tag-count">2</span></button></div></section><section class="tag-group"><div class="tag-group-title"><span>容姿・体格</span><span class="tag-group-total">2タグ</span></div><div class="tag-chips"><button type="button" class="tag-chip" data-tag="美形"><span>美形</span><span class="tag-count">4</span></button><button type="button" class="tag-chip" data-tag="体格がいい"><span>体格がいい</span><span class="tag-count">2</span></button></div></section><section class="tag-group"><div class="tag-group-title"><span>役割・属性</span><span class="tag-group-total">1タグ</span></div><div class="tag-chips"><button type="button" class="tag-chip" data-tag="戦闘系"><span>戦闘系</span><span class="tag-count">21</span></button></div></section></div>
+            <div class="tag-groups" id="tagChips"></div>
           </div>
         </details>
         <details class="candidate-preview" id="candidatePreviewBox">
-          <summary id="candidatePreviewSummary">候補キャラを見る（21人）</summary>
-          <div class="candidate-preview-body" id="candidatePreview"><button type="button" class="candidate-chip" data-pick-candidate="pack-e829ec25d2a6bc">★ 一期一振 <span class="label">太刀 / 177cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-9c9b4c3a7445ca">三日月宗近 <span class="label">太刀 / 180cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-2074442abdd9af">山伏国広 <span class="label">太刀 / 188cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-8091a50a83704f">小狐丸 <span class="label">太刀 / 188cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-d37f052ca8c135">★ 燭台切光忠 <span class="label">太刀 / 186cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-911a814f3d5b9f">鶴丸国永 <span class="label">太刀 / 177cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-2174146b1a74fd">髭切 <span class="label">太刀 / 178cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-39321ead4b8bc7">膝丸 <span class="label">太刀 / 179cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-e84778b642f35a">★ 鶯丸 <span class="label">太刀 / 176cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-bb6b42898c1499">へし切長谷部 <span class="label">打刀 / 178cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-3bde070fd0be1d">加州清光 <span class="label">打刀 / 165cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-a80eb63739deb1">歌仙兼定 <span class="label">打刀 / 175cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-ea55b641fa35ad">山姥切国広 <span class="label">打刀 / 172cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-170db34017fc8c">大倶利伽羅 <span class="label">打刀 / 175cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-c38d45177ed0bf">大和守安定 <span class="label">打刀 / 165cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-b2c75787c1567c">和泉守兼定 <span class="label">打刀 / 186cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-36142173e89720">★ 石切丸 <span class="label">大太刀 / 189cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-8232d30e622a32">★ 太郎太刀 <span class="label">大太刀 / 196cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-7c385895fe08b1">★ 薬研藤四郎 <span class="label">短刀 / 153cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-ac19fbfb8c9355">にっかり青江 <span class="label">脇差 / 167cm</span></button><button type="button" class="candidate-chip" data-pick-candidate="pack-e7a9594c30ebc8">堀川国広 <span class="label">脇差 / 160cm</span></button></div>
+          <summary id="candidatePreviewSummary">候補キャラを見る</summary>
+          <div class="candidate-preview-body" id="candidatePreview"></div>
         </details>
         <div class="filter-bottom">
           <div class="field"><label for="characterPicker">候補から直接選ぶ</label><select id="characterPicker"><option value="">— 選択 —</option></select></div>
@@ -88,7 +88,7 @@
       <div class="copy-row"><span class="status" id="status"></span><button class="primary" id="copyPrompt">コピー</button></div>
     </div>
     <details open="">
-      <summary>シチュ候補・固定プロンプトを編集</summary>
+      <summary>夢主設定・シチュ候補・固定プロンプトを編集</summary>
       <div class="settings">
         <p class="manager-note">各候補は1行に1つ。編集内容はブラウザに保存されます。</p>
         <div class="pool-grid" id="poolGrid"></div>
@@ -101,7 +101,7 @@
 </section>
 
 
-<section class="screen" id="screen-library" hidden="">
+<section class="screen" id="screen-library" role="tabpanel" aria-labelledby="tab-library" hidden="">
   <section class="panel">
     <div class="panel-head"><h2>保存した条件</h2><span class="label">気に入った組み合わせを再利用</span></div>
     <div class="panel-body">
@@ -142,10 +142,14 @@
   </section>
 </section>
 
-<section class="screen" id="screen-manager" hidden="">
+<section class="screen" id="screen-manager" role="tabpanel" aria-labelledby="tab-manager" hidden="">
   <section class="panel">
     <div class="panel-head"><h2>キャラ管理</h2><span class="label">チェックして一括操作できます</span></div>
     <div class="panel-body">
+      <div class="manager-guide" aria-label="お気に入りとアーカイブの使い分け">
+        <div><strong>★ 好きなキャラ</strong><span>「お気に入り」にすると、ガチャでお気に入りだけに絞れます。</span></div>
+        <div><strong>📦 苦手・今は出したくないキャラ</strong><span>「アーカイブ」にすると、削除せずガチャ対象から外せます。あとで復元できます。</span></div>
+      </div>
       <div class="stats">
         <div class="stat"><div class="n" id="statTotal">0</div><div class="t">登録キャラ</div></div>
         <div class="stat"><div class="n" id="statActive">0</div><div class="t">ガチャ対象</div></div>
@@ -256,8 +260,90 @@
     </div>
   </section>
 </section>
+
+<section class="screen help-screen" id="screen-help" role="tabpanel" aria-labelledby="tab-help" hidden="">
+  <section class="help-hero">
+    <div>
+      <div class="eyebrow">QUICK START</div>
+      <h2>はじめての使い方</h2>
+      <p>最初にキャラの好みを整えてからガチャを回すと、欲しい組み合わせを作りやすくなります。</p>
+    </div>
+    <button type="button" class="primary" data-go-screen="manager">キャラ管理から始める</button>
+  </section>
+
+  <nav class="help-local-nav" aria-label="使い方ページ内メニュー">
+    <a href="#help-basic">基本の流れ</a>
+    <a href="#help-details">各ページの詳細</a>
+    <a href="#help-faq">よくある質問</a>
+  </nav>
+
+  <section class="panel help-section" id="help-basic">
+    <div class="panel-head"><h2>基本の流れ</h2><span class="label">まずはこの4ステップ</span></div>
+    <div class="panel-body help-steps">
+      <article class="help-step">
+        <span class="step-number">1</span>
+        <div><h3>キャラの好みを整える</h3><p>好きなキャラは「★ お気に入り」へ。苦手なキャラや今は出したくないキャラは「アーカイブ」へ移します。</p><button type="button" class="text-action" data-go-screen="manager">キャラ管理を開く →</button></div>
+      </article>
+      <article class="help-step">
+        <span class="step-number">2</span>
+        <div><h3>ガチャを回す</h3><p>作品・部・タグ・お気に入り・身長でキャラ候補を絞り、「固定以外を全部ガチャ」を押します。</p><button type="button" class="text-action" data-go-screen="gacha">ガチャを開く →</button></div>
+      </article>
+      <article class="help-step">
+        <span class="step-number">3</span>
+        <div><h3>プロンプトを作る</h3><p>残したい結果を固定し、夢主設定や自由な追加指定を入力して「プロンプトを生成」。完成した文章をコピーして生成AIで使います。</p></div>
+      </article>
+      <article class="help-step">
+        <span class="step-number">4</span>
+        <div><h3>条件や小説を保存する</h3><p>気に入った条件セットと、生成した夢小説本文をライブラリに保存できます。小説には文字数も表示されます。</p><button type="button" class="text-action" data-go-screen="library">ライブラリを開く →</button></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="help-section" id="help-details">
+    <div class="section-heading"><div><span class="eyebrow">DETAILS</span><h2>各ページの詳細仕様</h2></div><p>迷ったときに、使っているページの説明だけ確認できます。</p></div>
+    <div class="help-detail-grid">
+      <article class="help-detail-card">
+        <div class="help-card-icon">🎲</div><h3>ガチャ</h3>
+        <ul><li>キャラ・関係性・シチュ・雰囲気・追加条件を抽選します。</li><li>固定した項目は、次の一括ガチャでも変わりません。</li><li>「選ぶ・カテゴリ」では候補を直接選べます。カテゴリは1つだけに絞るか、複数を除外できます。</li><li>キャラの検索条件はキャラ管理と共通です。</li></ul>
+        <button type="button" class="secondary" data-go-screen="gacha">ガチャへ</button>
+      </article>
+      <article class="help-detail-card">
+        <div class="help-card-icon">📚</div><h3>ライブラリ</h3>
+        <ul><li>条件セットは現在の組み合わせと追加指定をまとめて保存します。</li><li>夢小説は本文・文字数・生成条件・プロンプト・メモを一緒に保存します。</li><li>保存した条件は「この条件を使う」からガチャへ戻して再利用できます。</li><li>小説はタイトルや本文などで検索し、お気に入りだけにも絞れます。</li></ul>
+        <button type="button" class="secondary" data-go-screen="library">ライブラリへ</button>
+      </article>
+      <article class="help-detail-card">
+        <div class="help-card-icon">👤</div><h3>キャラ管理</h3>
+        <ul><li>★ お気に入りは好きなキャラを見つけやすくする印です。</li><li>アーカイブしたキャラは一覧に残り、ガチャ対象から外れます。「アーカイブ」で絞って復元できます。</li><li>チェックした複数キャラをまとめてお気に入り・アーカイブ・復元できます。</li><li>完全バックアップにはキャラ以外の設定や小説も含まれます。</li></ul>
+        <button type="button" class="secondary" data-go-screen="manager">キャラ管理へ</button>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel help-section data-guide">
+    <div class="panel-head"><h2>データの保存と引っ越し</h2><span class="label">大切な作品を守るために</span></div>
+    <div class="panel-body">
+      <p>キャラ・設定・保存した小説は、このサイトを開いているブラウザ内に保存されます。別の端末やブラウザには自動で移りません。</p>
+      <p><strong>ブラウザのデータを消す前や端末を替える前に、キャラ管理の「完全バックアップ」を書き出してください。</strong> 新しい環境でそのファイルを復元すると、まとめて引き継げます。</p>
+      <button type="button" class="primary" data-go-screen="manager" data-scroll-target="ioPanel">完全バックアップを開く</button>
+    </div>
+  </section>
+
+  <section class="panel help-section" id="help-faq">
+    <div class="panel-head"><h2>よくある質問</h2><span class="label">FAQ</span></div>
+    <div class="panel-body faq-list">
+      <details><summary>お気に入りとアーカイブはどう違いますか？</summary><p>お気に入りは、好きなキャラだけに絞り込むための印です。アーカイブはキャラを消さずにガチャ対象から外す機能です。</p></details>
+      <details><summary>アーカイブしたキャラは消えますか？</summary><p>消えません。キャラ管理の「📦 アーカイブ」で絞り込み、対象を選んで「復元」を押すとガチャ対象に戻せます。</p></details>
+      <details><summary>「カテゴリを選ぶ」と「除外」の違いは？</summary><p>カテゴリ名を選ぶと、その1カテゴリだけを候補にします。「除外」は指定したカテゴリを候補から外し、複数同時に設定できます。</p></details>
+      <details><summary>ガチャ結果の「固定」とは？</summary><p>固定した項目は「固定以外を全部ガチャ」を押しても残ります。画面上の「固定を全解除」でまとめて戻せます。</p></details>
+      <details><summary>夢主設定はどこに入りますか？</summary><p>ガチャ画面下部の設定欄に入力します。「プロンプトを生成」したとき、固定プロンプトとは別の「夢主設定」として自動で入ります。</p></details>
+      <details><summary>保存した小説や設定は外部に送信されますか？</summary><p>このサイトの保存機能はブラウザ内を使います。サイト側のサーバーへ作品を保存する仕組みはありません。</p></details>
+      <details><summary>別のスマホやパソコンでも続きから使えますか？</summary><p>キャラ管理で完全バックアップを書き出し、移動先のブラウザで復元してください。</p></details>
+    </div>
+  </section>
+</section>
 </main>
-<footer>v0.25 / ガチャ結果の一括リセットを追加 / ローカル利用可 / サーバー不要</footer>
+<footer>v0.26 / 使い方・詳細仕様・FAQを追加 / ブラウザ内に保存</footer>
 </div>
 <div class="quick-nav" id="managerQuickNav" aria-label="キャラ管理クイック移動" hidden="">
   <button type="button" id="jumpTop">↑ 上へ</button>
