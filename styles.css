@@ -503,7 +503,7 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
 
 :root[data-theme="dark"] :where(.panel,.facet-filter,.candidate-selector,.faq-list details,.guide-card,.help-detail-card,.library-card,.novel-dialog,.choice-dialog,.backup-restore-status){border-color:var(--line)}
 :root[data-theme="dark"] :where(.gacha-top-actions,.filter-box){background:linear-gradient(135deg,var(--surface-accent),var(--surface-danger));border-color:var(--line)}
-:root[data-theme="dark"] :where(.world-mode-box,.height-filter-details,.optional-filter,.tag-group,.result-bulk-actions,.tag-picker-group,.char-row,.faq-list details[open],.novel-view-details){background:var(--surface-soft);border-color:var(--line)}
+:root[data-theme="dark"] :where(.world-mode-box,.height-filter-details,.optional-filter,.tag-group,.result-bulk-actions,.tag-picker-group,.char-row,.faq-list details[open],.novel-view-details,.work-profile-editor){background:var(--surface-soft);border-color:var(--line)}
 :root[data-theme="dark"] :where(.char-row,.research-prompt,#novelViewPrompt){background:var(--surface)}
 :root[data-theme="dark"] :where(.char-row.archived,.result-card.locked,.choice-item.current,.tag-chip .tag-count,.category-badge,.mini-tag,.height-badge.unknown,.library-tag){background:var(--surface-accent);border-color:var(--line)}
 :root[data-theme="dark"] :where(.facet-chip.excluded,.candidate-option.excluded .candidate-chip,.choice-category-option.excluded .choice-category-chip,.situation-filter-chip.excluded,.advanced-import){background:var(--surface-danger);border-color:#855263}
