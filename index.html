@@ -3,7 +3,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>夢小説シチュガチャ</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=27">
 </head>
 <body>
 <div class="wrap">
@@ -268,7 +268,7 @@
       <h2>はじめての使い方</h2>
       <p>最初にキャラの好みを整えてからガチャを回すと、欲しい組み合わせを作りやすくなります。</p>
     </div>
-    <button type="button" class="primary" data-go-screen="manager">キャラ管理から始める</button>
+    <button type="button" class="primary" data-go-screen="manager">👤 キャラ管理から始める</button>
   </section>
 
   <nav class="help-local-nav" aria-label="使い方ページ内メニュー">
@@ -282,11 +282,11 @@
     <div class="panel-body help-steps">
       <article class="help-step">
         <span class="step-number">1</span>
-        <div><h3>キャラの好みを整える</h3><p>好きなキャラは「★ お気に入り」へ。苦手なキャラや今は出したくないキャラは「アーカイブ」へ移します。</p><button type="button" class="text-action" data-go-screen="manager">キャラ管理を開く →</button></div>
+        <div><h3>キャラの好みを整える</h3><p>好きなキャラは「★ お気に入り」へ。苦手なキャラや今は出したくないキャラは「アーカイブ」へ移します。</p><button type="button" class="help-action" data-go-screen="manager">👤 キャラ管理を開く</button></div>
       </article>
       <article class="help-step">
         <span class="step-number">2</span>
-        <div><h3>ガチャを回す</h3><p>作品・部・タグ・お気に入り・身長でキャラ候補を絞り、「固定以外を全部ガチャ」を押します。</p><button type="button" class="text-action" data-go-screen="gacha">ガチャを開く →</button></div>
+        <div><h3>ガチャを回す</h3><p>作品・部・タグ・お気に入り・身長でキャラ候補を絞り、「固定以外を全部ガチャ」を押します。</p><button type="button" class="help-action" data-go-screen="gacha">🎲 ガチャを開く</button></div>
       </article>
       <article class="help-step">
         <span class="step-number">3</span>
@@ -294,28 +294,28 @@
       </article>
       <article class="help-step">
         <span class="step-number">4</span>
-        <div><h3>条件や小説を保存する</h3><p>気に入った条件セットと、生成した夢小説本文をライブラリに保存できます。小説には文字数も表示されます。</p><button type="button" class="text-action" data-go-screen="library">ライブラリを開く →</button></div>
+        <div><h3>条件や小説を保存する</h3><p>気に入った条件セットと、生成した夢小説本文をライブラリに保存できます。小説には文字数も表示されます。</p><button type="button" class="help-action" data-go-screen="library">📚 ライブラリを開く</button></div>
       </article>
     </div>
   </section>
 
-  <section class="help-section" id="help-details">
-    <div class="section-heading"><div><span class="eyebrow">DETAILS</span><h2>各ページの詳細仕様</h2></div><p>迷ったときに、使っているページの説明だけ確認できます。</p></div>
-    <div class="help-detail-grid">
+  <section class="panel help-section" id="help-details">
+    <div class="panel-head help-details-head"><div><span class="eyebrow">DETAILS</span><h2>各ページの詳細仕様</h2></div><span class="label">ページごとの機能を確認</span></div>
+    <div class="panel-body help-detail-grid">
       <article class="help-detail-card">
         <div class="help-card-icon">🎲</div><h3>ガチャ</h3>
         <ul><li>キャラ・関係性・シチュ・雰囲気・追加条件を抽選します。</li><li>固定した項目は、次の一括ガチャでも変わりません。</li><li>「選ぶ・カテゴリ」では候補を直接選べます。カテゴリは1つだけに絞るか、複数を除外できます。</li><li>キャラの検索条件はキャラ管理と共通です。</li></ul>
-        <button type="button" class="secondary" data-go-screen="gacha">ガチャへ</button>
+        <button type="button" class="help-action" data-go-screen="gacha">🎲 ガチャへ</button>
       </article>
       <article class="help-detail-card">
         <div class="help-card-icon">📚</div><h3>ライブラリ</h3>
         <ul><li>条件セットは現在の組み合わせと追加指定をまとめて保存します。</li><li>夢小説は本文・文字数・生成条件・プロンプト・メモを一緒に保存します。</li><li>保存した条件は「この条件を使う」からガチャへ戻して再利用できます。</li><li>小説はタイトルや本文などで検索し、お気に入りだけにも絞れます。</li></ul>
-        <button type="button" class="secondary" data-go-screen="library">ライブラリへ</button>
+        <button type="button" class="help-action" data-go-screen="library">📚 ライブラリへ</button>
       </article>
       <article class="help-detail-card">
         <div class="help-card-icon">👤</div><h3>キャラ管理</h3>
         <ul><li>★ お気に入りは好きなキャラを見つけやすくする印です。</li><li>アーカイブしたキャラは一覧に残り、ガチャ対象から外れます。「アーカイブ」で絞って復元できます。</li><li>チェックした複数キャラをまとめてお気に入り・アーカイブ・復元できます。</li><li>完全バックアップにはキャラ以外の設定や小説も含まれます。</li></ul>
-        <button type="button" class="secondary" data-go-screen="manager">キャラ管理へ</button>
+        <button type="button" class="help-action" data-go-screen="manager">👤 キャラ管理へ</button>
       </article>
     </div>
   </section>
@@ -343,7 +343,7 @@
   </section>
 </section>
 </main>
-<footer>v0.26 / 使い方・詳細仕様・FAQを追加 / ブラウザ内に保存</footer>
+<footer>v0.27 / 使い方ページの表示と導線を改善 / ブラウザ内に保存</footer>
 </div>
 <div class="quick-nav" id="managerQuickNav" aria-label="キャラ管理クイック移動" hidden="">
   <button type="button" id="jumpTop">↑ 上へ</button>
@@ -383,12 +383,12 @@
 </div>
 <div class="toast" id="toast">ガチャ対象に戻しました</div>
 
-<script src="app-data.js"></script>
-<script src="app-domain.js"></script>
-<script src="app-storage.js"></script>
-<script src="app-ui.js"></script>
-<script src="seed-data.js"></script>
-<script src="app.js"></script>
+<script src="app-data.js?v=27"></script>
+<script src="app-domain.js?v=27"></script>
+<script src="app-storage.js?v=27"></script>
+<script src="app-ui.js?v=27"></script>
+<script src="seed-data.js?v=27"></script>
+<script src="app.js?v=27"></script>
 
 
 </body></html>
