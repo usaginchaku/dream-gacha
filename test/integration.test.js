@@ -53,6 +53,9 @@ async function main(){
  assert.match(styleSource,/:root\[data-theme="dark"\] \.tabs\{background:transparent\}/);
  assert.match(styleSource,/:root\[data-theme="dark"\] \.help-hero\{background:linear-gradient\(135deg,var\(--surface-accent\)/);
  assert.match(styleSource,/\.work-profile-editor\)\{background:var\(--surface-soft\)/);
+ assert.match(styleSource,/:root\[data-theme="dark"\] \.help-detail-card\{background:linear-gradient\(135deg,var\(--surface\),var\(--surface-accent\)\)/);
+ assert.match(styleSource,/:root\[data-theme="dark"\] \.faq-list details\[open\]\{background:var\(--surface-soft\)/);
+ assert.match(styleSource,/\.backup-box,.inline-editor\)\{background:linear-gradient\(135deg,var\(--surface-soft\),var\(--surface-accent\)\)/);
  assert.match(index,/<details class="candidate-selector" id="candidatePreviewBox">/);
  for(const id of ["worldModeOptions","worldModeSummary","workProfileWork","workProtagonistProfile","resetWorkProfile"])assert.ok(index.includes(`id="${id}"`));
  for(const id of ["tab-help","screen-help","help-basic","help-details","help-character-json","characterResearchWork","characterResearchPromptPreview","allowedTagGuide","help-faq"])assert.ok(index.includes(`id="${id}"`));

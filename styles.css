@@ -513,3 +513,12 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
 :root[data-theme="dark"] :where(.secondary,.choice-category-clear,.choice-category-help b,.result-category-status .include,.manager-guide strong,.help-action:hover){color:#d8c0f3}
 :root[data-theme="dark"] :where(.result-category-status .exclude,.advanced-import>summary){color:#efafbd}
 :root[data-theme="dark"] .toast{background:#f0e8f5;color:#251d2c;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+:root[data-theme="dark"] :where(.help-details-head,.character-json-head){background:linear-gradient(90deg,var(--surface-accent),var(--surface-danger));border-color:var(--line)}
+:root[data-theme="dark"] .help-detail-grid{background:transparent}
+:root[data-theme="dark"] .help-detail-card{background:linear-gradient(135deg,var(--surface),var(--surface-accent));border-color:var(--line)}
+:root[data-theme="dark"] :where(.import-steps li,.prompt-maker,.backup-box,.inline-editor){background:linear-gradient(135deg,var(--surface-soft),var(--surface-accent));border-color:var(--line)}
+:root[data-theme="dark"] .faq-list details[open]{background:var(--surface-soft);border-color:var(--line)}
+:root[data-theme="dark"] .choice-category-exclude{background:var(--surface-soft);border-color:var(--line)}
+:root[data-theme="dark"] .allowed-tag{background:var(--surface-accent);color:var(--muted)}
+:root[data-theme="dark"] .help-action{color:var(--text)}
+:root[data-theme="dark"] :where(.import-caution,.data-guide .panel-body p:last-of-type){color:#f7e7b0}
