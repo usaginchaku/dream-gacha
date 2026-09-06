@@ -1,0 +1,21 @@
+{
+  "name": "夢小説シチュガチャ",
+  "short_name": "夢シチュガチャ",
+  "description": "夢小説用のシチュエーションを組み合わせるガチャサイト",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#7044ad",
+  "theme_color": "#7044ad",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
