@@ -1,10 +1,10 @@
 (function(root){
   "use strict";
-  const D=root.DreamGachaData||{SETTINGS_KEY:"dreamGachaSettings",SETTINGS_VERSION:28,BACKUP_SCHEMA:"dream-gacha.full-backup",BACKUP_VERSION:2};
+  const D=root.DreamGachaData||{SETTINGS_KEY:"dreamGachaSettings",SETTINGS_VERSION:29,BACKUP_SCHEMA:"dream-gacha.full-backup",BACKUP_VERSION:2};
   const clone=v=>v===undefined?undefined:JSON.parse(JSON.stringify(v));
   function plainSettings(source){
     if(!source||typeof source!=="object")throw new Error("設定データが不正です");
-    return {version:D.SETTINGS_VERSION,characters:clone(source.characters||[]),pools:clone(source.pools||{}),basePrompt:String(source.basePrompt||""),protagonistProfile:String(source.protagonistProfile||""),freeExtra:String(source.freeExtra||""),deletedSeedIds:[...(source.deletedSeedIds||[])],characterId:source.characterId||null,values:clone(source.values||{}),locks:clone(source.locks||{}),filters:{...(source.filters||{}),tags:[...(source.filters?.tags||[])]},manage:clone(source.manage||{}),categoryInclude:clone(source.categoryInclude||{}),categoryExcluded:Object.fromEntries(Object.entries(source.categoryExcluded||{}).map(([k,v])=>[k,[...(v||[])]])),presets:clone(source.presets||[])};
+    return {version:D.SETTINGS_VERSION,characters:clone(source.characters||[]),pools:clone(source.pools||{}),basePrompt:String(source.basePrompt||""),protagonistProfile:String(source.protagonistProfile||""),freeExtra:String(source.freeExtra||""),deletedSeedIds:[...(source.deletedSeedIds||[])],characterId:source.characterId||null,values:clone(source.values||{}),locks:clone(source.locks||{}),filters:{...(source.filters||{}),tags:[...(source.filters?.tags||[])],characterIncluded:[...(source.filters?.characterIncluded||[])],characterExcluded:[...(source.filters?.characterExcluded||[])]},manage:clone(source.manage||{}),categoryInclude:clone(source.categoryInclude||{}),categoryExcluded:Object.fromEntries(Object.entries(source.categoryExcluded||{}).map(([k,v])=>[k,[...(v||[])]])),presets:clone(source.presets||[])};
   }
   function validateSettings(raw){
     if(!raw||typeof raw!=="object"||Array.isArray(raw))throw new Error("settings が不正です");
@@ -14,7 +14,7 @@
     if(raw.presets!==undefined&&!Array.isArray(raw.presets))throw new Error("presets が配列ではありません");
     const characterIds=new Set();for(const c of raw.characters){const id=c?.id;if(typeof id!=="string"||!id.trim())throw new Error("キャラIDが空か文字列ではありません");if(characterIds.has(id))throw new Error(`キャラIDが重複しています: ${id}`);characterIds.add(id)}
     for(const field of ["deletedSeedIds"]){if(raw[field]!==undefined&&(!Array.isArray(raw[field])||raw[field].some(v=>typeof v!=="string")))throw new Error(`${field} が不正です`)}
-    if(raw.filters?.tags!==undefined&&(!Array.isArray(raw.filters.tags)||raw.filters.tags.some(v=>typeof v!=="string")))throw new Error("filters.tags が不正です");
+    for(const field of ["tags","characterIncluded","characterExcluded"])if(raw.filters?.[field]!==undefined&&(!Array.isArray(raw.filters[field])||raw.filters[field].some(v=>typeof v!=="string")))throw new Error(`filters.${field} が不正です`);
     if(raw.categoryExcluded!==undefined){if(!raw.categoryExcluded||typeof raw.categoryExcluded!=="object"||Array.isArray(raw.categoryExcluded))throw new Error("categoryExcluded が不正です");for(const [k,v] of Object.entries(raw.categoryExcluded))if(!Array.isArray(v)||v.some(x=>typeof x!=="string"))throw new Error(`categoryExcluded.${k} が不正です`)}
     const presetIds=new Set();for(const p of raw.presets||[]){if(!p||typeof p!=="object"||typeof p.id!=="string"||!p.id.trim()||!p.snapshot||typeof p.snapshot!=="object")throw new Error("保存条件データが不正です");if(presetIds.has(p.id))throw new Error(`保存条件IDが重複しています: ${p.id}`);presetIds.add(p.id)}
     return raw;
@@ -32,7 +32,7 @@
     r.pools=Object.fromEntries(Object.entries({...clone(d.pools||{}),...r.pools}).map(([k,v])=>[k,Array.isArray(v)?v.map(String):[]]));
     r.deletedSeedIds=Array.isArray(r.deletedSeedIds)?r.deletedSeedIds.map(String):[];r.values=r.values&&typeof r.values==="object"&&!Array.isArray(r.values)?r.values:{};
     r.locks=Object.fromEntries(["character",...keys].map(k=>[k,!!r.locks?.[k]]));
-    const f=r.filters&&typeof r.filters==="object"?r.filters:{};r.filters={search:String(f.search||""),work:String(f.work||""),series:String(f.series||""),tags:Array.isArray(f.tags)?f.tags.map(String):[],tagMode:f.tagMode==="any"?"any":"all",favorite:["favorite","normal"].includes(f.favorite)?f.favorite:"all",minHeight:Number.isFinite(f.minHeight)?f.minHeight:null,maxHeight:Number.isFinite(f.maxHeight)?f.maxHeight:null};
+    const f=r.filters&&typeof r.filters==="object"?r.filters:{};r.filters={search:String(f.search||""),work:String(f.work||""),series:String(f.series||""),tags:Array.isArray(f.tags)?f.tags.map(String):[],tagMode:f.tagMode==="any"?"any":"all",favorite:["favorite","normal"].includes(f.favorite)?f.favorite:"all",minHeight:Number.isFinite(f.minHeight)?f.minHeight:null,maxHeight:Number.isFinite(f.maxHeight)?f.maxHeight:null,characterIncluded:Array.isArray(f.characterIncluded)?f.characterIncluded.map(String):[],characterExcluded:Array.isArray(f.characterExcluded)?f.characterExcluded.map(String):[]};
     r.manage={status:["active","archived"].includes(r.manage?.status)?r.manage.status:"all",sort:String(r.manage?.sort||"work")};
     r.categoryInclude=Object.fromEntries(["character",...keys].map(k=>[k,r.categoryInclude?.[k]?String(r.categoryInclude[k]):null]));
     const legacyExcluded=Array.isArray(r.situationExcludedCategories)?r.situationExcludedCategories.map(String):[];

@@ -3,7 +3,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>夢小説シチュガチャ</title>
-<link rel="stylesheet" href="styles.css?v=28">
+<link rel="stylesheet" href="styles.css?v=29">
 </head>
 <body>
 <div class="wrap">
@@ -39,12 +39,14 @@
           <span class="label">お気に入り</span>
           <button type="button" class="favorite-toggle-btn" data-favorite-filter="">★ お気に入りだけ</button>
         </div>
-        <div class="height-range-box">
-          <div class="height-range-head"><span class="height-range-label">身長で絞り込む</span><span class="height-range-value" id="gachaHeightSummary">指定なし</span></div>
-          <div class="range-row"><span>最低身長</span><input id="gachaHeightMin" type="range" min="153" max="202" step="1" value="100"><output id="gachaHeightMinValue">下限なし (153cm〜)</output></div>
-          <div class="range-row"><span>最高身長</span><input id="gachaHeightMax" type="range" min="153" max="202" step="1" value="260"><output id="gachaHeightMaxValue">上限なし (〜202cm)</output></div>
-          <div class="shared-filter-note">身長スライダーの両端は、現在のガチャ対象キャラのうち身長登録済みの最小値〜最大値に自動調整されます。身長を指定した場合、身長不明キャラは候補から外れます。</div>
-        </div>
+        <details class="optional-filter height-filter-details" id="gachaHeightDetails">
+          <summary class="height-filter-summary"><span>身長で絞り込む</span><span class="height-range-value" id="gachaHeightSummary">指定なし</span></summary>
+          <div class="optional-filter-body height-filter-body">
+            <div class="range-row"><span>最低身長</span><input id="gachaHeightMin" type="range" min="153" max="202" step="1" value="100"><output id="gachaHeightMinValue">下限なし (153cm〜)</output></div>
+            <div class="range-row"><span>最高身長</span><input id="gachaHeightMax" type="range" min="153" max="202" step="1" value="260"><output id="gachaHeightMaxValue">上限なし (〜202cm)</output></div>
+            <div class="shared-filter-note">両端は身長登録済みキャラの最小値〜最大値です。身長を指定すると、身長不明キャラは候補から外れます。</div>
+          </div>
+        </details>
         <details class="optional-filter" id="tagFilterDetails">
           <summary id="tagFilterSummary">＋ 印象タグでさらに絞り込む（任意）</summary>
           <div class="optional-filter-body">
@@ -55,13 +57,16 @@
             <div class="tag-groups" id="tagChips"></div>
           </div>
         </details>
-        <details class="candidate-preview" id="candidatePreviewBox">
-          <summary id="candidatePreviewSummary">候補キャラを見る</summary>
+        <section class="candidate-selector" id="candidatePreviewBox" aria-labelledby="candidatePreviewSummary">
+          <div class="candidate-selector-head">
+            <div><strong id="candidatePreviewSummary">候補キャラ</strong><div class="candidate-selection-summary" id="candidateSelectionSummary">全員から抽選</div></div>
+            <button type="button" class="small-btn" id="clearCandidateRules">選択・除外を解除</button>
+          </div>
+          <p class="candidate-selector-help">クリックで複数の抽選対象を選択できます。右クリック、または各キャラの「除外」で候補から外せます。</p>
           <div class="candidate-preview-body" id="candidatePreview"></div>
-        </details>
-        <div class="filter-bottom">
-          <div class="field"><label for="characterPicker">候補から直接選ぶ</label><select id="characterPicker"><option value="">— 選択 —</option></select></div>
-          <button class="small-btn" id="clearFilters">共通条件・タグを解除</button>
+        </section>
+        <div class="filter-actions">
+          <button class="small-btn" id="clearFilters">検索・作品・タグなどを解除</button>
         </div>
       </div>
 
@@ -70,7 +75,7 @@
         <span class="result-bulk-label">一括操作</span>
         <button type="button" class="small-btn" id="lockAllResults">🔒 すべて固定</button>
         <button type="button" class="small-btn" id="unlockAllResults">🔓 固定を全解除</button>
-        <button type="button" class="small-btn category-reset-btn" id="resetAllCategoryRules">↺ 選択・除外を全解除</button>
+        <button type="button" class="small-btn category-reset-btn" id="resetAllCategoryRules">↺ カテゴリの選択・除外を全解除</button>
       </div>
       <div class="field" style="margin-top:14px"><label for="freeExtra">自由な追加指定（任意）</label><textarea id="freeExtra" placeholder="例：夢主側からは告白しない／雨で髪が濡れている／長めに書いて"></textarea></div>
       <div class="main-actions"><button class="primary" id="rollAll">🎲 固定以外を全部ガチャ</button><button class="secondary" id="buildPrompt">✨ プロンプトを生成</button></div>
@@ -179,12 +184,14 @@
         <button type="button" class="favorite-toggle-btn" data-favorite-filter="">★ お気に入り</button>
         <button type="button" class="small-btn" id="clearSharedManagerFilters">共通検索条件を解除</button>
       </div>
-      <div class="height-range-box">
-        <div class="height-range-head"><span class="height-range-label">身長で絞り込む <span class="label">（ガチャ画面と共通）</span></span><span class="height-range-value" id="manageHeightSummary">指定なし</span></div>
-        <div class="range-row"><span>最低身長</span><input id="manageHeightMin" type="range" min="153" max="202" step="1" value="100"><output id="manageHeightMinValue">下限なし (153cm〜)</output></div>
-        <div class="range-row"><span>最高身長</span><input id="manageHeightMax" type="range" min="153" max="202" step="1" value="260"><output id="manageHeightMaxValue">上限なし (〜202cm)</output></div>
-        <div class="shared-filter-note">最低・最高身長の両端は、現在のガチャ対象キャラの最小〜最大登録身長に自動調整されます。</div>
-      </div>
+      <details class="optional-filter height-filter-details" id="manageHeightDetails">
+        <summary class="height-filter-summary"><span>身長で絞り込む <span class="label">（ガチャと共通）</span></span><span class="height-range-value" id="manageHeightSummary">指定なし</span></summary>
+        <div class="optional-filter-body height-filter-body">
+          <div class="range-row"><span>最低身長</span><input id="manageHeightMin" type="range" min="153" max="202" step="1" value="100"><output id="manageHeightMinValue">下限なし (153cm〜)</output></div>
+          <div class="range-row"><span>最高身長</span><input id="manageHeightMax" type="range" min="153" max="202" step="1" value="260"><output id="manageHeightMaxValue">上限なし (〜202cm)</output></div>
+          <div class="shared-filter-note">両端は身長登録済みキャラの最小値〜最大値に自動調整されます。</div>
+        </div>
+      </details>
 
       <div class="bulkbar">
         <label class="lock-label"><input class="select-all" id="selectAllVisible" type="checkbox"> 表示中を全選択</label>
@@ -233,15 +240,6 @@
             <button type="button" class="help-action compact" data-go-screen="help" data-scroll-target="help-character-json">❓ 詳しい使い方</button>
           </div>
         </div>
-      </div>
-      <div class="backup-box">
-        <h3>完全バックアップ</h3>
-        <p class="io-note">キャラ一覧だけでなく、アーカイブ・お気に入り・タグ・身長・シチュ候補・固定プロンプト・自由指定・現在のガチャ設定まで、アプリのセーブデータを丸ごと保存／復元します。</p>
-        <div class="backup-actions">
-          <button class="secondary" id="exportFullBackup">完全バックアップを書き出す</button>
-          <button class="primary" id="importFullBackup">完全バックアップを復元</button>
-        </div>
-        <input id="fullBackupFile" type="file" accept=".json,application/json" hidden="">
       </div>
     </div>
   </section>
@@ -307,7 +305,7 @@
     <div class="panel-body help-detail-grid">
       <article class="help-detail-card">
         <div class="help-card-icon">🎲</div><h3>ガチャ</h3>
-        <ul><li>キャラ・関係性・シチュ・雰囲気・追加条件を抽選します。</li><li>固定した項目は、次の一括ガチャでも変わりません。</li><li>「選ぶ・カテゴリ」では候補を直接選べます。カテゴリは1つだけに絞るか、複数を除外できます。</li><li>キャラの検索条件はキャラ管理と共通です。</li></ul>
+        <ul><li>キャラ・関係性・シチュ・雰囲気・追加条件を抽選します。</li><li>固定した項目は、次の一括ガチャでも変わりません。</li><li>候補キャラはクリックで複数選択、右クリックまたは「除外」で抽選対象から外せます。</li><li>「選ぶ・カテゴリ」では結果の直接選択やカテゴリ単位の絞り込みができます。</li><li>キャラの検索条件はキャラ管理と共通です。</li></ul>
         <button type="button" class="help-action" data-go-screen="gacha">🎲 ガチャへ</button>
       </article>
       <article class="help-detail-card">
@@ -317,7 +315,7 @@
       </article>
       <article class="help-detail-card">
         <div class="help-card-icon">👤</div><h3>キャラ管理</h3>
-        <ul><li>★ お気に入りは好きなキャラを見つけやすくする印です。</li><li>アーカイブしたキャラは一覧に残り、ガチャ対象から外れます。「アーカイブ」で絞って復元できます。</li><li>チェックした複数キャラをまとめてお気に入り・アーカイブ・復元できます。</li><li>完全バックアップにはキャラ以外の設定や小説も含まれます。</li></ul>
+        <ul><li>★ お気に入りは好きなキャラを見つけやすくする印です。</li><li>アーカイブしたキャラは一覧に残り、ガチャ対象から外れます。「アーカイブ」で絞って復元できます。</li><li>チェックした複数キャラをまとめてお気に入り・アーカイブ・復元できます。</li><li>キャラだけのJSON書き出し・読み込みができます。アプリ全体のバックアップは使い方ページにあります。</li></ul>
         <button type="button" class="help-action" data-go-screen="manager">👤 キャラ管理へ</button>
       </article>
     </div>
@@ -386,8 +384,16 @@
     <div class="panel-head"><h2>データの保存と引っ越し</h2><span class="label">大切な作品を守るために</span></div>
     <div class="panel-body">
       <p>キャラ・設定・保存した小説は、このサイトを開いているブラウザ内に保存されます。別の端末やブラウザには自動で移りません。</p>
-      <p><strong>ブラウザのデータを消す前や端末を替える前に、キャラ管理の「完全バックアップ」を書き出してください。</strong> 新しい環境でそのファイルを復元すると、まとめて引き継げます。</p>
-      <button type="button" class="primary" data-go-screen="manager" data-scroll-target="ioPanel">完全バックアップを開く</button>
+      <p><strong>ブラウザのデータを消す前や端末を替える前に、完全バックアップを書き出してください。</strong> 新しい環境でそのファイルを復元すると、まとめて引き継げます。</p>
+      <div class="backup-box help-backup-box">
+        <h3>完全バックアップ</h3>
+        <p class="io-note">キャラ・アーカイブ・お気に入り・タグ・身長・シチュ候補・固定プロンプト・夢主設定・現在のガチャ条件・保存した小説を、ひとつのファイルにまとめます。</p>
+        <div class="backup-actions">
+          <button type="button" class="secondary" id="exportFullBackup">バックアップを書き出す</button>
+          <button type="button" class="primary" id="importFullBackup">バックアップを復元</button>
+        </div>
+        <input id="fullBackupFile" type="file" accept=".json,application/json" hidden="">
+      </div>
     </div>
   </section>
 
@@ -397,15 +403,16 @@
       <details><summary>お気に入りとアーカイブはどう違いますか？</summary><p>お気に入りは、好きなキャラだけに絞り込むための印です。アーカイブはキャラを消さずにガチャ対象から外す機能です。</p></details>
       <details><summary>アーカイブしたキャラは消えますか？</summary><p>消えません。キャラ管理の「📦 アーカイブ」で絞り込み、対象を選んで「復元」を押すとガチャ対象に戻せます。</p></details>
       <details><summary>「カテゴリを選ぶ」と「除外」の違いは？</summary><p>カテゴリ名を選ぶと、その1カテゴリだけを候補にします。「除外」は指定したカテゴリを候補から外し、複数同時に設定できます。</p></details>
+      <details><summary>候補キャラの選択と除外はどう使いますか？</summary><p>通常クリックしたキャラは複数まとめて抽選対象にできます。右クリック、またはキャラ横の「除外」を押すと、そのキャラを抽選対象から外せます。スマホでは「除外」ボタンを使ってください。</p></details>
       <details><summary>ガチャ結果の「固定」とは？</summary><p>固定した項目は「固定以外を全部ガチャ」を押しても残ります。画面上の「固定を全解除」でまとめて戻せます。</p></details>
       <details><summary>夢主設定はどこに入りますか？</summary><p>ガチャ画面下部の設定欄に入力します。「プロンプトを生成」したとき、固定プロンプトとは別の「夢主設定」として自動で入ります。</p></details>
       <details><summary>保存した小説や設定は外部に送信されますか？</summary><p>このサイトの保存機能はブラウザ内を使います。サイト側のサーバーへ作品を保存する仕組みはありません。</p></details>
-      <details><summary>別のスマホやパソコンでも続きから使えますか？</summary><p>キャラ管理で完全バックアップを書き出し、移動先のブラウザで復元してください。</p></details>
+      <details><summary>別のスマホやパソコンでも続きから使えますか？</summary><p>この使い方ページで完全バックアップを書き出し、移動先のブラウザで復元してください。</p></details>
     </div>
   </section>
 </section>
 </main>
-<footer>v0.28 / ChatGPT用キャラファイル作成ガイドを追加 / ブラウザ内に保存</footer>
+<footer>v0.29 / 候補キャラ選択と折りたたみ式フィルターを追加 / ブラウザ内に保存</footer>
 </div>
 <div class="quick-nav" id="managerQuickNav" aria-label="キャラ管理クイック移動" hidden="">
   <button type="button" id="jumpTop">↑ 上へ</button>
@@ -445,12 +452,12 @@
 </div>
 <div class="toast" id="toast">ガチャ対象に戻しました</div>
 
-<script src="app-data.js?v=28"></script>
-<script src="app-domain.js?v=28"></script>
-<script src="app-storage.js?v=28"></script>
-<script src="app-ui.js?v=28"></script>
-<script src="seed-data.js?v=28"></script>
-<script src="app.js?v=28"></script>
+<script src="app-data.js?v=29"></script>
+<script src="app-domain.js?v=29"></script>
+<script src="app-storage.js?v=29"></script>
+<script src="app-ui.js?v=29"></script>
+<script src="seed-data.js?v=29"></script>
+<script src="app.js?v=29"></script>
 
 
 </body></html>

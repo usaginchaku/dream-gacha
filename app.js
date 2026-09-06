@@ -2,7 +2,7 @@ const state={
  characters:[], pools:structuredClone(DEFAULT_POOLS), values:{}, characterId:null,
  locks:{character:false,relationship:false,situation:false,mood:false,extra:false},
  basePrompt:DEFAULT_BASE_PROMPT, deletedSeedIds:new Set(), selectedIds:new Set(), editingCharacterId:null, inlineEditingId:null,
- filters:{search:"",work:"",series:"",tags:new Set(),tagMode:"all",favorite:"all",minHeight:null,maxHeight:null},
+ filters:{search:"",work:"",series:"",tags:new Set(),tagMode:"all",favorite:"all",minHeight:null,maxHeight:null,characterIncluded:new Set(),characterExcluded:new Set()},
  manage:{status:"all",sort:"work"},
  categoryInclude:{character:null,relationship:null,situation:null,mood:null,extra:null},
  categoryExcluded:{character:new Set(),relationship:new Set(),situation:new Set(),mood:new Set(),extra:new Set()},
@@ -149,7 +149,7 @@ function applySettingsState(saved,overrides={}){
  state.protagonistProfile=Object.prototype.hasOwnProperty.call(source,"protagonistProfile")?String(source.protagonistProfile):DEFAULT_PROTAGONIST_PROFILE;
  state.deletedSeedIds=new Set(source.deletedSeedIds||[]);state.characterId=state.characters.some(c=>c.id===source.characterId&&!c.archived)?source.characterId:null;
  state.values={...(source.values||{})};state.locks={character:false,relationship:false,situation:false,mood:false,extra:false,...(source.locks||{})};
- const f=source.filters||{};state.filters={search:String(f.search||""),work:String(f.work||""),series:String(f.series||""),tags:new Set(canonicalizeTags(f.tags||[])),tagMode:f.tagMode==="any"?"any":"all",favorite:["favorite","normal"].includes(f.favorite)?f.favorite:"all",minHeight:Number.isFinite(f.minHeight)?f.minHeight:null,maxHeight:Number.isFinite(f.maxHeight)?f.maxHeight:null};
+ const f=source.filters||{};state.filters={search:String(f.search||""),work:String(f.work||""),series:String(f.series||""),tags:new Set(canonicalizeTags(f.tags||[])),tagMode:f.tagMode==="any"?"any":"all",favorite:["favorite","normal"].includes(f.favorite)?f.favorite:"all",minHeight:Number.isFinite(f.minHeight)?f.minHeight:null,maxHeight:Number.isFinite(f.maxHeight)?f.maxHeight:null,characterIncluded:new Set(f.characterIncluded||[]),characterExcluded:new Set(f.characterExcluded||[])};
  state.manage={status:["active","archived"].includes(source.manage?.status)?source.manage.status:"all",sort:String(source.manage?.sort||"work")};
  state.categoryInclude={character:null,relationship:null,situation:null,mood:null,extra:null,...(source.categoryInclude||{})};
  state.categoryExcluded=Object.fromEntries(DreamGachaData.CARD_KEYS.map(k=>[k,new Set(source.categoryExcluded?.[k]||[])]));
@@ -536,7 +536,15 @@ function baseFilteredCharacters(){
   return true;
  });
 }
-function filteredCharacters(){return baseFilteredCharacters().filter(c=>categoryPass("character",c))}
+function activeCharacterRuleSets(){
+ const activeIds=new Set(activeCharacters().map(c=>c.id));
+ return {included:new Set([...state.filters.characterIncluded].filter(id=>activeIds.has(id))),excluded:new Set([...state.filters.characterExcluded].filter(id=>activeIds.has(id)))};
+}
+function candidateCharactersForChoice(){return baseFilteredCharacters().filter(c=>categoryPass("character",c))}
+function filteredCharacters(){
+ const rules=activeCharacterRuleSets();
+ return candidateCharactersForChoice().filter(c=>!rules.excluded.has(c.id)&&(!rules.included.size||rules.included.has(c.id)));
+}
 function tagCountBaseCharacters(){return activeCharacters().filter(matchesSharedFilters)}
 function renderSharedFilterControls(){
  const all=state.characters,works=unique(all.map(c=>c.work));
@@ -599,24 +607,42 @@ function renderGachaFilters(){
  renderPicker();renderCandidatePreview();renderSuggestions();updateCategoryStatus("character");
 }
 function renderPicker(){
- const arr=filteredCharacters();$("#candidateCount").textContent=`候補 ${arr.length}人`;
- $("#characterPicker").innerHTML=`<option value="">— 選択 —</option>`+arr.map(c=>{
-  const s=[c.work,c.series].filter(Boolean).join(" / ");return `<option value="${esc(c.id)}">${esc((c.favorite?"★ ":"")+c.name+(s?`（${s}）`:""))}</option>`;
- }).join("");
- if(state.characterId&&arr.some(c=>c.id===state.characterId))$("#characterPicker").value=state.characterId;
+ $("#candidateCount").textContent=`抽選対象 ${filteredCharacters().length}人`;
 }
 function renderCandidatePreview(){
- const arr=filteredCharacters().slice().sort((a,b)=>{
+ const arr=candidateCharactersForChoice().slice().sort((a,b)=>{
   const w=a.work.localeCompare(b.work,"ja");if(w)return w;
   if(a.series!==b.series){const seq=orderedSeries(a.work,[a.series,b.series]);return seq.indexOf(a.series)-seq.indexOf(b.series)}
   return a.name.localeCompare(b.name,"ja",{numeric:true});
  });
- $("#candidatePreviewSummary").textContent=`候補キャラを見る（${arr.length}人）`;
+ const rules=activeCharacterRuleSets(),selectedVisible=[...rules.included].filter(id=>arr.some(c=>c.id===id)).length,excludedVisible=[...rules.excluded].filter(id=>arr.some(c=>c.id===id)).length;
+ $("#candidatePreviewSummary").textContent=`候補キャラ（${arr.length}人表示）`;
+ $("#candidateSelectionSummary").textContent=[rules.included.size?`${rules.included.size}人を選択中${selectedVisible!==rules.included.size?`（現在表示${selectedVisible}人）`:""}`:"全員から抽選",rules.excluded.size?`${rules.excluded.size}人を除外中${excludedVisible!==rules.excluded.size?`（現在表示${excludedVisible}人）`:""}`:""].filter(Boolean).join(" ／ ");
+ $("#clearCandidateRules").disabled=!rules.included.size&&!rules.excluded.size;
  $("#candidatePreview").innerHTML=arr.length?arr.map(c=>{
   const meta=[c.series,Number.isFinite(c.heightCm)?`${c.heightCm}cm`:""].filter(Boolean).join(" / ");
-  return `<button type="button" class="candidate-chip" data-pick-candidate="${esc(c.id)}">${esc((c.favorite?"★ ":"")+c.name)}${meta?` <span class="label">${esc(meta)}</span>`:""}</button>`;
+  const selected=rules.included.has(c.id),excluded=rules.excluded.has(c.id);
+  return `<div class="candidate-option${selected?" selected":""}${excluded?" excluded":""}">
+   <button type="button" class="candidate-chip" data-toggle-candidate="${esc(c.id)}" aria-pressed="${selected}" aria-label="${esc(c.name)}を${selected?"選択から外す":"抽選対象として選択する"}"><span class="candidate-state" aria-hidden="true">${selected?"✓":""}</span><span class="candidate-name">${esc((c.favorite?"★ ":"")+c.name)}</span>${meta?`<span class="candidate-meta">${esc(meta)}</span>`:""}</button>
+   <button type="button" class="candidate-exclude" data-exclude-candidate="${esc(c.id)}" aria-pressed="${excluded}" aria-label="${esc(c.name)}を${excluded?"除外から戻す":"候補から除外する"}">× ${excluded?"除外中":"除外"}</button>
+  </div>`;
  }).join(""):`<span class="label">条件に合うキャラはいません</span>`;
-}function renderSuggestions(){
+}
+function toggleCandidateIncluded(id){
+ if(state.filters.characterIncluded.has(id))state.filters.characterIncluded.delete(id);
+ else{state.filters.characterIncluded.add(id);state.filters.characterExcluded.delete(id)}
+ save();renderPicker();renderCandidatePreview();
+}
+function toggleCandidateExcluded(id){
+ if(state.filters.characterExcluded.has(id))state.filters.characterExcluded.delete(id);
+ else{state.filters.characterExcluded.add(id);state.filters.characterIncluded.delete(id)}
+ save();renderPicker();renderCandidatePreview();
+}
+function clearCandidateRules(){
+ if(!state.filters.characterIncluded.size&&!state.filters.characterExcluded.size)return;
+ state.filters.characterIncluded.clear();state.filters.characterExcluded.clear();save();renderPicker();renderCandidatePreview();showToast("キャラの選択・除外を解除しました");
+}
+function renderSuggestions(){
  $("#workSuggestions").innerHTML=unique(state.characters.map(c=>c.work)).map(x=>`<option value="${esc(x)}"></option>`).join("");
  $("#seriesSuggestions").innerHTML=unique(state.characters.map(c=>c.series)).map(x=>`<option value="${esc(x)}"></option>`).join("");
 }
@@ -830,6 +856,7 @@ function editCharacter(id){
 }
 function toggleArchive(ids,archived){
  for(const id of ids){const c=state.characters.find(c=>c.id===id);if(c)c.archived=archived}
+ if(archived)for(const id of ids){state.filters.characterIncluded.delete(id);state.filters.characterExcluded.delete(id)}
  if(currentCharacter()?.archived||!state.characters.some(c=>c.id===state.characterId&&!c.archived)){state.characterId=null;updateCard("character")}
  state.selectedIds.clear();save();renderManager();renderGachaFilters();showToast(archived?"アーカイブしました":"ガチャ対象に戻しました");
 }
@@ -838,6 +865,7 @@ function deleteIds(ids){
  if(!confirm(`${arr.length}件のキャラを完全に削除しますか？\nアーカイブなら後から戻せます。`))return;
  for(const c of arr)if(c.id.startsWith("seed-"))state.deletedSeedIds.add(c.id);
  state.characters=state.characters.filter(c=>!ids.includes(c.id));
+ for(const id of ids){state.filters.characterIncluded.delete(id);state.filters.characterExcluded.delete(id)}
  if(ids.includes(state.characterId)){state.characterId=null;updateCard("character")}
  state.selectedIds.clear();save();renderManager();renderGachaFilters();showToast(`${arr.length}件削除しました`);
 }
@@ -959,7 +987,7 @@ function importCharactersData(data,mode){
    const importedSeedIds=new Set(next.map(c=>c.id));
    const importedKeys=new Set(next.map(c=>c.work+"\u0000"+c.name));
    state.deletedSeedIds=new Set(DEFAULT_CHARACTERS.filter(seed=>!importedSeedIds.has(seed.id)&&!importedKeys.has(seed.work+"\u0000"+seed.name)).map(seed=>seed.id));
-   state.characters=next;added=next.length;state.selectedIds.clear();state.characterId=null;
+   state.characters=next;added=next.length;state.selectedIds.clear();state.filters.characterIncluded.clear();state.filters.characterExcluded.clear();state.characterId=null;
  }else{
    for(const raw of raws){
      const existing=state.characters.find(c=>(raw.id&&c.id===raw.id)||characterIdentityKey(c)===characterIdentityKey(raw));
@@ -1054,9 +1082,10 @@ function init(){
  }
  $("#tagMode").addEventListener("change",e=>{state.filters.tagMode=e.target.value;renderPicker()});
  $("#tagChips").addEventListener("click",e=>{const b=e.target.closest("[data-tag]");if(!b)return;const t=b.dataset.tag;state.filters.tags.has(t)?state.filters.tags.delete(t):state.filters.tags.add(t);renderGachaFilters()});
- $("#characterPicker").addEventListener("change",e=>{if(e.target.value){state.characterId=e.target.value;updateCard("character")}});
- $("#candidatePreview").addEventListener("click",e=>{const b=e.target.closest("[data-pick-candidate]");if(!b)return;state.characterId=b.dataset.pickCandidate;updateCard("character");$("#characterPicker").value=state.characterId;showToast("キャラを選択しました")});
- $("#clearFilters").addEventListener("click",()=>{state.filters={search:"",work:"",series:"",tags:new Set(),tagMode:"all",favorite:"all",minHeight:null,maxHeight:null};$("#tagMode").value="all";renderGachaFilters();renderManager();showToast("共通検索条件とタグを解除しました")});
+ $("#candidatePreview").addEventListener("click",e=>{const x=e.target.closest("[data-exclude-candidate]");if(x)return toggleCandidateExcluded(x.dataset.excludeCandidate);const b=e.target.closest("[data-toggle-candidate]");if(b)toggleCandidateIncluded(b.dataset.toggleCandidate)});
+ $("#candidatePreview").addEventListener("contextmenu",e=>{const b=e.target.closest("[data-toggle-candidate]");if(!b)return;e.preventDefault();toggleCandidateExcluded(b.dataset.toggleCandidate)});
+ $("#clearCandidateRules").addEventListener("click",clearCandidateRules);
+ $("#clearFilters").addEventListener("click",()=>{const characterIncluded=state.filters.characterIncluded,characterExcluded=state.filters.characterExcluded;state.filters={search:"",work:"",series:"",tags:new Set(),tagMode:"all",favorite:"all",minHeight:null,maxHeight:null,characterIncluded,characterExcluded};$("#tagMode").value="all";renderGachaFilters();renderManager();showToast("検索・作品・タグなどを解除しました")});
  $("#lockAllResults").addEventListener("click",()=>setAllLocks(true));
  $("#unlockAllResults").addEventListener("click",()=>setAllLocks(false));
  $("#resetAllCategoryRules").addEventListener("click",resetAllCategoryRules);
