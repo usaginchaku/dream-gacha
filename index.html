@@ -3,18 +3,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>夢小説シチュガチャ</title>
-<meta name="description" content="好きなキャラとシチュエーションを組み合わせ、夢小説用プロンプトの作成から作品の保存までできるWebアプリ。">
-
-<meta property="og:title" content="夢小説シチュガチャ">
-<meta property="og:description" content="好きなキャラとシチュエーションを組み合わせ、夢小説用プロンプトの作成から作品の保存までできるWebアプリ。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://dream-gacha.mochibird.click/">
-<meta property="og:site_name" content="夢小説シチュガチャ">
-<meta property="og:image" content="https://dream-gacha.mochibird.click/ogp.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-  
-<link rel="stylesheet" href="styles.css?v=29">
+<link rel="stylesheet" href="styles.css?v=31">
 </head>
 <body>
 <div class="wrap">
@@ -38,6 +27,16 @@
     <div class="panel-body">
       <div class="filter-box">
         <div class="filter-title"><strong>キャラを絞り込む</strong><span class="count-badge" id="candidateCount">候補を集計中</span></div>
+        <div class="world-mode-box" aria-labelledby="worldModeLabel">
+          <div class="world-mode-head"><strong id="worldModeLabel">世界観モード</strong><span class="label" id="worldModeSummary"></span></div>
+          <div class="world-mode-options" id="worldModeOptions">
+            <button type="button" data-world-mode="canon">📖 原作準拠</button>
+            <button type="button" data-world-mode="modern">🏙️ 現代パロ</button>
+            <button type="button" data-world-mode="school">🏫 学園パロ</button>
+            <button type="button" data-world-mode="unrestricted">✨ 制限なし</button>
+          </div>
+          <p class="world-mode-note">選んだ世界観に合わないシチュ候補を、自動でガチャから外します。</p>
+        </div>
         <div class="field shared-search">
           <label for="gachaSearch">キャラ検索 <span class="label">（管理画面と共通）</span></label>
           <input id="gachaSearch" type="text" placeholder="名前・作品・部・タグで検索">
@@ -109,6 +108,12 @@
         <p class="manager-note">各候補は1行に1つ。編集内容はブラウザに保存されます。</p>
         <div class="pool-grid" id="poolGrid"></div>
         <div class="field" style="margin-top:14px"><label for="protagonistProfile">夢主設定 <span class="label">（プロンプト生成時に自動追加）</span></label><textarea id="protagonistProfile" spellcheck="false" placeholder="例：成人女性、160cm／柔らかい口調／受け身一辺倒にしない"></textarea></div>
+        <section class="work-profile-editor">
+          <div class="work-profile-head"><div><strong>作品別の夢主設定</strong><div class="label">選んだキャラの作品に合わせて自動追加</div></div><span class="count-badge" id="workProfileStatus">初期設定</span></div>
+          <div class="field"><label for="workProfileWork">編集する作品</label><select id="workProfileWork"></select></div>
+          <div class="field"><label for="workProtagonistProfile">この作品での立場・能力・生活拠点</label><textarea id="workProtagonistProfile" spellcheck="false"></textarea></div>
+          <div class="settings-actions"><button type="button" class="small-btn" id="resetWorkProfile">この作品の設定を初期化</button></div>
+        </section>
         <div class="field" style="margin-top:14px"><label for="basePrompt">夢小説用の固定プロンプト</label><textarea id="basePrompt" spellcheck="false"></textarea></div>
         <div class="settings-actions"><button class="secondary" id="saveSettings">設定を保存</button><button class="small-btn" id="resetScenarioSettings">シチュ設定だけ初期化</button></div>
       </div>
@@ -316,7 +321,7 @@
     <div class="panel-body help-detail-grid">
       <article class="help-detail-card">
         <div class="help-card-icon">🎲</div><h3>ガチャ</h3>
-        <ul><li>キャラ・関係性・シチュ・雰囲気・追加条件を抽選します。</li><li>固定した項目は、次の一括ガチャでも変わりません。</li><li>候補キャラはクリックで複数選択、右クリックまたは「除外」で抽選対象から外せます。</li><li>「選ぶ・カテゴリ」では結果の直接選択やカテゴリ単位の絞り込みができます。</li><li>キャラの検索条件はキャラ管理と共通です。</li></ul>
+        <ul><li>キャラ・関係性・シチュ・雰囲気・追加条件を抽選します。</li><li>世界観モードを選ぶと、原作・現代・学園に合わないシチュを自動で外します。</li><li>固定した項目は、次の一括ガチャでも変わりません。</li><li>候補キャラはクリックで複数選択、右クリックまたは「除外」で抽選対象から外せます。</li><li>「選ぶ・カテゴリ」では結果の直接選択やカテゴリ単位の絞り込みができます。</li><li>キャラの検索条件はキャラ管理と共通です。</li></ul>
         <button type="button" class="help-action" data-go-screen="gacha">🎲 ガチャへ</button>
       </article>
       <article class="help-detail-card">
@@ -417,13 +422,15 @@
       <details><summary>候補キャラの選択と除外はどう使いますか？</summary><p>通常クリックしたキャラは複数まとめて抽選対象にできます。右クリック、またはキャラ横の「除外」を押すと、そのキャラを抽選対象から外せます。スマホでは「除外」ボタンを使ってください。</p></details>
       <details><summary>ガチャ結果の「固定」とは？</summary><p>固定した項目は「固定以外を全部ガチャ」を押しても残ります。画面上の「固定を全解除」でまとめて戻せます。</p></details>
       <details><summary>夢主設定はどこに入りますか？</summary><p>ガチャ画面下部の設定欄に入力します。「プロンプトを生成」したとき、固定プロンプトとは別の「夢主設定」として自動で入ります。</p></details>
+      <details><summary>作品別の夢主設定はどう使われますか？</summary><p>選ばれたキャラの作品に対応する設定だけが、共通の夢主設定の後へ自動で入ります。作品ごとに立場・能力・生活拠点を変えられ、不要な作品では空欄にできます。</p></details>
+      <details><summary>世界観モードを変えると何が変わりますか？</summary><p>原作準拠では電車・スマホ・コンビニなど現代専用のシチュを外します。現代パロと学園パロでは、それぞれの候補とどの世界でも使える候補を抽選します。「制限なし」はすべての候補を使います。</p></details>
       <details><summary>保存した小説や設定は外部に送信されますか？</summary><p>このサイトの保存機能はブラウザ内を使います。サイト側のサーバーへ作品を保存する仕組みはありません。</p></details>
       <details><summary>別のスマホやパソコンでも続きから使えますか？</summary><p>この使い方ページで完全バックアップを書き出し、移動先のブラウザで復元してください。</p></details>
     </div>
   </section>
 </section>
 </main>
-<footer>v0.29 / 候補キャラ選択と折りたたみ式フィルターを追加 / ブラウザ内に保存</footer>
+<footer>v0.31 / タブ操作の初期化を修正 / ブラウザ内に保存</footer>
 </div>
 <div class="quick-nav" id="managerQuickNav" aria-label="キャラ管理クイック移動" hidden="">
   <button type="button" id="jumpTop">↑ 上へ</button>
@@ -463,12 +470,13 @@
 </div>
 <div class="toast" id="toast">ガチャ対象に戻しました</div>
 
-<script src="app-data.js?v=29"></script>
-<script src="app-domain.js?v=29"></script>
-<script src="app-storage.js?v=29"></script>
-<script src="app-ui.js?v=29"></script>
-<script src="seed-data.js?v=29"></script>
-<script src="app.js?v=29"></script>
+<script src="app-data.js?v=31"></script>
+<script src="app-domain.js?v=31"></script>
+<script src="app-storage.js?v=31"></script>
+<script src="app-ui.js?v=31"></script>
+<script src="character-data.generated.js?v=ad66dc7fa9f3"></script>
+<script src="seed-data.js?v=31"></script>
+<script src="app.js?v=31"></script>
 
 
 </body></html>

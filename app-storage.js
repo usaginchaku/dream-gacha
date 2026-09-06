@@ -1,10 +1,10 @@
 (function(root){
   "use strict";
-  const D=root.DreamGachaData||{SETTINGS_KEY:"dreamGachaSettings",SETTINGS_VERSION:29,BACKUP_SCHEMA:"dream-gacha.full-backup",BACKUP_VERSION:2};
+  const D=root.DreamGachaData||{SETTINGS_KEY:"dreamGachaSettings",SETTINGS_VERSION:31,BACKUP_SCHEMA:"dream-gacha.full-backup",BACKUP_VERSION:2};
   const clone=v=>v===undefined?undefined:JSON.parse(JSON.stringify(v));
   function plainSettings(source){
     if(!source||typeof source!=="object")throw new Error("設定データが不正です");
-    return {version:D.SETTINGS_VERSION,characters:clone(source.characters||[]),pools:clone(source.pools||{}),basePrompt:String(source.basePrompt||""),protagonistProfile:String(source.protagonistProfile||""),freeExtra:String(source.freeExtra||""),deletedSeedIds:[...(source.deletedSeedIds||[])],characterId:source.characterId||null,values:clone(source.values||{}),locks:clone(source.locks||{}),filters:{...(source.filters||{}),tags:[...(source.filters?.tags||[])],characterIncluded:[...(source.filters?.characterIncluded||[])],characterExcluded:[...(source.filters?.characterExcluded||[])]},manage:clone(source.manage||{}),categoryInclude:clone(source.categoryInclude||{}),categoryExcluded:Object.fromEntries(Object.entries(source.categoryExcluded||{}).map(([k,v])=>[k,[...(v||[])]])),presets:clone(source.presets||[])};
+    return {version:D.SETTINGS_VERSION,characters:clone(source.characters||[]),pools:clone(source.pools||{}),basePrompt:String(source.basePrompt||""),protagonistProfile:String(source.protagonistProfile||""),workProtagonistProfiles:clone(source.workProtagonistProfiles||{}),worldMode:String(source.worldMode||"canon"),freeExtra:String(source.freeExtra||""),deletedSeedIds:[...(source.deletedSeedIds||[])],characterId:source.characterId||null,values:clone(source.values||{}),locks:clone(source.locks||{}),filters:{...(source.filters||{}),tags:[...(source.filters?.tags||[])],characterIncluded:[...(source.filters?.characterIncluded||[])],characterExcluded:[...(source.filters?.characterExcluded||[])]},manage:clone(source.manage||{}),categoryInclude:clone(source.categoryInclude||{}),categoryExcluded:Object.fromEntries(Object.entries(source.categoryExcluded||{}).map(([k,v])=>[k,[...(v||[])]])),presets:clone(source.presets||[])};
   }
   function validateSettings(raw){
     if(!raw||typeof raw!=="object"||Array.isArray(raw))throw new Error("settings が不正です");
@@ -12,6 +12,9 @@
     if(!raw.pools||typeof raw.pools!=="object"||Array.isArray(raw.pools))throw new Error("pools が不正です");
     for(const [k,v] of Object.entries(raw.pools))if(!Array.isArray(v))throw new Error(`pools.${k} が配列ではありません`);
     if(raw.presets!==undefined&&!Array.isArray(raw.presets))throw new Error("presets が配列ではありません");
+    if(raw.workProtagonistProfiles!==undefined&&(!raw.workProtagonistProfiles||typeof raw.workProtagonistProfiles!=="object"||Array.isArray(raw.workProtagonistProfiles)))throw new Error("workProtagonistProfiles が不正です");
+    if(raw.workProtagonistProfiles)for(const [work,value] of Object.entries(raw.workProtagonistProfiles))if(!work.trim()||typeof value!=="string")throw new Error("workProtagonistProfiles の作品名または設定が不正です");
+    if(raw.worldMode!==undefined&&!['canon','modern','school','unrestricted'].includes(raw.worldMode))throw new Error("worldMode が不正です");
     const characterIds=new Set();for(const c of raw.characters){const id=c?.id;if(typeof id!=="string"||!id.trim())throw new Error("キャラIDが空か文字列ではありません");if(characterIds.has(id))throw new Error(`キャラIDが重複しています: ${id}`);characterIds.add(id)}
     for(const field of ["deletedSeedIds"]){if(raw[field]!==undefined&&(!Array.isArray(raw[field])||raw[field].some(v=>typeof v!=="string")))throw new Error(`${field} が不正です`)}
     for(const field of ["tags","characterIncluded","characterExcluded"])if(raw.filters?.[field]!==undefined&&(!Array.isArray(raw.filters[field])||raw.filters[field].some(v=>typeof v!=="string")))throw new Error(`filters.${field} が不正です`);
@@ -22,7 +25,7 @@
   function migrateSettings(raw,defaults){
     const r=raw&&typeof raw==="object"?clone(raw):{},d=defaults||{};
     r.version=Number(r.version||0);if(r.version>D.SETTINGS_VERSION)throw new Error("このアプリより新しい形式の設定です");r.characters=Array.isArray(r.characters)?r.characters:[];r.pools=r.pools&&typeof r.pools==="object"&&!Array.isArray(r.pools)?r.pools:clone(d.pools||{});
-    r.basePrompt=Object.prototype.hasOwnProperty.call(r,"basePrompt")?String(r.basePrompt):String(d.basePrompt||"");r.protagonistProfile=Object.prototype.hasOwnProperty.call(r,"protagonistProfile")?String(r.protagonistProfile):String(d.protagonistProfile||"");r.presets=Array.isArray(r.presets)?r.presets:[];
+    r.basePrompt=Object.prototype.hasOwnProperty.call(r,"basePrompt")?String(r.basePrompt):String(d.basePrompt||"");r.protagonistProfile=Object.prototype.hasOwnProperty.call(r,"protagonistProfile")?String(r.protagonistProfile):String(d.protagonistProfile||"");r.workProtagonistProfiles=r.workProtagonistProfiles&&typeof r.workProtagonistProfiles==="object"&&!Array.isArray(r.workProtagonistProfiles)?Object.fromEntries(Object.entries(r.workProtagonistProfiles).filter(([work,value])=>work.trim()&&typeof value==="string")):{};r.worldMode=['canon','modern','school','unrestricted'].includes(r.worldMode)?r.worldMode:String(d.worldMode||"canon");r.presets=Array.isArray(r.presets)?r.presets:[];
     return r;
   }
   function decodeSettings(raw,defaults,strict){
