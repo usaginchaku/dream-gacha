@@ -50,7 +50,7 @@ async function main(){
  assert.doesNotMatch(index,/<select id="importMode"[^>]*>[\s\S]*?<option value="replace"/);
  assert.match(appSource,/result-quick-actions/);assert.match(appSource,/result-detail/);
  assert.match(styleSource,/:root\[data-theme="dark"\]/);assert.match(styleSource,/\.value\{[^}]*white-space:normal[^}]*overflow-wrap:anywhere/);
- assert.match(styleSource,/:root\[data-theme="dark"\] \.tabs\{background:linear-gradient\(var\(--bg\)/);
+ assert.match(styleSource,/:root\[data-theme="dark"\] \.tabs\{background:transparent\}/);
  assert.match(styleSource,/:root\[data-theme="dark"\] \.help-hero\{background:linear-gradient\(135deg,var\(--surface-accent\)/);
  assert.match(index,/<details class="candidate-selector" id="candidatePreviewBox">/);
  for(const id of ["worldModeOptions","worldModeSummary","workProfileWork","workProtagonistProfile","resetWorkProfile"])assert.ok(index.includes(`id="${id}"`));
