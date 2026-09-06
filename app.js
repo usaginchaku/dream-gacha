@@ -7,7 +7,7 @@ const state={
  manage:{status:"all",sort:"work"},
  categoryInclude:{character:null,relationship:null,situation:null,mood:null,extra:null},
  categoryExcluded:{character:new Set(),relationship:new Set(),situation:new Set(),mood:new Set(),extra:new Set()},
- presets:[], protagonistProfile:DEFAULT_PROTAGONIST_PROFILE, workProtagonistProfiles:{}, worldMode:DEFAULT_WORLD_MODE
+ presets:[], protagonistProfile:DEFAULT_PROTAGONIST_PROFILE, workProtagonistProfiles:{}, worldMode:DEFAULT_WORLD_MODE, themeMode:"system"
 };
 const $=s=>document.querySelector(s);
 const unique=a=>[...new Set(a.filter(Boolean))].sort((x,y)=>x.localeCompare(y,"ja"));
@@ -153,6 +153,7 @@ function applySettingsState(saved,overrides={}){
  state.protagonistProfile=Object.prototype.hasOwnProperty.call(source,"protagonistProfile")?String(source.protagonistProfile):DEFAULT_PROTAGONIST_PROFILE;
  state.workProtagonistProfiles=source.workProtagonistProfiles&&typeof source.workProtagonistProfiles==="object"?{...source.workProtagonistProfiles}:{};
  state.worldMode=Object.prototype.hasOwnProperty.call(WORLD_MODES,source.worldMode)?source.worldMode:DEFAULT_WORLD_MODE;
+ state.themeMode=["system","light","dark"].includes(source.themeMode)?source.themeMode:"system";
  state.deletedSeedIds=new Set(source.deletedSeedIds||[]);state.characterId=state.characters.some(c=>c.id===source.characterId&&!c.archived)?source.characterId:null;
  state.values={...(source.values||{})};state.locks={character:false,relationship:false,situation:false,mood:false,extra:false,...(source.locks||{})};
  const f=source.filters||{};state.filters={search:String(f.search||""),workIncluded:new Set(f.workIncluded||[]),workExcluded:new Set(f.workExcluded||[]),seriesIncluded:new Set(f.seriesIncluded||[]),seriesExcluded:new Set(f.seriesExcluded||[]),tags:new Set(canonicalizeTags(f.tags||[])),tagMode:f.tagMode==="any"?"any":"all",favorite:["favorite","normal"].includes(f.favorite)?f.favorite:"all",minHeight:Number.isFinite(f.minHeight)?f.minHeight:null,maxHeight:Number.isFinite(f.maxHeight)?f.maxHeight:null,characterIncluded:new Set(f.characterIncluded||[]),characterExcluded:new Set(f.characterExcluded||[])};
@@ -168,6 +169,10 @@ function prepareSettings(raw,strict=false){
   const previousBundledPrompt=prepared.basePrompt.replace("\n\n## 身長差・体格差\n\n夢主は160cmです。\n\n","\n\n## 身長差・体格差\n\n");
   const shouldMigrateBundledPrompt=Number(prepared.version||0)<DreamGachaData.SETTINGS_VERSION&&(LEGACY_BASE_PROMPTS.includes(prepared.basePrompt)||previousBundledPrompt===DEFAULT_BASE_PROMPT);
   if(!prepared.basePrompt||shouldMigrateBundledPrompt)prepared.basePrompt=DEFAULT_BASE_PROMPT;
+ if(Number(prepared.version||0)<34&&!prepared.basePrompt.includes("## 人体・姿勢・接触の整合性")&&prepared.basePrompt.includes("## 恋愛描写")){
+  const section=DEFAULT_BASE_PROMPT.match(/## 人体・姿勢・接触の整合性[\s\S]*?(?=\n\n## 恋愛描写)/)?.[0];
+  if(section)prepared.basePrompt=prepared.basePrompt.replace("## 恋愛描写",section+"\n\n## 恋愛描写");
+ }
  if(Number(prepared.version||0)<DreamGachaData.SETTINGS_VERSION&&LEGACY_PROTAGONIST_PROFILES.includes(prepared.protagonistProfile))prepared.protagonistProfile=DEFAULT_PROTAGONIST_PROFILE;
  prepared.characters=cleanupCharacterData(prepared.characters.map(normalize).filter(c=>c.name));
  prepared.filters.tags=canonicalizeTags(prepared.filters.tags||[]);
@@ -245,6 +250,14 @@ function migrateAmbiguousDio(){
  state.characters=state.characters.filter(c=>!ids.has(c.id));
  if(ids.has(state.characterId))state.characterId=null;
 }
+
+function applyTheme(mode=state.themeMode){
+ state.themeMode=["system","light","dark"].includes(mode)?mode:"system";
+ const systemDark=!!window.matchMedia?.("(prefers-color-scheme: dark)")?.matches,resolved=state.themeMode==="system"?(systemDark?"dark":"light"):state.themeMode;
+ if(document.documentElement)document.documentElement.dataset.theme=resolved;
+ const select=$("#themeMode");if(select)select.value=state.themeMode;
+}
+function setTheme(mode){applyTheme(mode);save();showToast(`表示を「${{system:"端末設定",light:"ライト",dark:"ダーク"}[state.themeMode]}」にしました`)}
 
 function save(msg=false){
  const serialized=DreamGachaStorage.plainSettings({...state,freeExtra:$("#freeExtra").value});DreamGachaStorage.validateSettings(serialized);
@@ -625,7 +638,9 @@ function renderGachaFilters(){
  renderPicker();renderCandidatePreview();renderSuggestions();updateCategoryStatus("character");
 }
 function renderPicker(){
- $("#candidateCount").textContent=`抽選対象 ${filteredCharacters().length}人`;
+ const candidates=filteredCharacters(),works=new Set(candidates.map(c=>c.work)),mode=WORLD_MODES[state.worldMode]||WORLD_MODES[DEFAULT_WORLD_MODE];
+ $("#candidateCount").textContent=`抽選対象 ${candidates.length}人`;
+ const summary=$("#filterSummaryMeta");if(summary)summary.textContent=`${mode.label}・${works.size}作品`;
 }
 function renderCandidatePreview(){
  const arr=candidateCharactersForChoice().slice().sort((a,b)=>{
@@ -1052,19 +1067,28 @@ function dedupeImported(rawList){
  const normalized=rawList.filter(raw=>raw&&typeof raw==="object"&&!Array.isArray(raw)&&String(raw.name||"").trim()).map(raw=>normalizeImported(raw));
  return cleanupCharacterData(normalized);
 }
+function analyzeWorkReplacement(raws){
+ const works=unique(raws.map(c=>c.work));
+ if(raws.some(c=>!c.work)||works.length!==1||!works[0])throw new Error("作品単位の置換では、全キャラに同じ作品名が入った1作品だけのJSONを使用してください");
+ const work=works[0],oldWork=state.characters.filter(c=>c.work===work),used=new Set();
+ const matches=raws.map(raw=>{
+  const exact=oldWork.find(c=>!used.has(c.id)&&((raw.id&&c.id===raw.id)||characterIdentityKey(c)===characterIdentityKey(raw)));
+  const sameName=oldWork.filter(c=>!used.has(c.id)&&c.name===raw.name);
+  const existing=exact||(sameName.length===1?sameName[0]:null);
+  if(existing)used.add(existing.id);
+  return existing;
+ });
+ return {work,oldWork,matches,current:oldWork.length,total:raws.length,added:matches.filter(x=>!x).length,updated:matches.filter(Boolean).length,removed:oldWork.filter(c=>!used.has(c.id)).length};
+}
 function importCharactersData(data,mode){
  const list=Array.isArray(data)?data:Array.isArray(data?.characters)?data.characters:null;
  if(!list)throw new Error("characters 配列が見つかりません");
  const raws=dedupeImported(list);if(!raws.length)throw new Error("有効なキャラが1件もありません");
  let added=0,updated=0;
  if(mode==="work-replace"){
-   const works=unique(raws.map(c=>c.work));
-   if(raws.some(c=>!c.work)||works.length!==1||!works[0])throw new Error("作品単位の置換では、全キャラに同じ作品名が入った1作品だけのJSONを使用してください");
-   const work=works[0],oldWork=state.characters.filter(c=>c.work===work),oldIds=new Set(oldWork.map(c=>c.id));
-   const nextWork=raws.map(raw=>{
-     const exact=oldWork.find(c=>(raw.id&&c.id===raw.id)||characterIdentityKey(c)===characterIdentityKey(raw));
-     const sameName=oldWork.filter(c=>c.name===raw.name);
-     const existing=exact||(sameName.length===1?sameName[0]:null);
+   const plan=analyzeWorkReplacement(raws),{work,oldWork,matches}=plan;
+   const nextWork=raws.map((raw,index)=>{
+     const existing=matches[index];
      if(!existing){added++;return raw}
      updated++;
      const next={...raw,id:existing.id,favorite:existing.favorite,archived:existing.archived};
@@ -1081,7 +1105,7 @@ function importCharactersData(data,mode){
    state.filters.characterIncluded=new Set([...state.filters.characterIncluded].filter(id=>validIds.has(id)));state.filters.characterExcluded=new Set([...state.filters.characterExcluded].filter(id=>validIds.has(id)));
    if(state.characterId&&!validIds.has(state.characterId))state.characterId=null;
    state.selectedIds.clear();
-   const result={added,updated,removed:Math.max(0,oldIds.size-updated),total:raws.length,work};
+   const result={added,updated,removed:plan.removed,total:raws.length,work};
    save();renderManager();renderGachaFilters();updateCard("character");return result;
  }else if(mode==="replace"){
    const next=cleanupCharacterData(raws);
@@ -1106,10 +1130,11 @@ async function handleImportFile(file,requestedMode){
  try{data=JSON.parse(text)}catch(e){throw new Error("JSONとして読み込めませんでした")}
  const mode=requestedMode||$("#importMode").value;
  if(mode==="work-replace"){
-  const list=Array.isArray(data)?data:data?.characters,works=unique((Array.isArray(list)?list:[]).map(c=>String(c?.work||"").trim()));
-  if(!Array.isArray(list)||list.some(c=>!String(c?.work||"").trim())||works.length!==1||!works[0])throw new Error("作品単位の置換では、全キャラに同じ作品名が入った1作品だけのJSONを使用してください");
-  const current=state.characters.filter(c=>c.work===works[0]).length;
-  if(!confirm(`「${works[0]}」の現在${current}件を、このJSONの${list.length}件で更新します。\nお気に入り・アーカイブ・手動登録した身長は引き継ぎます。続けますか？`))return null;
+  const list=Array.isArray(data)?data:data?.characters;
+  if(!Array.isArray(list))throw new Error("characters 配列が見つかりません");
+  const raws=dedupeImported(list);if(!raws.length)throw new Error("有効なキャラが1件もありません");
+  const plan=analyzeWorkReplacement(raws);
+  if(!confirm(`【${plan.work}】を作品単位で置換します。\n現在：${plan.current}人 ／ JSON：${plan.total}人\n新規：${plan.added}人 ／ 更新：${plan.updated}人 ／ 削除候補：${plan.removed}人\n\n同じキャラのお気に入り・アーカイブ・手動登録した身長は引き継ぎます。続けますか？`))return null;
  }
  if(mode==="replace"&&!confirm("現在のキャラ一覧を、読み込むファイルの内容で置き換えます。\nシチュ設定は変更しません。続けますか？"))return null;
  return importCharactersData(data,mode);
@@ -1122,8 +1147,8 @@ async function fullBackupPayload(){
 }
 function backupTimestamp(){const d=new Date(),pad=n=>String(n).padStart(2,"0");return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`}
 async function exportFullBackup(){try{const stamp=backupTimestamp(),payload=await fullBackupPayload();downloadJson(payload,`dream-gacha-full-backup-${stamp}.json`);showToast("完全バックアップを書き出しました")}catch(e){alert(`完全バックアップを書き出せませんでした：${e.message}`)}}
-function backupCounts(settings,novels){return {characters:(settings?.characters||[]).length,presets:(settings?.presets||[]).length,workProfiles:Object.keys(settings?.workProtagonistProfiles||{}).length,novels:(novels||[]).length}}
-function backupCountText(counts){return `ブラウザ設定：キャラ${counts.characters}件・保存条件${counts.presets}件・作品別設定${counts.workProfiles}件 ／ 夢小説：${counts.novels}本`}
+function backupCounts(settings,novels){const characters=settings?.characters||[];return {characters:characters.length,favorites:characters.filter(c=>c.favorite).length,archived:characters.filter(c=>c.archived).length,presets:(settings?.presets||[]).length,workProfiles:Object.keys(settings?.workProtagonistProfiles||{}).length,novels:(novels||[]).length}}
+function backupCountText(counts){return `ブラウザ設定：キャラ${counts.characters}件（お気に入り${counts.favorites}件・アーカイブ${counts.archived}件）・保存条件${counts.presets}件・作品別設定${counts.workProfiles}件 ／ 夢小説：${counts.novels}本`}
 function renderBackupRestoreStatus(kind,message){const box=$("#backupRestoreStatus");if(!box)return;box.className=`backup-restore-status${kind?` ${kind}`:""}`;box.textContent=message}
 async function restoreFullBackup(data){
  let phase="バックアップ内容の検証";
@@ -1137,16 +1162,20 @@ async function restoreFullBackup(data){
    // Preserve the exact stored text for rollback. A malformed old setting must
    // not prevent a valid full backup from repairing it.
    readSettings:async()=>localStorage.getItem(DreamGachaData.SETTINGS_KEY),readNovels:()=>Promise.resolve(currentNovels),
-   writeSettings:async value=>{try{return value===null?localStorage.removeItem(DreamGachaData.SETTINGS_KEY):localStorage.setItem(DreamGachaData.SETTINGS_KEY,typeof value==="string"?value:JSON.stringify(value))}catch(error){throw new Error(`ブラウザ設定の書き込み：${error.message}`)}},
-   writeNovels:async value=>{try{return await replaceAllNovels(value)}catch(error){throw new Error(`夢小説アーカイブの書き込み：${error.message}`)}}
+   writeSettings:async value=>{phase="localStorage系の復元";try{return value===null?localStorage.removeItem(DreamGachaData.SETTINGS_KEY):localStorage.setItem(DreamGachaData.SETTINGS_KEY,typeof value==="string"?value:JSON.stringify(value))}catch(error){throw new Error(`ブラウザ設定の書き込み：${error.message}`)}},
+   writeNovels:async value=>{phase="IndexedDBの復元";try{return await replaceAllNovels(value)}catch(error){throw new Error(`夢小説アーカイブの書き込み：${error.message}`)}}
   },{settings:nextSettings,novels:nextNovels});
   phase="復元後の画面更新";
-  applySettingsState(b);state.selectedIds.clear();state.inlineEditingId=null;
+  applySettingsState(b);applyTheme();state.selectedIds.clear();state.inlineEditingId=null;
   novelCache=structuredClone(nextNovels).sort((a,b)=>String(b.createdAt||"").localeCompare(String(a.createdAt||"")));
   renderPoolEditors();renderGachaFilters();renderManager();renderPresetList();renderNovelList();
   for(const k of ["character","relationship","situation","mood","extra"]){updateCard(k);updateCategoryStatus(k);const i=document.querySelector(`[data-lock="${k}"]`);if(i)i.checked=!!state.locks[k];updateLock(k)}
   renderBackupRestoreStatus("success",`復元しました。復元前［${backupCountText(before)}］ → 復元後［${backupCountText(after)}］`);showToast("完全バックアップを復元しました");return {before,after};
- }catch(error){const message=`${phase}で失敗しました：${error.message}`;renderBackupRestoreStatus("error",message);throw new Error(message)}
+ }catch(error){
+  const details=[error,...(Array.isArray(error?.errors)?error.errors:[])].map(item=>String(item?.message||item)).join(" ／ ");
+  const failedPhase=details.includes("ブラウザ設定")?"localStorage系の復元":details.includes("夢小説アーカイブ")?"IndexedDBの復元":phase;
+  const message=`${failedPhase}で失敗しました：${details}`;renderBackupRestoreStatus("error",message);throw new Error(message)
+ }
 }
 async function handleFullBackupFile(file){
  const text=await file.text();let data;try{data=JSON.parse(text)}catch(e){const message="JSONファイルの解析で失敗しました：JSONとして読み込めませんでした";renderBackupRestoreStatus("error",message);throw new Error(message)}
@@ -1171,8 +1200,9 @@ function init(){
  });
  document.addEventListener("click",e=>{const b=e.target.closest("[data-go-screen]");if(b)goToScreen(b.dataset.goScreen,b.dataset.scrollTarget)});
  const compactResults=window.matchMedia?.("(max-width: 780px)");compactResults?.addEventListener?.("change",e=>document.querySelectorAll(".result-detail").forEach(detail=>detail.open=!e.matches));
+ const colorScheme=window.matchMedia?.("(prefers-color-scheme: dark)");colorScheme?.addEventListener?.("change",()=>{if(state.themeMode==="system")applyTheme()});
 
- load();renderResultCards();renderPoolEditors();renderGachaFilters();renderAddTagPicker();renderCharacterImportGuide();renderLibrary();
+ load();applyTheme();renderResultCards();renderPoolEditors();renderGachaFilters();renderAddTagPicker();renderCharacterImportGuide();renderLibrary();
   $("#choiceClose").addEventListener("click",closeChooser);
   $("#choiceSearch").addEventListener("input",renderChooserList);
   $("#choiceCategoryClear").addEventListener("click",()=>{if(chooserKey)clearCategoryRules(chooserKey)});
@@ -1213,6 +1243,7 @@ function init(){
  $("#unlockAllResults").addEventListener("click",()=>setAllLocks(false));
  $("#resetAllCategoryRules").addEventListener("click",resetAllCategoryRules);
  $("#worldModeOptions").addEventListener("click",e=>{const b=e.target.closest("[data-world-mode]");if(b)setWorldMode(b.dataset.worldMode)});
+ $("#themeMode").addEventListener("change",e=>setTheme(e.target.value));
  $("#rollAll").addEventListener("click",rollAll);$("#buildPrompt").addEventListener("click",()=>buildPrompt(true));$("#copyPrompt").addEventListener("click",copyPrompt);
  $("#saveCurrentPreset").addEventListener("click",saveCurrentConditionsPreset);$("#openNovelSave").addEventListener("click",prepareNovelSave);$("#savePresetFromLibrary").addEventListener("click",saveCurrentConditionsPreset);$("#saveNovel").addEventListener("click",saveNovelArchive);
  $("#novelSearch").addEventListener("input",renderNovelList);$("#novelBody").addEventListener("input",()=>$("#novelBodyCount").textContent=fmtChars(novelCharCount($("#novelBody").value)));$("#novelFavoriteOnly").addEventListener("click",()=>{novelFavoriteOnly=!novelFavoriteOnly;$("#novelFavoriteOnly").classList.toggle("active",novelFavoriteOnly);renderNovelList()});

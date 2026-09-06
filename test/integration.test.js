@@ -15,7 +15,7 @@ function makeApp(){
  const tabs=["gacha","library","manager","help"].map(screen=>{const item=element();item.dataset.screen=screen;return item});
  const local=new Map();
  const context={console,structuredClone,Set,Map,Date,Math,JSON,Intl,AggregateError,
-   document:{querySelector:get,querySelectorAll:s=>s===".tab-btn"?tabs:[],createElement:()=>element(),addEventListener(){},body:{style:{}},execCommand(){}},
+   document:{querySelector:get,querySelectorAll:s=>s===".tab-btn"?tabs:[],createElement:()=>element(),addEventListener(){},documentElement:{dataset:{},removeAttribute(name){delete this.dataset[name]}},body:{style:{}},execCommand(){}},
    window:{prompt:()=>null,matchMedia:()=>({matches:false})},navigator:{clipboard:{writeText:async()=>{}}},
    localStorage:{getItem:k=>local.has(k)?local.get(k):null,setItem:(k,v)=>local.set(k,String(v)),removeItem:k=>local.delete(k)},
    indexedDB:{open(){throw new Error("IndexedDB mock must be replaced by test")}},CSS:{escape:x=>x},Blob:function(){},URL:{createObjectURL:()=>"blob:x",revokeObjectURL(){}},setTimeout:(fn)=>{fn();return 1},clearTimeout(){}};
@@ -33,20 +33,23 @@ function run(app,code){return vm.runInContext(code,app.context)}
 async function main(){
  const index=fs.readFileSync(path.join(root,"index.html"),"utf8");
  const appSource=fs.readFileSync(path.join(root,"app.js"),"utf8");
+ const styleSource=fs.readFileSync(path.join(root,"styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
- assert.deepEqual(src.slice(0,4),["app-data.js?v=33","app-domain.js?v=33","app-storage.js?v=33","app-ui.js?v=33"]);
+ assert.deepEqual(src.slice(0,4),["app-data.js?v=34","app-domain.js?v=34","app-storage.js?v=34","app-ui.js?v=34"]);
  assert.match(src[4],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
- assert.deepEqual(src.slice(5),["seed-data.js?v=33","app.js?v=33"]);
- assert.ok(index.includes('href="styles.css?v=33"'));
+ assert.deepEqual(src.slice(5),["seed-data.js?v=34","app.js?v=34"]);
+ assert.ok(index.includes('href="styles.css?v=34"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
  for(const id of ["lockAllResults","unlockAllResults","resetAllCategoryRules"])assert.ok(index.includes(`id="${id}"`));
  for(const id of ["gachaHeightDetails","manageHeightDetails","candidateSelectionSummary","clearCandidateRules"])assert.ok(index.includes(`id="${id}"`));
- for(const id of ["gachaWorkChips","gachaSeriesChips","manageWorkChips","manageSeriesChips","importReplaceAllButton","backupRestoreStatus"])assert.ok(index.includes(`id="${id}"`));
- assert.ok(index.indexOf('id="rollAll"')<index.indexOf('class="filter-box"'),"all-roll action must appear above filters");
+ for(const id of ["gachaFilterDetails","filterSummaryMeta","themeMode","gachaWorkChips","gachaSeriesChips","manageWorkChips","manageSeriesChips","importReplaceAllButton","backupRestoreStatus"])assert.ok(index.includes(`id="${id}"`));
+ assert.ok(index.indexOf('id="rollAll"')>index.indexOf('id="gachaFilterDetails"')&&index.indexOf('id="rollAll"')<index.indexOf('id="resultGrid"'),"all-roll action must appear between filters and results");
+ assert.doesNotMatch(index,/<details class="filter-box filter-disclosure" id="gachaFilterDetails"\s+open/);
  assert.doesNotMatch(index,/<select id="importMode"[^>]*>[\s\S]*?<option value="replace"/);
  assert.match(appSource,/result-quick-actions/);assert.match(appSource,/result-detail/);
+ assert.match(styleSource,/:root\[data-theme="dark"\]/);assert.match(styleSource,/\.value\{[^}]*white-space:normal[^}]*overflow-wrap:anywhere/);
  assert.match(index,/<details class="candidate-selector" id="candidatePreviewBox">/);
  for(const id of ["worldModeOptions","worldModeSummary","workProfileWork","workProtagonistProfile","resetWorkProfile"])assert.ok(index.includes(`id="${id}"`));
  for(const id of ["tab-help","screen-help","help-basic","help-details","help-character-json","characterResearchWork","characterResearchPromptPreview","allowedTagGuide","help-faq"])assert.ok(index.includes(`id="${id}"`));
@@ -57,6 +60,8 @@ async function main(){
  // The bundled writing prompt asks for a title, while the concrete protagonist
  // profile lives only in the separate profile setting.
  assert.equal(run(a,"DEFAULT_BASE_PROMPT.includes('## タイトル')"),true);
+ assert.equal(run(a,"DEFAULT_BASE_PROMPT.includes('## 人体・姿勢・接触の整合性')"),true);
+ assert.equal(run(a,"DEFAULT_BASE_PROMPT.includes('各人物の左右の手')"),true);
  assert.equal(run(a,"DEFAULT_BASE_PROMPT.includes('夢主は160cmです。')"),false);
  assert.equal(run(a,"DEFAULT_PROTAGONIST_PROFILE.includes('身長160cm')"),true);
  assert.equal(run(a,"DEFAULT_PROTAGONIST_PROFILE.includes('〜かしら？')"),true);
@@ -77,6 +82,8 @@ async function main(){
  run(a,"init()");
  assert.equal(typeof a.tabs[1].listeners.click,"function");
  assert.equal(typeof a.tabs[2].listeners.click,"function");
+ run(a,'setTheme("dark")');assert.equal(a.context.document.documentElement.dataset.theme,"dark");assert.equal(JSON.parse(a.local.get("dreamGachaSettings")).themeMode,"dark");
+ run(a,'setTheme("system")');assert.equal(a.context.document.documentElement.dataset.theme,"light");
  const brokenStartup=makeApp();
  run(brokenStartup,"load=()=>{throw new Error('broken saved data')};try{init()}catch(error){} ");
  assert.equal(typeof brokenStartup.tabs[1].listeners.click,"function");
@@ -94,6 +101,8 @@ async function main(){
  assert.equal(run(a,"prepareSettings({version:22,characters:[],pools:{},basePrompt:__previousDefault},false).basePrompt===DEFAULT_BASE_PROMPT"),true);
  a.context.__legacyProfile=run(a,"LEGACY_PROTAGONIST_PROFILES[0]");
  assert.equal(run(a,"prepareSettings({version:29,characters:[],pools:{},protagonistProfile:__legacyProfile},false).protagonistProfile===DEFAULT_PROTAGONIST_PROFILE"),true);
+ const oldCustomPrompt="custom\n\n## 恋愛描写\ntext";a.context.__oldCustomPrompt=oldCustomPrompt;
+ assert.equal(run(a,"prepareSettings({version:33,characters:[],pools:{},basePrompt:__oldCustomPrompt},false).basePrompt.includes('## 人体・姿勢・接触の整合性')"),true);
 
  // Every category exposes separate, unambiguous include and exclude actions.
  run(a,"chooserKey='relationship';state.pools.relationship=DEFAULT_POOLS.relationship;renderChooserCategoryChips()");
@@ -139,6 +148,8 @@ async function main(){
  assert.equal(run(workImport,"state.characters.find(c=>c.name==='A').favorite&&state.characters.find(c=>c.name==='A').archived"),true);
  assert.equal(run(workImport,"state.characters.find(c=>c.name==='A').heightCm"),181);
  assert.throws(()=>run(workImport,`importCharactersData({characters:[{name:"X",work:"W",tags:[]},{name:"Y",work:"",tags:[]}]},"work-replace")`),/同じ作品名/);
+ const workPlan=JSON.parse(JSON.stringify(run(workImport,`analyzeWorkReplacement(dedupeImported([{name:"A",work:"W",series:"new",tags:[]},{name:"E",work:"W",tags:[]}]))`)));
+ assert.deepEqual({current:workPlan.current,total:workPlan.total,added:workPlan.added,updated:workPlan.updated,removed:workPlan.removed},{current:2,total:2,added:1,updated:1,removed:1});
 
  // Result cards support bulk lock/unlock and a separate category-rule reset.
  run(a,"save=()=>{globalThis.__bulkSaved=(globalThis.__bulkSaved||0)+1};showToast=()=>{};setAllLocks(true)");
@@ -222,6 +233,8 @@ async function main(){
  assert.equal(run(g,"novelCache[0].id"),"restored");
  assert.match(g.get("#novelList").innerHTML,/Restored/);
  assert.equal(restoreCounts.before.novels,1);assert.equal(restoreCounts.after.novels,1);
+ assert.equal(typeof restoreCounts.before.favorites,"number");assert.equal(typeof restoreCounts.before.archived,"number");
+ assert.match(g.get("#backupRestoreStatus").textContent,/お気に入り\d+件・アーカイブ\d+件/);
  assert.match(g.get("#backupRestoreStatus").textContent,/復元前/);assert.match(g.get("#backupRestoreStatus").textContent,/復元後/);
 
  // Corrupt existing settings do not block a valid backup, and an interrupted
@@ -237,7 +250,14 @@ async function main(){
  run(i,"globalThis.__writes=0;novelAll=async()=>[{id:'old',body:'old'}];replaceAllNovels=async()=>{globalThis.__writes++;if(globalThis.__writes===1)throw Error('archive commit failed')};renderGachaFilters=()=>{};renderManager=()=>{};updateCard=()=>{};updateCategoryStatus=()=>{};updateLock=()=>{};showToast=()=>{};");
  await assert.rejects(()=>run(i,`restoreFullBackup(${JSON.stringify(committed)})`),/archive commit failed/);
  assert.equal(i.local.get("dreamGachaSettings"),malformed);
+ assert.match(i.get("#backupRestoreStatus").textContent,/IndexedDBの復元/);
  assert.match(i.get("#backupRestoreStatus").textContent,/夢小説アーカイブの書き込み/);
+
+ // A localStorage failure is reported as the settings stage even after rollback attempts.
+ const localFailure=makeApp();
+ run(localFailure,"novelAll=async()=>[];replaceAllNovels=async()=>{};localStorage.setItem=()=>{throw Error('storage denied')};renderGachaFilters=()=>{};renderManager=()=>{};updateCard=()=>{};updateCategoryStatus=()=>{};updateLock=()=>{};showToast=()=>{};");
+ await assert.rejects(()=>run(localFailure,`restoreFullBackup(${JSON.stringify(committed)})`),/localStorage系の復元/);
+ assert.match(localFailure.get("#backupRestoreStatus").textContent,/ブラウザ設定の書き込み/);
 
  // Cached search filters the in-memory cache and never opens IndexedDB.
  const e=makeApp();

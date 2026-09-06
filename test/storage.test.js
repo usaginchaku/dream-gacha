@@ -2,10 +2,10 @@ const test=require("node:test");
 const assert=require("node:assert/strict");
 global.DreamGachaData=require("../app-data.js");
 const storage=require("../app-storage.js");
-const settings={characters:[{id:"c1",name:"A"}],pools:{relationship:[]},deletedSeedIds:new Set(["x"]),filters:{workIncluded:new Set(["W1"]),workExcluded:new Set(["W2"]),seriesIncluded:new Set(["S1"]),seriesExcluded:new Set(["S2"]),tags:new Set(["t"]),characterIncluded:new Set(["c1"]),characterExcluded:new Set(["c2"])},categoryExcluded:{situation:new Set(["bad"])},workProtagonistProfiles:{W:"作品設定"},worldMode:"modern",presets:[]};
+const settings={characters:[{id:"c1",name:"A"}],pools:{relationship:[]},deletedSeedIds:new Set(["x"]),filters:{workIncluded:new Set(["W1"]),workExcluded:new Set(["W2"]),seriesIncluded:new Set(["S1"]),seriesExcluded:new Set(["S2"]),tags:new Set(["t"]),characterIncluded:new Set(["c1"]),characterExcluded:new Set(["c2"])},categoryExcluded:{situation:new Set(["bad"])},workProtagonistProfiles:{W:"作品設定"},worldMode:"modern",themeMode:"dark",presets:[]};
 
 test("serialization converts Sets and full backup requires loaded novels",()=>{
-  const plain=storage.plainSettings(settings);assert.deepEqual(plain.deletedSeedIds,["x"]);assert.deepEqual(plain.filters.tags,["t"]);assert.deepEqual(plain.filters.workIncluded,["W1"]);assert.deepEqual(plain.filters.workExcluded,["W2"]);assert.deepEqual(plain.filters.seriesIncluded,["S1"]);assert.deepEqual(plain.filters.seriesExcluded,["S2"]);assert.deepEqual(plain.filters.characterIncluded,["c1"]);assert.deepEqual(plain.filters.characterExcluded,["c2"]);assert.deepEqual(plain.workProtagonistProfiles,{W:"作品設定"});assert.equal(plain.worldMode,"modern");
+  const plain=storage.plainSettings(settings);assert.deepEqual(plain.deletedSeedIds,["x"]);assert.deepEqual(plain.filters.tags,["t"]);assert.deepEqual(plain.filters.workIncluded,["W1"]);assert.deepEqual(plain.filters.workExcluded,["W2"]);assert.deepEqual(plain.filters.seriesIncluded,["S1"]);assert.deepEqual(plain.filters.seriesExcluded,["S2"]);assert.deepEqual(plain.filters.characterIncluded,["c1"]);assert.deepEqual(plain.filters.characterExcluded,["c2"]);assert.deepEqual(plain.workProtagonistProfiles,{W:"作品設定"});assert.equal(plain.worldMode,"modern");assert.equal(plain.themeMode,"dark");
   assert.throws(()=>storage.makeBackup(settings,null),/アーカイブ/);assert.deepEqual(storage.makeBackup(settings,[]).data.novels,[]);
 });
 
@@ -14,7 +14,7 @@ test("shared decoder normalizes persisted fields before load or restore",()=>{
   assert.deepEqual(decoded.pools.relationship,["1"]);assert.equal(decoded.locks.character,true);assert.equal(decoded.filters.minHeight,null);
   assert.deepEqual(decoded.pools.situation,["scene"]);assert.deepEqual(decoded.pools.mood,["mood"]);
   assert.deepEqual(decoded.filters.characterIncluded,[]);assert.deepEqual(decoded.filters.characterExcluded,[]);
-  assert.equal(decoded.worldMode,"modern");assert.deepEqual(decoded.workProtagonistProfiles,{W:"作品設定"});
+  assert.equal(decoded.worldMode,"modern");assert.equal(decoded.themeMode,"dark");assert.deepEqual(decoded.workProtagonistProfiles,{W:"作品設定"});
   const decodedRules=storage.decodeSettings(storage.plainSettings(settings),{},true);
   assert.deepEqual(decodedRules.filters.characterIncluded,["c1"]);assert.deepEqual(decodedRules.filters.characterExcluded,["c2"]);
   const explicitEmpty=storage.decodeSettings({...storage.plainSettings(settings),pools:{relationship:[]}},{pools:{relationship:["default"],situation:["scene"]}},true);
@@ -22,8 +22,9 @@ test("shared decoder normalizes persisted fields before load or restore",()=>{
 });
 
 test("legacy settings get the default world mode and invalid new fields are rejected",()=>{
-  const legacy=storage.decodeSettings({characters:[],pools:{}},{worldMode:"canon"},true);assert.equal(legacy.worldMode,"canon");assert.deepEqual(legacy.workProtagonistProfiles,{});
+  const legacy=storage.decodeSettings({characters:[],pools:{}},{worldMode:"canon"},true);assert.equal(legacy.worldMode,"canon");assert.equal(legacy.themeMode,"system");assert.deepEqual(legacy.workProtagonistProfiles,{});
   assert.throws(()=>storage.validateSettings({...storage.plainSettings(settings),worldMode:"space"}),/worldMode/);
+  assert.throws(()=>storage.validateSettings({...storage.plainSettings(settings),themeMode:"neon"}),/themeMode/);
   assert.throws(()=>storage.validateSettings({...storage.plainSettings(settings),workProtagonistProfiles:[]}),/workProtagonistProfiles/);
 });
 

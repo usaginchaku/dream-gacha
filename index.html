@@ -3,14 +3,20 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>夢小説シチュガチャ</title>
-<link rel="stylesheet" href="styles.css?v=33">
+<script>try{const s=JSON.parse(localStorage.getItem("dreamGachaSettings")||"null"),m=s?.themeMode||"system";document.documentElement.dataset.theme=m==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):m}catch(e){}</script>
+<link rel="stylesheet" href="styles.css?v=34">
 </head>
 <body>
 <div class="wrap">
 <header id="pageTop">
-  <div class="eyebrow">Dream Scenario Gacha</div>
-  <h1>夢小説シチュガチャ</h1>
-  <p class="lead">好きなキャラとシチュエーションを組み合わせ、夢小説用プロンプトの作成から作品の保存までひとつに。</p>
+  <div class="header-row">
+    <div>
+      <div class="eyebrow">Dream Scenario Gacha</div>
+      <h1>夢小説シチュガチャ</h1>
+      <p class="lead">好きなキャラとシチュエーションを組み合わせ、夢小説用プロンプトの作成から作品の保存までひとつに。</p>
+    </div>
+    <label class="theme-control" for="themeMode"><span>表示</span><select id="themeMode" aria-label="画面の配色"><option value="system">端末設定</option><option value="light">ライト</option><option value="dark">ダーク</option></select></label>
+  </div>
 </header>
 
 <nav class="tabs" aria-label="ページ切り替え" role="tablist">
@@ -25,9 +31,9 @@
   <section class="panel">
     <div class="panel-head"><h2>ガチャ結果</h2><span class="label">アーカイブ済みキャラは抽選対象外</span></div>
     <div class="panel-body">
-      <div class="gacha-top-actions"><button class="primary" id="rollAll">🎲 固定以外を全部ガチャ</button><span>結果を固定してから押すと、残りだけ引き直します。</span></div>
-      <div class="filter-box">
-        <div class="filter-title"><strong>キャラを絞り込む</strong><span class="count-badge" id="candidateCount">候補を集計中</span></div>
+      <details class="filter-box filter-disclosure" id="gachaFilterDetails">
+        <summary class="filter-title"><span><strong>キャラを絞り込む</strong><small id="filterSummaryMeta">条件を集計中</small></span><span class="count-badge" id="candidateCount">候補を集計中</span></summary>
+        <div class="filter-content">
         <div class="world-mode-box" aria-labelledby="worldModeLabel">
           <div class="world-mode-head"><strong id="worldModeLabel">世界観モード</strong><span class="label" id="worldModeSummary"></span></div>
           <div class="world-mode-options" id="worldModeOptions">
@@ -82,8 +88,10 @@
         <div class="filter-actions">
           <button class="small-btn" id="clearFilters">検索・作品・タグなどを解除</button>
         </div>
-      </div>
+        </div>
+      </details>
 
+      <div class="gacha-top-actions"><button class="primary" id="rollAll">🎲 固定以外を全部ガチャ</button><span>結果を固定してから押すと、残りだけ引き直します。</span></div>
       <div class="result-grid" id="resultGrid"></div>
       <div class="result-bulk-actions" aria-label="ガチャ結果の一括操作">
         <span class="result-bulk-label">一括操作</span>
@@ -479,13 +487,13 @@
 </div>
 <div class="toast" id="toast">ガチャ対象に戻しました</div>
 
-<script src="app-data.js?v=33"></script>
-<script src="app-domain.js?v=33"></script>
-<script src="app-storage.js?v=33"></script>
-<script src="app-ui.js?v=33"></script>
+<script src="app-data.js?v=34"></script>
+<script src="app-domain.js?v=34"></script>
+<script src="app-storage.js?v=34"></script>
+<script src="app-ui.js?v=34"></script>
 <script src="character-data.generated.js?v=ad66dc7fa9f3"></script>
-<script src="seed-data.js?v=33"></script>
-<script src="app.js?v=33"></script>
+<script src="seed-data.js?v=34"></script>
+<script src="app.js?v=34"></script>
 
 
 </body></html>
