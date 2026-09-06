@@ -461,12 +461,38 @@ function chooseValue(value){
  save();closeChooser();
 }
 function updateCategoryStatus(key){
- const el=document.querySelector(`[data-category-status="${key}"]`);if(!el)return;
- const include=state.categoryInclude[key],excluded=[...state.categoryExcluded[key]];
- const parts=[];
- if(include)parts.push(`<span class="include">設定：${esc(include)}</span>`);
- if(excluded.length)parts.push(`<span class="exclude">除外：${esc(excluded.join("、"))}</span>`);
- el.innerHTML=parts.length?parts.join("　"):`カテゴリ指定なし`;
+  const el=document.querySelector(`[data-category-status="${key}"]`);if(!el)return;
+  const include=state.categoryInclude[key],excluded=[...state.categoryExcluded[key]];
+  const parts=[];
+  if(include)parts.push(`<span class="include">設定：${esc(include)}</span>`);
+  if(excluded.length)parts.push(`<span class="exclude">除外：${esc(excluded.join("、"))}</span>`);
+  el.innerHTML=parts.length?parts.join("　"):`カテゴリ指定なし`;
+  updateResultBulkActions();
+}
+function updateResultBulkActions(){
+ const keys=DreamGachaData.CARD_KEYS;
+ const anyLocked=keys.some(k=>!!state.locks[k]),allLocked=keys.every(k=>!!state.locks[k]);
+ const hasCategoryRules=keys.some(k=>!!state.categoryInclude[k]||state.categoryExcluded[k]?.size);
+ const lockAll=$("#lockAllResults"),unlockAll=$("#unlockAllResults"),resetCategories=$("#resetAllCategoryRules");
+ if(lockAll)lockAll.disabled=allLocked;
+ if(unlockAll)unlockAll.disabled=!anyLocked;
+ if(resetCategories)resetCategories.disabled=!hasCategoryRules;
+}
+function setAllLocks(locked){
+ for(const key of DreamGachaData.CARD_KEYS){
+  state.locks[key]=locked;
+  const input=document.querySelector(`[data-lock="${key}"]`);if(input)input.checked=locked;
+  updateLock(key);
+ }
+ save();showToast(locked?"すべての結果を固定しました":"固定をすべて解除しました");
+}
+function resetAllCategoryRules(){
+ const keys=DreamGachaData.CARD_KEYS;
+ const changed=keys.some(k=>!!state.categoryInclude[k]||state.categoryExcluded[k]?.size);
+ if(!changed)return;
+ for(const key of keys){state.categoryInclude[key]=null;state.categoryExcluded[key].clear();updateCategoryStatus(key)}
+ if(chooserKey){renderChooserCategoryChips();renderChooserList()}
+ save();renderGachaFilters();renderManager();showToast("カテゴリの選択・除外をすべて解除しました");
 }
 function renderResultCards(){
  const grid=$("#resultGrid");grid.innerHTML="";
@@ -487,9 +513,9 @@ function renderResultCards(){
   const b=e.target.closest("[data-reroll]");if(b)return rollOne(b.dataset.reroll,true);
   const f=e.target.closest("[data-favorite-current]");if(f&&currentCharacter())toggleFavorite([currentCharacter().id])
  });
- grid.addEventListener("change",e=>{const i=e.target.closest("[data-lock]");if(!i)return;state.locks[i.dataset.lock]=i.checked;updateLock(i.dataset.lock)});
+ grid.addEventListener("change",e=>{const i=e.target.closest("[data-lock]");if(!i)return;state.locks[i.dataset.lock]=i.checked;updateLock(i.dataset.lock);save()});
 }
-function updateLock(k){document.querySelector(`.result-card[data-key="${k}"]`)?.classList.toggle("locked",!!state.locks[k])}
+function updateLock(k){document.querySelector(`.result-card[data-key="${k}"]`)?.classList.toggle("locked",!!state.locks[k]);updateResultBulkActions()}
 function currentCharacter(){return state.characters.find(c=>c.id===state.characterId&&!c.archived)||null}
 function activeCharacters(){return state.characters.filter(c=>!c.archived)}
 function baseFilteredCharacters(){
@@ -990,6 +1016,9 @@ function init(){
  $("#characterPicker").addEventListener("change",e=>{if(e.target.value){state.characterId=e.target.value;updateCard("character")}});
  $("#candidatePreview").addEventListener("click",e=>{const b=e.target.closest("[data-pick-candidate]");if(!b)return;state.characterId=b.dataset.pickCandidate;updateCard("character");$("#characterPicker").value=state.characterId;showToast("キャラを選択しました")});
  $("#clearFilters").addEventListener("click",()=>{state.filters={search:"",work:"",series:"",tags:new Set(),tagMode:"all",favorite:"all",minHeight:null,maxHeight:null};$("#tagMode").value="all";renderGachaFilters();renderManager();showToast("共通検索条件とタグを解除しました")});
+ $("#lockAllResults").addEventListener("click",()=>setAllLocks(true));
+ $("#unlockAllResults").addEventListener("click",()=>setAllLocks(false));
+ $("#resetAllCategoryRules").addEventListener("click",resetAllCategoryRules);
  $("#rollAll").addEventListener("click",rollAll);$("#buildPrompt").addEventListener("click",()=>buildPrompt(true));$("#copyPrompt").addEventListener("click",copyPrompt);
  $("#saveCurrentPreset").addEventListener("click",saveCurrentConditionsPreset);$("#openNovelSave").addEventListener("click",prepareNovelSave);$("#savePresetFromLibrary").addEventListener("click",saveCurrentConditionsPreset);$("#saveNovel").addEventListener("click",saveNovelArchive);
  $("#novelSearch").addEventListener("input",renderNovelList);$("#novelBody").addEventListener("input",()=>$("#novelBodyCount").textContent=fmtChars(novelCharCount($("#novelBody").value)));$("#novelFavoriteOnly").addEventListener("click",()=>{novelFavoriteOnly=!novelFavoriteOnly;$("#novelFavoriteOnly").classList.toggle("active",novelFavoriteOnly);renderNovelList()});

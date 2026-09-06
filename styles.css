@@ -80,6 +80,11 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .tag-chip.active .tag-count{background:rgba(255,255,255,.22);color:#fff}
 .filter-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:end;margin-top:12px}
 .result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.result-bulk-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:12px 0 2px;padding:9px 10px;border:1px solid var(--line);border-radius:14px;background:#faf8fc}
+.result-bulk-label{font-size:.72rem;font-weight:950;color:var(--muted);margin-right:2px}
+.result-bulk-actions .small-btn{min-height:38px}
+.result-bulk-actions .category-reset-btn{margin-left:auto;color:#7b4d6b;border-color:#decbd6;background:#fffafd}
+.result-bulk-actions button:disabled{opacity:.42;cursor:default;transform:none}
 .result-card{border:1px solid var(--line);border-radius:16px;background:var(--panel2);padding:14px;min-height:130px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
 .result-card.locked{background:#f3edf9;border-color:#d9c9e8}
 .value{font-size:1.04rem;font-weight:900;line-height:1.5;min-height:3em;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
@@ -227,6 +232,10 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
   .choice-category-chip>span:nth-child(2){overflow:hidden;text-overflow:ellipsis}
   .choice-category-exclude{border-radius:0 12px 12px 0;min-height:46px;padding:8px 10px}
   .choice-category-help{margin-top:8px}
+  .result-bulk-actions{display:grid;grid-template-columns:1fr 1fr;padding:10px}
+  .result-bulk-label{grid-column:1/-1}
+  .result-bulk-actions .small-btn{min-height:44px;width:100%}
+  .result-bulk-actions .category-reset-btn{grid-column:1/-1;margin-left:0}
   .wrap{width:min(100% - 18px,1080px)} header{padding-top:22px}
  .panel-body{padding:14px} .panel-head{padding:15px} .result-grid,.pool-grid,.manager-form,.io-box{grid-template-columns:1fr}
  .filter-grid,.main-actions{grid-template-columns:1fr} .filter-bottom{grid-template-columns:1fr}

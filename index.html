@@ -66,6 +66,12 @@
       </div>
 
       <div class="result-grid" id="resultGrid"></div>
+      <div class="result-bulk-actions" aria-label="ガチャ結果の一括操作">
+        <span class="result-bulk-label">一括操作</span>
+        <button type="button" class="small-btn" id="lockAllResults">🔒 すべて固定</button>
+        <button type="button" class="small-btn" id="unlockAllResults">🔓 固定を全解除</button>
+        <button type="button" class="small-btn category-reset-btn" id="resetAllCategoryRules">↺ 選択・除外を全解除</button>
+      </div>
       <div class="field" style="margin-top:14px"><label for="freeExtra">自由な追加指定（任意）</label><textarea id="freeExtra" placeholder="例：夢主側からは告白しない／雨で髪が濡れている／長めに書いて"></textarea></div>
       <div class="main-actions"><button class="primary" id="rollAll">🎲 固定以外を全部ガチャ</button><button class="secondary" id="buildPrompt">✨ プロンプトを生成</button></div>
       <div class="library-quick-actions">
@@ -251,7 +257,7 @@
   </section>
 </section>
 </main>
-<footer>v0.24 / スマホ向けカテゴリ操作を改善 / ローカル利用可 / サーバー不要</footer>
+<footer>v0.25 / ガチャ結果の一括リセットを追加 / ローカル利用可 / サーバー不要</footer>
 </div>
 <div class="quick-nav" id="managerQuickNav" aria-label="キャラ管理クイック移動" hidden="">
   <button type="button" id="jumpTop">↑ 上へ</button>
