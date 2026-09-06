@@ -1,0 +1,729 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "seed-0225",
+      "name": "進藤ヒカル",
+      "work": "ヒカルの碁",
+      "series": "主要人物",
+      "tags": [
+        "主人公",
+        "年下系",
+        "不器用",
+        "負けず嫌い",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "155cm（プロ試験合格時）",
+      "heightCm": 155,
+      "heightStatus": "verified",
+      "heightSource": "公開キャラクタープロフィール値を複数資料で照合"
+    },
+    {
+      "id": "seed-0226",
+      "name": "藤原佐為",
+      "work": "ヒカルの碁",
+      "series": "主要人物",
+      "tags": [
+        "指導者",
+        "情熱的",
+        "年上系",
+        "美形",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0227",
+      "name": "塔矢アキラ",
+      "work": "ヒカルの碁",
+      "series": "主要人物",
+      "tags": [
+        "ライバル",
+        "一途",
+        "誠実",
+        "年下系",
+        "美形",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "164cm（ヒカルのプロ試験合格時）",
+      "heightCm": 164,
+      "heightStatus": "verified",
+      "heightSource": "公開キャラクタープロフィール値を複数資料で照合"
+    },
+    {
+      "id": "seed-0228",
+      "name": "筒井公宏",
+      "work": "ヒカルの碁",
+      "series": "葉瀬中囲碁部",
+      "tags": [
+        "誠実",
+        "知的",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "165cm",
+      "heightCm": 165,
+      "heightStatus": "verified",
+      "heightSource": "公開キャラクタープロフィール値を複数資料で照合"
+    },
+    {
+      "id": "seed-0229",
+      "name": "加賀鉄男",
+      "work": "ヒカルの碁",
+      "series": "葉瀬中囲碁部",
+      "tags": [
+        "荒っぽい",
+        "年下系",
+        "不器用",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "176cm",
+      "heightCm": 176,
+      "heightStatus": "verified",
+      "heightSource": "公開キャラクタープロフィール値を複数資料で照合"
+    },
+    {
+      "id": "seed-0230",
+      "name": "三谷祐輝",
+      "work": "ヒカルの碁",
+      "series": "葉瀬中囲碁部",
+      "tags": [
+        "年下系",
+        "不器用",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "159cm",
+      "heightCm": 159,
+      "heightStatus": "verified",
+      "heightSource": "公開キャラクタープロフィール値を複数資料で照合"
+    },
+    {
+      "id": "seed-0231",
+      "name": "岸本薫",
+      "work": "ヒカルの碁",
+      "series": "海王中囲碁部",
+      "tags": [
+        "誠実",
+        "知的",
+        "年下系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0232",
+      "name": "小池仁志",
+      "work": "ヒカルの碁",
+      "series": "葉瀬中囲碁部",
+      "tags": [
+        "誠実",
+        "素直",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0233",
+      "name": "和谷義高",
+      "work": "ヒカルの碁",
+      "series": "院生・プロ",
+      "tags": [
+        "年下系",
+        "不器用",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "168cm",
+      "heightCm": 168,
+      "heightStatus": "verified",
+      "heightSource": "公開キャラクタープロフィール値を複数資料で照合"
+    },
+    {
+      "id": "seed-0234",
+      "name": "伊角慎一郎",
+      "work": "ヒカルの碁",
+      "series": "院生・プロ",
+      "tags": [
+        "誠実",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "176cm",
+      "heightCm": 176,
+      "heightStatus": "verified",
+      "heightSource": "公開キャラクタープロフィール値を複数資料で照合"
+    },
+    {
+      "id": "seed-0235",
+      "name": "越智康介",
+      "work": "ヒカルの碁",
+      "series": "院生・プロ",
+      "tags": [
+        "自信家",
+        "誠実",
+        "知的",
+        "年下系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0236",
+      "name": "本田敏則",
+      "work": "ヒカルの碁",
+      "series": "院生・プロ",
+      "tags": [
+        "誠実",
+        "同年代系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0237",
+      "name": "福井雄太",
+      "work": "ヒカルの碁",
+      "series": "院生",
+      "tags": [
+        "マイペース",
+        "素直",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0238",
+      "name": "椿俊郎",
+      "work": "ヒカルの碁",
+      "series": "プロ試験",
+      "tags": [
+        "情熱的",
+        "体格がいい",
+        "年上系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0239",
+      "name": "足立俊輝",
+      "work": "ヒカルの碁",
+      "series": "院生",
+      "tags": [
+        "誠実",
+        "同年代系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0240",
+      "name": "小宮英二",
+      "work": "ヒカルの碁",
+      "series": "院生",
+      "tags": [
+        "誠実",
+        "同年代系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0241",
+      "name": "飯島良",
+      "work": "ヒカルの碁",
+      "series": "院生",
+      "tags": [
+        "誠実",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0242",
+      "name": "片桐恭平",
+      "work": "ヒカルの碁",
+      "series": "院生",
+      "tags": [
+        "誠実",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0243",
+      "name": "塔矢行洋",
+      "work": "ヒカルの碁",
+      "series": "プロ棋士",
+      "tags": [
+        "自信家",
+        "戦闘系",
+        "知的",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "verified",
+      "heightSource": "公開キャラクタープロフィール値を複数資料で照合"
+    },
+    {
+      "id": "seed-0244",
+      "name": "緒方精次",
+      "work": "ヒカルの碁",
+      "series": "プロ棋士",
+      "tags": [
+        "自信家",
+        "色気",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "verified",
+      "heightSource": "公開キャラクタープロフィール値を複数資料で照合"
+    },
+    {
+      "id": "seed-0245",
+      "name": "桑原仁",
+      "work": "ヒカルの碁",
+      "series": "プロ棋士",
+      "tags": [
+        "マイペース",
+        "策士",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0246",
+      "name": "倉田厚",
+      "work": "ヒカルの碁",
+      "series": "プロ棋士",
+      "tags": [
+        "自信家",
+        "情熱的",
+        "知的",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0247",
+      "name": "森下茂男",
+      "work": "ヒカルの碁",
+      "series": "プロ棋士",
+      "tags": [
+        "指導者",
+        "情熱的",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0248",
+      "name": "門脇龍彦",
+      "work": "ヒカルの碁",
+      "series": "プロ棋士",
+      "tags": [
+        "誠実",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0249",
+      "name": "御器曽",
+      "work": "ヒカルの碁",
+      "series": "プロ棋士",
+      "tags": [
+        "自信家",
+        "挑発的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0250",
+      "name": "座間王座",
+      "work": "ヒカルの碁",
+      "series": "プロ棋士",
+      "tags": [
+        "自信家",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0251",
+      "name": "篠田院生師範",
+      "work": "ヒカルの碁",
+      "series": "日本棋院",
+      "tags": [
+        "指導者",
+        "誠実",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0252",
+      "name": "白川道夫",
+      "work": "ヒカルの碁",
+      "series": "日本棋院",
+      "tags": [
+        "指導者",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0253",
+      "name": "河合さん",
+      "work": "ヒカルの碁",
+      "series": "碁会所",
+      "tags": [
+        "情熱的",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0254",
+      "name": "真柴充",
+      "work": "ヒカルの碁",
+      "series": "プロ棋士",
+      "tags": [
+        "気弱",
+        "知的",
+        "挑発的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0255",
+      "name": "社清春",
+      "work": "ヒカルの碁",
+      "series": "北斗杯",
+      "tags": [
+        "マイペース",
+        "自信家",
+        "知的",
+        "年下系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0256",
+      "name": "洪秀英（ホン・スヨン）",
+      "work": "ヒカルの碁",
+      "series": "韓国",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "年下系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0257",
+      "name": "高永夏（コ・ヨンハ）",
+      "work": "ヒカルの碁",
+      "series": "北斗杯・韓国",
+      "tags": [
+        "ライバル",
+        "自信家",
+        "知的",
+        "挑発的",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0258",
+      "name": "安太善（アン・テソン）",
+      "work": "ヒカルの碁",
+      "series": "韓国",
+      "tags": [
+        "誠実",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0259",
+      "name": "楊海（ヤン・ハイ）",
+      "work": "ヒカルの碁",
+      "series": "中国",
+      "tags": [
+        "指導者",
+        "知的",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0260",
+      "name": "楽平（レェピン）",
+      "work": "ヒカルの碁",
+      "series": "中国",
+      "tags": [
+        "素直",
+        "年下系",
+        "負けず嫌い",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0261",
+      "name": "王世振（ワン・シチェン）",
+      "work": "ヒカルの碁",
+      "series": "中国",
+      "tags": [
+        "誠実",
+        "知識職",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0262",
+      "name": "本因坊秀策",
+      "work": "ヒカルの碁",
+      "series": "歴史",
+      "tags": [
+        "誠実",
+        "知識職",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    }
+  ],
+  "sourceOrder": {
+    "seed-0225": 228,
+    "seed-0226": 229,
+    "seed-0227": 230,
+    "seed-0228": 231,
+    "seed-0229": 232,
+    "seed-0230": 233,
+    "seed-0231": 234,
+    "seed-0232": 235,
+    "seed-0233": 236,
+    "seed-0234": 237,
+    "seed-0235": 238,
+    "seed-0236": 239,
+    "seed-0237": 240,
+    "seed-0238": 241,
+    "seed-0239": 242,
+    "seed-0240": 243,
+    "seed-0241": 244,
+    "seed-0242": 245,
+    "seed-0243": 246,
+    "seed-0244": 247,
+    "seed-0245": 248,
+    "seed-0246": 249,
+    "seed-0247": 250,
+    "seed-0248": 251,
+    "seed-0249": 252,
+    "seed-0250": 253,
+    "seed-0251": 254,
+    "seed-0252": 255,
+    "seed-0253": 256,
+    "seed-0254": 257,
+    "seed-0255": 258,
+    "seed-0256": 259,
+    "seed-0257": 260,
+    "seed-0258": 261,
+    "seed-0259": 262,
+    "seed-0260": 263,
+    "seed-0261": 264,
+    "seed-0262": 265
+  }
+}

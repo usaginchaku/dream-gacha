@@ -1,0 +1,1215 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "pack-058c05366c7fd8",
+      "name": "ルルーシュ・ランペルージ",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "強気",
+        "策士",
+        "主人公",
+        "知的",
+        "年下系",
+        "美形"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "178cm→181cm（1期→R2）",
+      "heightCm": 181,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e015ed5b52b1ca",
+      "name": "枢木スザク",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "年下系",
+        "美形",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "176cm→179cm（1期→R2）",
+      "heightCm": 179,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-276a1e980ed2bd",
+      "name": "ロロ・ランペルージ（成人版）",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "一途",
+        "寡黙",
+        "危険",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "170.5cm",
+      "heightCm": 170.5,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-1165a2f8525aa4",
+      "name": "ジノ・ヴァインベルグ",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "キザ",
+        "戦闘系",
+        "年下系",
+        "美形",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "198cm",
+      "heightCm": 198,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-b8b549dcf7dad9",
+      "name": "黎星刻",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "一途",
+        "戦闘系",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "191cm",
+      "heightCm": 191,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-4481272e5ac447",
+      "name": "リヴァル・カルデモンド",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "164cm",
+      "heightCm": 164,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-5b07486d266b63",
+      "name": "扇要",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "指導者",
+        "誠実",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "186cm",
+      "heightCm": 186,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-76e4321c7eb1a7",
+      "name": "玉城真一郎",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "情熱的",
+        "戦闘系",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "172cm",
+      "heightCm": 172,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-4d1401267f38cf",
+      "name": "藤堂鏡志朗",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "指導者",
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "190cm",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d7ee7284922bc3",
+      "name": "卜部巧雪",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "194cm",
+      "heightCm": 194,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-9c361b1d7e538c",
+      "name": "仙波峻河",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-19ac94f55c4cf8",
+      "name": "朝比奈昇悟",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "戦闘系",
+        "挑発的",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e67ef08fbe897e",
+      "name": "ディートハルト・リート",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "策士",
+        "知的",
+        "年上系",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "192cm",
+      "heightCm": 192,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-963d20456734db",
+      "name": "シャルル・ジ・ブリタニア",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "悪役",
+        "強気",
+        "権力者",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "197cm",
+      "heightCm": 197,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-4ae0647d87b630",
+      "name": "V.V.",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "悪役",
+        "危険",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "120cm",
+      "heightCm": 120,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d1e5526637ee0c",
+      "name": "シュナイゼル・エル・ブリタニア",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "策士",
+        "知的",
+        "年上系",
+        "美形",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "200cm",
+      "heightCm": 200,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-ad741c1bcf4b16",
+      "name": "オデュッセウス・ウ・ブリタニア",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "権力者",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-96f744ad64e5c5",
+      "name": "ギルバート・G・P・ギルフォード",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "一途",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "197cm",
+      "heightCm": 197,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-5298dca0debc42",
+      "name": "アンドレアス・ダールトン",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "203cm",
+      "heightCm": 203,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-6927b759da8191",
+      "name": "ロイド・アスプルンド",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "マイペース",
+        "個性的",
+        "知的",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "190cm",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-a7b3a6a91b15df",
+      "name": "ジェレミア・ゴットバルト",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "一途",
+        "情熱的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "192cm",
+      "heightCm": 192,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-bd34129d46ce70",
+      "name": "クロヴィス・ラ・ブリタニア",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "権力者",
+        "自信家",
+        "年上系",
+        "美形"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "192cm",
+      "heightCm": 192,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-88f6dcc4226768",
+      "name": "バトレー・アスプリウス",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "一般人",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-b54f6da969f853",
+      "name": "シャリオ",
+      "work": "コードギアス",
+      "series": "復活のルルーシュ",
+      "tags": [
+        "危険",
+        "強気",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-45aec1d43d8b41",
+      "name": "ボルボナ・フォーグナー",
+      "work": "コードギアス",
+      "series": "復活のルルーシュ",
+      "tags": [
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-7de5833b673d63",
+      "name": "シェスタール・フォーグナー",
+      "work": "コードギアス",
+      "series": "復活のルルーシュ",
+      "tags": [
+        "戦闘系",
+        "年下系",
+        "美形",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-52065c6cb79e1c",
+      "name": "ベルク・バトゥム・ビトゥル",
+      "work": "コードギアス",
+      "series": "復活のルルーシュ",
+      "tags": [
+        "強気",
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-43215324df11d8",
+      "name": "スウェイル・クジャパット",
+      "work": "コードギアス",
+      "series": "復活のルルーシュ",
+      "tags": [
+        "危険",
+        "戦闘系",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-86aa9860527913",
+      "name": "日向アキト",
+      "work": "コードギアス",
+      "series": "亡国のアキト",
+      "tags": [
+        "寡黙",
+        "主人公",
+        "戦闘系",
+        "年下系",
+        "不器用",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-bfd30fbaa6a906",
+      "name": "佐山リョウ",
+      "work": "コードギアス",
+      "series": "亡国のアキト",
+      "tags": [
+        "情熱的",
+        "戦闘系",
+        "年下系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-25dda18aa362fe",
+      "name": "成瀬ユキヤ",
+      "work": "コードギアス",
+      "series": "亡国のアキト",
+      "tags": [
+        "危険",
+        "知的",
+        "年下系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "168cm",
+      "heightCm": 168,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-51097cc7738233",
+      "name": "クラウス・ウォリック",
+      "work": "コードギアス",
+      "series": "亡国のアキト",
+      "tags": [
+        "マイペース",
+        "指導者",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e836fe12d4cf0e",
+      "name": "ジョウ・ワイズ",
+      "work": "コードギアス",
+      "series": "亡国のアキト",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "183cm",
+      "heightCm": 183,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-c52797ca7bdb10",
+      "name": "オスカー・ハメル",
+      "work": "コードギアス",
+      "series": "亡国のアキト",
+      "tags": [
+        "一般人",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-b5fec35779cff0",
+      "name": "ジィーン・スマイラス",
+      "work": "コードギアス",
+      "series": "亡国のアキト",
+      "tags": [
+        "権力者",
+        "策士",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "183cm",
+      "heightCm": 183,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-734d31165c589b",
+      "name": "アシュレイ・アシュラ",
+      "work": "コードギアス",
+      "series": "亡国のアキト",
+      "tags": [
+        "自信家",
+        "情熱的",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-c9e9382e423e28",
+      "name": "シン・ヒュウガ・シャイング",
+      "work": "コードギアス",
+      "series": "亡国のアキト",
+      "tags": [
+        "危険",
+        "強気",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "187cm",
+      "heightCm": 187,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-f3ba0525f01c71",
+      "name": "アッシュ",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "寡黙",
+        "主人公",
+        "誠実",
+        "戦闘系",
+        "年下系",
+        "美形"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-2a0628ac070a91",
+      "name": "カリス・アル・ブリタニア（成人版）",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "強気",
+        "権力者",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-c40069b173450f",
+      "name": "ノーランド・フォン・リューネベルク",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "強気",
+        "権力者",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-48325fa087d2af",
+      "name": "スタンリー・フォンブラウン",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-b9e79aeaf58d64",
+      "name": "ヴァルター・リンドシュテット",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-68fa36a7b26b6c",
+      "name": "ディボック・メルテ",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "強気",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-fa927db492f00d",
+      "name": "クリストフ・シザーマン",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-958675e701d9be",
+      "name": "ヒース・ロット",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "自信家",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-1ca5c0347cac3b",
+      "name": "アーノルド・レンク",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "強気",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-f831fc64d9b8ec",
+      "name": "グリード・カークウェイン",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-d289dbfe249ac3",
+      "name": "グラン・カークウェイン",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "情熱的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-979018e96c2ebe",
+      "name": "黒戸剣成",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "指導者",
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-91549b37dfb00e",
+      "name": "物部勲",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-4961fcebb4bcbb",
+      "name": "小田友臣",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-52953137d2a3b8",
+      "name": "宗森葵太",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "戦闘系",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-312d4b441d6317",
+      "name": "漣",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "寡黙",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-49b77dd5510e26",
+      "name": "志塚",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-7c88bf23e778c9",
+      "name": "東見",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-3bef13b74505f0",
+      "name": "岩本",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-ba5898c3d4d545",
+      "name": "ヴァレン・スターク",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-30d969aa05fd1f",
+      "name": "皇重護",
+      "work": "コードギアス",
+      "series": "奪還のロゼ",
+      "tags": [
+        "権力者",
+        "誠実",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-f13afa4447ffc4",
+      "name": "カノン・マルディーニ",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "誠実",
+        "知的",
+        "年上系",
+        "美形",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d1d47960f1e655",
+      "name": "ビスマルク・ヴァルトシュタイン",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "体格がいい",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "203cm",
+      "heightCm": 203,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-db42ab7ee5f93f",
+      "name": "マオ",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "一途",
+        "危険",
+        "知的",
+        "挑発的",
+        "年下系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "186cm",
+      "heightCm": 186,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-3f4b65db3bd9f7",
+      "name": "ルキアーノ・ブラッドリー",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "危険",
+        "強気",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-b03db035451fbe",
+      "name": "南佳高",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d12896b96d992a",
+      "name": "杉山賢人",
+      "work": "コードギアス",
+      "series": "反逆のルルーシュ / R2",
+      "tags": [
+        "戦闘系",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "185cm",
+      "heightCm": 185,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    }
+  ],
+  "sourceOrder": {
+    "pack-058c05366c7fd8": 638,
+    "pack-e015ed5b52b1ca": 639,
+    "pack-276a1e980ed2bd": 640,
+    "pack-1165a2f8525aa4": 641,
+    "pack-b8b549dcf7dad9": 642,
+    "pack-4481272e5ac447": 643,
+    "pack-5b07486d266b63": 644,
+    "pack-76e4321c7eb1a7": 645,
+    "pack-4d1401267f38cf": 646,
+    "pack-d7ee7284922bc3": 647,
+    "pack-9c361b1d7e538c": 648,
+    "pack-19ac94f55c4cf8": 649,
+    "pack-e67ef08fbe897e": 650,
+    "pack-963d20456734db": 651,
+    "pack-4ae0647d87b630": 652,
+    "pack-d1e5526637ee0c": 653,
+    "pack-ad741c1bcf4b16": 654,
+    "pack-96f744ad64e5c5": 655,
+    "pack-5298dca0debc42": 656,
+    "pack-6927b759da8191": 657,
+    "pack-a7b3a6a91b15df": 658,
+    "pack-bd34129d46ce70": 659,
+    "pack-88f6dcc4226768": 660,
+    "pack-b54f6da969f853": 661,
+    "pack-45aec1d43d8b41": 662,
+    "pack-7de5833b673d63": 663,
+    "pack-52065c6cb79e1c": 664,
+    "pack-43215324df11d8": 665,
+    "pack-86aa9860527913": 666,
+    "pack-bfd30fbaa6a906": 667,
+    "pack-25dda18aa362fe": 668,
+    "pack-51097cc7738233": 669,
+    "pack-e836fe12d4cf0e": 670,
+    "pack-c52797ca7bdb10": 671,
+    "pack-b5fec35779cff0": 672,
+    "pack-734d31165c589b": 673,
+    "pack-c9e9382e423e28": 674,
+    "pack-f3ba0525f01c71": 675,
+    "pack-2a0628ac070a91": 676,
+    "pack-c40069b173450f": 677,
+    "pack-48325fa087d2af": 678,
+    "pack-b9e79aeaf58d64": 679,
+    "pack-68fa36a7b26b6c": 680,
+    "pack-fa927db492f00d": 681,
+    "pack-958675e701d9be": 682,
+    "pack-1ca5c0347cac3b": 683,
+    "pack-f831fc64d9b8ec": 684,
+    "pack-d289dbfe249ac3": 685,
+    "pack-979018e96c2ebe": 686,
+    "pack-91549b37dfb00e": 687,
+    "pack-4961fcebb4bcbb": 688,
+    "pack-52953137d2a3b8": 689,
+    "pack-312d4b441d6317": 690,
+    "pack-49b77dd5510e26": 691,
+    "pack-7c88bf23e778c9": 692,
+    "pack-3bef13b74505f0": 693,
+    "pack-ba5898c3d4d545": 694,
+    "pack-30d969aa05fd1f": 695,
+    "pack-f13afa4447ffc4": 776,
+    "pack-d1d47960f1e655": 777,
+    "pack-db42ab7ee5f93f": 778,
+    "pack-3f4b65db3bd9f7": 779,
+    "pack-b03db035451fbe": 780,
+    "pack-d12896b96d992a": 781
+  }
+}

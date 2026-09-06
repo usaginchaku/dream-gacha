@@ -1,0 +1,2243 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "pack-d590d31e657f9c",
+      "name": "童子切安綱 剥落",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-9c9b4c3a7445ca",
+      "name": "三日月宗近",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "マイペース",
+        "戦闘系",
+        "年上系",
+        "美形",
+        "包容力"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-8091a50a83704f",
+      "name": "小狐丸",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "自信家",
+        "戦闘系",
+        "年上系",
+        "美形"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-05149cae2fe419",
+      "name": "大典太光世",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "190cm",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-828b85b79f2a05",
+      "name": "ソハヤノツルキ",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e2f92f9b8a04c7",
+      "name": "数珠丸恒次",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "181cm",
+      "heightCm": 181,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-fb0c59d5eaa74d",
+      "name": "鬼丸国綱",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "193cm",
+      "heightCm": 193,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e829ec25d2a6bc",
+      "name": "一期一振",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "包容力"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-6b18cb0f3221bb",
+      "name": "大包平",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "189cm",
+      "heightCm": 189,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e84778b642f35a",
+      "name": "鶯丸",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "176cm",
+      "heightCm": 176,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-7156d35d52e683",
+      "name": "明石国行",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d37f052ca8c135",
+      "name": "燭台切光忠",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "美形",
+        "包容力"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "186cm",
+      "heightCm": 186,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e20b8cdc1b375d",
+      "name": "大般若長光",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "184cm",
+      "heightCm": 184,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-6752fbdebe5202",
+      "name": "小竜景光",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "187cm",
+      "heightCm": 187,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-34a85c65cc07b6",
+      "name": "江雪左文字",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-2074442abdd9af",
+      "name": "山伏国広",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-2174146b1a74fd",
+      "name": "髭切",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "マイペース",
+        "戦闘系",
+        "年上系",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-39321ead4b8bc7",
+      "name": "膝丸",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "179cm",
+      "heightCm": 179,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-fb8908693156df",
+      "name": "獅子王",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "166cm",
+      "heightCm": 166,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-aeefaa0bad18df",
+      "name": "小烏丸",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "155cm",
+      "heightCm": 155,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-55f400662cc350",
+      "name": "抜丸",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "157cm",
+      "heightCm": 157,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-911a814f3d5b9f",
+      "name": "鶴丸国永",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "個性的",
+        "戦闘系",
+        "挑発的",
+        "年上系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-c3b0e7dde48e5a",
+      "name": "小豆長光",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-2896d855e7c7db",
+      "name": "千代金丸",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "176cm",
+      "heightCm": 176,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-67ce326b61c04e",
+      "name": "山鳥毛",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "189cm",
+      "heightCm": 189,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-5c5f3a53e4de56",
+      "name": "古今伝授の太刀",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-45807abc608972",
+      "name": "日光一文字",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "194cm",
+      "heightCm": 194,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-76e03e30c76fd7",
+      "name": "一文字則宗",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "171cm",
+      "heightCm": 171,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d93f4573b9e56e",
+      "name": "姫鶴一文字",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "183cm",
+      "heightCm": 183,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-3f9bbfc66d6c8d",
+      "name": "福島光忠",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-8c44ddf2042129",
+      "name": "笹貫",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-1589b3a6d4432a",
+      "name": "八丁念仏",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-859d20f5707e54",
+      "name": "実休光忠",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "189cm",
+      "heightCm": 189,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-2f4e9e84b2d919",
+      "name": "雲生",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-ca1599048a6994",
+      "name": "道誉一文字",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "197cm",
+      "heightCm": 197,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-caa749bb14c362",
+      "name": "雲次",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-bc7a4bb351d167",
+      "name": "面影",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "174cm",
+      "heightCm": 174,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-1617bdb80341e3",
+      "name": "古備前信房",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-2c2f63469cbbb3",
+      "name": "三郎国宗",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "179cm",
+      "heightCm": 179,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-2e4afebc63f3bb",
+      "name": "波平行安",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-197a5674d2ab65",
+      "name": "狐ヶ崎為次",
+      "work": "刀剣乱舞ONLINE",
+      "series": "太刀",
+      "tags": [
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-36142173e89720",
+      "name": "石切丸",
+      "work": "刀剣乱舞ONLINE",
+      "series": "大太刀",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "189cm",
+      "heightCm": 189,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e516e9f6b482c9",
+      "name": "蛍丸",
+      "work": "刀剣乱舞ONLINE",
+      "series": "大太刀",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "120cm",
+      "heightCm": 120,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-8232d30e622a32",
+      "name": "太郎太刀",
+      "work": "刀剣乱舞ONLINE",
+      "series": "大太刀",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "196cm",
+      "heightCm": 196,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-ee5b924ee3c36e",
+      "name": "次郎太刀",
+      "work": "刀剣乱舞ONLINE",
+      "series": "大太刀",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "190cm",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-f5c938aac3c376",
+      "name": "祢々切丸",
+      "work": "刀剣乱舞ONLINE",
+      "series": "大太刀",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "205cm",
+      "heightCm": 205,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-5444f1fc52ffc5",
+      "name": "柏太刀",
+      "work": "刀剣乱舞ONLINE",
+      "series": "大太刀",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "169cm",
+      "heightCm": 169,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-ac19fbfb8c9355",
+      "name": "にっかり青江",
+      "work": "刀剣乱舞ONLINE",
+      "series": "脇差",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "167cm",
+      "heightCm": 167,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-02debbecae997e",
+      "name": "鯰尾藤四郎",
+      "work": "刀剣乱舞ONLINE",
+      "series": "脇差",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "158cm",
+      "heightCm": 158,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-3e48f1fab9a946",
+      "name": "骨喰藤四郎",
+      "work": "刀剣乱舞ONLINE",
+      "series": "脇差",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "159cm",
+      "heightCm": 159,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-305523c0d33cf4",
+      "name": "物吉貞宗",
+      "work": "刀剣乱舞ONLINE",
+      "series": "脇差",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "157cm",
+      "heightCm": 157,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e7a9594c30ebc8",
+      "name": "堀川国広",
+      "work": "刀剣乱舞ONLINE",
+      "series": "脇差",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "160cm",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e134dc9bc4dfd4",
+      "name": "浦島虎徹",
+      "work": "刀剣乱舞ONLINE",
+      "series": "脇差",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "157cm",
+      "heightCm": 157,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-64cc4c17ba5f98",
+      "name": "篭手切江",
+      "work": "刀剣乱舞ONLINE",
+      "series": "脇差",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "161cm",
+      "heightCm": 161,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-3ce51a01dfd2f2",
+      "name": "肥前忠広",
+      "work": "刀剣乱舞ONLINE",
+      "series": "脇差",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "167cm",
+      "heightCm": 167,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-5533db60b9fdfa",
+      "name": "治金丸",
+      "work": "刀剣乱舞ONLINE",
+      "series": "脇差",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "162cm",
+      "heightCm": 162,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-9ea5f8c02f2044",
+      "name": "泛塵",
+      "work": "刀剣乱舞ONLINE",
+      "series": "脇差",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "161cm",
+      "heightCm": 161,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-42bfb4bcb97420",
+      "name": "火車切",
+      "work": "刀剣乱舞ONLINE",
+      "series": "脇差",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "164cm",
+      "heightCm": 164,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-bf3278af2ad060",
+      "name": "鳴狐",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "164cm",
+      "heightCm": 164,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-97ab0d9c3c9248",
+      "name": "千子村正",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "個性的",
+        "色気",
+        "戦闘系",
+        "挑発的",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-8bf07f7c995994",
+      "name": "亀甲貞宗",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "一途",
+        "個性的",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-8a00551fab8443",
+      "name": "宗三左文字",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "179cm",
+      "heightCm": 179,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-3bde070fd0be1d",
+      "name": "加州清光",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "一途",
+        "戦闘系",
+        "同年代系",
+        "美形",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "165cm",
+      "heightCm": 165,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-c38d45177ed0bf",
+      "name": "大和守安定",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "165cm",
+      "heightCm": 165,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-a80eb63739deb1",
+      "name": "歌仙兼定",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-b2c75787c1567c",
+      "name": "和泉守兼定",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "186cm",
+      "heightCm": 186,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-33978d11243124",
+      "name": "陸奥守吉行",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "174cm",
+      "heightCm": 174,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-ea55b641fa35ad",
+      "name": "山姥切国広",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "172cm",
+      "heightCm": 172,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-4b18328d92caea",
+      "name": "蜂須賀虎徹",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "176cm",
+      "heightCm": 176,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d5613cb265f78d",
+      "name": "長曽祢虎徹",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "187cm",
+      "heightCm": 187,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-170db34017fc8c",
+      "name": "大倶利伽羅",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "一途",
+        "寡黙",
+        "戦闘系",
+        "同年代系",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-bb6b42898c1499",
+      "name": "へし切長谷部",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "一途",
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-26856f705874b5",
+      "name": "同田貫正国",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "169cm",
+      "heightCm": 169,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-42def52e175138",
+      "name": "南泉一文字",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "174cm",
+      "heightCm": 174,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-9acc4c71217bfe",
+      "name": "山姥切長義",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "自信家",
+        "戦闘系",
+        "知的",
+        "同年代系",
+        "美形"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "173cm",
+      "heightCm": 173,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-3885cbf699e069",
+      "name": "豊前江",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d59e8c8636c3df",
+      "name": "南海太郎朝尊",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "179cm",
+      "heightCm": 179,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-47c8f72fe2ae65",
+      "name": "桑名江",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-7a6659e210ac41",
+      "name": "水心子正秀",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "166cm",
+      "heightCm": 166,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-1a9988e1aea626",
+      "name": "源清麿",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "169cm",
+      "heightCm": 169,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-45d0cbfda53f5d",
+      "name": "松井江",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "176cm",
+      "heightCm": 176,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-c1acb44c92cf85",
+      "name": "地蔵行平",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "167cm",
+      "heightCm": 167,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-69020c94be0d06",
+      "name": "五月雨江",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-b2b8b89b85122f",
+      "name": "村雲江",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-913b731136e11d",
+      "name": "稲葉江",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "183cm",
+      "heightCm": 183,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-7af3a96642bf5e",
+      "name": "石田正宗",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "165cm",
+      "heightCm": 165,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-b5f9dee73e9ab2",
+      "name": "孫六兼元",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-a8510f81b4213a",
+      "name": "後家兼光",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "187cm",
+      "heightCm": 187,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e0be4c37029a6e",
+      "name": "富田江",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "185cm",
+      "heightCm": 185,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e5b2271adbe46c",
+      "name": "大慶直胤",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "166cm",
+      "heightCm": 166,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-04bf1c7b827b9a",
+      "name": "安宅切",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "176cm",
+      "heightCm": 176,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-27c955862a5f84",
+      "name": "二筋樋貞宗",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "185cm",
+      "heightCm": 185,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-6ff234ee04ba09",
+      "name": "雲重",
+      "work": "刀剣乱舞ONLINE",
+      "series": "打刀",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "174cm",
+      "heightCm": 174,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-4d9f532a6848db",
+      "name": "今剣",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "123cm",
+      "heightCm": 123,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-154e38a720a5e8",
+      "name": "平野藤四郎",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "132cm",
+      "heightCm": 132,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-c2851ff39d526f",
+      "name": "厚藤四郎",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "154cm",
+      "heightCm": 154,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-207b6d4265713a",
+      "name": "後藤藤四郎",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "151cm",
+      "heightCm": 151,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-8c1ce72762257b",
+      "name": "信濃藤四郎",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "153cm",
+      "heightCm": 153,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-8f27870d96df0b",
+      "name": "前田藤四郎",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "130cm",
+      "heightCm": 130,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-49635b6e72543c",
+      "name": "秋田藤四郎",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "125cm",
+      "heightCm": 125,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-b941b9cf82cd63",
+      "name": "博多藤四郎",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "137cm",
+      "heightCm": 137,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e04a8e32f048a9",
+      "name": "乱藤四郎",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "145cm",
+      "heightCm": 145,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-8c1624ee5432d2",
+      "name": "五虎退",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "135cm",
+      "heightCm": 135,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-7c385895fe08b1",
+      "name": "薬研藤四郎",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "知的",
+        "年下系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "153cm",
+      "heightCm": 153,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-64b3518aa58424",
+      "name": "包丁藤四郎",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "128cm",
+      "heightCm": 128,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-9644ff1988a6a6",
+      "name": "愛染国俊",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "131cm",
+      "heightCm": 131,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-b94742586f08cd",
+      "name": "太鼓鐘貞宗",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "152cm",
+      "heightCm": 152,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-15c71a97568e41",
+      "name": "小夜左文字",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "118cm",
+      "heightCm": 118,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-aa34c15d6d7bf5",
+      "name": "不動行光",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "154cm",
+      "heightCm": 154,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-59a04432045ad0",
+      "name": "毛利藤四郎",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "132cm",
+      "heightCm": 132,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e8f176d7baf3f2",
+      "name": "謙信景光",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "131cm",
+      "heightCm": 131,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-74d6e6a1e4c810",
+      "name": "日向正宗",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "144cm",
+      "heightCm": 144,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-b5f6d882e081bd",
+      "name": "北谷菜切",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "123cm",
+      "heightCm": 123,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-b185de0ca6287c",
+      "name": "太閤左文字",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "136cm",
+      "heightCm": 136,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-c2f515742e1a77",
+      "name": "京極正宗",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "146cm",
+      "heightCm": 146,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e819d1ceceff05",
+      "name": "九鬼正宗",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "149cm",
+      "heightCm": 149,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-97e046eb459894",
+      "name": "倶利伽羅江",
+      "work": "刀剣乱舞ONLINE",
+      "series": "短刀",
+      "tags": [
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "154cm",
+      "heightCm": 154,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-c6f08b0e8d3fe2",
+      "name": "蜻蛉切",
+      "work": "刀剣乱舞ONLINE",
+      "series": "槍",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "198cm",
+      "heightCm": 198,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-99dd1687bcc7ac",
+      "name": "日本号",
+      "work": "刀剣乱舞ONLINE",
+      "series": "槍",
+      "tags": [
+        "マイペース",
+        "色気",
+        "戦闘系",
+        "体格がいい",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "195cm",
+      "heightCm": 195,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-3ecf46cca1f95e",
+      "name": "御手杵",
+      "work": "刀剣乱舞ONLINE",
+      "series": "槍",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "192cm",
+      "heightCm": 192,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-5e130cd1f957b3",
+      "name": "大千鳥十文字槍",
+      "work": "刀剣乱舞ONLINE",
+      "series": "槍",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "192cm",
+      "heightCm": 192,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-09c6ac18addf9c",
+      "name": "人間無骨",
+      "work": "刀剣乱舞ONLINE",
+      "series": "槍",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "168cm",
+      "heightCm": 168,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d5eece68f75fed",
+      "name": "岩融",
+      "work": "刀剣乱舞ONLINE",
+      "series": "薙刀",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "203cm",
+      "heightCm": 203,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-0613712d60340a",
+      "name": "巴形薙刀",
+      "work": "刀剣乱舞ONLINE",
+      "series": "薙刀",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "193cm",
+      "heightCm": 193,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-ef60965c605518",
+      "name": "静形薙刀",
+      "work": "刀剣乱舞ONLINE",
+      "series": "薙刀",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "195cm",
+      "heightCm": 195,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-4a16d14c3f2b75",
+      "name": "白山吉光",
+      "work": "刀剣乱舞ONLINE",
+      "series": "剣",
+      "tags": [
+        "個性的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "154cm",
+      "heightCm": 154,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-b223df47751b45",
+      "name": "七星剣",
+      "work": "刀剣乱舞ONLINE",
+      "series": "剣",
+      "tags": [
+        "個性的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "170cm",
+      "heightCm": 170,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-79d21f1aa4f1d0",
+      "name": "丙子椒林剣",
+      "work": "刀剣乱舞ONLINE",
+      "series": "剣",
+      "tags": [
+        "個性的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    }
+  ],
+  "sourceOrder": {
+    "pack-d590d31e657f9c": 380,
+    "pack-9c9b4c3a7445ca": 381,
+    "pack-8091a50a83704f": 382,
+    "pack-05149cae2fe419": 383,
+    "pack-828b85b79f2a05": 384,
+    "pack-e2f92f9b8a04c7": 385,
+    "pack-fb0c59d5eaa74d": 386,
+    "pack-e829ec25d2a6bc": 387,
+    "pack-6b18cb0f3221bb": 388,
+    "pack-e84778b642f35a": 389,
+    "pack-7156d35d52e683": 390,
+    "pack-d37f052ca8c135": 391,
+    "pack-e20b8cdc1b375d": 392,
+    "pack-6752fbdebe5202": 393,
+    "pack-34a85c65cc07b6": 394,
+    "pack-2074442abdd9af": 395,
+    "pack-2174146b1a74fd": 396,
+    "pack-39321ead4b8bc7": 397,
+    "pack-fb8908693156df": 398,
+    "pack-aeefaa0bad18df": 399,
+    "pack-55f400662cc350": 400,
+    "pack-911a814f3d5b9f": 401,
+    "pack-c3b0e7dde48e5a": 402,
+    "pack-2896d855e7c7db": 403,
+    "pack-67ce326b61c04e": 404,
+    "pack-5c5f3a53e4de56": 405,
+    "pack-45807abc608972": 406,
+    "pack-76e03e30c76fd7": 407,
+    "pack-d93f4573b9e56e": 408,
+    "pack-3f9bbfc66d6c8d": 409,
+    "pack-8c44ddf2042129": 410,
+    "pack-1589b3a6d4432a": 411,
+    "pack-859d20f5707e54": 412,
+    "pack-2f4e9e84b2d919": 413,
+    "pack-ca1599048a6994": 414,
+    "pack-caa749bb14c362": 415,
+    "pack-bc7a4bb351d167": 416,
+    "pack-1617bdb80341e3": 417,
+    "pack-2c2f63469cbbb3": 418,
+    "pack-2e4afebc63f3bb": 419,
+    "pack-197a5674d2ab65": 420,
+    "pack-36142173e89720": 421,
+    "pack-e516e9f6b482c9": 422,
+    "pack-8232d30e622a32": 423,
+    "pack-ee5b924ee3c36e": 424,
+    "pack-f5c938aac3c376": 425,
+    "pack-5444f1fc52ffc5": 426,
+    "pack-ac19fbfb8c9355": 427,
+    "pack-02debbecae997e": 428,
+    "pack-3e48f1fab9a946": 429,
+    "pack-305523c0d33cf4": 430,
+    "pack-e7a9594c30ebc8": 431,
+    "pack-e134dc9bc4dfd4": 432,
+    "pack-64cc4c17ba5f98": 433,
+    "pack-3ce51a01dfd2f2": 434,
+    "pack-5533db60b9fdfa": 435,
+    "pack-9ea5f8c02f2044": 436,
+    "pack-42bfb4bcb97420": 437,
+    "pack-bf3278af2ad060": 438,
+    "pack-97ab0d9c3c9248": 439,
+    "pack-8bf07f7c995994": 440,
+    "pack-8a00551fab8443": 441,
+    "pack-3bde070fd0be1d": 442,
+    "pack-c38d45177ed0bf": 443,
+    "pack-a80eb63739deb1": 444,
+    "pack-b2c75787c1567c": 445,
+    "pack-33978d11243124": 446,
+    "pack-ea55b641fa35ad": 447,
+    "pack-4b18328d92caea": 448,
+    "pack-d5613cb265f78d": 449,
+    "pack-170db34017fc8c": 450,
+    "pack-bb6b42898c1499": 451,
+    "pack-26856f705874b5": 452,
+    "pack-42def52e175138": 453,
+    "pack-9acc4c71217bfe": 454,
+    "pack-3885cbf699e069": 455,
+    "pack-d59e8c8636c3df": 456,
+    "pack-47c8f72fe2ae65": 457,
+    "pack-7a6659e210ac41": 458,
+    "pack-1a9988e1aea626": 459,
+    "pack-45d0cbfda53f5d": 460,
+    "pack-c1acb44c92cf85": 461,
+    "pack-69020c94be0d06": 462,
+    "pack-b2b8b89b85122f": 463,
+    "pack-913b731136e11d": 464,
+    "pack-7af3a96642bf5e": 465,
+    "pack-b5f9dee73e9ab2": 466,
+    "pack-a8510f81b4213a": 467,
+    "pack-e0be4c37029a6e": 468,
+    "pack-e5b2271adbe46c": 469,
+    "pack-04bf1c7b827b9a": 470,
+    "pack-27c955862a5f84": 471,
+    "pack-6ff234ee04ba09": 472,
+    "pack-4d9f532a6848db": 473,
+    "pack-154e38a720a5e8": 474,
+    "pack-c2851ff39d526f": 475,
+    "pack-207b6d4265713a": 476,
+    "pack-8c1ce72762257b": 477,
+    "pack-8f27870d96df0b": 478,
+    "pack-49635b6e72543c": 479,
+    "pack-b941b9cf82cd63": 480,
+    "pack-e04a8e32f048a9": 481,
+    "pack-8c1624ee5432d2": 482,
+    "pack-7c385895fe08b1": 483,
+    "pack-64b3518aa58424": 484,
+    "pack-9644ff1988a6a6": 485,
+    "pack-b94742586f08cd": 486,
+    "pack-15c71a97568e41": 487,
+    "pack-aa34c15d6d7bf5": 488,
+    "pack-59a04432045ad0": 489,
+    "pack-e8f176d7baf3f2": 490,
+    "pack-74d6e6a1e4c810": 491,
+    "pack-b5f6d882e081bd": 492,
+    "pack-b185de0ca6287c": 493,
+    "pack-c2f515742e1a77": 494,
+    "pack-e819d1ceceff05": 495,
+    "pack-97e046eb459894": 496,
+    "pack-c6f08b0e8d3fe2": 497,
+    "pack-99dd1687bcc7ac": 498,
+    "pack-3ecf46cca1f95e": 499,
+    "pack-5e130cd1f957b3": 500,
+    "pack-09c6ac18addf9c": 501,
+    "pack-d5eece68f75fed": 502,
+    "pack-0613712d60340a": 503,
+    "pack-ef60965c605518": 504,
+    "pack-4a16d14c3f2b75": 505,
+    "pack-b223df47751b45": 506,
+    "pack-79d21f1aa4f1d0": 507
+  }
+}

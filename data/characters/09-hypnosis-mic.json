@@ -1,0 +1,360 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "pack-ced51feadde2f7",
+      "name": "山田一郎",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "Buster Bros!!!",
+      "tags": [
+        "主人公",
+        "情熱的",
+        "誠実",
+        "年下系",
+        "包容力"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "185cm",
+      "heightCm": 185,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-4828e748e905a5",
+      "name": "山田二郎",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "Buster Bros!!!",
+      "tags": [
+        "情熱的",
+        "年下系",
+        "不器用",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-1ede17b5677672",
+      "name": "山田三郎",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "Buster Bros!!!",
+      "tags": [
+        "知的",
+        "挑発的",
+        "年下系",
+        "負けず嫌い"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "173cm",
+      "heightCm": 173,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d0a280c399ff22",
+      "name": "碧棺左馬刻",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "MAD TRIGGER CREW",
+      "tags": [
+        "一途",
+        "強気",
+        "荒っぽい",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "186cm",
+      "heightCm": 186,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e0f28db4435069",
+      "name": "入間銃兎",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "MAD TRIGGER CREW",
+      "tags": [
+        "策士",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "181cm",
+      "heightCm": 181,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-267241d8887fea",
+      "name": "毒島メイソン理鶯",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "MAD TRIGGER CREW",
+      "tags": [
+        "寡黙",
+        "誠実",
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "191cm",
+      "heightCm": 191,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-8535e16a4af7d5",
+      "name": "飴村乱数",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "Fling Posse",
+      "tags": [
+        "個性的",
+        "策士",
+        "同年代系",
+        "美形",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "155cm",
+      "heightCm": 155,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-21b2a1285cf457",
+      "name": "夢野幻太郎",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "Fling Posse",
+      "tags": [
+        "マイペース",
+        "知的",
+        "挑発的",
+        "同年代系",
+        "美形"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-9864d2e0c8d738",
+      "name": "有栖川帝統",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "Fling Posse",
+      "tags": [
+        "マイペース",
+        "現実的",
+        "情熱的",
+        "同年代系"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-83a91df6749f40",
+      "name": "神宮寺寂雷",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "麻天狼",
+      "tags": [
+        "知的",
+        "年上系",
+        "包容力",
+        "優しい",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "195cm",
+      "heightCm": 195,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-3d2233b2ce1bb8",
+      "name": "伊弉冉一二三",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "麻天狼",
+      "tags": [
+        "キザ",
+        "女好き",
+        "年上系",
+        "美形",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "179cm",
+      "heightCm": 179,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-20a2b86733ac13",
+      "name": "観音坂独歩",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "麻天狼",
+      "tags": [
+        "一般人",
+        "気弱",
+        "誠実",
+        "年上系",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-0961bf313d0224",
+      "name": "白膠木簓",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "どついたれ本舗",
+      "tags": [
+        "個性的",
+        "挑発的",
+        "年上系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "174cm",
+      "heightCm": 174,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-eff12f31bdca96",
+      "name": "躑躅森盧笙",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "どついたれ本舗",
+      "tags": [
+        "指導者",
+        "誠実",
+        "年上系",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "181cm",
+      "heightCm": 181,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-34126839cd4e8e",
+      "name": "天谷奴零",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "どついたれ本舗",
+      "tags": [
+        "マイペース",
+        "危険",
+        "策士",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "190cm",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-824f201a4e2c36",
+      "name": "波羅夷空却",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "Bad Ass Temple",
+      "tags": [
+        "荒っぽい",
+        "情熱的",
+        "誠実",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "168cm",
+      "heightCm": 168,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-ff841af1dbb194",
+      "name": "四十物十四",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "Bad Ass Temple",
+      "tags": [
+        "気弱",
+        "個性的",
+        "年下系",
+        "美形"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "185cm",
+      "heightCm": 185,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-a3fc7578e19319",
+      "name": "天国獄",
+      "work": "ヒプノシスマイク -Division Rap Battle-",
+      "series": "Bad Ass Temple",
+      "tags": [
+        "強気",
+        "誠実",
+        "知的",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    }
+  ],
+  "sourceOrder": {
+    "pack-ced51feadde2f7": 589,
+    "pack-4828e748e905a5": 590,
+    "pack-1ede17b5677672": 591,
+    "pack-d0a280c399ff22": 592,
+    "pack-e0f28db4435069": 593,
+    "pack-267241d8887fea": 594,
+    "pack-8535e16a4af7d5": 595,
+    "pack-21b2a1285cf457": 596,
+    "pack-9864d2e0c8d738": 597,
+    "pack-83a91df6749f40": 598,
+    "pack-3d2233b2ce1bb8": 599,
+    "pack-20a2b86733ac13": 600,
+    "pack-0961bf313d0224": 601,
+    "pack-eff12f31bdca96": 602,
+    "pack-34126839cd4e8e": 603,
+    "pack-824f201a4e2c36": 604,
+    "pack-ff841af1dbb194": 605,
+    "pack-a3fc7578e19319": 606
+  }
+}

@@ -1,0 +1,967 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "pack-f12f8ae83fdcc0",
+      "name": "ウェンティ",
+      "work": "原神",
+      "series": "モンド",
+      "tags": [
+        "マイペース",
+        "個性的",
+        "美形",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "167.7cm（ゲーム内モデル計測）",
+      "heightCm": 167.7,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d86ef436e01ece",
+      "name": "ファルカ",
+      "work": "原神",
+      "series": "モンド",
+      "tags": [
+        "指導者",
+        "情熱的",
+        "戦闘系",
+        "包容力"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "約185〜195cm（Tall Maleモデル目安）",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-292cc0fddbe2ad",
+      "name": "レザー",
+      "work": "原神",
+      "series": "モンド",
+      "tags": [
+        "寡黙",
+        "戦闘系",
+        "素直",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "166.2cm（ゲーム内モデル計測）",
+      "heightCm": 166.2,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-19a8df05235091",
+      "name": "ベネット",
+      "work": "原神",
+      "series": "モンド",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "168.5cm（ゲーム内モデル計測）",
+      "heightCm": 168.5,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-6b60f55a0a1618",
+      "name": "ディルック",
+      "work": "原神",
+      "series": "モンド",
+      "tags": [
+        "寡黙",
+        "誠実",
+        "戦闘系",
+        "美形",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "186.8cm（ゲーム内モデル計測）",
+      "heightCm": 186.8,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d44e26472fae39",
+      "name": "ガイア",
+      "work": "原神",
+      "series": "モンド",
+      "tags": [
+        "キザ",
+        "策士",
+        "挑発的",
+        "美形"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "187.3cm（ゲーム内モデル計測）",
+      "heightCm": 187.3,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e28b8f6b70aa92",
+      "name": "ミカ",
+      "work": "原神",
+      "series": "モンド",
+      "tags": [
+        "気弱",
+        "誠実",
+        "知的"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約160cm前後（Medium Maleモデル目安）",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-723e3ce4b836b1",
+      "name": "アルベド",
+      "work": "原神",
+      "series": "モンド",
+      "tags": [
+        "個性的",
+        "知的",
+        "美形",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "165.8cm（ゲーム内モデル計測）",
+      "heightCm": 165.8,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d1c9285f7197d6",
+      "name": "ダリア",
+      "work": "原神",
+      "series": "モンド",
+      "tags": [
+        "個性的",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約160cm前後（Medium Maleモデル目安）",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-c3afb90551df28",
+      "name": "ドゥリン",
+      "work": "原神",
+      "series": "モンド",
+      "tags": [
+        "個性的",
+        "不器用",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約160cm前後（Medium Maleモデル目安）",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-4e92d25881d501",
+      "name": "ローエン",
+      "work": "原神",
+      "series": "モンド",
+      "tags": [
+        "誠実",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約160cm前後（Medium Maleモデル目安）",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-56a6c4e998c1a1",
+      "name": "魈",
+      "work": "原神",
+      "series": "璃月",
+      "tags": [
+        "寡黙",
+        "誠実",
+        "戦闘系",
+        "美形",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "165.5cm（ゲーム内モデル計測）",
+      "heightCm": 165.5,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-ac0c9f59476184",
+      "name": "白朮",
+      "work": "原神",
+      "series": "璃月",
+      "tags": [
+        "策士",
+        "知的",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "約185〜195cm（Tall Maleモデル目安）",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-1d969b139039a5",
+      "name": "嘉明",
+      "work": "原神",
+      "series": "璃月",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約160cm前後（Medium Maleモデル目安）",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-43e6f732cfbd3f",
+      "name": "重雲",
+      "work": "原神",
+      "series": "璃月",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "素直",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "166.7cm（ゲーム内モデル計測）",
+      "heightCm": 166.7,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-72c317ca8f4c95",
+      "name": "行秋",
+      "work": "原神",
+      "series": "璃月",
+      "tags": [
+        "誠実",
+        "知的",
+        "挑発的"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "167.8cm（ゲーム内モデル計測）",
+      "heightCm": 167.8,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-9886b3aff773af",
+      "name": "鍾離",
+      "work": "原神",
+      "series": "璃月",
+      "tags": [
+        "知的",
+        "年上系",
+        "美形",
+        "包容力",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "188.9cm（ゲーム内モデル計測）",
+      "heightCm": 188.9,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-f383325e206f81",
+      "name": "楓原万葉",
+      "work": "原神",
+      "series": "稲妻",
+      "tags": [
+        "誠実",
+        "美形",
+        "優しい",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "167.5cm（ゲーム内モデル計測）",
+      "heightCm": 167.5,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-77c7d2bdcec97c",
+      "name": "鹿野院平蔵",
+      "work": "原神",
+      "series": "稲妻",
+      "tags": [
+        "知的",
+        "挑発的",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約160cm前後（Medium Maleモデル目安）",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-6edc653d1a5f5c",
+      "name": "トーマ",
+      "work": "原神",
+      "series": "稲妻",
+      "tags": [
+        "誠実",
+        "包容力",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "187.5cm（ゲーム内モデル計測）",
+      "heightCm": 187.5,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-04659e2183cf78",
+      "name": "神里綾人",
+      "work": "原神",
+      "series": "稲妻",
+      "tags": [
+        "策士",
+        "知的",
+        "美形",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "188.4cm（ゲーム内モデル計測）",
+      "heightCm": 188.4,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-9020a1ef76790c",
+      "name": "ゴロー",
+      "work": "原神",
+      "series": "稲妻",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "包容力"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "166.4cm（ゲーム内モデル計測）",
+      "heightCm": 166.4,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-ff7ca96dc6d225",
+      "name": "荒瀧一斗",
+      "work": "原神",
+      "series": "稲妻",
+      "tags": [
+        "自信家",
+        "情熱的",
+        "体格がいい",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "193.4cm（ゲーム内モデル計測）",
+      "heightCm": 193.4,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-1e5232b27c53d3",
+      "name": "放浪者",
+      "work": "原神",
+      "series": "スメール",
+      "tags": [
+        "危険",
+        "強気",
+        "挑発的",
+        "美形",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "約160cm前後（Medium Maleモデル目安）",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-cc3a995ab43990",
+      "name": "セノ",
+      "work": "原神",
+      "series": "スメール",
+      "tags": [
+        "個性的",
+        "誠実",
+        "戦闘系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "約160cm前後（Medium Maleモデル目安）",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-4e3b54e917d548",
+      "name": "セトス",
+      "work": "原神",
+      "series": "スメール",
+      "tags": [
+        "誠実",
+        "知的",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約160cm前後（Medium Maleモデル目安）",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-81d30f45e1e72f",
+      "name": "ティナリ",
+      "work": "原神",
+      "series": "スメール",
+      "tags": [
+        "誠実",
+        "知的",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "約160cm前後（Medium Maleモデル目安）",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-75dcf72d6eb293",
+      "name": "アルハイゼン",
+      "work": "原神",
+      "series": "スメール",
+      "tags": [
+        "マイペース",
+        "知的",
+        "美形",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "約185〜195cm（Tall Maleモデル目安）",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-ae8bdf27c8c196",
+      "name": "カーヴェ",
+      "work": "原神",
+      "series": "スメール",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "美形",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "約185〜195cm（Tall Maleモデル目安）",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-8cc4b47775df90",
+      "name": "リネ",
+      "work": "原神",
+      "series": "フォンテーヌ",
+      "tags": [
+        "キザ",
+        "個性的",
+        "挑発的",
+        "美形"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約160cm前後（Medium Maleモデル目安）",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-3068f5958a3dbc",
+      "name": "フレミネ",
+      "work": "原神",
+      "series": "フォンテーヌ",
+      "tags": [
+        "寡黙",
+        "気弱",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約160cm前後（Medium Maleモデル目安）",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-108ab360f7da0d",
+      "name": "リオセスリ",
+      "work": "原神",
+      "series": "フォンテーヌ",
+      "tags": [
+        "体格がいい",
+        "挑発的",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約185〜195cm（Tall Maleモデル目安）",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-1d167a8caadf75",
+      "name": "ヌヴィレット",
+      "work": "原神",
+      "series": "フォンテーヌ",
+      "tags": [
+        "誠実",
+        "美形",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約185〜195cm（Tall Maleモデル目安）",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-0395d9d24168ab",
+      "name": "イファ",
+      "work": "原神",
+      "series": "ナタ",
+      "tags": [
+        "知的",
+        "明るい",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約185〜195cm（Tall Maleモデル目安）",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-292032943766e2",
+      "name": "オロルン",
+      "work": "原神",
+      "series": "ナタ",
+      "tags": [
+        "素直",
+        "不器用",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約185〜195cm（Tall Maleモデル目安）",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-6a31b4b3d5f170",
+      "name": "キィニチ",
+      "work": "原神",
+      "series": "ナタ",
+      "tags": [
+        "現実的",
+        "戦闘系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約160cm前後（Medium Maleモデル目安）",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-4f8cbf09b3578c",
+      "name": "フリンズ",
+      "work": "原神",
+      "series": "ナド・クライ",
+      "tags": [
+        "寡黙",
+        "誠実",
+        "戦闘系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約185〜195cm（Tall Maleモデル目安）",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-012a6d3e1ef3ed",
+      "name": "イルーガ",
+      "work": "原神",
+      "series": "ナド・クライ",
+      "tags": [
+        "誠実",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約160cm前後（Medium Maleモデル目安）",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-af79cd543238ee",
+      "name": "アリョーシャ",
+      "work": "原神",
+      "series": "スネージナヤ",
+      "tags": [
+        "誠実",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-ad04aa989cfc3e",
+      "name": "バレリー",
+      "work": "原神",
+      "series": "スネージナヤ",
+      "tags": [
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-d8a47a3ff48765",
+      "name": "ミティヤ",
+      "work": "原神",
+      "series": "スネージナヤ",
+      "tags": [
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-2505ca943306b1",
+      "name": "タルタリヤ",
+      "work": "原神",
+      "series": "スネージナヤ",
+      "tags": [
+        "危険",
+        "情熱的",
+        "戦闘系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "188.8cm（ゲーム内モデル計測）",
+      "heightCm": 188.8,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-2930581250b43a",
+      "name": "ノイ",
+      "work": "原神",
+      "series": "スネージナヤ",
+      "tags": [
+        "戦闘系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-ed45c36a08f374",
+      "name": "プルチネッラ",
+      "work": "原神",
+      "series": "スネージナヤ",
+      "tags": [
+        "権力者",
+        "策士",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-07d76f5d0bb754",
+      "name": "隊長",
+      "work": "原神",
+      "series": "スネージナヤ",
+      "tags": [
+        "寡黙",
+        "強気",
+        "戦闘系",
+        "体格がいい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-552564b8d37f0e",
+      "name": "博士",
+      "work": "原神",
+      "series": "スネージナヤ",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "知的"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-af4f15a07201ef",
+      "name": "富者",
+      "work": "原神",
+      "series": "スネージナヤ",
+      "tags": [
+        "悪役",
+        "策士",
+        "知的",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-5082b3aa52e287",
+      "name": "道化",
+      "work": "原神",
+      "series": "スネージナヤ",
+      "tags": [
+        "悪役",
+        "権力者",
+        "策士",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-19c9f76f552125",
+      "name": "ダインスレイヴ",
+      "work": "原神",
+      "series": "カーンルイア・五大罪人",
+      "tags": [
+        "寡黙",
+        "危険",
+        "戦闘系",
+        "美形",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-a43f9caa47f216",
+      "name": "レリル",
+      "work": "原神",
+      "series": "カーンルイア・五大罪人",
+      "tags": [
+        "危険",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-de71a442afdd73",
+      "name": "スルトロッチ",
+      "work": "原神",
+      "series": "カーンルイア・五大罪人",
+      "tags": [
+        "危険",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-f520e7c92c7ab6",
+      "name": "空",
+      "work": "原神",
+      "series": "旅人",
+      "tags": [
+        "主人公",
+        "誠実",
+        "戦闘系",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "167.3cm（ゲーム内モデル計測）",
+      "heightCm": 167.3,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    }
+  ],
+  "sourceOrder": {
+    "pack-f12f8ae83fdcc0": 537,
+    "pack-d86ef436e01ece": 538,
+    "pack-292cc0fddbe2ad": 539,
+    "pack-19a8df05235091": 540,
+    "pack-6b60f55a0a1618": 541,
+    "pack-d44e26472fae39": 542,
+    "pack-e28b8f6b70aa92": 543,
+    "pack-723e3ce4b836b1": 544,
+    "pack-d1c9285f7197d6": 545,
+    "pack-c3afb90551df28": 546,
+    "pack-4e92d25881d501": 547,
+    "pack-56a6c4e998c1a1": 548,
+    "pack-ac0c9f59476184": 549,
+    "pack-1d969b139039a5": 550,
+    "pack-43e6f732cfbd3f": 551,
+    "pack-72c317ca8f4c95": 552,
+    "pack-9886b3aff773af": 553,
+    "pack-f383325e206f81": 554,
+    "pack-77c7d2bdcec97c": 555,
+    "pack-6edc653d1a5f5c": 556,
+    "pack-04659e2183cf78": 557,
+    "pack-9020a1ef76790c": 558,
+    "pack-ff7ca96dc6d225": 559,
+    "pack-1e5232b27c53d3": 560,
+    "pack-cc3a995ab43990": 561,
+    "pack-4e3b54e917d548": 562,
+    "pack-81d30f45e1e72f": 563,
+    "pack-75dcf72d6eb293": 564,
+    "pack-ae8bdf27c8c196": 565,
+    "pack-8cc4b47775df90": 566,
+    "pack-3068f5958a3dbc": 567,
+    "pack-108ab360f7da0d": 568,
+    "pack-1d167a8caadf75": 569,
+    "pack-0395d9d24168ab": 570,
+    "pack-292032943766e2": 571,
+    "pack-6a31b4b3d5f170": 572,
+    "pack-4f8cbf09b3578c": 573,
+    "pack-012a6d3e1ef3ed": 574,
+    "pack-af79cd543238ee": 575,
+    "pack-ad04aa989cfc3e": 576,
+    "pack-d8a47a3ff48765": 577,
+    "pack-2505ca943306b1": 578,
+    "pack-2930581250b43a": 579,
+    "pack-ed45c36a08f374": 580,
+    "pack-07d76f5d0bb754": 581,
+    "pack-552564b8d37f0e": 582,
+    "pack-af4f15a07201ef": 583,
+    "pack-5082b3aa52e287": 584,
+    "pack-19c9f76f552125": 585,
+    "pack-a43f9caa47f216": 586,
+    "pack-de71a442afdd73": 587,
+    "pack-f520e7c92c7ab6": 588
+  }
+}

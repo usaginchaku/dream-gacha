@@ -1,0 +1,764 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "fe-yuri",
+      "name": "ユーリス",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "灰狼の学級",
+      "tags": [
+        "キザ",
+        "マイペース",
+        "知的",
+        "挑発的",
+        "年下系",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "171cm",
+      "heightCm": 171,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0186",
+      "name": "ベレト",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "主人公",
+      "tags": [
+        "寡黙",
+        "指導者",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0187",
+      "name": "ヒューベルト",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "黒鷲の学級",
+      "tags": [
+        "一途",
+        "危険",
+        "策士",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0188",
+      "name": "フェルディナント",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "黒鷲の学級",
+      "tags": [
+        "自信家",
+        "情熱的",
+        "誠実",
+        "同年代系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "175cm→180cm（第1部→第2部）",
+      "heightCm": 180,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0189",
+      "name": "カスパル",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "黒鷲の学級",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "素直",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "159cm→173cm（第1部→第2部）",
+      "heightCm": 173,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0190",
+      "name": "リンハルト",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "黒鷲の学級",
+      "tags": [
+        "マイペース",
+        "知的",
+        "同年代系",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0191",
+      "name": "ディミトリ",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "青獅子の学級",
+      "tags": [
+        "一途",
+        "誠実",
+        "同年代系",
+        "美形",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "180cm→188cm（第1部→第2部）",
+      "heightCm": 188,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0192",
+      "name": "ドゥドゥー",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "青獅子の学級",
+      "tags": [
+        "一途",
+        "寡黙",
+        "年上系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "204cm",
+      "heightCm": 204,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0193",
+      "name": "フェリクス",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "青獅子の学級",
+      "tags": [
+        "戦闘系",
+        "同年代系",
+        "不器用",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "174cm",
+      "heightCm": 174,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0194",
+      "name": "アッシュ",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "青獅子の学級",
+      "tags": [
+        "誠実",
+        "素直",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "164cm→174cm（第1部→第2部）",
+      "heightCm": 174,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0195",
+      "name": "シルヴァン",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "青獅子の学級",
+      "tags": [
+        "キザ",
+        "女好き",
+        "挑発的",
+        "同年代系",
+        "不器用",
+        "包容力"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "186cm",
+      "heightCm": 186,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0196",
+      "name": "クロード",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "金鹿の学級",
+      "tags": [
+        "マイペース",
+        "策士",
+        "自信家",
+        "知的",
+        "挑発的",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0197",
+      "name": "ローレンツ",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "金鹿の学級",
+      "tags": [
+        "キザ",
+        "自信家",
+        "誠実",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0198",
+      "name": "ラファエル",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "金鹿の学級",
+      "tags": [
+        "体格がいい",
+        "同年代系",
+        "包容力",
+        "明るい",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "190cm",
+      "heightCm": 190,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0199",
+      "name": "イグナーツ",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "金鹿の学級",
+      "tags": [
+        "職人系",
+        "誠実",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "164cm→168cm（第1部→第2部）",
+      "heightCm": 168,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0201",
+      "name": "バルタザール",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "灰狼の学級",
+      "tags": [
+        "情熱的",
+        "体格がいい",
+        "年上系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "198cm",
+      "heightCm": 198,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0202",
+      "name": "ハンネマン",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "士官学校・教会",
+      "tags": [
+        "指導者",
+        "誠実",
+        "知識職",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "190cm",
+      "heightCm": 190,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0203",
+      "name": "セテス",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "士官学校・教会",
+      "tags": [
+        "誠実",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0204",
+      "name": "イエリッツァ",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "士官学校・教会",
+      "tags": [
+        "寡黙",
+        "危険",
+        "年上系",
+        "不器用",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "193cm",
+      "heightCm": 193,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0205",
+      "name": "ツィリル",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "士官学校・教会",
+      "tags": [
+        "一途",
+        "誠実",
+        "年下系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "148cm→168cm（第1部→第2部）",
+      "heightCm": 168,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0206",
+      "name": "ジェラルト",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "セイロス騎士団",
+      "tags": [
+        "情熱的",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "185cm",
+      "heightCm": 185,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0207",
+      "name": "アロイス",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "セイロス騎士団",
+      "tags": [
+        "年上系",
+        "明るい",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "174cm",
+      "heightCm": 174,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0208",
+      "name": "ギルベルト",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "セイロス騎士団",
+      "tags": [
+        "寡黙",
+        "誠実",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "186cm",
+      "heightCm": 186,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内プロフィールの身長値をSerenes Forest等で照合"
+    },
+    {
+      "id": "seed-0209",
+      "name": "ロドリグ",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "ファーガス",
+      "tags": [
+        "誠実",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0210",
+      "name": "トマシュ",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "ガルグ＝マク",
+      "tags": [
+        "知識職",
+        "知的",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "176cm（ゲーム内部データ）",
+      "heightCm": 176,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0211",
+      "name": "ソロン",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "闇に蠢く者",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "176cm",
+      "heightCm": 176,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0212",
+      "name": "タレス",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "闇に蠢く者",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "186cm",
+      "heightCm": 186,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0213",
+      "name": "コスタス",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "盗賊",
+      "tags": [
+        "悪役",
+        "荒っぽい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "183cm",
+      "heightCm": 183,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0214",
+      "name": "ネメシス",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "歴史・その他",
+      "tags": [
+        "危険",
+        "自信家",
+        "情熱的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "202cm",
+      "heightCm": 202,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0215",
+      "name": "ロナート卿",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "ファーガス",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "176cm",
+      "heightCm": 176,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0216",
+      "name": "マイクラン",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "ファーガス",
+      "tags": [
+        "危険",
+        "荒っぽい",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0217",
+      "name": "アケロン",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "レスター",
+      "tags": [
+        "気弱",
+        "権力者",
+        "策士",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "162cm",
+      "heightCm": 162,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0218",
+      "name": "パラディン団長グェンダル",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "ファーガス",
+      "tags": [
+        "一途",
+        "寡黙",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "171cm",
+      "heightCm": 171,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0219",
+      "name": "ランドルフ",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "アドラステア",
+      "tags": [
+        "一途",
+        "情熱的",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0220",
+      "name": "メトジェイ",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "アドラステア",
+      "tags": [
+        "悪役",
+        "荒っぽい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0221",
+      "name": "アランデル公",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "アドラステア",
+      "tags": [
+        "権力者",
+        "策士",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "186cm（ゲーム内部データ）",
+      "heightCm": 186,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0222",
+      "name": "エーギル公（ルートヴィヒ）",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "アドラステア",
+      "tags": [
+        "権力者",
+        "策士",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "164cm（ゲーム内部データ）",
+      "heightCm": 164,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0223",
+      "name": "アルファルド",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "煤闇の章",
+      "tags": [
+        "一途",
+        "知的",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "verified",
+      "heightSource": "ゲーム内部データ／未使用プロフィール値をFire Emblem Wiki・fedatamine等で照合"
+    },
+    {
+      "id": "seed-0224",
+      "name": "門番",
+      "work": "ファイアーエムブレム 風花雪月",
+      "series": "ガルグ＝マク",
+      "tags": [
+        "一途",
+        "誠実",
+        "年下系",
+        "明るい",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    }
+  ],
+  "sourceOrder": {
+    "fe-yuri": 6,
+    "seed-0186": 190,
+    "seed-0187": 191,
+    "seed-0188": 192,
+    "seed-0189": 193,
+    "seed-0190": 194,
+    "seed-0191": 195,
+    "seed-0192": 196,
+    "seed-0193": 197,
+    "seed-0194": 198,
+    "seed-0195": 199,
+    "seed-0196": 200,
+    "seed-0197": 201,
+    "seed-0198": 202,
+    "seed-0199": 203,
+    "seed-0201": 204,
+    "seed-0202": 205,
+    "seed-0203": 206,
+    "seed-0204": 207,
+    "seed-0205": 208,
+    "seed-0206": 209,
+    "seed-0207": 210,
+    "seed-0208": 211,
+    "seed-0209": 212,
+    "seed-0210": 213,
+    "seed-0211": 214,
+    "seed-0212": 215,
+    "seed-0213": 216,
+    "seed-0214": 217,
+    "seed-0215": 218,
+    "seed-0216": 219,
+    "seed-0217": 220,
+    "seed-0218": 221,
+    "seed-0219": 222,
+    "seed-0220": 223,
+    "seed-0221": 224,
+    "seed-0222": 225,
+    "seed-0223": 226,
+    "seed-0224": 227
+  }
+}

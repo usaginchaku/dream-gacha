@@ -1,0 +1,368 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "pack-f0c249ec6c561a",
+      "name": "主人公（男）",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "パルデア地方",
+      "tags": [
+        "主人公",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-cc25a45a8db86f",
+      "name": "フトゥー博士",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "パルデア地方",
+      "tags": [
+        "知識職",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-5a1e9b9911e187",
+      "name": "ペパー",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "アカデミー",
+      "tags": [
+        "誠実",
+        "年下系",
+        "不器用",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-97b32621ffb198",
+      "name": "クラベル",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "アカデミー",
+      "tags": [
+        "個性的",
+        "指導者",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-b32a47ee8ba4d2",
+      "name": "ジニア",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "アカデミー",
+      "tags": [
+        "指導者",
+        "知的",
+        "年上系",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-c5cc223dce1092",
+      "name": "セイジ",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "アカデミー",
+      "tags": [
+        "個性的",
+        "指導者",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-df6dcb65acdeb4",
+      "name": "サワロ",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "アカデミー",
+      "tags": [
+        "指導者",
+        "体格がいい",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-912475549f4154",
+      "name": "グルーシャ",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "ジム・ポケモンリーグ",
+      "tags": [
+        "年下系",
+        "美形",
+        "不器用",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-a6a2da1360ff35",
+      "name": "コルサ",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "ジム・ポケモンリーグ",
+      "tags": [
+        "個性的",
+        "情熱的",
+        "職人系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-770b51931568bf",
+      "name": "ハイダイ",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "ジム・ポケモンリーグ",
+      "tags": [
+        "体格がいい",
+        "年上系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-91994b792f0776",
+      "name": "アオキ",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "ジム・ポケモンリーグ",
+      "tags": [
+        "一般人",
+        "寡黙",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-5c8e02e55a284f",
+      "name": "ハッサク",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "ジム・ポケモンリーグ",
+      "tags": [
+        "指導者",
+        "情熱的",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-59ac2892ba13aa",
+      "name": "ピーニャ",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "スター団",
+      "tags": [
+        "戦闘系",
+        "知的",
+        "年下系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-ac68dd04475d54",
+      "name": "シュウメイ",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "スター団",
+      "tags": [
+        "個性的",
+        "誠実",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-7880c324b00c80",
+      "name": "オルティガ",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "スター団",
+      "tags": [
+        "強気",
+        "戦闘系",
+        "年下系",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-9e4464feb0b722",
+      "name": "スグリ",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "ゼロの秘宝・キタカミ",
+      "tags": [
+        "ライバル",
+        "気弱",
+        "年下系",
+        "不器用",
+        "負けず嫌い"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-ab86327b87c4b6",
+      "name": "シアノ",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "ゼロの秘宝・ブルーベリー学園",
+      "tags": [
+        "マイペース",
+        "指導者",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-60d63744109431",
+      "name": "アカマツ",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "ゼロの秘宝・ブルーベリー学園",
+      "tags": [
+        "情熱的",
+        "戦闘系",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-3815a1872ad44d",
+      "name": "カキツバタ",
+      "work": "ポケットモンスター スカーレット・バイオレット",
+      "series": "ゼロの秘宝・ブルーベリー学園",
+      "tags": [
+        "マイペース",
+        "戦闘系",
+        "挑発的",
+        "年下系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    }
+  ],
+  "sourceOrder": {
+    "pack-f0c249ec6c561a": 607,
+    "pack-cc25a45a8db86f": 608,
+    "pack-5a1e9b9911e187": 609,
+    "pack-97b32621ffb198": 610,
+    "pack-b32a47ee8ba4d2": 611,
+    "pack-c5cc223dce1092": 612,
+    "pack-df6dcb65acdeb4": 613,
+    "pack-912475549f4154": 614,
+    "pack-a6a2da1360ff35": 615,
+    "pack-770b51931568bf": 616,
+    "pack-91994b792f0776": 617,
+    "pack-5c8e02e55a284f": 618,
+    "pack-59ac2892ba13aa": 619,
+    "pack-ac68dd04475d54": 620,
+    "pack-7880c324b00c80": 621,
+    "pack-9e4464feb0b722": 622,
+    "pack-ab86327b87c4b6": 623,
+    "pack-60d63744109431": 624,
+    "pack-3815a1872ad44d": 625
+  }
+}

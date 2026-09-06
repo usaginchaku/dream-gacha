@@ -1,0 +1,234 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "pack-e4b835b63a657b",
+      "name": "主人公（男）",
+      "work": "Pokémon LEGENDS Z-A",
+      "series": "MZ団",
+      "tags": [
+        "主人公",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-824f19c6811b79",
+      "name": "ガイ",
+      "work": "Pokémon LEGENDS Z-A",
+      "series": "MZ団",
+      "tags": [
+        "強気",
+        "戦闘系",
+        "年下系",
+        "明るい",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-c684a4c726df8c",
+      "name": "デウロ",
+      "work": "Pokémon LEGENDS Z-A",
+      "series": "MZ団",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-afd3b245b176a7",
+      "name": "ピュール",
+      "work": "Pokémon LEGENDS Z-A",
+      "series": "MZ団",
+      "tags": [
+        "気弱",
+        "個性的",
+        "職人系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-396e804a6f935c",
+      "name": "マスカット",
+      "work": "Pokémon LEGENDS Z-A",
+      "series": "クエーサー社",
+      "tags": [
+        "一般人",
+        "誠実",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-17aec4d24e2e79",
+      "name": "AZ",
+      "work": "Pokémon LEGENDS Z-A",
+      "series": "ミアレシティ",
+      "tags": [
+        "寡黙",
+        "個性的",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約300cm",
+      "heightCm": 300,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d17e0ecf492e00",
+      "name": "タラゴン",
+      "work": "Pokémon LEGENDS Z-A",
+      "series": "ミアレシティ",
+      "tags": [
+        "職人系",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-446264a67f00ad",
+      "name": "シロー",
+      "work": "Pokémon LEGENDS Z-A",
+      "series": "ミアレシティ",
+      "tags": [
+        "体格がいい",
+        "年上系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-aa663e9f44b740",
+      "name": "カラスバ",
+      "work": "Pokémon LEGENDS Z-A",
+      "series": "サビ組",
+      "tags": [
+        "危険",
+        "強気",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-d40c1824aef794",
+      "name": "ジプソ",
+      "work": "Pokémon LEGENDS Z-A",
+      "series": "サビ組",
+      "tags": [
+        "一途",
+        "荒っぽい",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-2da8c360e0a0bd",
+      "name": "グリ",
+      "work": "Pokémon LEGENDS Z-A",
+      "series": "ミアレシティ",
+      "tags": [
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-9a9afc802f9d7f",
+      "name": "F",
+      "work": "Pokémon LEGENDS Z-A",
+      "series": "ミアレシティ",
+      "tags": [
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    }
+  ],
+  "sourceOrder": {
+    "pack-e4b835b63a657b": 626,
+    "pack-824f19c6811b79": 627,
+    "pack-c684a4c726df8c": 628,
+    "pack-afd3b245b176a7": 629,
+    "pack-396e804a6f935c": 630,
+    "pack-17aec4d24e2e79": 631,
+    "pack-d17e0ecf492e00": 632,
+    "pack-446264a67f00ad": 633,
+    "pack-aa663e9f44b740": 634,
+    "pack-d40c1824aef794": 635,
+    "pack-2da8c360e0a0bd": 636,
+    "pack-9a9afc802f9d7f": 637
+  }
+}

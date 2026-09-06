@@ -1,0 +1,2710 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "jojo-josuke",
+      "name": "東方仗助",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "一途",
+        "年下系",
+        "不器用",
+        "包容力",
+        "明るい",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": true,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-joseph",
+      "name": "ジョセフ・ジョースター",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "キザ",
+        "情熱的",
+        "挑発的",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": true,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-caesar",
+      "name": "シーザー・A・ツェペリ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "キザ",
+        "自信家",
+        "女好き",
+        "情熱的",
+        "年上系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "186cm",
+      "heightCm": 186,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Caesar Anthonio Zeppeli」プロフィール：186cm"
+    },
+    {
+      "id": "jojo-bucciarati",
+      "name": "ブローノ・ブチャラティ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "誠実",
+        "年上系",
+        "包容力",
+        "優しい",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "185cm（アニメ設定）／178cm（原作プロフィール）",
+      "heightCm": 185,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "jojo-fugo",
+      "name": "パンナコッタ・フーゴ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "知的",
+        "年下系",
+        "不器用",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "178cm（アニメ設定）／175cm（GHGR）",
+      "heightCm": 178,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "jojo-mista",
+      "name": "グイード・ミスタ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "情熱的",
+        "同年代系",
+        "不器用",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "182cm（アニメ設定）／179cm（原作プロフィール）",
+      "heightCm": 182,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0001",
+      "name": "ジョルノ・ジョバァーナ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "一途",
+        "主人公",
+        "情熱的",
+        "知的",
+        "年下系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "175cm（アニメ設定）／172cm（原作プロフィール）",
+      "heightCm": 175,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0004",
+      "name": "ナランチャ・ギルガ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "一途",
+        "情熱的",
+        "素直",
+        "年下系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "170cm（アニメ設定）／164cm（原作プロフィール）",
+      "heightCm": 170,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0005",
+      "name": "レオーネ・アバッキオ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "寡黙",
+        "年上系",
+        "不器用",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0007",
+      "name": "広瀬康一",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "誠実",
+        "年下系",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "157cm（原作プロフィール）／150cm（4部アニメ設定）",
+      "heightCm": 157,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0008",
+      "name": "空条承太郎",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "寡黙",
+        "年上系",
+        "不器用",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "195cm",
+      "heightCm": 195,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0009",
+      "name": "涙目のルカ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "悪役",
+        "危険",
+        "荒っぽい",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0010",
+      "name": "ポルポ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "悪役",
+        "強気",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0011",
+      "name": "ペリーコロ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "誠実",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "105cm（アニメ設定）",
+      "heightCm": 105,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0012",
+      "name": "ズッケェロ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "悪役",
+        "荒っぽい",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm（アニメ設定）",
+      "heightCm": 182,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0013",
+      "name": "サーレー",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "悪役",
+        "自信家",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm（アニメ設定）",
+      "heightCm": 182,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0014",
+      "name": "ホルマジオ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "マイペース",
+        "悪役",
+        "危険",
+        "挑発的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm（アニメ設定）",
+      "heightCm": 178,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0015",
+      "name": "イルーゾォ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "悪役",
+        "危険",
+        "自信家",
+        "挑発的"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "188cm（アニメ設定）",
+      "heightCm": 188,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0016",
+      "name": "プロシュート",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "悪役",
+        "強気",
+        "色気",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm（アニメ設定）",
+      "heightCm": 178,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0017",
+      "name": "ペッシ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "一途",
+        "気弱",
+        "誠実",
+        "素直",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "165cm（アニメ設定）",
+      "heightCm": 165,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0018",
+      "name": "メローネ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "マイペース",
+        "悪役",
+        "危険",
+        "個性的",
+        "知的"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "174cm（アニメ設定）",
+      "heightCm": 174,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0019",
+      "name": "ギアッチョ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "悪役",
+        "情熱的",
+        "誠実",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "171cm（アニメ設定）",
+      "heightCm": 171,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0020",
+      "name": "リゾット・ネエロ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "寡黙",
+        "危険",
+        "策士",
+        "色気",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "185cm（アニメ設定）",
+      "heightCm": 185,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の原作プロフィール／アニメ設定資料由来の値を照合"
+    },
+    {
+      "id": "seed-0021",
+      "name": "ソルベ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "悪役",
+        "寡黙"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0022",
+      "name": "ジェラート",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "悪役",
+        "情熱的"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0024",
+      "name": "ブチャラティの父（パオロ）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "誠実",
+        "年上系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0025",
+      "name": "ボス（20話時点・正体不明）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "危険",
+        "強気",
+        "個性的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-jonathan",
+      "name": "ジョナサン・ジョースター",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "一途",
+        "主人公",
+        "情熱的",
+        "誠実",
+        "年下系",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "195cm",
+      "heightCm": 195,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Jonathan Joestar」プロフィール：195cm"
+    },
+    {
+      "id": "jojo-p1-zeppeli",
+      "name": "ウィル・A・ツェペリ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "キザ",
+        "指導者",
+        "情熱的",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-speedwagon",
+      "name": "ロバート・E・O・スピードワゴン（1部）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "180cm（アニメ設定）",
+      "heightCm": 180,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Robert E. O. Speedwagon」プロフィール：アニメ設定180cm"
+    },
+    {
+      "id": "jojo-p1-dio",
+      "name": "ディオ・ブランドー（1部）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "悪役",
+        "危険",
+        "強気",
+        "色気",
+        "知的",
+        "年上系",
+        "野心家"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "185cm",
+      "heightCm": 185,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の1部ディオ・ブランドーのプロフィール値を照合"
+    },
+    {
+      "id": "jojo-p1-george1",
+      "name": "ジョージ・ジョースターI世",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "誠実",
+        "年上系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-poco",
+      "name": "ポコ（成人版）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "素直",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-tonpetty",
+      "name": "トンペティ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "指導者",
+        "自信家",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-dire",
+      "name": "ダイアー",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "自信家",
+        "情熱的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-straizo",
+      "name": "ストレイツォ（1部）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "寡黙",
+        "戦闘系",
+        "年上系",
+        "美形",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-bruford",
+      "name": "ブラフォード",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "一途",
+        "自信家",
+        "誠実",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-tarkus",
+      "name": "タルカス",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "悪役",
+        "荒っぽい",
+        "情熱的",
+        "戦闘系",
+        "体格がいい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-wangchan",
+      "name": "ワンチェン",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "悪役",
+        "一途"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-jack",
+      "name": "切り裂きジャック",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "悪役",
+        "危険",
+        "荒っぽい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-adams",
+      "name": "アダムス",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "悪役",
+        "一般人"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-doobie",
+      "name": "ドゥービー",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "悪役",
+        "一般人",
+        "危険"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-page",
+      "name": "ペイジ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "悪役",
+        "一般人",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-jones",
+      "name": "ジョーンズ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "悪役",
+        "一般人",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-plant",
+      "name": "プラント",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "悪役",
+        "一般人",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-bornnam",
+      "name": "ボーンナム",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "悪役",
+        "一般人",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-dario",
+      "name": "ダリオ・ブランドー",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "悪役",
+        "荒っぽい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-tattoo",
+      "name": "タトゥー",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "一般人",
+        "荒っぽい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-amato",
+      "name": "アマト",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "一般人"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-archer",
+      "name": "アーチャー警部",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-cabbage",
+      "name": "キャベッジ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "一般人"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-stark",
+      "name": "スターク",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "一般人"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-styx",
+      "name": "スティクス神父",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "一般人",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-zeppeli-father",
+      "name": "ツェペリの父",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "一般人",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-aztec-chief",
+      "name": "アステカの族長",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "悪役",
+        "一般人",
+        "自信家",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-winzaleo",
+      "name": "ウインザレオ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "一般人",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-eijkman",
+      "name": "エイクマン",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "一般人",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p1-caineghis",
+      "name": "カイネギス",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "1部",
+      "tags": [
+        "一般人",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p2-joseph",
+      "name": "ジョセフ・ジョースター（2部）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "キザ",
+        "主人公",
+        "女好き",
+        "情熱的",
+        "知的",
+        "挑発的",
+        "年下系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "195cm",
+      "heightCm": 195,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Joseph Joestar」プロフィール：195cm"
+    },
+    {
+      "id": "jojo-p2-stroheim",
+      "name": "ルドル・フォン・シュトロハイム",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "個性的",
+        "自信家",
+        "情熱的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p2-messina",
+      "name": "メッシーナ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "指導者",
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p2-loggins",
+      "name": "ロギンズ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "強気",
+        "指導者",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p2-smokey",
+      "name": "スモーキー・ブラウン（成人版）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "素直",
+        "年下系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p2-kars",
+      "name": "カーズ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "悪役",
+        "危険",
+        "強気",
+        "策士",
+        "色気",
+        "知的",
+        "年上系",
+        "美形",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "約196cm（アニメ設定）",
+      "heightCm": 196,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Kars」プロフィール：アニメ設定約196cm"
+    },
+    {
+      "id": "jojo-p2-esidisi",
+      "name": "エシディシ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "情熱的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "約200cm（アニメ設定）",
+      "heightCm": 200,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Esidisi」プロフィール：アニメ設定約200cm"
+    },
+    {
+      "id": "jojo-p2-wamuu",
+      "name": "ワムウ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "悪役",
+        "寡黙",
+        "自信家",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "197cm",
+      "heightCm": 197,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Wamuu」プロフィール：197cm"
+    },
+    {
+      "id": "jojo-p2-santana",
+      "name": "サンタナ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "悪役",
+        "寡黙",
+        "危険",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p2-donovan",
+      "name": "ドノヴァン",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "悪役",
+        "荒っぽい",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p2-wired-beck",
+      "name": "ワイアードのベック",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "悪役",
+        "危険",
+        "荒っぽい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p2-mark",
+      "name": "マルク",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p2-mario",
+      "name": "マリオ・ツェペリ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "一般人",
+        "自信家",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p2-george2",
+      "name": "ジョージ・ジョースターII世",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "一般人",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p2-zombie-commander",
+      "name": "ゾンビ司令官",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "悪役",
+        "一般人",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p2-screenwriter",
+      "name": "ハリウッドの脚本家",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "一般人",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p2-speedwagon",
+      "name": "ロバート・E・O・スピードワゴン（2部）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "誠実",
+        "年上系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "180cm（アニメ設定）",
+      "heightCm": 180,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Robert E. O. Speedwagon」プロフィール：アニメ設定180cm"
+    },
+    {
+      "id": "jojo-p2-straizo",
+      "name": "ストレイツォ（2部）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "2部",
+      "tags": [
+        "悪役",
+        "危険",
+        "強気",
+        "年上系",
+        "美形",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-jotaro",
+      "name": "空条承太郎（3部）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "寡黙",
+        "主人公",
+        "戦闘系",
+        "年下系",
+        "不器用",
+        "包容力",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "195cm",
+      "heightCm": 195,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Jotaro Kujo」プロフィール：195cm"
+    },
+    {
+      "id": "jojo-p3-joseph",
+      "name": "ジョセフ・ジョースター（3部）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "策士",
+        "挑発的",
+        "年上系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "195cm",
+      "heightCm": 195,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Joseph Joestar」プロフィール：195cm"
+    },
+    {
+      "id": "jojo-p3-avdol",
+      "name": "モハメド・アヴドゥル",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "誠実",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Muhammad Avdol」プロフィール：188cm"
+    },
+    {
+      "id": "jojo-p3-kakyoin",
+      "name": "花京院典明（成人版）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "一途",
+        "誠実",
+        "知的",
+        "年下系",
+        "優しい",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Noriaki Kakyoin」プロフィール：178cm"
+    },
+    {
+      "id": "jojo-p3-polnareff",
+      "name": "ジャン＝ピエール・ポルナレフ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "キザ",
+        "女好き",
+        "情熱的",
+        "誠実",
+        "年上系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "185cm（髪込み193cm）",
+      "heightCm": 185,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Jean Pierre Polnareff」プロフィール：185cm、髪込み193cm"
+    },
+    {
+      "id": "jojo-p3-dio",
+      "name": "DIO（3部）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "危険",
+        "強気",
+        "色気",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "195cm（3部時点／ジョナサンの肉体）",
+      "heightCm": 195,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki掲載の3部DIOプロフィール／ジョナサンの肉体時の設定値を照合"
+    },
+    {
+      "id": "jojo-p3-roses",
+      "name": "ローゼス",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "一途",
+        "一般人",
+        "誠実",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-vanilla-ice",
+      "name": "ヴァニラ・アイス",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "一途",
+        "寡黙",
+        "危険",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "195cm（アニメ設定）",
+      "heightCm": 195,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Vanilla Ice」プロフィール：アニメ設定195cm"
+    },
+    {
+      "id": "jojo-p3-ndoul",
+      "name": "ンドゥール",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "一途",
+        "寡黙",
+        "自信家",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-oingo",
+      "name": "オインゴ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "年上系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-boingo",
+      "name": "ボインゴ（成人版）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "寡黙",
+        "気弱",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "成人版は公式未設定（3部アニメ設定：90cm）",
+      "heightCm": null,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Boingo」プロフィール：作中アニメ設定90cm。成人版の公称身長は未設定"
+    },
+    {
+      "id": "jojo-p3-alessi",
+      "name": "アレッシー",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "危険",
+        "気弱",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-daniel-darby",
+      "name": "ダニエル・J・ダービー",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "策士",
+        "自信家",
+        "誠実",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-telence-darby",
+      "name": "テレンス・T・ダービー",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "自信家",
+        "知的",
+        "年下系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-kenny-g",
+      "name": "ケニーG",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "一般人",
+        "寡黙"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-nukesaku",
+      "name": "ヌケサク",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "気弱",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-gray-fly",
+      "name": "グレーフライ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-tennille",
+      "name": "偽キャプテン・テニール",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "危険",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-devo",
+      "name": "呪いのデーボ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "一途",
+        "危険",
+        "荒っぽい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-rubber-soul",
+      "name": "ラバーソール",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "自信家",
+        "挑発的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-hol-horse",
+      "name": "ホル・ホース",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "キザ",
+        "マイペース",
+        "悪役",
+        "気弱",
+        "女好き",
+        "色気",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "188cm（アニメ設定）",
+      "heightCm": 188,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Hol Horse」プロフィール：アニメ設定188cm"
+    },
+    {
+      "id": "jojo-p3-j-geil",
+      "name": "J・ガイル",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "危険",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-zz",
+      "name": "ZZ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "荒っぽい",
+        "自信家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-steely-dan",
+      "name": "鋼入りのダン",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "危険",
+        "挑発的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-arabia-fats",
+      "name": "アラビア・ファッツ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "一般人",
+        "寡黙"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-mannish-boy",
+      "name": "マニッシュ・ボーイ（成人版）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "危険",
+        "自信家",
+        "知的"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-cameo",
+      "name": "カメオ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "一般人"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-chaka",
+      "name": "チャカ",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "誠実",
+        "戦闘系",
+        "素直"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-khan",
+      "name": "カーン",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "悪役",
+        "職人系",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-wilson-phillips",
+      "name": "ウィルソン・フィリップス上院議員",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "一般人",
+        "権力者",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p3-sadao",
+      "name": "空条貞夫",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "3部",
+      "tags": [
+        "一般人",
+        "職人系",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-josuke",
+      "name": "東方仗助（成人版）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "一途",
+        "主人公",
+        "情熱的",
+        "年下系",
+        "不器用",
+        "包容力",
+        "明るい",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Josuke Higashikata」プロフィール：180cm"
+    },
+    {
+      "id": "jojo-p4-okuyasu",
+      "name": "虹村億泰（成人版）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "情熱的",
+        "素直",
+        "年下系",
+        "不器用",
+        "包容力",
+        "明るい",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Okuyasu Nijimura」プロフィール：178cm"
+    },
+    {
+      "id": "jojo-p4-koichi",
+      "name": "広瀬康一（4部・成人版）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "誠実",
+        "年下系",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "157cm（原作プロフィール）／150cm（4部アニメ設定）",
+      "heightCm": 157,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Koichi Hirose」プロフィール：157cm、4部アニメ設定150cm"
+    },
+    {
+      "id": "jojo-p4-rohan",
+      "name": "岸辺露伴",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "強気",
+        "個性的",
+        "自信家",
+        "知的",
+        "年上系",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "175cm（OVAプロフィール）",
+      "heightCm": 175,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Rohan Kishibe」プロフィール：OVA設定175cm"
+    },
+    {
+      "id": "jojo-p4-hayato",
+      "name": "川尻早人（成人版）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "知的",
+        "年下系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-shigechi",
+      "name": "矢安宮重清（成人版）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "現実的",
+        "素直",
+        "年下系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-mikitaka",
+      "name": "支倉未起隆",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "個性的",
+        "誠実",
+        "年下系",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-yuya",
+      "name": "噴上裕也",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "キザ",
+        "自信家",
+        "女好き",
+        "色気",
+        "年下系",
+        "包容力"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-tamami",
+      "name": "小林玉美",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "悪役",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "153cm",
+      "heightCm": 153,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Tamami Kobayashi」プロフィール：153cm"
+    },
+    {
+      "id": "jojo-p4-hazamada",
+      "name": "間田敏和（成人版）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "気弱",
+        "個性的",
+        "年下系",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "165cm",
+      "heightCm": 165,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Toshikazu Hazamada」プロフィール：165cm"
+    },
+    {
+      "id": "jojo-p4-tonio",
+      "name": "トニオ・トラサルディー",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "情熱的",
+        "職人系",
+        "誠実",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-ryohei",
+      "name": "東方良平",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "誠実",
+        "年上系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-kira",
+      "name": "吉良吉影",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "悪役",
+        "寡黙",
+        "危険",
+        "色気",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "175cm（原作プロフィール）／約180cm（アニメ設定）",
+      "heightCm": 175,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Yoshikage Kira」プロフィール：原作175cm、アニメ約180cm"
+    },
+    {
+      "id": "jojo-p4-yoshihiro",
+      "name": "吉良吉廣",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "悪役",
+        "一途",
+        "策士",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-keicho",
+      "name": "虹村形兆",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "強気",
+        "誠実",
+        "年上系",
+        "不器用",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-akira",
+      "name": "音石明",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "悪役",
+        "自信家",
+        "職人系",
+        "挑発的",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-angelo",
+      "name": "片桐安十郎",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "悪役",
+        "危険",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-ken",
+      "name": "大柳賢（成人版）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "自信家",
+        "知的",
+        "挑発的",
+        "年下系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-toyohiro",
+      "name": "鋼田一豊大",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "マイペース",
+        "個性的",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-terunosuke",
+      "name": "宮本輝之輔",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "悪役",
+        "挑発的",
+        "年下系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-masazo",
+      "name": "乙雅三",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-mansaku",
+      "name": "虹村万作",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "一般人",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-kosaku",
+      "name": "川尻浩作",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "一般人",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-savior",
+      "name": "仗助を助けた不良",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "個性的",
+        "荒っぽい",
+        "年上系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-kira-coworker",
+      "name": "吉良の同僚",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "一般人",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-mukade",
+      "name": "靴のムカデ屋店主",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "一般人",
+        "職人系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-satoru",
+      "name": "中江悟",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "一般人",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p4-jotaro",
+      "name": "空条承太郎（4部）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "寡黙",
+        "知識職",
+        "年上系",
+        "不器用",
+        "包容力",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "195cm",
+      "heightCm": 195,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Jotaro Kujo」プロフィール：195cm"
+    },
+    {
+      "id": "jojo-p4-joseph",
+      "name": "ジョセフ・ジョースター（4部）",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "4部",
+      "tags": [
+        "年上系",
+        "包容力",
+        "明るい",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "195cm",
+      "heightCm": 195,
+      "heightStatus": "verified",
+      "heightSource": "JoJo Wiki「Joseph Joestar」プロフィール：195cm"
+    },
+    {
+      "id": "jojo-p5-gangster-savior",
+      "name": "ジョルノを救ったギャング",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "寡黙",
+        "年上系",
+        "優しい",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p5-abbacchio-partner",
+      "name": "アバッキオの元同僚",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p5-giorno-stepfather",
+      "name": "ジョルノの継父",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "一般人",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p5-narancia-father",
+      "name": "ナランチャの父",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "一般人",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    },
+    {
+      "id": "jojo-p5-fugo-tutor",
+      "name": "フーゴの家庭教師",
+      "work": "ジョジョの奇妙な冒険",
+      "series": "5部",
+      "tags": [
+        "一般人",
+        "指導者",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回の作成時に公称の数値設定を確認できず。推測値は登録していません。"
+    }
+  ],
+  "sourceOrder": {
+    "jojo-josuke": 0,
+    "jojo-joseph": 1,
+    "jojo-caesar": 2,
+    "jojo-bucciarati": 3,
+    "jojo-fugo": 4,
+    "jojo-mista": 5,
+    "seed-0001": 10,
+    "seed-0004": 11,
+    "seed-0005": 12,
+    "seed-0007": 13,
+    "seed-0008": 14,
+    "seed-0009": 15,
+    "seed-0010": 16,
+    "seed-0011": 17,
+    "seed-0012": 18,
+    "seed-0013": 19,
+    "seed-0014": 20,
+    "seed-0015": 21,
+    "seed-0016": 22,
+    "seed-0017": 23,
+    "seed-0018": 24,
+    "seed-0019": 25,
+    "seed-0020": 26,
+    "seed-0021": 27,
+    "seed-0022": 28,
+    "seed-0024": 29,
+    "seed-0025": 30,
+    "jojo-p1-jonathan": 266,
+    "jojo-p1-zeppeli": 267,
+    "jojo-p1-speedwagon": 268,
+    "jojo-p1-dio": 269,
+    "jojo-p1-george1": 270,
+    "jojo-p1-poco": 271,
+    "jojo-p1-tonpetty": 272,
+    "jojo-p1-dire": 273,
+    "jojo-p1-straizo": 274,
+    "jojo-p1-bruford": 275,
+    "jojo-p1-tarkus": 276,
+    "jojo-p1-wangchan": 277,
+    "jojo-p1-jack": 278,
+    "jojo-p1-adams": 279,
+    "jojo-p1-doobie": 280,
+    "jojo-p1-page": 281,
+    "jojo-p1-jones": 282,
+    "jojo-p1-plant": 283,
+    "jojo-p1-bornnam": 284,
+    "jojo-p1-dario": 285,
+    "jojo-p1-tattoo": 286,
+    "jojo-p1-amato": 287,
+    "jojo-p1-archer": 288,
+    "jojo-p1-cabbage": 289,
+    "jojo-p1-stark": 290,
+    "jojo-p1-styx": 291,
+    "jojo-p1-zeppeli-father": 292,
+    "jojo-p1-aztec-chief": 293,
+    "jojo-p1-winzaleo": 294,
+    "jojo-p1-eijkman": 295,
+    "jojo-p1-caineghis": 296,
+    "jojo-p2-joseph": 297,
+    "jojo-p2-stroheim": 298,
+    "jojo-p2-messina": 299,
+    "jojo-p2-loggins": 300,
+    "jojo-p2-smokey": 301,
+    "jojo-p2-kars": 302,
+    "jojo-p2-esidisi": 303,
+    "jojo-p2-wamuu": 304,
+    "jojo-p2-santana": 305,
+    "jojo-p2-donovan": 306,
+    "jojo-p2-wired-beck": 307,
+    "jojo-p2-mark": 308,
+    "jojo-p2-mario": 309,
+    "jojo-p2-george2": 310,
+    "jojo-p2-zombie-commander": 311,
+    "jojo-p2-screenwriter": 312,
+    "jojo-p2-speedwagon": 313,
+    "jojo-p2-straizo": 314,
+    "jojo-p3-jotaro": 315,
+    "jojo-p3-joseph": 316,
+    "jojo-p3-avdol": 317,
+    "jojo-p3-kakyoin": 318,
+    "jojo-p3-polnareff": 319,
+    "jojo-p3-dio": 320,
+    "jojo-p3-roses": 321,
+    "jojo-p3-vanilla-ice": 322,
+    "jojo-p3-ndoul": 323,
+    "jojo-p3-oingo": 324,
+    "jojo-p3-boingo": 325,
+    "jojo-p3-alessi": 326,
+    "jojo-p3-daniel-darby": 327,
+    "jojo-p3-telence-darby": 328,
+    "jojo-p3-kenny-g": 329,
+    "jojo-p3-nukesaku": 330,
+    "jojo-p3-gray-fly": 331,
+    "jojo-p3-tennille": 332,
+    "jojo-p3-devo": 333,
+    "jojo-p3-rubber-soul": 334,
+    "jojo-p3-hol-horse": 335,
+    "jojo-p3-j-geil": 336,
+    "jojo-p3-zz": 337,
+    "jojo-p3-steely-dan": 338,
+    "jojo-p3-arabia-fats": 339,
+    "jojo-p3-mannish-boy": 340,
+    "jojo-p3-cameo": 341,
+    "jojo-p3-chaka": 342,
+    "jojo-p3-khan": 343,
+    "jojo-p3-wilson-phillips": 344,
+    "jojo-p3-sadao": 345,
+    "jojo-p4-josuke": 346,
+    "jojo-p4-okuyasu": 347,
+    "jojo-p4-koichi": 348,
+    "jojo-p4-rohan": 349,
+    "jojo-p4-hayato": 350,
+    "jojo-p4-shigechi": 351,
+    "jojo-p4-mikitaka": 352,
+    "jojo-p4-yuya": 353,
+    "jojo-p4-tamami": 354,
+    "jojo-p4-hazamada": 355,
+    "jojo-p4-tonio": 356,
+    "jojo-p4-ryohei": 357,
+    "jojo-p4-kira": 358,
+    "jojo-p4-yoshihiro": 359,
+    "jojo-p4-keicho": 360,
+    "jojo-p4-akira": 361,
+    "jojo-p4-angelo": 362,
+    "jojo-p4-ken": 363,
+    "jojo-p4-toyohiro": 364,
+    "jojo-p4-terunosuke": 365,
+    "jojo-p4-masazo": 366,
+    "jojo-p4-mansaku": 367,
+    "jojo-p4-kosaku": 368,
+    "jojo-p4-savior": 369,
+    "jojo-p4-kira-coworker": 370,
+    "jojo-p4-mukade": 371,
+    "jojo-p4-satoru": 372,
+    "jojo-p4-jotaro": 373,
+    "jojo-p4-joseph": 374,
+    "jojo-p5-gangster-savior": 375,
+    "jojo-p5-abbacchio-partner": 376,
+    "jojo-p5-giorno-stepfather": 377,
+    "jojo-p5-narancia-father": 378,
+    "jojo-p5-fugo-tutor": 379
+  }
+}

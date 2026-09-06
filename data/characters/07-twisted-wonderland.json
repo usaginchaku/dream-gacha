@@ -1,0 +1,571 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "pack-97fbdecddfa359",
+      "name": "リドル・ローズハート",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ハーツラビュル寮",
+      "tags": [
+        "強気",
+        "誠実",
+        "知的",
+        "年下系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "160cm",
+      "heightCm": 160,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-434610ad56d04d",
+      "name": "エース・トラッポラ",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ハーツラビュル寮",
+      "tags": [
+        "ライバル",
+        "挑発的",
+        "年下系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "172cm",
+      "heightCm": 172,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-9484f37b3bfc4c",
+      "name": "デュース・スペード",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ハーツラビュル寮",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "年下系",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "173cm",
+      "heightCm": 173,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-554cde7d27b5e5",
+      "name": "トレイ・クローバー",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ハーツラビュル寮",
+      "tags": [
+        "誠実",
+        "年下系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "181cm",
+      "heightCm": 181,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-a794515a8381b6",
+      "name": "ケイト・ダイヤモンド",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ハーツラビュル寮",
+      "tags": [
+        "マイペース",
+        "個性的",
+        "年下系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "176cm",
+      "heightCm": 176,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-ce09deba8a68f1",
+      "name": "レオナ・キングスカラー",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "サバナクロー寮",
+      "tags": [
+        "マイペース",
+        "強気",
+        "知的",
+        "年下系",
+        "美形"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "185cm",
+      "heightCm": 185,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-530fca5ff01666",
+      "name": "ジャック・ハウル",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "サバナクロー寮",
+      "tags": [
+        "誠実",
+        "体格がいい",
+        "年下系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "192cm",
+      "heightCm": 192,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-fa9fd15bc44307",
+      "name": "ラギー・ブッチ",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "サバナクロー寮",
+      "tags": [
+        "現実的",
+        "知的",
+        "年下系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "171cm",
+      "heightCm": 171,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-031718848ca1ae",
+      "name": "アズール・アーシェングロット",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "オクタヴィネル寮",
+      "tags": [
+        "策士",
+        "知的",
+        "年下系",
+        "美形",
+        "野心家"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "176cm",
+      "heightCm": 176,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-b4ec5cf8111747",
+      "name": "ジェイド・リーチ",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "オクタヴィネル寮",
+      "tags": [
+        "策士",
+        "挑発的",
+        "年下系",
+        "美形",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "190cm",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-627b900e51ea92",
+      "name": "フロイド・リーチ",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "オクタヴィネル寮",
+      "tags": [
+        "マイペース",
+        "強気",
+        "個性的",
+        "体格がいい",
+        "年下系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "191cm",
+      "heightCm": 191,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-3c5ceff1626a3d",
+      "name": "カリム・アルアジーム",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "スカラビア寮",
+      "tags": [
+        "年下系",
+        "包容力",
+        "明るい",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "168cm",
+      "heightCm": 168,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-addadf06f9c4b5",
+      "name": "ジャミル・バイパー",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "スカラビア寮",
+      "tags": [
+        "策士",
+        "知的",
+        "年下系",
+        "不器用",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-57fbf66dc786a3",
+      "name": "ヴィル・シェーンハイト",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ポムフィオーレ寮",
+      "tags": [
+        "強気",
+        "自信家",
+        "誠実",
+        "年下系",
+        "美形"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "183cm",
+      "heightCm": 183,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-26abbe272192a2",
+      "name": "エペル・フェルミエ",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ポムフィオーレ寮",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "年下系",
+        "美形",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "156cm",
+      "heightCm": 156,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-7451ae99d09358",
+      "name": "ルーク・ハント",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ポムフィオーレ寮",
+      "tags": [
+        "個性的",
+        "年下系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-90081959e61b40",
+      "name": "イデア・シュラウド",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "イグニハイド寮",
+      "tags": [
+        "寡黙",
+        "個性的",
+        "知的",
+        "年下系",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "183cm",
+      "heightCm": 183,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-18547c2296b3bf",
+      "name": "オルト・シュラウド（成人版）",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "イグニハイド寮",
+      "tags": [
+        "知的",
+        "年下系",
+        "明るい",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "148cm",
+      "heightCm": 148,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-dcdb9c3e6f3d3c",
+      "name": "マレウス・ドラコニア",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ディアソムニア寮",
+      "tags": [
+        "強気",
+        "個性的",
+        "年上系",
+        "美形",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "202cm",
+      "heightCm": 202,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-67f3a62755fc15",
+      "name": "リリア・ヴァンルージュ",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ディアソムニア寮",
+      "tags": [
+        "マイペース",
+        "戦闘系",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "158cm",
+      "heightCm": 158,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-8799f84edb092e",
+      "name": "シルバー",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ディアソムニア寮",
+      "tags": [
+        "寡黙",
+        "誠実",
+        "戦闘系",
+        "年下系",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "176cm",
+      "heightCm": 176,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-f1414a9a0ee7f9",
+      "name": "セベク・ジグボルト",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ディアソムニア寮",
+      "tags": [
+        "一途",
+        "情熱的",
+        "戦闘系",
+        "年下系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-a9b66b4dd328a2",
+      "name": "ディア・クロウリー",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ナイトレイブンカレッジ関係者",
+      "tags": [
+        "マイペース",
+        "個性的",
+        "指導者",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-41576b0b89fd28",
+      "name": "デイヴィス・クルーウェル",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ナイトレイブンカレッジ関係者",
+      "tags": [
+        "強気",
+        "指導者",
+        "誠実",
+        "年上系",
+        "美形"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-b202163e1c9b1c",
+      "name": "モーゼズ・トレイン",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ナイトレイブンカレッジ関係者",
+      "tags": [
+        "強気",
+        "指導者",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-fc306251c72aeb",
+      "name": "アシュトン・バルガス",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ナイトレイブンカレッジ関係者",
+      "tags": [
+        "指導者",
+        "情熱的",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-f6b4a90fe46422",
+      "name": "サム",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "ナイトレイブンカレッジ関係者",
+      "tags": [
+        "一般人",
+        "個性的",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-62c5d6a4c70869",
+      "name": "リエーレ・コーラリア",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "マリナフィーネ寮",
+      "tags": [
+        "誠実",
+        "年下系",
+        "美形",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "170cm",
+      "heightCm": 170,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d98fac16a47b93",
+      "name": "ミナジール・ティラージャ",
+      "work": "ディズニー ツイステッドワンダーランド",
+      "series": "デュナミーナ寮",
+      "tags": [
+        "誠実",
+        "知的",
+        "年下系",
+        "美形"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    }
+  ],
+  "sourceOrder": {
+    "pack-97fbdecddfa359": 508,
+    "pack-434610ad56d04d": 509,
+    "pack-9484f37b3bfc4c": 510,
+    "pack-554cde7d27b5e5": 511,
+    "pack-a794515a8381b6": 512,
+    "pack-ce09deba8a68f1": 513,
+    "pack-530fca5ff01666": 514,
+    "pack-fa9fd15bc44307": 515,
+    "pack-031718848ca1ae": 516,
+    "pack-b4ec5cf8111747": 517,
+    "pack-627b900e51ea92": 518,
+    "pack-3c5ceff1626a3d": 519,
+    "pack-addadf06f9c4b5": 520,
+    "pack-57fbf66dc786a3": 521,
+    "pack-26abbe272192a2": 522,
+    "pack-7451ae99d09358": 523,
+    "pack-90081959e61b40": 524,
+    "pack-18547c2296b3bf": 525,
+    "pack-dcdb9c3e6f3d3c": 526,
+    "pack-67f3a62755fc15": 527,
+    "pack-8799f84edb092e": 528,
+    "pack-f1414a9a0ee7f9": 529,
+    "pack-a9b66b4dd328a2": 530,
+    "pack-41576b0b89fd28": 531,
+    "pack-b202163e1c9b1c": 532,
+    "pack-fc306251c72aeb": 533,
+    "pack-f6b4a90fe46422": 534,
+    "pack-62c5d6a4c70869": 535,
+    "pack-d98fac16a47b93": 536
+  }
+}

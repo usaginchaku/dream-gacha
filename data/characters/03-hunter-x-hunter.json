@@ -1,0 +1,2145 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "hxh-killua",
+      "name": "キルア（成人版）",
+      "work": "HUNTER×HUNTER",
+      "series": "",
+      "tags": [
+        "知的",
+        "年下系",
+        "不器用",
+        "優しい",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "hxh-kurapika",
+      "name": "クラピカ（成人版）",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "一途",
+        "誠実",
+        "知的",
+        "不器用",
+        "優しい",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "成人版は公式未設定（原作プロフィール値：171cm）",
+      "heightCm": null,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "hxh-hisoka",
+      "name": "ヒソカ",
+      "work": "HUNTER×HUNTER",
+      "series": "",
+      "tags": [
+        "マイペース",
+        "危険",
+        "強気",
+        "色気",
+        "挑発的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0026",
+      "name": "ゴン＝フリークス",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "一途",
+        "主人公",
+        "情熱的",
+        "素直",
+        "年下系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "154cm（原作プロフィール値）",
+      "heightCm": 154,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0027",
+      "name": "キルア＝ゾルディック（成人版）",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "知的",
+        "年下系",
+        "不器用",
+        "優しい",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "成人版は公式未設定（原作プロフィール値：158cm）",
+      "heightCm": null,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0029",
+      "name": "レオリオ＝パラディナイト",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "情熱的",
+        "年上系",
+        "不器用",
+        "包容力",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "193cm",
+      "heightCm": 193,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0030",
+      "name": "ヒソカ＝モロウ",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "マイペース",
+        "危険",
+        "強気",
+        "色気",
+        "挑発的",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "187cm（公式データブック値。作中では190cm超との言及あり）",
+      "heightCm": 187,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0031",
+      "name": "イルミ＝ゾルディック",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "寡黙",
+        "危険",
+        "強気",
+        "個性的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "185cm",
+      "heightCm": 185,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0032",
+      "name": "アイザック＝ネテロ",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "マイペース",
+        "策士",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0033",
+      "name": "サトツ",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "誠実",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0034",
+      "name": "ブハラ",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "体格がいい",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0035",
+      "name": "トンパ",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "マイペース",
+        "策士",
+        "挑発的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0036",
+      "name": "ハンゾー",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "自信家",
+        "情熱的",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0037",
+      "name": "ポックル",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "誠実",
+        "素直",
+        "同年代系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0038",
+      "name": "ボドロ",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0039",
+      "name": "ゲレタ",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "寡黙",
+        "戦闘系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0040",
+      "name": "ゴズ",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "情熱的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0041",
+      "name": "アモリ",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0042",
+      "name": "イモリ",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "素直",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0043",
+      "name": "ウモリ",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "素直",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0044",
+      "name": "アゴン",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "荒っぽい",
+        "自信家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0045",
+      "name": "ソミー",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0046",
+      "name": "トードー",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0047",
+      "name": "ニコル",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "気弱",
+        "誠実",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0048",
+      "name": "セドカン",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "悪役",
+        "策士",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0049",
+      "name": "マジタニ",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "悪役",
+        "強面",
+        "荒っぽい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0050",
+      "name": "ベンドット",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "悪役",
+        "寡黙",
+        "危険",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0051",
+      "name": "ジョネス",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "悪役",
+        "危険",
+        "強面",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0052",
+      "name": "リッポー",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "策士",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0053",
+      "name": "ビーンズ",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "誠実",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0054",
+      "name": "バーボン",
+      "work": "HUNTER×HUNTER",
+      "series": "ハンター試験編",
+      "tags": [
+        "戦闘系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0055",
+      "name": "シルバ＝ゾルディック",
+      "work": "HUNTER×HUNTER",
+      "series": "ゾルディック家編",
+      "tags": [
+        "寡黙",
+        "戦闘系",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "198cm",
+      "heightCm": 198,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0056",
+      "name": "ゼノ＝ゾルディック",
+      "work": "HUNTER×HUNTER",
+      "series": "ゾルディック家編",
+      "tags": [
+        "マイペース",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "161cm",
+      "heightCm": 161,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0057",
+      "name": "ミルキ＝ゾルディック",
+      "work": "HUNTER×HUNTER",
+      "series": "ゾルディック家編",
+      "tags": [
+        "マイペース",
+        "個性的",
+        "知的",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0058",
+      "name": "ゴトー",
+      "work": "HUNTER×HUNTER",
+      "series": "ゾルディック家編",
+      "tags": [
+        "一途",
+        "誠実",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0059",
+      "name": "ゼブロ",
+      "work": "HUNTER×HUNTER",
+      "series": "ゾルディック家編",
+      "tags": [
+        "誠実",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0060",
+      "name": "カルト＝ゾルディック（成人版）",
+      "work": "HUNTER×HUNTER",
+      "series": "ゾルディック家編",
+      "tags": [
+        "一途",
+        "寡黙",
+        "個性的",
+        "年下系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "成人版は公式未設定（原作プロフィール値：150cm）",
+      "heightCm": null,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0061",
+      "name": "ウイング",
+      "work": "HUNTER×HUNTER",
+      "series": "天空闘技場編",
+      "tags": [
+        "指導者",
+        "誠実",
+        "年上系",
+        "優しい",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0062",
+      "name": "ズシ（成人版）",
+      "work": "HUNTER×HUNTER",
+      "series": "天空闘技場編",
+      "tags": [
+        "誠実",
+        "素直",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0063",
+      "name": "カストロ",
+      "work": "HUNTER×HUNTER",
+      "series": "天空闘技場編",
+      "tags": [
+        "自信家",
+        "戦闘系",
+        "年上系",
+        "美形",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0064",
+      "name": "ギド",
+      "work": "HUNTER×HUNTER",
+      "series": "天空闘技場編",
+      "tags": [
+        "寡黙",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0065",
+      "name": "リールベルト",
+      "work": "HUNTER×HUNTER",
+      "series": "天空闘技場編",
+      "tags": [
+        "荒っぽい",
+        "自信家",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0066",
+      "name": "サダソ",
+      "work": "HUNTER×HUNTER",
+      "series": "天空闘技場編",
+      "tags": [
+        "寡黙",
+        "危険",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0067",
+      "name": "クロロ＝ルシルフル",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "危険",
+        "個性的",
+        "色気",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0068",
+      "name": "ノブナガ＝ハザマ",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "一途",
+        "情熱的",
+        "年上系",
+        "不器用",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "183cm",
+      "heightCm": 183,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0069",
+      "name": "フェイタン＝ポートオ",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "寡黙",
+        "危険",
+        "年上系",
+        "不器用",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "155cm",
+      "heightCm": 155,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0070",
+      "name": "フィンクス＝マグカブ",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "荒っぽい",
+        "年上系",
+        "不器用",
+        "包容力"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "185cm",
+      "heightCm": 185,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0071",
+      "name": "フランクリン＝ボルドー",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "体格がいい",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "219cm",
+      "heightCm": 219,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0072",
+      "name": "シャルナーク＝リュウセイ",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "策士",
+        "知的",
+        "年上系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0073",
+      "name": "ボノレノフ＝ンドンゴ",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "寡黙",
+        "誠実",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0074",
+      "name": "コルトピ＝トノフメイル",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "寡黙",
+        "個性的",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0075",
+      "name": "ウボォーギン",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "情熱的",
+        "体格がいい",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "258cm",
+      "heightCm": 258,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0076",
+      "name": "バショウ",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0077",
+      "name": "センリツの同僚リンセン",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0078",
+      "name": "ダルツォルネ",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "一途",
+        "誠実",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0079",
+      "name": "スクワラ",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "一途",
+        "誠実",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0080",
+      "name": "トチーノ",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0081",
+      "name": "ライト＝ノストラード",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "策士",
+        "年上系",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0082",
+      "name": "ゼンジ",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "荒っぽい",
+        "自信家",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0083",
+      "name": "梟（ふくろう）",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "策士",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0084",
+      "name": "蚯蚓（みみず）",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "荒っぽい",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0085",
+      "name": "病犬（やまいぬ）",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "危険",
+        "荒っぽい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0086",
+      "name": "豪猪（やまあらし）",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "寡黙",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0087",
+      "name": "蛭（ひる）",
+      "work": "HUNTER×HUNTER",
+      "series": "ヨークシン編",
+      "tags": [
+        "悪役",
+        "危険",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0088",
+      "name": "ジン＝フリークス",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "マイペース",
+        "知的",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0089",
+      "name": "レイザー",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "戦闘系",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0090",
+      "name": "ツェズゲラ",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "現実的",
+        "指導者",
+        "誠実",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0091",
+      "name": "ゴレイヌ",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "誠実",
+        "年上系",
+        "包容力",
+        "優しい",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0092",
+      "name": "ゲンスルー",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "悪役",
+        "危険",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0093",
+      "name": "サブ",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "悪役",
+        "寡黙",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0094",
+      "name": "バラ",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "悪役",
+        "荒っぽい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "176cm",
+      "heightCm": 176,
+      "heightStatus": "verified",
+      "heightSource": "集英社公式データブック「HUNTER×HUNTER ハンター協会公式発行 ハンターズ・ガイド」等のプロフィール値を照合"
+    },
+    {
+      "id": "seed-0095",
+      "name": "アベンガネ",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0096",
+      "name": "バッテラ",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "一途",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0097",
+      "name": "ニッケス",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "指導者",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0098",
+      "name": "ビノールト",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "悪役",
+        "寡黙",
+        "危険",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0099",
+      "name": "リスト",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "マイペース",
+        "個性的",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0100",
+      "name": "ドゥーン",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "マイペース",
+        "個性的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0101",
+      "name": "カヅスール",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "誠実",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0102",
+      "name": "ロドリオット",
+      "work": "HUNTER×HUNTER",
+      "series": "グリードアイランド編",
+      "tags": [
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0103",
+      "name": "カイト",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "指導者",
+        "年上系",
+        "不器用",
+        "包容力",
+        "優しい",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0104",
+      "name": "モラウ＝マッカーナーシ",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "情熱的",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0105",
+      "name": "ノヴ",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "誠実",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0106",
+      "name": "ナックル＝バイン",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "情熱的",
+        "年上系",
+        "不器用",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0107",
+      "name": "シュート＝マクマホン",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "気弱",
+        "誠実",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0108",
+      "name": "メレオロン",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "マイペース",
+        "年上系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0109",
+      "name": "イカルゴ",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "一途",
+        "情熱的",
+        "年上系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0110",
+      "name": "コルト",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "一途",
+        "誠実",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0111",
+      "name": "メルエム",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "強気",
+        "個性的",
+        "戦闘系",
+        "年上系",
+        "不器用",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0112",
+      "name": "シャウアプフ",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "一途",
+        "危険",
+        "情熱的",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0113",
+      "name": "モントゥトゥユピー",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "一途",
+        "寡黙",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0114",
+      "name": "ウェルフィン",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0115",
+      "name": "ブロヴーダ",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "誠実",
+        "年上系",
+        "不器用",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0116",
+      "name": "レオル",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "悪役",
+        "策士",
+        "自信家",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0117",
+      "name": "ヂートゥ",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "自信家",
+        "情熱的",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0118",
+      "name": "ラモット",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "悪役",
+        "荒っぽい",
+        "自信家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0119",
+      "name": "ユンジュ",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "悪役",
+        "危険",
+        "荒っぽい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0120",
+      "name": "ペギー",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "知的",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0121",
+      "name": "ビゼフ",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "悪役",
+        "現実的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0122",
+      "name": "ジャイロ",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "危険",
+        "個性的",
+        "自信家",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0123",
+      "name": "パイク",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "悪役",
+        "危険",
+        "個性的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0124",
+      "name": "バロ",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "悪役",
+        "荒っぽい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0125",
+      "name": "ボキ",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "悪役",
+        "寡黙",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0126",
+      "name": "フラッタ",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0127",
+      "name": "オロソ兄妹の兄",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "悪役",
+        "自信家",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0128",
+      "name": "東ゴルトー総帥ディーゴ",
+      "work": "HUNTER×HUNTER",
+      "series": "キメラアント編",
+      "tags": [
+        "権力者",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0129",
+      "name": "パリストン＝ヒル",
+      "work": "HUNTER×HUNTER",
+      "series": "会長選挙・アルカ編",
+      "tags": [
+        "マイペース",
+        "危険",
+        "策士",
+        "知的",
+        "挑発的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0130",
+      "name": "ミザイストム＝ナナ",
+      "work": "HUNTER×HUNTER",
+      "series": "会長選挙・アルカ編",
+      "tags": [
+        "誠実",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0131",
+      "name": "ボトバイ＝ギガンテ",
+      "work": "HUNTER×HUNTER",
+      "series": "会長選挙・アルカ編",
+      "tags": [
+        "体格がいい",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0132",
+      "name": "カンザイ",
+      "work": "HUNTER×HUNTER",
+      "series": "会長選挙・アルカ編",
+      "tags": [
+        "情熱的",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0133",
+      "name": "サッチョウ＝コバヤカワ",
+      "work": "HUNTER×HUNTER",
+      "series": "会長選挙・アルカ編",
+      "tags": [
+        "誠実",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0134",
+      "name": "ギンタ",
+      "work": "HUNTER×HUNTER",
+      "series": "会長選挙・アルカ編",
+      "tags": [
+        "情熱的",
+        "素直",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0135",
+      "name": "ブシドラ＝アンビシャス",
+      "work": "HUNTER×HUNTER",
+      "series": "会長選挙・アルカ編",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0136",
+      "name": "テラデイン＝ニュートラル",
+      "work": "HUNTER×HUNTER",
+      "series": "会長選挙・アルカ編",
+      "tags": [
+        "権力者",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    },
+    {
+      "id": "seed-0137",
+      "name": "ルーペ＝ハイランド",
+      "work": "HUNTER×HUNTER",
+      "series": "会長選挙・アルカ編",
+      "tags": [
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明（公称値を確認できず）",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "今回確認できた公称資料では数値を特定できず。推測値は登録していません。"
+    }
+  ],
+  "sourceOrder": {
+    "hxh-killua": 7,
+    "hxh-kurapika": 8,
+    "hxh-hisoka": 9,
+    "seed-0026": 31,
+    "seed-0027": 32,
+    "seed-0029": 33,
+    "seed-0030": 34,
+    "seed-0031": 35,
+    "seed-0032": 36,
+    "seed-0033": 37,
+    "seed-0034": 38,
+    "seed-0035": 39,
+    "seed-0036": 40,
+    "seed-0037": 41,
+    "seed-0038": 42,
+    "seed-0039": 43,
+    "seed-0040": 44,
+    "seed-0041": 45,
+    "seed-0042": 46,
+    "seed-0043": 47,
+    "seed-0044": 48,
+    "seed-0045": 49,
+    "seed-0046": 50,
+    "seed-0047": 51,
+    "seed-0048": 52,
+    "seed-0049": 53,
+    "seed-0050": 54,
+    "seed-0051": 55,
+    "seed-0052": 56,
+    "seed-0053": 57,
+    "seed-0054": 58,
+    "seed-0055": 59,
+    "seed-0056": 60,
+    "seed-0057": 61,
+    "seed-0058": 62,
+    "seed-0059": 63,
+    "seed-0060": 64,
+    "seed-0061": 65,
+    "seed-0062": 66,
+    "seed-0063": 67,
+    "seed-0064": 68,
+    "seed-0065": 69,
+    "seed-0066": 70,
+    "seed-0067": 71,
+    "seed-0068": 72,
+    "seed-0069": 73,
+    "seed-0070": 74,
+    "seed-0071": 75,
+    "seed-0072": 76,
+    "seed-0073": 77,
+    "seed-0074": 78,
+    "seed-0075": 79,
+    "seed-0076": 80,
+    "seed-0077": 81,
+    "seed-0078": 82,
+    "seed-0079": 83,
+    "seed-0080": 84,
+    "seed-0081": 85,
+    "seed-0082": 86,
+    "seed-0083": 87,
+    "seed-0084": 88,
+    "seed-0085": 89,
+    "seed-0086": 90,
+    "seed-0087": 91,
+    "seed-0088": 92,
+    "seed-0089": 93,
+    "seed-0090": 94,
+    "seed-0091": 95,
+    "seed-0092": 96,
+    "seed-0093": 97,
+    "seed-0094": 98,
+    "seed-0095": 99,
+    "seed-0096": 100,
+    "seed-0097": 101,
+    "seed-0098": 102,
+    "seed-0099": 103,
+    "seed-0100": 104,
+    "seed-0101": 105,
+    "seed-0102": 106,
+    "seed-0103": 107,
+    "seed-0104": 108,
+    "seed-0105": 109,
+    "seed-0106": 110,
+    "seed-0107": 111,
+    "seed-0108": 112,
+    "seed-0109": 113,
+    "seed-0110": 114,
+    "seed-0111": 115,
+    "seed-0112": 116,
+    "seed-0113": 117,
+    "seed-0114": 118,
+    "seed-0115": 119,
+    "seed-0116": 120,
+    "seed-0117": 121,
+    "seed-0118": 122,
+    "seed-0119": 123,
+    "seed-0120": 124,
+    "seed-0121": 125,
+    "seed-0122": 126,
+    "seed-0123": 127,
+    "seed-0124": 128,
+    "seed-0125": 129,
+    "seed-0126": 130,
+    "seed-0127": 131,
+    "seed-0128": 132,
+    "seed-0129": 133,
+    "seed-0130": 134,
+    "seed-0131": 135,
+    "seed-0132": 136,
+    "seed-0133": 137,
+    "seed-0134": 138,
+    "seed-0135": 139,
+    "seed-0136": 140,
+    "seed-0137": 141
+  }
+}

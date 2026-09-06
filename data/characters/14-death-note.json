@@ -1,0 +1,592 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "pack-2c22fe9a9b9c2e",
+      "name": "夜神月",
+      "work": "DEATH NOTE",
+      "series": "主要人物",
+      "tags": [
+        "危険",
+        "強気",
+        "策士",
+        "主人公",
+        "知的",
+        "年下系",
+        "美形"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "179cm",
+      "heightCm": 179,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-e5a79458817616",
+      "name": "L（竜崎）",
+      "work": "DEATH NOTE",
+      "series": "主要人物",
+      "tags": [
+        "ライバル",
+        "個性的",
+        "策士",
+        "知的",
+        "年下系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "179cm",
+      "heightCm": 179,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-a56e8bb2c98204",
+      "name": "リューク",
+      "work": "DEATH NOTE",
+      "series": "主要人物",
+      "tags": [
+        "マイペース",
+        "個性的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    },
+    {
+      "id": "pack-c4f240eca48eff",
+      "name": "ニア",
+      "work": "DEATH NOTE",
+      "series": "主要人物",
+      "tags": [
+        "ライバル",
+        "個性的",
+        "知的",
+        "年下系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "155cm",
+      "heightCm": 155,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-0ae03f95503aeb",
+      "name": "メロ",
+      "work": "DEATH NOTE",
+      "series": "主要人物",
+      "tags": [
+        "ライバル",
+        "危険",
+        "強気",
+        "情熱的",
+        "年下系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "171cm",
+      "heightCm": 171,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d0fa148f78f978",
+      "name": "夜神総一郎",
+      "work": "DEATH NOTE",
+      "series": "日本捜査本部",
+      "tags": [
+        "指導者",
+        "誠実",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "181cm",
+      "heightCm": 181,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-a50ca5798f9dc3",
+      "name": "松田桃太",
+      "work": "DEATH NOTE",
+      "series": "日本捜査本部",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "174cm",
+      "heightCm": 174,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d885280d646fd7",
+      "name": "相沢周市",
+      "work": "DEATH NOTE",
+      "series": "日本捜査本部",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "183cm",
+      "heightCm": 183,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-6c6b56a84f5178",
+      "name": "模木完造",
+      "work": "DEATH NOTE",
+      "series": "日本捜査本部",
+      "tags": [
+        "寡黙",
+        "誠実",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-38b3bae9107b53",
+      "name": "伊出英基",
+      "work": "DEATH NOTE",
+      "series": "日本捜査本部",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "170cm",
+      "heightCm": 170,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-17e4d214a84475",
+      "name": "宇生田広数",
+      "work": "DEATH NOTE",
+      "series": "日本捜査本部",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "161cm",
+      "heightCm": 161,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-ad4166b2e116ec",
+      "name": "ワタリ",
+      "work": "DEATH NOTE",
+      "series": "ワイミーズハウス",
+      "tags": [
+        "知的",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-53565156abe885",
+      "name": "ロジャー・ラヴィー",
+      "work": "DEATH NOTE",
+      "series": "ワイミーズハウス",
+      "tags": [
+        "指導者",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "169cm",
+      "heightCm": 169,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-ac89387923824a",
+      "name": "レイ・ペンバー",
+      "work": "DEATH NOTE",
+      "series": "FBI・協力者",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-080d58dc5f61ed",
+      "name": "アイバー",
+      "work": "DEATH NOTE",
+      "series": "FBI・協力者",
+      "tags": [
+        "一般人",
+        "策士",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "189cm",
+      "heightCm": 189,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-a6a849ef7be921",
+      "name": "アンソニー・レスター",
+      "work": "DEATH NOTE",
+      "series": "SPK",
+      "tags": [
+        "誠実",
+        "体格がいい",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "193cm",
+      "heightCm": 193,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-a6001dcebdc394",
+      "name": "ステファン・ジェバンニ",
+      "work": "DEATH NOTE",
+      "series": "SPK",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-c347478422ab65",
+      "name": "火口卿介",
+      "work": "DEATH NOTE",
+      "series": "ヨツバグループ",
+      "tags": [
+        "悪役",
+        "危険",
+        "年上系",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "169cm",
+      "heightCm": 169,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-adf080ede1e5ef",
+      "name": "尾々井剛",
+      "work": "DEATH NOTE",
+      "series": "ヨツバグループ",
+      "tags": [
+        "一般人",
+        "強気",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-de97869aa2f14a",
+      "name": "樹多正彦",
+      "work": "DEATH NOTE",
+      "series": "ヨツバグループ",
+      "tags": [
+        "一般人",
+        "現実的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "169cm",
+      "heightCm": 169,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-c3324d29aed868",
+      "name": "紙村英",
+      "work": "DEATH NOTE",
+      "series": "ヨツバグループ",
+      "tags": [
+        "一般人",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "172cm",
+      "heightCm": 172,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-27856044147458",
+      "name": "鷹橋鋭一",
+      "work": "DEATH NOTE",
+      "series": "ヨツバグループ",
+      "tags": [
+        "一般人",
+        "強気",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "181cm",
+      "heightCm": 181,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-d6c771efbf6446",
+      "name": "奈南川零司",
+      "work": "DEATH NOTE",
+      "series": "ヨツバグループ",
+      "tags": [
+        "知的",
+        "年上系",
+        "美形",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "181cm",
+      "heightCm": 181,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-5873159e1d91cc",
+      "name": "三堂芯吾",
+      "work": "DEATH NOTE",
+      "series": "ヨツバグループ",
+      "tags": [
+        "一般人",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-1b7d037717e192",
+      "name": "葉鳥新義",
+      "work": "DEATH NOTE",
+      "series": "ヨツバグループ",
+      "tags": [
+        "一般人",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "166cm",
+      "heightCm": 166,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-bfcd5f2812d0be",
+      "name": "魅上照",
+      "work": "DEATH NOTE",
+      "series": "キラ側",
+      "tags": [
+        "一途",
+        "危険",
+        "強気",
+        "誠実",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-450f30c7db28bc",
+      "name": "出目川仁",
+      "work": "DEATH NOTE",
+      "series": "キラ側",
+      "tags": [
+        "一般人",
+        "現実的",
+        "年上系",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "164cm",
+      "heightCm": 164,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-abc62b9f065db9",
+      "name": "ロッド・ロス",
+      "work": "DEATH NOTE",
+      "series": "マフィア",
+      "tags": [
+        "悪役",
+        "危険",
+        "強気",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "190cm",
+      "heightCm": 190,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-38dd7565322996",
+      "name": "ジャック・ネイロン",
+      "work": "DEATH NOTE",
+      "series": "マフィア",
+      "tags": [
+        "悪役",
+        "危険",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "168cm",
+      "heightCm": 168,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-3312ac60c44e69",
+      "name": "マット",
+      "work": "DEATH NOTE",
+      "series": "マフィア",
+      "tags": [
+        "マイペース",
+        "危険",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "168cm",
+      "heightCm": 168,
+      "heightStatus": "manual",
+      "heightSource": "インポートデータ（出典未指定）"
+    },
+    {
+      "id": "pack-2271539ae00295",
+      "name": "シドウ",
+      "work": "DEATH NOTE",
+      "series": "死神",
+      "tags": [
+        "気弱",
+        "個性的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "インポート時に公称出典未指定"
+    }
+  ],
+  "sourceOrder": {
+    "pack-2c22fe9a9b9c2e": 745,
+    "pack-e5a79458817616": 746,
+    "pack-a56e8bb2c98204": 747,
+    "pack-c4f240eca48eff": 748,
+    "pack-0ae03f95503aeb": 749,
+    "pack-d0fa148f78f978": 750,
+    "pack-a50ca5798f9dc3": 751,
+    "pack-d885280d646fd7": 752,
+    "pack-6c6b56a84f5178": 753,
+    "pack-38b3bae9107b53": 754,
+    "pack-17e4d214a84475": 755,
+    "pack-ad4166b2e116ec": 756,
+    "pack-53565156abe885": 757,
+    "pack-ac89387923824a": 758,
+    "pack-080d58dc5f61ed": 759,
+    "pack-a6a849ef7be921": 760,
+    "pack-a6001dcebdc394": 761,
+    "pack-c347478422ab65": 762,
+    "pack-adf080ede1e5ef": 763,
+    "pack-de97869aa2f14a": 764,
+    "pack-c3324d29aed868": 765,
+    "pack-27856044147458": 766,
+    "pack-d6c771efbf6446": 767,
+    "pack-5873159e1d91cc": 768,
+    "pack-1b7d037717e192": 769,
+    "pack-bfcd5f2812d0be": 770,
+    "pack-450f30c7db28bc": 771,
+    "pack-abc62b9f065db9": 772,
+    "pack-38dd7565322996": 773,
+    "pack-3312ac60c44e69": 774,
+    "pack-2271539ae00295": 775
+  }
+}
