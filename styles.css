@@ -209,6 +209,10 @@ summary::after{content:"＋";float:right;color:var(--muted)} details[open] summa
 .io-note{margin:0;color:var(--muted);font-size:.82rem;line-height:1.6}
 .schema-box{margin-top:12px;border:1px solid var(--line);border-radius:14px;background:var(--panel2);padding:12px}
 .schema-box code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.76rem;word-break:break-word}
+.schema-guide-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.schema-guide-head strong{font-size:.9rem}
+.schema-guide-head .io-note{margin-top:3px}
+.schema-guide-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .import-options{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end;margin-top:10px}
 .empty{text-align:center;color:var(--muted);padding:34px 12px;border:1px dashed var(--line);border-radius:14px}
 .manager-form{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}
@@ -242,6 +246,7 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
 .help-step h3,.help-detail-card h3{margin:0 0 5px;font-size:.98rem}
 .help-step p{margin:0;color:var(--muted);font-size:.84rem}
 .help-action{display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;min-height:42px;margin-top:12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#5f5469;padding:8px 14px;font-size:.8rem;font-weight:900;box-shadow:0 5px 18px rgba(52,33,72,.07);transition:.15s ease}
+.help-action.compact{min-height:38px;margin-top:0;padding:7px 12px}
 .help-action:hover{border-color:#cdbbdd;background:var(--soft);color:#523875;transform:translateY(-1px)}
 .section-heading{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:28px 3px 12px}
 .section-heading h2{margin:2px 0 0;font-size:1.25rem}
@@ -257,6 +262,34 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
 .help-detail-card ul{margin:5px 0 16px;padding-left:1.25em;color:#564d5e;font-size:.81rem;line-height:1.65}
 .help-detail-card li+li{margin-top:5px}
 .help-detail-card .help-action{margin-top:auto;width:100%}
+.character-json-head{background:linear-gradient(90deg,#f3ebfb,#fff6fa)}
+.character-json-head h2{margin-top:2px}
+.guide-lead{max-width:840px;margin:0 0 16px;color:#554c5d}
+.import-steps{counter-reset:import-step;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:0 0 16px;padding:0;list-style:none}
+.import-steps li{position:relative;display:grid;align-content:start;gap:3px;min-height:116px;border:1px solid #e1d6ea;border-radius:15px;background:linear-gradient(150deg,#fff,#f7f1fb);padding:14px 12px 12px 48px}
+.import-steps li::before{counter-increment:import-step;content:counter(import-step);position:absolute;top:13px;left:12px;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:.78rem;font-weight:950}
+.import-steps strong{font-size:.82rem}
+.import-steps span{color:var(--muted);font-size:.75rem;line-height:1.55}
+.prompt-maker{display:grid;gap:11px;border:1px solid #d8c8e6;border-radius:17px;background:linear-gradient(135deg,#f8f3fd,#fff);padding:16px;margin-bottom:14px}
+.research-prompt{min-height:310px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.77rem;line-height:1.65;background:#fff}
+.prompt-maker-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.guide-card{min-width:0;border:1px solid var(--line);border-radius:16px;background:#fff;padding:15px}
+.guide-card h3,.allowed-tags-head h3{margin:0 0 8px;font-size:.92rem}
+.guide-card ul{margin:0;padding-left:1.2em;color:#5e5566;font-size:.79rem}
+.guide-card li+li{margin-top:6px}
+.json-example{max-height:360px;overflow:auto;margin:0;border-radius:12px;background:#302a38;color:#f7f1fb;padding:13px;font-size:.72rem;line-height:1.6;white-space:pre}
+.allowed-tags-box{margin-top:12px;border:1px solid var(--line);border-radius:16px;background:var(--panel2);padding:15px}
+.allowed-tags-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.allowed-tags-head h3{margin:0}
+.allowed-tag-groups{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.allowed-tag-group{border:1px solid var(--line);border-radius:13px;background:#fff;padding:10px}
+.allowed-tag-label{font-size:.74rem;font-weight:950;color:#665674;margin-bottom:7px}
+.allowed-tag-list{display:flex;gap:5px;flex-wrap:wrap}
+.allowed-tag{border-radius:999px;background:#f0e9f7;color:#634d78;padding:3px 8px;font-size:.69rem;font-weight:850}
+.import-caution{margin-top:12px;border-left:4px solid #d3a13b;border-radius:12px;background:#fff8e6;padding:11px 13px;color:#684f18}
+.import-caution strong{font-size:.82rem}
+.import-caution p{margin:3px 0 0;font-size:.78rem;line-height:1.65}
 .data-guide .panel-body p{margin:0 0 10px;color:#554c5d}
 .data-guide .panel-body p:last-of-type{padding:11px 13px;border-radius:13px;background:#fff7df;color:#6e5317}
 .faq-list{display:grid;gap:8px}
@@ -291,6 +324,8 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
  .panel-head{align-items:flex-start;flex-wrap:wrap}
  .favorite-btn,.favorite-toggle-btn,.status-filter-btn,.tag-chip,.situation-filter-chip{min-height:42px}
  .manager-guide,.help-steps,.help-detail-grid{grid-template-columns:1fr}
+ .import-steps{grid-template-columns:1fr 1fr}
+ .guide-grid,.allowed-tag-groups{grid-template-columns:1fr}
  .help-action{min-height:44px}
  .help-hero{align-items:flex-start;flex-direction:column;padding:20px}
  .help-hero .primary{width:100%}
@@ -298,9 +333,11 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
  #output{min-height:390px}
 }
 @media(max-width:480px){
-  .choice-category-chips{grid-template-columns:1fr}
+ .choice-category-chips{grid-template-columns:1fr}
   .manage-filters{grid-template-columns:1fr} .stats{grid-template-columns:1fr 1fr;gap:6px}
  .stat{padding:9px} .stat .n{font-size:1.1rem} .tab-btn{padding:8px 2px;font-size:.68rem}
+ .import-steps{grid-template-columns:1fr}
+ .schema-guide-actions,.schema-guide-actions button,.prompt-maker-actions,.prompt-maker-actions button{width:100%}
  .inline-editor-grid{grid-template-columns:1fr}
 }
 

@@ -3,7 +3,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>夢小説シチュガチャ</title>
-<link rel="stylesheet" href="styles.css?v=27">
+<link rel="stylesheet" href="styles.css?v=28">
 </head>
 <body>
 <div class="wrap">
@@ -226,11 +226,13 @@
         </div>
       </div>
       <div class="schema-box">
-        <div style="display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap">
-          <strong style="font-size:.86rem">ChatGPTに新しいキャラファイルを作らせるとき</strong>
-          <button class="small-btn" id="copySchemaPrompt">JSON仕様をコピー</button>
+        <div class="schema-guide-head">
+          <div><strong>ChatGPTでキャラをまとめて追加</strong><p class="io-note">作品名を指定する依頼文、JSON形式、使用できるタグを使い方ページで確認できます。</p></div>
+          <div class="schema-guide-actions">
+            <button type="button" class="small-btn" id="copySchemaPrompt">作成用プロンプトをコピー</button>
+            <button type="button" class="help-action compact" data-go-screen="help" data-scroll-target="help-character-json">❓ 詳しい使い方</button>
+          </div>
         </div>
-        <div class="io-note" style="margin-top:6px">基本形式：<code>{ "schema": "dream-gacha.characters", "version": 1, "characters": [ ... ] }</code>。characters配列だけのJSONも読み込めます。</div>
       </div>
       <div class="backup-box">
         <h3>完全バックアップ</h3>
@@ -274,6 +276,7 @@
   <nav class="help-local-nav" aria-label="使い方ページ内メニュー">
     <a href="#help-basic">基本の流れ</a>
     <a href="#help-details">各ページの詳細</a>
+    <a href="#help-character-json">キャラファイル作成</a>
     <a href="#help-faq">よくある質問</a>
   </nav>
 
@@ -320,6 +323,65 @@
     </div>
   </section>
 
+  <section class="panel help-section character-json-guide" id="help-character-json">
+    <div class="panel-head character-json-head"><div><span class="eyebrow">CHATGPT + JSON</span><h2>ChatGPTでキャラファイルを作る</h2></div><span class="label">作品単位でまとめて追加</span></div>
+    <div class="panel-body">
+      <p class="guide-lead">作品名を入力して依頼文をコピーし、ChatGPTへ送ります。返ってきたJSONをファイルとして保存したら、キャラ管理の「JSONを読み込む」から追加できます。</p>
+
+      <ol class="import-steps">
+        <li><strong>作品名を入力</strong><span>正式な作品名を入力します。</span></li>
+        <li><strong>依頼文をコピー</strong><span>男性キャラの調査条件・JSON形式・許可タグがまとめて入ります。</span></li>
+        <li><strong>JSONで保存</strong><span>ChatGPTの回答を説明文なしの <code>.json</code> ファイルとして保存します。</span></li>
+        <li><strong>追加・更新で読み込む</strong><span>最初は既存キャラを残せる「追加・更新」がおすすめです。</span></li>
+      </ol>
+
+      <div class="prompt-maker">
+        <div class="field"><label for="characterResearchWork">調べたい作品名</label><input id="characterResearchWork" type="text" placeholder="例：ジョジョの奇妙な冒険"></div>
+        <div class="field"><label for="characterResearchPromptPreview">ChatGPTへ送る依頼文</label><textarea id="characterResearchPromptPreview" class="research-prompt" readonly></textarea></div>
+        <div class="prompt-maker-actions">
+          <button type="button" class="primary" id="copyCharacterResearchPrompt">📋 この依頼文をコピー</button>
+          <button type="button" class="help-action compact" id="downloadCharacterTemplateFromHelp">📄 空のJSONテンプレート</button>
+        </div>
+      </div>
+
+      <div class="guide-grid">
+        <section class="guide-card">
+          <h3>JSONの基本形式</h3>
+          <pre class="json-example"><code>{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "name": "キャラクター名",
+      "work": "作品名",
+      "series": "部・シリーズ",
+      "tags": ["冷静", "知的"],
+      "archived": false,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "verified",
+      "heightSource": "出典名またはURL"
+    }
+  ]
+}</code></pre>
+        </section>
+        <section class="guide-card">
+          <h3>身長を調べるときのルール</h3>
+          <ul><li>公式サイト、公式プロフィール、出版社・制作会社の資料を優先します。</li><li>複数の公式値がある場合は <code>heightText</code> に併記し、代表値を <code>heightCm</code> に入れます。</li><li>公称値が見つからなければ推測せず、<code>heightText</code> は「不明」、<code>heightCm</code> は <code>null</code> にします。</li><li>確認できた場合は <code>heightStatus</code> を <code>verified</code>、不明なら <code>unknown</code> にします。</li></ul>
+        </section>
+      </div>
+
+      <section class="allowed-tags-box">
+        <div class="allowed-tags-head"><h3>使用できる印象タグ</h3><span class="label">一覧にないタグは読み込み時に除外されます</span></div>
+        <div class="allowed-tag-groups" id="allowedTagGuide"></div>
+      </section>
+
+      <div class="import-caution"><strong>読み込む前に確認</strong><p>ChatGPTの調査結果には誤りが含まれる場合があります。人数、名前、部・シリーズ、身長と出典を確認してから読み込んでください。「ファイル内容で全キャラ置換」は現在の一覧を置き換えるため、通常は「追加・更新」を使います。</p></div>
+      <button type="button" class="help-action" data-go-screen="manager" data-scroll-target="ioPanel">👤 キャラファイルの読み込みへ</button>
+    </div>
+  </section>
+
   <section class="panel help-section data-guide">
     <div class="panel-head"><h2>データの保存と引っ越し</h2><span class="label">大切な作品を守るために</span></div>
     <div class="panel-body">
@@ -343,7 +405,7 @@
   </section>
 </section>
 </main>
-<footer>v0.27 / 使い方ページの表示と導線を改善 / ブラウザ内に保存</footer>
+<footer>v0.28 / ChatGPT用キャラファイル作成ガイドを追加 / ブラウザ内に保存</footer>
 </div>
 <div class="quick-nav" id="managerQuickNav" aria-label="キャラ管理クイック移動" hidden="">
   <button type="button" id="jumpTop">↑ 上へ</button>
@@ -383,12 +445,12 @@
 </div>
 <div class="toast" id="toast">ガチャ対象に戻しました</div>
 
-<script src="app-data.js?v=27"></script>
-<script src="app-domain.js?v=27"></script>
-<script src="app-storage.js?v=27"></script>
-<script src="app-ui.js?v=27"></script>
-<script src="seed-data.js?v=27"></script>
-<script src="app.js?v=27"></script>
+<script src="app-data.js?v=28"></script>
+<script src="app-domain.js?v=28"></script>
+<script src="app-storage.js?v=28"></script>
+<script src="app-ui.js?v=28"></script>
+<script src="seed-data.js?v=28"></script>
+<script src="app.js?v=28"></script>
 
 
 </body></html>

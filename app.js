@@ -854,7 +854,7 @@ function toggleFavorite(ids){
 function exportCharacterPayload(chars){
  return {schema:"dream-gacha.characters",version:1,app:"夢小説シチュガチャ",exportedAt:new Date().toISOString(),characters:chars.map(c=>({
    id:c.id,name:c.name,work:c.work,series:c.series,tags:[...c.tags],archived:!!c.archived,favorite:!!c.favorite,
-   heightText:c.heightText||"",heightCm:c.heightCm??null
+   heightText:c.heightText||"",heightCm:c.heightCm??null,heightStatus:c.heightStatus||"unknown",heightSource:c.heightSource||""
  }))};
 }
 function downloadJson(data,filename){
@@ -871,44 +871,73 @@ function exportCharacters(mode){
  downloadJson(exportCharacterPayload(arr),`dream-gacha-characters-${mode}-${stamp}.json`);showToast(`${arr.length}件を書き出しました`);
 }
 function exportTemplate(){
- const data={schema:"dream-gacha.characters",version:1,instructions:"characters にキャラを追加してください。name は必須です。身長不明なら heightCm=null にしてください。",characters:[{
+ const data={schema:"dream-gacha.characters",version:1,instructions:"characters にキャラを追加してください。name は必須です。tags は許可された共通タグだけを使い、身長不明なら heightCm=null、heightStatus=unknown にしてください。",characters:[{
    name:"キャラクター名",work:"作品名",series:"部・シリーズ",tags:["年上系","冷静","優しい"],archived:false,favorite:false,
-   heightText:"180cm",heightCm:180
+   heightText:"180cm",heightCm:180,heightStatus:"verified",heightSource:"公式プロフィール名またはURL"
  }]};
  downloadJson(data,"dream-gacha-character-template.json");showToast("ChatGPT用テンプレートを書き出しました");
 }
-const CHARACTER_SCHEMA_PROMPT=`夢小説シチュガチャにインポートするキャラクターJSONファイルを作ってください。出力はJSONのみ、説明文やMarkdownのコードフェンスは不要です。
+function allowedTagPromptText(){return TAG_GROUP_ORDER.map(key=>`${TAG_GROUP_LABELS[key]}：${CANONICAL_TAGS[key].join(" / ")}`).join("\n")}
+function buildCharacterResearchPrompt(workName=""){
+ const work=String(workName||"").trim()||"【作品名】";
+ const workJson=JSON.stringify(work);
+ return `夢小説シチュガチャに読み込むため、「${work}」に登場する男性キャラクターを調査し、JSONファイル用のデータを作ってください。
 
-形式：
+【調査範囲】
+- 主人公・味方・敵・脇役を問わず、作中または公式資料で固有名が確認できる男性キャラクターを可能な限り網羅してください。
+- 同一人物の別名・変装・成長後などは原則1件にまとめ、必要なら name や series で分かるようにしてください。
+- 性別が公式に男性と確認できないキャラクター、名前のないモブ、実在の出演者・声優は含めないでください。
+- ウェブ検索が使える場合は、公式サイト、公式プロフィール、出版社・制作会社、公式設定資料を優先して確認してください。
+
+【身長と出典】
+- 公称身長を確認し、heightText に表示用の値、heightCm に代表値をcm単位の数値で入れてください。
+- 媒体や時期で公式値が異なる場合は heightText に併記し、heightSource にどの値を採用したか分かる出典名またはURLを書いてください。
+- 公称値を確認できない場合は推測せず、heightText は「不明」、heightCm は null、heightStatus は "unknown" としてください。
+- 公称値を確認できた場合だけ heightStatus を "verified" としてください。
+
+【印象タグ】
+- 各キャラの公式描写に合うものを、次の許可タグから2〜6個程度選んでください。
+- 一覧にないタグ、類義語、キャラ1人だけに使う細かいタグは作らないでください。
+${allowedTagPromptText()}
+
+【JSON形式】
 {
   "schema": "dream-gacha.characters",
   "version": 1,
   "characters": [
     {
-      "id": "任意。省略可",
-      "name": "キャラ名（必須）",
-      "work": "作品名",
-      "series": "部・シリーズ",
-      "tags": ["印象タグ1", "印象タグ2"],
+      "name": "キャラクター名",
+      "work": ${workJson},
+      "series": "部・シリーズ。なければ空文字",
+      "tags": ["冷静", "知的"],
       "archived": false,
       "favorite": false,
-      "heightText": "身長の表示文字列。例: 180cm / 175cm→180cm / 不明",
-      "heightCm": 180
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "verified",
+      "heightSource": "具体的な出典名またはURL"
     }
   ]
 }
 
-タグは必ず以下の共通語彙だけを使ってください。類義語や1人専用の細かいタグは新設せず、抽象度の高い共通タグへ統合してください。
-年齢・距離感：年上系 / 年下系 / 同年代系
-性格・雰囲気：優しい / 誠実 / 冷静 / 現実的 / 知的 / 明るい / 情熱的 / 不器用 / 寡黙 / 自信家 / 強気 / マイペース / 策士 / 包容力 / 一途 / 危険 / 荒っぽい / 気弱 / 素直 / 個性的 / 挑発的 / 負けず嫌い / 野心家 / キザ / 女好き
-容姿・体格：美形 / 色気 / 体格がいい / 強面
-役割・属性：主人公 / 悪役 / ライバル / 指導者 / 戦闘系 / 知識職 / 職人系 / 権力者 / 一般人
-
-heightCm は代表値を数値(cm)で入れ、不明なら null にしてください。身長が不明なら推測で作らず、heightText は「不明」、heightCm は null にしてください。
-作品名・部/シリーズ・タグ・お気に入り情報も characters 内で一緒に管理してください。`;
+出力前に、重複、女性キャラクターの混入、架空の身長、許可外タグがないか確認してください。
+最終出力は有効なJSONだけにし、説明文・注釈・Markdownのコードフェンスは付けないでください。`;
+}
+const CHARACTER_SCHEMA_PROMPT=buildCharacterResearchPrompt();
+async function copyTextToClipboard(value){
+ try{await navigator.clipboard.writeText(value)}catch(e){const ta=document.createElement("textarea");ta.value=value;document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove()}
+}
 async function copySchemaPrompt(){
- try{await navigator.clipboard.writeText(CHARACTER_SCHEMA_PROMPT)}catch(e){const ta=document.createElement("textarea");ta.value=CHARACTER_SCHEMA_PROMPT;document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove()}
- showToast("ChatGPT用JSON仕様をコピーしました");
+ await copyTextToClipboard(CHARACTER_SCHEMA_PROMPT);showToast("キャラファイル作成用プロンプトをコピーしました");
+}
+function renderCharacterImportGuide(){
+ const input=$("#characterResearchWork"),preview=$("#characterResearchPromptPreview"),tags=$("#allowedTagGuide");if(!input||!preview||!tags)return;
+ preview.value=buildCharacterResearchPrompt(input.value);
+ tags.innerHTML=TAG_GROUP_ORDER.map(key=>`<section class="allowed-tag-group"><div class="allowed-tag-label">${esc(TAG_GROUP_LABELS[key])}</div><div class="allowed-tag-list">${CANONICAL_TAGS[key].map(tag=>`<span class="allowed-tag">${esc(tag)}</span>`).join("")}</div></section>`).join("");
+}
+async function copyCharacterResearchPrompt(){
+ const work=$("#characterResearchWork").value.trim();if(!work){$("#characterResearchWork").focus();return showToast("先に作品名を入力してください")}
+ await copyTextToClipboard(buildCharacterResearchPrompt(work));showToast(`「${work}」の調査用プロンプトをコピーしました`);
 }
 function normalizeImported(raw,existing=null){
  const merged={...(existing||{}),...raw,id:existing?.id||raw.id||makeId()};
@@ -990,7 +1019,7 @@ function setStatus(m){$("#status").textContent=m;clearTimeout(setStatus.t);setSt
 function showToast(m){const e=$("#toast");e.textContent=m;e.classList.add("show");clearTimeout(showToast.t);showToast.t=setTimeout(()=>e.classList.remove("show"),1700)}
 
 function init(){
- load();renderResultCards();renderPoolEditors();renderGachaFilters();renderAddTagPicker();renderLibrary();
+ load();renderResultCards();renderPoolEditors();renderGachaFilters();renderAddTagPicker();renderCharacterImportGuide();renderLibrary();
 
  const tabs=[...document.querySelectorAll(".tab-btn")];
  tabs.forEach((b,index)=>{
@@ -1066,6 +1095,9 @@ function init(){
  $("#exportSelected").addEventListener("click",()=>exportCharacters("selected"));
  $("#exportTemplate").addEventListener("click",exportTemplate);
  $("#copySchemaPrompt").addEventListener("click",copySchemaPrompt);
+ $("#characterResearchWork").addEventListener("input",renderCharacterImportGuide);
+ $("#copyCharacterResearchPrompt").addEventListener("click",copyCharacterResearchPrompt);
+ $("#downloadCharacterTemplateFromHelp").addEventListener("click",exportTemplate);
  $("#importButton").addEventListener("click",()=>$("#importFile").click());
  $("#exportFullBackup").addEventListener("click",exportFullBackup);
  $("#importFullBackup").addEventListener("click",()=>$("#fullBackupFile").click());
