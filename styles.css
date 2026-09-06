@@ -486,6 +486,8 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
  --glow1:#30213f;--glow2:#3a222f
 }
 :root[data-theme="dark"] body{background:radial-gradient(circle at 10% 0%,var(--glow1) 0,transparent 30%),radial-gradient(circle at 100% 20%,var(--glow2) 0,transparent 28%),var(--bg)}
+:root[data-theme="dark"] .tabs{background:linear-gradient(var(--bg) 72%,transparent)}
+:root[data-theme="dark"] .help-hero{background:linear-gradient(135deg,var(--surface-accent) 0%,var(--panel) 52%,var(--surface-danger) 100%);border-color:var(--line)}
 :root[data-theme="dark"] :where(.facet-chip,.world-mode-options button,.status-filter-btn,.choice-item,.small-btn,.lock-label,.candidate-chip){color:var(--text)}
 :root[data-theme="dark"] :where(.choose-btn,.result-bulk-actions .category-reset-btn){color:#d8c0f3!important}
 :root[data-theme="dark"] .candidate-option.excluded .candidate-chip{color:#efafbd}
