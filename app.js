@@ -158,8 +158,10 @@ function applySettingsState(saved,overrides={}){
 }
 
 function prepareSettings(raw,strict=false){
- const prepared=DreamGachaStorage.decodeSettings(raw,{pools:DEFAULT_POOLS,basePrompt:DEFAULT_BASE_PROMPT,protagonistProfile:DEFAULT_PROTAGONIST_PROFILE},strict);
- if(!prepared.basePrompt||(Number(prepared.version||0)<21&&LEGACY_BASE_PROMPTS.includes(prepared.basePrompt)))prepared.basePrompt=DEFAULT_BASE_PROMPT;
+  const prepared=DreamGachaStorage.decodeSettings(raw,{pools:DEFAULT_POOLS,basePrompt:DEFAULT_BASE_PROMPT,protagonistProfile:DEFAULT_PROTAGONIST_PROFILE},strict);
+  const previousBundledPrompt=prepared.basePrompt.replace("\n\n## 身長差・体格差\n\n夢主は160cmです。\n\n","\n\n## 身長差・体格差\n\n");
+  const shouldMigrateBundledPrompt=Number(prepared.version||0)<DreamGachaData.SETTINGS_VERSION&&(LEGACY_BASE_PROMPTS.includes(prepared.basePrompt)||previousBundledPrompt===DEFAULT_BASE_PROMPT);
+  if(!prepared.basePrompt||shouldMigrateBundledPrompt)prepared.basePrompt=DEFAULT_BASE_PROMPT;
  prepared.characters=cleanupCharacterData(prepared.characters.map(normalize).filter(c=>c.name));
  prepared.filters.tags=canonicalizeTags(prepared.filters.tags||[]);
  if(!prepared.characters.some(c=>c.id===prepared.characterId&&!c.archived))prepared.characterId=null;
