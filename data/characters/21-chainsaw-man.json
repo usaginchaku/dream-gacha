@@ -1,0 +1,1154 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "char-mtpmq0me-vtmnro",
+      "name": "早川アキ",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "一途",
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "不器用",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "verified",
+      "heightSource": "2023年『アニメーション チェンソーマン展』MAPPA監修 Character Height Chart（https://anime-chainsawmanten.dog/）"
+    },
+    {
+      "id": "char-mtpmq0me-68re21",
+      "name": "アルド",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "悪役",
+        "気弱",
+        "策士",
+        "戦闘系",
+        "同年代系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-opziy6",
+      "name": "エンジェル（天使の悪魔）",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "マイペース",
+        "寡黙",
+        "戦闘系",
+        "同年代系",
+        "美形"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "155cm（天使の輪込み165cm）",
+      "heightCm": 155,
+      "heightStatus": "verified",
+      "heightSource": "2023年『アニメーション チェンソーマン展』MAPPA監修 Character Height Chart（https://anime-chainsawmanten.dog/）"
+    },
+    {
+      "id": "char-mtpmq0me-1u38ur",
+      "name": "バルエム・ブリッチ",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編／第2部 学園編",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "自信家",
+        "戦闘系",
+        "挑発的"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-89inu2",
+      "name": "コウモリの悪魔",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編／第2部 学園編",
+      "tags": [
+        "悪役",
+        "危険",
+        "強面",
+        "荒っぽい",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-gwt01j",
+      "name": "ビーム（サメの魔人）",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "一途",
+        "個性的",
+        "戦闘系",
+        "素直",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "165cm（本体）／185cm（ヒレ込み）／220cm（サメ化）",
+      "heightCm": 165,
+      "heightStatus": "verified",
+      "heightSource": "2023年『アニメーション チェンソーマン展』MAPPA監修 Character Height Chart（https://anime-chainsawmanten.dog/）"
+    },
+    {
+      "id": "char-mtpmq0me-gkacy9",
+      "name": "コケピー（鶏の悪魔）",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "個性的",
+        "素直",
+        "明るい",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-5u58p3",
+      "name": "ゴキブリの悪魔",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "戦闘系",
+        "挑発的"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-fwf039",
+      "name": "クランボン",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "個性的",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-o60um4",
+      "name": "デンジ",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編／第2部 学園編",
+      "tags": [
+        "荒っぽい",
+        "主人公",
+        "女好き",
+        "戦闘系",
+        "素直",
+        "年下系"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "173cm（人間時）／180cm（チェンソーマン形態・頭部取手込み）",
+      "heightCm": 173,
+      "heightStatus": "verified",
+      "heightSource": "2023年『アニメーション チェンソーマン展』MAPPA監修 Character Height Chart（https://anime-chainsawmanten.dog/）"
+    },
+    {
+      "id": "char-mtpmq0me-30pzvp",
+      "name": "耳の悪魔",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "寡黙",
+        "危険",
+        "個性的",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-1l5i63",
+      "name": "偽チェンソーマン",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "ライバル",
+        "一途",
+        "危険",
+        "情熱的",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-agq6ps",
+      "name": "フリオ",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-46gfhn",
+      "name": "古野",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "現実的",
+        "戦闘系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-4g06m4",
+      "name": "伏",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "個性的",
+        "誠実",
+        "戦闘系",
+        "知的",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-xtn3j6",
+      "name": "ガルガリ（暴力の魔人）",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "体格がいい",
+        "明るい",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "verified",
+      "heightSource": "2023年『アニメーション チェンソーマン展』MAPPA監修 Character Height Chart（https://anime-chainsawmanten.dog/）"
+    },
+    {
+      "id": "char-mtpmq0me-wks3nq",
+      "name": "阪上ハダジ",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "権力者",
+        "現実的",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-sny0fa",
+      "name": "伊勢海ハルカ",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "強気",
+        "自信家",
+        "戦闘系",
+        "年下系",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-oojvdg",
+      "name": "吉田ヒロフミ",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編／第2部 学園編",
+      "tags": [
+        "策士",
+        "戦闘系",
+        "知的",
+        "年下系",
+        "美形",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-vr8lsa",
+      "name": "荒井ヒロカズ",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "気弱",
+        "誠実",
+        "戦闘系",
+        "素直",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "verified",
+      "heightSource": "2023年『アニメーション チェンソーマン展』MAPPA監修 Character Height Chart（https://anime-chainsawmanten.dog/）"
+    },
+    {
+      "id": "char-mtpmq0me-yfh1yy",
+      "name": "ジョーイ",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "悪役",
+        "危険",
+        "荒っぽい",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-pb0kre",
+      "name": "神林",
+      "work": "チェンソーマン",
+      "series": "小説『チェンソーマン バディ・ストーリーズ』",
+      "tags": [
+        "一般人",
+        "気弱",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "JUMP j BOOKS『チェンソーマン バディ・ストーリーズ』（集英社、https://j-books.shueisha.co.jp/books/chainsawman_buddystories.html）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-sk5orc",
+      "name": "サムライソード",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編／第2部 学園編",
+      "tags": [
+        "危険",
+        "強気",
+        "荒っぽい",
+        "戦闘系",
+        "同年代系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "195cm（サムライソード形態）",
+      "heightCm": 195,
+      "heightStatus": "verified",
+      "heightSource": "2023年『アニメーション チェンソーマン展』MAPPA監修 Character Height Chart（https://anime-chainsawmanten.dog/）"
+    },
+    {
+      "id": "char-mtpmq0me-ltawhk",
+      "name": "加藤",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "現実的",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-eyio1u",
+      "name": "石多ケンタロウ",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "気弱",
+        "権力者",
+        "現実的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-vgtbgu",
+      "name": "ケンゾー（アニメ資料名：浅木幸之助）",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編／小説『チェンソーマン バディ・ストーリーズ』",
+      "tags": [
+        "現実的",
+        "自信家",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "JUMP j BOOKS『チェンソーマン バディ・ストーリーズ』（集英社、https://j-books.shueisha.co.jp/books/chainsawman_buddystories.html）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-1hwwd2",
+      "name": "岸辺",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "現実的",
+        "荒っぽい",
+        "指導者",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "194cm",
+      "heightCm": 194,
+      "heightStatus": "verified",
+      "heightSource": "2023年『アニメーション チェンソーマン展』MAPPA監修 Character Height Chart（https://anime-chainsawmanten.dog/）"
+    },
+    {
+      "id": "char-mtpmq0me-64o87q",
+      "name": "日下部",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-umdz40",
+      "name": "孤独の魔人",
+      "work": "チェンソーマン",
+      "series": "小説『チェンソーマン バディ・ストーリーズ』",
+      "tags": [
+        "悪役",
+        "危険",
+        "個性的",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "JUMP j BOOKS『チェンソーマン バディ・ストーリーズ』（集英社、https://j-books.shueisha.co.jp/books/chainsawman_buddystories.html）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-ele7sn",
+      "name": "円",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "現実的",
+        "戦闘系",
+        "同年代系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-w609ar",
+      "name": "安藤マサキ",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "現実的",
+        "誠実",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-bnnlqm",
+      "name": "高梨ミキ",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "権力者",
+        "現実的",
+        "誠実",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-dyhdjh",
+      "name": "須郷ミリ",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編／第2部 学園編",
+      "tags": [
+        "情熱的",
+        "戦闘系",
+        "素直",
+        "年下系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-i8b8d8",
+      "name": "筋肉の悪魔",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-xbr840",
+      "name": "中村",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-idl1on",
+      "name": "東山ノバナ",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "気弱",
+        "戦闘系",
+        "素直",
+        "年下系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-ldtajh",
+      "name": "野茂",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-9boqbh",
+      "name": "ダンゴムシの悪魔",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "危険",
+        "個性的",
+        "誠実",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-rk30gp",
+      "name": "ポチタ",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編／第2部 学園編",
+      "tags": [
+        "一途",
+        "危険",
+        "個性的",
+        "戦闘系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-cuep4m",
+      "name": "佐藤",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "現実的",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-4dmemi",
+      "name": "亜国セイギ",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "寡黙",
+        "誠実",
+        "戦闘系",
+        "体格がいい",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-yape16",
+      "name": "椎名",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "現実的",
+        "戦闘系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-fh9as4",
+      "name": "戸間シン",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "権力者",
+        "現実的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-30r5n2",
+      "name": "篠原",
+      "work": "チェンソーマン",
+      "series": "小説『チェンソーマン バディ・ストーリーズ』",
+      "tags": [
+        "一般人",
+        "現実的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "JUMP j BOOKS『チェンソーマン バディ・ストーリーズ』（集英社、https://j-books.shueisha.co.jp/books/chainsawman_buddystories.html）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-unnl67",
+      "name": "三島シュウゾウ",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "悪役",
+        "危険",
+        "荒っぽい",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-6u8nhb",
+      "name": "スバル",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "指導者",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-y66hac",
+      "name": "長谷川タダシ",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "危険",
+        "権力者",
+        "策士",
+        "年上系",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-1nafwm",
+      "name": "早川タイヨウ",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "一般人",
+        "素直",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-mdd07x",
+      "name": "高木",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "強気",
+        "現実的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-a4unj9",
+      "name": "井上タカシ",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "悪役",
+        "危険",
+        "荒っぽい",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-pvo70w",
+      "name": "玉置",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-kwz37t",
+      "name": "田辺",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "戦闘系",
+        "同年代系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-yt0699",
+      "name": "田中先生",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "悪役",
+        "一般人",
+        "危険",
+        "策士",
+        "女好き",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-j43a3p",
+      "name": "トーリカ",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "一途",
+        "寡黙",
+        "戦闘系",
+        "同年代系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-46zsye",
+      "name": "友野",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "一般人",
+        "誠実",
+        "同年代系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-34x2zq",
+      "name": "横田",
+      "work": "チェンソーマン",
+      "series": "小説『チェンソーマン バディ・ストーリーズ』",
+      "tags": [
+        "一般人",
+        "誠実",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "JUMP j BOOKS『チェンソーマン バディ・ストーリーズ』（集英社、https://j-books.shueisha.co.jp/books/chainsawman_buddystories.html）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-maw36t",
+      "name": "友田ユウキ",
+      "work": "チェンソーマン",
+      "series": "第2部 学園編",
+      "tags": [
+        "権力者",
+        "現実的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・第3回公式キャラクター人気投票（https://www.shonenjump.com/p/sp/2509/vote_chainsaw3/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq0me-usso1m",
+      "name": "黒瀬ユウタロウ",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "現実的",
+        "戦闘系",
+        "同年代系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "165cm",
+      "heightCm": 165,
+      "heightStatus": "verified",
+      "heightSource": "2023年『アニメーション チェンソーマン展』MAPPA監修 Character Height Chart（https://anime-chainsawmanten.dog/）"
+    },
+    {
+      "id": "char-mtpmq0me-bqvzo1",
+      "name": "ゾンビの悪魔",
+      "work": "チェンソーマン",
+      "series": "第1部 公安編",
+      "tags": [
+        "悪役",
+        "危険",
+        "荒っぽい",
+        "策士",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "集英社『チェンソーマン』原作漫画・少年ジャンプ公式キャラクター人気投票／アニメ公式公開資料を確認。公称身長の数値は確認できず"
+    }
+  ],
+  "sourceOrder": {
+    "char-mtpmq0me-vtmnro": 1233,
+    "char-mtpmq0me-68re21": 1234,
+    "char-mtpmq0me-opziy6": 1235,
+    "char-mtpmq0me-1u38ur": 1236,
+    "char-mtpmq0me-89inu2": 1237,
+    "char-mtpmq0me-gwt01j": 1238,
+    "char-mtpmq0me-gkacy9": 1239,
+    "char-mtpmq0me-5u58p3": 1240,
+    "char-mtpmq0me-fwf039": 1241,
+    "char-mtpmq0me-o60um4": 1242,
+    "char-mtpmq0me-30pzvp": 1243,
+    "char-mtpmq0me-1l5i63": 1244,
+    "char-mtpmq0me-agq6ps": 1245,
+    "char-mtpmq0me-46gfhn": 1246,
+    "char-mtpmq0me-4g06m4": 1247,
+    "char-mtpmq0me-xtn3j6": 1248,
+    "char-mtpmq0me-wks3nq": 1249,
+    "char-mtpmq0me-sny0fa": 1250,
+    "char-mtpmq0me-oojvdg": 1251,
+    "char-mtpmq0me-vr8lsa": 1252,
+    "char-mtpmq0me-yfh1yy": 1253,
+    "char-mtpmq0me-pb0kre": 1254,
+    "char-mtpmq0me-sk5orc": 1255,
+    "char-mtpmq0me-ltawhk": 1256,
+    "char-mtpmq0me-eyio1u": 1257,
+    "char-mtpmq0me-vgtbgu": 1258,
+    "char-mtpmq0me-1hwwd2": 1259,
+    "char-mtpmq0me-64o87q": 1260,
+    "char-mtpmq0me-umdz40": 1261,
+    "char-mtpmq0me-ele7sn": 1262,
+    "char-mtpmq0me-w609ar": 1263,
+    "char-mtpmq0me-bnnlqm": 1264,
+    "char-mtpmq0me-dyhdjh": 1265,
+    "char-mtpmq0me-i8b8d8": 1266,
+    "char-mtpmq0me-xbr840": 1267,
+    "char-mtpmq0me-idl1on": 1268,
+    "char-mtpmq0me-ldtajh": 1269,
+    "char-mtpmq0me-9boqbh": 1270,
+    "char-mtpmq0me-rk30gp": 1271,
+    "char-mtpmq0me-cuep4m": 1272,
+    "char-mtpmq0me-4dmemi": 1273,
+    "char-mtpmq0me-yape16": 1274,
+    "char-mtpmq0me-fh9as4": 1275,
+    "char-mtpmq0me-30r5n2": 1276,
+    "char-mtpmq0me-unnl67": 1277,
+    "char-mtpmq0me-6u8nhb": 1278,
+    "char-mtpmq0me-y66hac": 1279,
+    "char-mtpmq0me-1nafwm": 1280,
+    "char-mtpmq0me-mdd07x": 1281,
+    "char-mtpmq0me-a4unj9": 1282,
+    "char-mtpmq0me-pvo70w": 1283,
+    "char-mtpmq0me-kwz37t": 1284,
+    "char-mtpmq0me-yt0699": 1285,
+    "char-mtpmq0me-j43a3p": 1286,
+    "char-mtpmq0me-46zsye": 1287,
+    "char-mtpmq0me-34x2zq": 1288,
+    "char-mtpmq0me-maw36t": 1289,
+    "char-mtpmq0me-usso1m": 1290,
+    "char-mtpmq0me-bqvzo1": 1291
+  }
+}

@@ -31,15 +31,15 @@ function withFixture(document, callback) {
 
 test("generated bundle preserves every seeded character and major fields", () => {
   const characters = generatedCharacters();
-  assert.equal(characters.length, 782);
-  assert.equal(crypto.createHash("sha256").update(JSON.stringify(characters)).digest("hex"), "02bcf7ce0332bb632793f5405383449b4c7ac6d26c450bad01ae6eb7cff84f62");
+  assert.equal(characters.length, 1303);
+  assert.equal(crypto.createHash("sha256").update(JSON.stringify(characters)).digest("hex"), "d59fb8522438067e9513bbccf0e1b08f7829c03bce0a8a9d6a6e37eb3a412f61");
   assert.deepEqual(JSON.parse(JSON.stringify(characters.find(character => character.id === "jojo-caesar"))), {
     id: "jojo-caesar", name: "シーザー・A・ツェペリ", work: "ジョジョの奇妙な冒険", series: "2部",
     tags: ["キザ", "自信家", "女好き", "情熱的", "年上系", "包容力", "優しい"], archived: false,
     favorite: true, heightText: "186cm", heightCm: 186, heightStatus: "verified",
     heightSource: "JoJo Wiki「Caesar Anthonio Zeppeli」プロフィール：186cm"
   });
-  assert.equal(new Set(characters.map(character => character.work)).size, 14);
+  assert.equal(new Set(characters.map(character => character.work)).size, 22);
 });
 
 test("index.html cache key matches the generated bundle", () => {
@@ -58,9 +58,9 @@ test("normal build is idempotent when output and cache key are already current",
   assert.equal(fs.readFileSync(path.join(root, "index.html"), "utf8"), firstIndex);
 });
 
-test("all 14 work files contain characters from exactly one work", () => {
+test("all 22 work files contain characters from exactly one work", () => {
   const documents = builder.readDocuments(dataDir);
-  assert.equal(documents.length, 14);
+  assert.equal(documents.length, 22);
   for (const { file, document } of documents) {
     const works = new Set(document.characters.map(character => character.work));
     assert.equal(works.size, 1, `${file} must contain exactly one work`);

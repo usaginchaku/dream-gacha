@@ -1,0 +1,1465 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "char-mtpmpuh5-lbz6cm",
+      "name": "坂田銀時",
+      "work": "銀魂",
+      "series": "万事屋／攘夷戦争",
+      "tags": [
+        "マイペース",
+        "主人公",
+        "戦闘系",
+        "同年代系",
+        "不器用",
+        "包容力"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック 銀ちゃんねる！』集英社（2006年4月4日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-d3cm1o",
+      "name": "志村新八",
+      "work": "銀魂",
+      "series": "万事屋／恒道館",
+      "tags": [
+        "主人公",
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "素直",
+        "年下系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "166cm",
+      "heightCm": 166,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック 銀ちゃんねる！』集英社（2006年4月4日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-uvm7l7",
+      "name": "近藤勲",
+      "work": "銀魂",
+      "series": "真選組",
+      "tags": [
+        "一途",
+        "指導者",
+        "情熱的",
+        "戦闘系",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "184cm",
+      "heightCm": 184,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック 銀ちゃんねる！』集英社（2006年4月4日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-xxcuad",
+      "name": "土方十四郎",
+      "work": "銀魂",
+      "series": "真選組",
+      "tags": [
+        "強気",
+        "指導者",
+        "戦闘系",
+        "同年代系",
+        "不器用",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック 銀ちゃんねる！』集英社（2006年4月4日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-j7lai3",
+      "name": "沖田総悟",
+      "work": "銀魂",
+      "series": "真選組",
+      "tags": [
+        "危険",
+        "自信家",
+        "戦闘系",
+        "挑発的",
+        "年下系",
+        "美形"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "170cm",
+      "heightCm": 170,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック 銀ちゃんねる！』集英社（2006年4月4日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-sgog2t",
+      "name": "山崎退",
+      "work": "銀魂",
+      "series": "真選組",
+      "tags": [
+        "気弱",
+        "現実的",
+        "誠実",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "169cm",
+      "heightCm": 169,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック 銀ちゃんねる！』集英社（2006年4月4日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-v2pz4a",
+      "name": "松平片栗虎",
+      "work": "銀魂",
+      "series": "幕府／警察庁",
+      "tags": [
+        "強面",
+        "権力者",
+        "荒っぽい",
+        "女好き",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-y6zvrm",
+      "name": "伊東鴨太郎",
+      "work": "銀魂",
+      "series": "真選組動乱篇",
+      "tags": [
+        "ライバル",
+        "策士",
+        "戦闘系",
+        "知的",
+        "同年代系",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-tw090b",
+      "name": "斉藤終",
+      "work": "銀魂",
+      "series": "真選組",
+      "tags": [
+        "寡黙",
+        "個性的",
+        "戦闘系",
+        "同年代系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-qn6csf",
+      "name": "佐々木鉄之助",
+      "work": "銀魂",
+      "series": "真選組／バラガキ篇",
+      "tags": [
+        "気弱",
+        "誠実",
+        "戦闘系",
+        "年下系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-1ykc89",
+      "name": "篠原進之進",
+      "work": "銀魂",
+      "series": "真選組動乱篇",
+      "tags": [
+        "一途",
+        "戦闘系",
+        "同年代系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-hhroj5",
+      "name": "六角宗春",
+      "work": "銀魂",
+      "series": "六角事件篇",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-zj3uyi",
+      "name": "蔵場当馬",
+      "work": "銀魂",
+      "series": "ミツバ篇",
+      "tags": [
+        "悪役",
+        "策士",
+        "同年代系",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-j6uv33",
+      "name": "桂小太郎",
+      "work": "銀魂",
+      "series": "攘夷党／攘夷戦争",
+      "tags": [
+        "マイペース",
+        "指導者",
+        "誠実",
+        "戦闘系",
+        "知的",
+        "同年代系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック 銀ちゃんねる！』集英社（2006年4月4日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-36utri",
+      "name": "高杉晋助",
+      "work": "銀魂",
+      "series": "鬼兵隊／攘夷戦争",
+      "tags": [
+        "一途",
+        "危険",
+        "策士",
+        "色気",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "170cm",
+      "heightCm": 170,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック 銀ちゃんねる！』集英社（2006年4月4日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-sd0ker",
+      "name": "坂本辰馬",
+      "work": "銀魂",
+      "series": "快援隊／攘夷戦争",
+      "tags": [
+        "マイペース",
+        "権力者",
+        "指導者",
+        "同年代系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "181cm",
+      "heightCm": 181,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック2 銀魂五年生』集英社（2009年5月1日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-2f9ggm",
+      "name": "河上万斉",
+      "work": "銀魂",
+      "series": "鬼兵隊",
+      "tags": [
+        "一途",
+        "個性的",
+        "職人系",
+        "戦闘系",
+        "同年代系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "179cm",
+      "heightCm": 179,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック2 銀魂五年生』集英社（2009年5月1日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-34q9kq",
+      "name": "武市変平太",
+      "work": "銀魂",
+      "series": "鬼兵隊",
+      "tags": [
+        "個性的",
+        "策士",
+        "戦闘系",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック2 銀魂五年生』集英社（2009年5月1日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-jk4c76",
+      "name": "岡田似蔵",
+      "work": "銀魂",
+      "series": "鬼兵隊／紅桜篇",
+      "tags": [
+        "悪役",
+        "寡黙",
+        "危険",
+        "強面",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-hxgze5",
+      "name": "平賀三郎",
+      "work": "銀魂",
+      "series": "鬼兵隊／源外篇",
+      "tags": [
+        "情熱的",
+        "職人系",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-44fzgk",
+      "name": "長谷川泰三",
+      "work": "銀魂",
+      "series": "かぶき町",
+      "tags": [
+        "一般人",
+        "現実的",
+        "誠実",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "179cm",
+      "heightCm": 179,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック 銀ちゃんねる！』集英社（2006年4月4日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-268f1e",
+      "name": "平賀源外",
+      "work": "銀魂",
+      "series": "かぶき町／からくり技師",
+      "tags": [
+        "個性的",
+        "職人系",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-km7bgr",
+      "name": "寺田辰五郎",
+      "work": "銀魂",
+      "series": "かぶき町・過去",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-x0bctj",
+      "name": "泥水次郎長",
+      "work": "銀魂",
+      "series": "かぶき町四天王篇",
+      "tags": [
+        "一途",
+        "寡黙",
+        "強面",
+        "指導者",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-m0asbo",
+      "name": "黒駒勝男",
+      "work": "銀魂",
+      "series": "溝鼠組／かぶき町",
+      "tags": [
+        "一途",
+        "強面",
+        "荒っぽい",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-tfxk7b",
+      "name": "西郷特盛",
+      "work": "銀魂",
+      "series": "かぶき町四天王",
+      "tags": [
+        "指導者",
+        "情熱的",
+        "戦闘系",
+        "体格がいい",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-82kqy9",
+      "name": "本城狂死郎",
+      "work": "銀魂",
+      "series": "かぶき町／高天原",
+      "tags": [
+        "キザ",
+        "一般人",
+        "同年代系",
+        "美形",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-r8729u",
+      "name": "八郎",
+      "work": "銀魂",
+      "series": "かぶき町／高天原",
+      "tags": [
+        "一般人",
+        "年下系",
+        "不器用",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-zuuden",
+      "name": "小銭形平次",
+      "work": "銀魂",
+      "series": "かぶき町／岡っ引き",
+      "tags": [
+        "一般人",
+        "情熱的",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-rx4pg0",
+      "name": "鯱",
+      "work": "銀魂",
+      "series": "獄門島／囚人",
+      "tags": [
+        "強面",
+        "個性的",
+        "荒っぽい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-i199zt",
+      "name": "破牙検事",
+      "work": "銀魂",
+      "series": "マダオ裁判篇",
+      "tags": [
+        "権力者",
+        "自信家",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-n77mdu",
+      "name": "屁怒絽",
+      "work": "銀魂",
+      "series": "かぶき町",
+      "tags": [
+        "マイペース",
+        "一般人",
+        "強面",
+        "体格がいい",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-f9uaqd",
+      "name": "ハタ皇子",
+      "work": "銀魂",
+      "series": "央国星",
+      "tags": [
+        "マイペース",
+        "権力者",
+        "個性的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-dka58e",
+      "name": "じい",
+      "work": "銀魂",
+      "series": "央国星",
+      "tags": [
+        "一般人",
+        "現実的",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-58vkuq",
+      "name": "服部全蔵",
+      "work": "銀魂",
+      "series": "御庭番衆",
+      "tags": [
+        "マイペース",
+        "指導者",
+        "戦闘系",
+        "同年代系",
+        "不器用",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック2 銀魂五年生』集英社（2009年5月1日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-8yt8dz",
+      "name": "地雷亜（鳶田段蔵）",
+      "work": "銀魂",
+      "series": "吉原炎上後／月詠篇",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-rodt8d",
+      "name": "鳳仙",
+      "work": "銀魂",
+      "series": "吉原炎上篇／夜兎族",
+      "tags": [
+        "悪役",
+        "危険",
+        "強気",
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-54xwlc",
+      "name": "晴太",
+      "work": "銀魂",
+      "series": "吉原",
+      "tags": [
+        "一般人",
+        "情熱的",
+        "素直",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-amxj6k",
+      "name": "神威",
+      "work": "銀魂",
+      "series": "春雨第七師団／夜兎族",
+      "tags": [
+        "危険",
+        "戦闘系",
+        "挑発的",
+        "年下系",
+        "美形",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "170cm",
+      "heightCm": 170,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック2 銀魂五年生』集英社（2009年5月1日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-cuz1v5",
+      "name": "阿伏兎",
+      "work": "銀魂",
+      "series": "春雨第七師団／夜兎族",
+      "tags": [
+        "現実的",
+        "戦闘系",
+        "体格がいい",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "186cm",
+      "heightCm": 186,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック2 銀魂五年生』集英社（2009年5月1日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-2juy6u",
+      "name": "星海坊主（神晃）",
+      "work": "銀魂",
+      "series": "夜兎族",
+      "tags": [
+        "一途",
+        "荒っぽい",
+        "指導者",
+        "戦闘系",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "168cm",
+      "heightCm": 168,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック2 銀魂五年生』集英社（2009年5月1日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-cjzm3a",
+      "name": "東城歩",
+      "work": "銀魂",
+      "series": "柳生一門",
+      "tags": [
+        "一途",
+        "個性的",
+        "女好き",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-xxtyqd",
+      "name": "柳生敏木斎",
+      "work": "銀魂",
+      "series": "柳生一門",
+      "tags": [
+        "マイペース",
+        "強気",
+        "指導者",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-k5v1ss",
+      "name": "柳生輿矩",
+      "work": "銀魂",
+      "series": "柳生一門",
+      "tags": [
+        "権力者",
+        "現実的",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-w2zzk4",
+      "name": "北大路斎",
+      "work": "銀魂",
+      "series": "柳生一門",
+      "tags": [
+        "自信家",
+        "戦闘系",
+        "同年代系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック2 銀魂五年生』集英社（2009年5月1日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-eekzrn",
+      "name": "西野掴",
+      "work": "銀魂",
+      "series": "柳生一門",
+      "tags": [
+        "強面",
+        "戦闘系",
+        "体格がいい",
+        "同年代系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "208cm",
+      "heightCm": 208,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック2 銀魂五年生』集英社（2009年5月1日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-ygyn6h",
+      "name": "南戸粋",
+      "work": "銀魂",
+      "series": "柳生一門",
+      "tags": [
+        "キザ",
+        "自信家",
+        "女好き",
+        "戦闘系",
+        "同年代系",
+        "美形"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-rame5l",
+      "name": "佐々木異三郎",
+      "work": "銀魂",
+      "series": "見廻組",
+      "tags": [
+        "策士",
+        "指導者",
+        "戦闘系",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-p81a8j",
+      "name": "徳川茂茂",
+      "work": "銀魂",
+      "series": "将軍家",
+      "tags": [
+        "権力者",
+        "誠実",
+        "戦闘系",
+        "素直",
+        "同年代系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-u3vvg9",
+      "name": "徳川喜々",
+      "work": "銀魂",
+      "series": "一橋派／将軍家",
+      "tags": [
+        "悪役",
+        "権力者",
+        "策士",
+        "自信家",
+        "同年代系",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-bdkho7",
+      "name": "徳川定々",
+      "work": "銀魂",
+      "series": "一国傾城篇／先代将軍",
+      "tags": [
+        "悪役",
+        "危険",
+        "権力者",
+        "策士",
+        "年上系",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-kpn06t",
+      "name": "六転舞蔵",
+      "work": "銀魂",
+      "series": "一国傾城篇／幕府",
+      "tags": [
+        "一途",
+        "一般人",
+        "誠実",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-84on7e",
+      "name": "吉田松陽／虚",
+      "work": "銀魂",
+      "series": "松下村塾／天照院奈落",
+      "tags": [
+        "危険",
+        "指導者",
+        "戦闘系",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『銀魂 THE FINAL』公式キャラクター https://wwws.warnerbros.co.jp/gintamamovie/character/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-t5g2v8",
+      "name": "朧",
+      "work": "銀魂",
+      "series": "天照院奈落",
+      "tags": [
+        "ライバル",
+        "一途",
+        "危険",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『銀魂 THE FINAL』公式キャラクター https://wwws.warnerbros.co.jp/gintamamovie/character/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-k19g25",
+      "name": "柩",
+      "work": "銀魂",
+      "series": "天照院奈落",
+      "tags": [
+        "寡黙",
+        "危険",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『銀魂 THE FINAL』公式キャラクター https://wwws.warnerbros.co.jp/gintamamovie/character/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-fijbt0",
+      "name": "村田鉄矢",
+      "work": "銀魂",
+      "series": "紅桜篇／刀鍛冶",
+      "tags": [
+        "強気",
+        "情熱的",
+        "職人系",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック2 銀魂五年生』集英社（2009年5月1日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-ujozql",
+      "name": "坂田金時",
+      "work": "銀魂",
+      "series": "金魂篇／からくり",
+      "tags": [
+        "ライバル",
+        "策士",
+        "自信家",
+        "戦闘系",
+        "同年代系",
+        "美形"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-jqr7sk",
+      "name": "尾美一",
+      "work": "銀魂",
+      "series": "ビームサーベ流篇／恒道館",
+      "tags": [
+        "一途",
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-fnavv6",
+      "name": "池田夜右衛門",
+      "work": "銀魂",
+      "series": "死神篇／池田家",
+      "tags": [
+        "一途",
+        "指導者",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-77dr8c",
+      "name": "林流山",
+      "work": "銀魂",
+      "series": "芙蓉篇／からくり技師",
+      "tags": [
+        "悪役",
+        "策士",
+        "職人系",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-medzt9",
+      "name": "米堕卿",
+      "work": "銀魂",
+      "series": "蓮蓬篇",
+      "tags": [
+        "悪役",
+        "権力者",
+        "個性的",
+        "策士",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-zoohw2",
+      "name": "馬董",
+      "work": "銀魂",
+      "series": "烙陽決戦篇／春雨十二師団",
+      "tags": [
+        "ライバル",
+        "強気",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『銀魂 THE FINAL』公式キャラクター https://wwws.warnerbros.co.jp/gintamamovie/character/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-wqkf29",
+      "name": "范堺",
+      "work": "銀魂",
+      "series": "烙陽決戦篇／春雨十二師団",
+      "tags": [
+        "個性的",
+        "策士",
+        "戦闘系",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『銀魂 THE FINAL』公式キャラクター https://wwws.warnerbros.co.jp/gintamamovie/character/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-lnxx2y",
+      "name": "猩覚",
+      "work": "銀魂",
+      "series": "烙陽決戦篇／春雨十二師団",
+      "tags": [
+        "強気",
+        "荒っぽい",
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『銀魂 THE FINAL』公式キャラクター https://wwws.warnerbros.co.jp/gintamamovie/character/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-9wejsq",
+      "name": "圓翔",
+      "work": "銀魂",
+      "series": "銀ノ魂篇／アルタナ解放軍",
+      "tags": [
+        "悪役",
+        "一途",
+        "危険",
+        "強気",
+        "権力者",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『銀魂 THE FINAL』公式キャラクター https://wwws.warnerbros.co.jp/gintamamovie/character/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-9hzas2",
+      "name": "紫雀",
+      "work": "銀魂",
+      "series": "銀ノ魂篇／央国星",
+      "tags": [
+        "権力者",
+        "現実的",
+        "指導者",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『銀魂 THE FINAL』公式キャラクター https://wwws.warnerbros.co.jp/gintamamovie/character/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-mzwxwv",
+      "name": "王蓋",
+      "work": "銀魂",
+      "series": "銀ノ魂篇／荼吉尼族",
+      "tags": [
+        "強気",
+        "荒っぽい",
+        "指導者",
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『銀魂 THE FINAL』公式キャラクター https://wwws.warnerbros.co.jp/gintamamovie/character/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-utz3s7",
+      "name": "蒼達",
+      "work": "銀魂",
+      "series": "銀ノ魂篇／辰羅族",
+      "tags": [
+        "策士",
+        "指導者",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『銀魂 THE FINAL』公式キャラクター https://wwws.warnerbros.co.jp/gintamamovie/character/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-svv4sx",
+      "name": "タカチン",
+      "work": "銀魂",
+      "series": "寺門通OFC篇",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "テレビ東京 アニメ『銀魂』公式キャラクターページ https://www.tv-tokyo.co.jp/anime/gintama/chara/ ／集英社『銀魂』公式情報 https://www.shonenjump.com/j/rensai/gintama/ 。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpuh5-e1d4hv",
+      "name": "タカティン",
+      "work": "銀魂",
+      "series": "寺門通OFC篇",
+      "tags": [
+        "マイペース",
+        "一般人",
+        "個性的",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "208cm",
+      "heightCm": 208,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック2 銀魂五年生』集英社（2009年5月1日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-lk7pib",
+      "name": "軍曹",
+      "work": "銀魂",
+      "series": "寺門通親衛隊",
+      "tags": [
+        "一般人",
+        "個性的",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "167cm",
+      "heightCm": 167,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック2 銀魂五年生』集英社（2009年5月1日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    },
+    {
+      "id": "char-mtpmpuh5-858mj7",
+      "name": "会員No.49",
+      "work": "銀魂",
+      "series": "寺門通親衛隊",
+      "tags": [
+        "一般人",
+        "危険",
+        "個性的",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "320cm",
+      "heightCm": 320,
+      "heightStatus": "verified",
+      "heightSource": "空知英秋『銀魂公式キャラクターブック2 銀魂五年生』集英社（2009年5月1日刊）／集英社公式書籍検索 https://www.shueisha.co.jp/books/search/search.html?order=1&seriesid=35244"
+    }
+  ],
+  "sourceOrder": {
+    "char-mtpmpuh5-lbz6cm": 1060,
+    "char-mtpmpuh5-d3cm1o": 1061,
+    "char-mtpmpuh5-uvm7l7": 1062,
+    "char-mtpmpuh5-xxcuad": 1063,
+    "char-mtpmpuh5-j7lai3": 1064,
+    "char-mtpmpuh5-sgog2t": 1065,
+    "char-mtpmpuh5-v2pz4a": 1066,
+    "char-mtpmpuh5-y6zvrm": 1067,
+    "char-mtpmpuh5-tw090b": 1068,
+    "char-mtpmpuh5-qn6csf": 1069,
+    "char-mtpmpuh5-1ykc89": 1070,
+    "char-mtpmpuh5-hhroj5": 1071,
+    "char-mtpmpuh5-zj3uyi": 1072,
+    "char-mtpmpuh5-j6uv33": 1073,
+    "char-mtpmpuh5-36utri": 1074,
+    "char-mtpmpuh5-sd0ker": 1075,
+    "char-mtpmpuh5-2f9ggm": 1076,
+    "char-mtpmpuh5-34q9kq": 1077,
+    "char-mtpmpuh5-jk4c76": 1078,
+    "char-mtpmpuh5-hxgze5": 1079,
+    "char-mtpmpuh5-44fzgk": 1080,
+    "char-mtpmpuh5-268f1e": 1081,
+    "char-mtpmpuh5-km7bgr": 1082,
+    "char-mtpmpuh5-x0bctj": 1083,
+    "char-mtpmpuh5-m0asbo": 1084,
+    "char-mtpmpuh5-tfxk7b": 1085,
+    "char-mtpmpuh5-82kqy9": 1086,
+    "char-mtpmpuh5-r8729u": 1087,
+    "char-mtpmpuh5-zuuden": 1088,
+    "char-mtpmpuh5-rx4pg0": 1089,
+    "char-mtpmpuh5-i199zt": 1090,
+    "char-mtpmpuh5-n77mdu": 1091,
+    "char-mtpmpuh5-f9uaqd": 1092,
+    "char-mtpmpuh5-dka58e": 1093,
+    "char-mtpmpuh5-58vkuq": 1094,
+    "char-mtpmpuh5-8yt8dz": 1095,
+    "char-mtpmpuh5-rodt8d": 1096,
+    "char-mtpmpuh5-54xwlc": 1097,
+    "char-mtpmpuh5-amxj6k": 1098,
+    "char-mtpmpuh5-cuz1v5": 1099,
+    "char-mtpmpuh5-2juy6u": 1100,
+    "char-mtpmpuh5-cjzm3a": 1101,
+    "char-mtpmpuh5-xxtyqd": 1102,
+    "char-mtpmpuh5-k5v1ss": 1103,
+    "char-mtpmpuh5-w2zzk4": 1104,
+    "char-mtpmpuh5-eekzrn": 1105,
+    "char-mtpmpuh5-ygyn6h": 1106,
+    "char-mtpmpuh5-rame5l": 1107,
+    "char-mtpmpuh5-p81a8j": 1108,
+    "char-mtpmpuh5-u3vvg9": 1109,
+    "char-mtpmpuh5-bdkho7": 1110,
+    "char-mtpmpuh5-kpn06t": 1111,
+    "char-mtpmpuh5-84on7e": 1112,
+    "char-mtpmpuh5-t5g2v8": 1113,
+    "char-mtpmpuh5-k19g25": 1114,
+    "char-mtpmpuh5-fijbt0": 1115,
+    "char-mtpmpuh5-ujozql": 1116,
+    "char-mtpmpuh5-jqr7sk": 1117,
+    "char-mtpmpuh5-fnavv6": 1118,
+    "char-mtpmpuh5-77dr8c": 1119,
+    "char-mtpmpuh5-medzt9": 1120,
+    "char-mtpmpuh5-zoohw2": 1121,
+    "char-mtpmpuh5-wqkf29": 1122,
+    "char-mtpmpuh5-lnxx2y": 1123,
+    "char-mtpmpuh5-9wejsq": 1124,
+    "char-mtpmpuh5-9hzas2": 1125,
+    "char-mtpmpuh5-mzwxwv": 1126,
+    "char-mtpmpuh5-utz3s7": 1127,
+    "char-mtpmpuh5-svv4sx": 1128,
+    "char-mtpmpuh5-e1d4hv": 1129,
+    "char-mtpmpuh5-lk7pib": 1130,
+    "char-mtpmpuh5-858mj7": 1131
+  }
+}

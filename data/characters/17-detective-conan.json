@@ -1,0 +1,1766 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "char-mtpmpsft-euenoj",
+      "name": "江戸川コナン／工藤新一",
+      "work": "名探偵コナン",
+      "series": "主人公",
+      "tags": [
+        "自信家",
+        "主人公",
+        "戦闘系",
+        "知的",
+        "年下系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "174cm（工藤新一の姿）",
+      "heightCm": 174,
+      "heightStatus": "verified",
+      "heightSource": "青山剛昌『名探偵コナン 30+PLUS SDB（スーパーダイジェストブック）』小学館（公式ガイドブック） https://e-comi.shogakukan.co.jp/books/091247180000d0000000"
+    },
+    {
+      "id": "char-mtpmpsft-pd0r0i",
+      "name": "毛利小五郎",
+      "work": "名探偵コナン",
+      "series": "毛利探偵事務所／元警視庁",
+      "tags": [
+        "一般人",
+        "荒っぽい",
+        "女好き",
+        "戦闘系",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-o6ejwf",
+      "name": "阿笠博士",
+      "work": "名探偵コナン",
+      "series": "発明家",
+      "tags": [
+        "職人系",
+        "知的",
+        "年上系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-u86ofz",
+      "name": "小嶋元太",
+      "work": "名探偵コナン",
+      "series": "少年探偵団",
+      "tags": [
+        "一般人",
+        "素直",
+        "体格がいい",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-77er6z",
+      "name": "円谷光彦",
+      "work": "名探偵コナン",
+      "series": "少年探偵団",
+      "tags": [
+        "一般人",
+        "誠実",
+        "素直",
+        "知的",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-68z50a",
+      "name": "工藤優作",
+      "work": "名探偵コナン",
+      "series": "推理小説家",
+      "tags": [
+        "策士",
+        "知識職",
+        "知的",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-ztrqnl",
+      "name": "服部平次",
+      "work": "名探偵コナン",
+      "series": "高校生探偵／大阪",
+      "tags": [
+        "ライバル",
+        "荒っぽい",
+        "情熱的",
+        "戦闘系",
+        "同年代系",
+        "負けず嫌い"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-28svve",
+      "name": "服部平蔵",
+      "work": "名探偵コナン",
+      "series": "大阪府警",
+      "tags": [
+        "寡黙",
+        "権力者",
+        "指導者",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-4xood2",
+      "name": "遠山銀司郎",
+      "work": "名探偵コナン",
+      "series": "大阪府警",
+      "tags": [
+        "権力者",
+        "指導者",
+        "誠実",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-03c23h",
+      "name": "大滝悟郎",
+      "work": "名探偵コナン",
+      "series": "大阪府警",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-p3g3yc",
+      "name": "京極真",
+      "work": "名探偵コナン",
+      "series": "杯戸高校／空手",
+      "tags": [
+        "一途",
+        "寡黙",
+        "誠実",
+        "戦闘系",
+        "体格がいい",
+        "同年代系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "184cm",
+      "heightCm": 184,
+      "heightStatus": "verified",
+      "heightSource": "公式設定として184cmが各種キャラクター資料で採用。参照：小学館『名探偵コナン』公式ガイドブック群／読売テレビ公式キャラクター情報 https://www.ytv.co.jp/conan/character/ 。"
+    },
+    {
+      "id": "char-mtpmpsft-azymjo",
+      "name": "白馬探",
+      "work": "名探偵コナン",
+      "series": "高校生探偵",
+      "tags": [
+        "キザ",
+        "ライバル",
+        "自信家",
+        "知的",
+        "同年代系",
+        "美形"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-flvu36",
+      "name": "怪盗キッド／黒羽快斗",
+      "work": "名探偵コナン",
+      "series": "怪盗キッド",
+      "tags": [
+        "キザ",
+        "ライバル",
+        "自信家",
+        "挑発的",
+        "同年代系",
+        "美形"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "174cm",
+      "heightCm": 174,
+      "heightStatus": "verified",
+      "heightSource": "アイアップ公式通販『名探偵コナン カレー 怪盗キッド2』商品説明（公式ライセンス商品、身長174cm・体重58kgを明記） https://www.eyeup.co.jp/c/anime/gr495/4546598507867"
+    },
+    {
+      "id": "char-mtpmpsft-g4i8d7",
+      "name": "黒羽盗一",
+      "work": "名探偵コナン",
+      "series": "初代怪盗キッド",
+      "tags": [
+        "キザ",
+        "策士",
+        "指導者",
+        "職人系",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-agi69m",
+      "name": "目暮十三",
+      "work": "名探偵コナン",
+      "series": "警視庁捜査一課",
+      "tags": [
+        "権力者",
+        "現実的",
+        "指導者",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-q00g23",
+      "name": "高木渉",
+      "work": "名探偵コナン",
+      "series": "警視庁捜査一課",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "不器用",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-rhsqyt",
+      "name": "白鳥任三郎",
+      "work": "名探偵コナン",
+      "series": "警視庁捜査一課",
+      "tags": [
+        "キザ",
+        "誠実",
+        "戦闘系",
+        "知的",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-upgzpp",
+      "name": "千葉和伸",
+      "work": "名探偵コナン",
+      "series": "警視庁捜査一課",
+      "tags": [
+        "マイペース",
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-cdky6x",
+      "name": "松本清長",
+      "work": "名探偵コナン",
+      "series": "警視庁",
+      "tags": [
+        "強面",
+        "権力者",
+        "指導者",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-akaw2c",
+      "name": "茶木神太郎",
+      "work": "名探偵コナン",
+      "series": "警視庁捜査二課",
+      "tags": [
+        "権力者",
+        "現実的",
+        "指導者",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-2673q1",
+      "name": "中森銀三",
+      "work": "名探偵コナン",
+      "series": "警視庁捜査二課",
+      "tags": [
+        "荒っぽい",
+        "指導者",
+        "情熱的",
+        "年上系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-ouihfo",
+      "name": "弓長警部",
+      "work": "名探偵コナン",
+      "series": "警視庁捜査一課火災犯捜査係",
+      "tags": [
+        "現実的",
+        "指導者",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-ig3geq",
+      "name": "黒田兵衛",
+      "work": "名探偵コナン",
+      "series": "警視庁／長野県警",
+      "tags": [
+        "強面",
+        "権力者",
+        "指導者",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-9y84dj",
+      "name": "風見裕也",
+      "work": "名探偵コナン",
+      "series": "警視庁公安部",
+      "tags": [
+        "現実的",
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-f66kvi",
+      "name": "降谷零／安室透／バーボン",
+      "work": "名探偵コナン",
+      "series": "公安警察／黒ずくめの組織／ポアロ",
+      "tags": [
+        "策士",
+        "自信家",
+        "戦闘系",
+        "知的",
+        "同年代系",
+        "美形"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-ta91sw",
+      "name": "松田陣平",
+      "work": "名探偵コナン",
+      "series": "警視庁／警察学校組",
+      "tags": [
+        "荒っぽい",
+        "自信家",
+        "戦闘系",
+        "同年代系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン 警察学校編 Wild Police Story』 https://www.ytv.co.jp/conan/police/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-v90w6l",
+      "name": "萩原研二",
+      "work": "名探偵コナン",
+      "series": "警視庁／警察学校組",
+      "tags": [
+        "女好き",
+        "戦闘系",
+        "同年代系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン 警察学校編 Wild Police Story』 https://www.ytv.co.jp/conan/police/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-f7ehx6",
+      "name": "伊達航",
+      "work": "名探偵コナン",
+      "series": "警視庁／警察学校組",
+      "tags": [
+        "指導者",
+        "誠実",
+        "戦闘系",
+        "体格がいい",
+        "同年代系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン 警察学校編 Wild Police Story』 https://www.ytv.co.jp/conan/police/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-2pdb70",
+      "name": "諸伏景光／スコッチ",
+      "work": "名探偵コナン",
+      "series": "公安警察／黒ずくめの組織",
+      "tags": [
+        "一途",
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "優しい",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン 警察学校編 Wild Police Story』 https://www.ytv.co.jp/conan/police/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-g5a1lc",
+      "name": "大和敢助",
+      "work": "名探偵コナン",
+      "series": "長野県警",
+      "tags": [
+        "ライバル",
+        "強気",
+        "荒っぽい",
+        "戦闘系",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-w9hinn",
+      "name": "諸伏高明",
+      "work": "名探偵コナン",
+      "series": "長野県警",
+      "tags": [
+        "ライバル",
+        "個性的",
+        "戦闘系",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-sz1ott",
+      "name": "横溝参悟",
+      "work": "名探偵コナン",
+      "series": "静岡県警／神奈川県警",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-a39nze",
+      "name": "横溝重悟",
+      "work": "名探偵コナン",
+      "series": "神奈川県警",
+      "tags": [
+        "強気",
+        "現実的",
+        "荒っぽい",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-l7zjuj",
+      "name": "山村ミサオ",
+      "work": "名探偵コナン",
+      "series": "群馬県警",
+      "tags": [
+        "気弱",
+        "権力者",
+        "個性的",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-h5a8j3",
+      "name": "綾小路文麿",
+      "work": "名探偵コナン",
+      "series": "京都府警",
+      "tags": [
+        "個性的",
+        "戦闘系",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-f1ap46",
+      "name": "赤井秀一／沖矢昴／ライ",
+      "work": "名探偵コナン",
+      "series": "FBI／黒ずくめの組織潜入",
+      "tags": [
+        "寡黙",
+        "色気",
+        "戦闘系",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-2y0qtm",
+      "name": "ジェイムズ・ブラック",
+      "work": "名探偵コナン",
+      "series": "FBI",
+      "tags": [
+        "権力者",
+        "指導者",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-lijx6s",
+      "name": "アンドレ・キャメル",
+      "work": "名探偵コナン",
+      "series": "FBI",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "体格がいい",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-9g8tbz",
+      "name": "羽田秀吉",
+      "work": "名探偵コナン",
+      "series": "棋士／赤井家",
+      "tags": [
+        "一途",
+        "知識職",
+        "知的",
+        "同年代系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-nkszrr",
+      "name": "赤井務武",
+      "work": "名探偵コナン",
+      "series": "赤井家／MI6関係",
+      "tags": [
+        "戦闘系",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-bze71r",
+      "name": "ジン",
+      "work": "名探偵コナン",
+      "series": "黒ずくめの組織",
+      "tags": [
+        "悪役",
+        "寡黙",
+        "危険",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-xj4k3r",
+      "name": "ウォッカ",
+      "work": "名探偵コナン",
+      "series": "黒ずくめの組織",
+      "tags": [
+        "悪役",
+        "一途",
+        "強面",
+        "荒っぽい",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-y2d5m7",
+      "name": "ラム／脇田兼則",
+      "work": "名探偵コナン",
+      "series": "黒ずくめの組織",
+      "tags": [
+        "悪役",
+        "危険",
+        "権力者",
+        "策士",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-3cd652",
+      "name": "ピスコ／枡山憲三",
+      "work": "名探偵コナン",
+      "series": "黒ずくめの組織",
+      "tags": [
+        "悪役",
+        "危険",
+        "権力者",
+        "策士",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-5wtv1u",
+      "name": "テキーラ",
+      "work": "名探偵コナン",
+      "series": "黒ずくめの組織",
+      "tags": [
+        "悪役",
+        "危険",
+        "荒っぽい",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-2smwsx",
+      "name": "カルバドス",
+      "work": "名探偵コナン",
+      "series": "黒ずくめの組織",
+      "tags": [
+        "悪役",
+        "一途",
+        "寡黙",
+        "危険",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-4bcpbs",
+      "name": "楠田陸道",
+      "work": "名探偵コナン",
+      "series": "黒ずくめの組織",
+      "tags": [
+        "悪役",
+        "危険",
+        "同年代系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-jcqxjs",
+      "name": "沼淵己一郎",
+      "work": "名探偵コナン",
+      "series": "元・黒ずくめの組織",
+      "tags": [
+        "悪役",
+        "危険",
+        "強面",
+        "荒っぽい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-78oiwl",
+      "name": "宮野厚司",
+      "work": "名探偵コナン",
+      "series": "黒ずくめの組織研究者",
+      "tags": [
+        "誠実",
+        "知識職",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-4pkp3j",
+      "name": "本堂瑛祐",
+      "work": "名探偵コナン",
+      "series": "帝丹高校／CIA関係",
+      "tags": [
+        "一般人",
+        "気弱",
+        "誠実",
+        "同年代系",
+        "不器用",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-3tq13g",
+      "name": "イーサン・本堂",
+      "work": "名探偵コナン",
+      "series": "CIA",
+      "tags": [
+        "一途",
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-4ajn7k",
+      "name": "羽田浩司",
+      "work": "名探偵コナン",
+      "series": "棋士／17年前の事件",
+      "tags": [
+        "誠実",
+        "知識職",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-3ij29m",
+      "name": "鈴木次郎吉",
+      "work": "名探偵コナン",
+      "series": "鈴木財閥",
+      "tags": [
+        "権力者",
+        "個性的",
+        "自信家",
+        "年上系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-9a9ucj",
+      "name": "鈴木史郎",
+      "work": "名探偵コナン",
+      "series": "鈴木財閥",
+      "tags": [
+        "権力者",
+        "誠実",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-ljujw9",
+      "name": "大岡紅葉の執事・伊織無我",
+      "work": "名探偵コナン",
+      "series": "大岡家／元公安",
+      "tags": [
+        "寡黙",
+        "戦闘系",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-zwh0sc",
+      "name": "沖田総司",
+      "work": "名探偵コナン",
+      "series": "京都泉心高校／剣道",
+      "tags": [
+        "自信家",
+        "戦闘系",
+        "挑発的",
+        "同年代系",
+        "美形",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-bc3pot",
+      "name": "鬼丸猛",
+      "work": "名探偵コナン",
+      "series": "剣道",
+      "tags": [
+        "ライバル",
+        "寡黙",
+        "強気",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-yxoueb",
+      "name": "新出智明",
+      "work": "名探偵コナン",
+      "series": "医師／帝丹高校",
+      "tags": [
+        "誠実",
+        "知識職",
+        "年上系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-vy1y05",
+      "name": "赤木英雄",
+      "work": "名探偵コナン",
+      "series": "プロサッカー選手",
+      "tags": [
+        "自信家",
+        "情熱的",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-wtagx2",
+      "name": "比護隆佑",
+      "work": "名探偵コナン",
+      "series": "プロサッカー選手",
+      "tags": [
+        "寡黙",
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "美形"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-7b8gax",
+      "name": "真田貴大",
+      "work": "名探偵コナン",
+      "series": "プロサッカー選手",
+      "tags": [
+        "自信家",
+        "戦闘系",
+        "同年代系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-7cq1fy",
+      "name": "山岸栄一",
+      "work": "名探偵コナン",
+      "series": "芸能マネージャー",
+      "tags": [
+        "一般人",
+        "現実的",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-nfda2s",
+      "name": "沖野ヨーコの関係者・剣崎修",
+      "work": "名探偵コナン",
+      "series": "俳優",
+      "tags": [
+        "キザ",
+        "一般人",
+        "同年代系",
+        "美形"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-0r7ibw",
+      "name": "土門康輝",
+      "work": "名探偵コナン",
+      "series": "政治家",
+      "tags": [
+        "強気",
+        "権力者",
+        "誠実",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-vkoqsu",
+      "name": "板倉卓",
+      "work": "名探偵コナン",
+      "series": "システムエンジニア",
+      "tags": [
+        "職人系",
+        "知的",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-l2flra",
+      "name": "新名任太朗",
+      "work": "名探偵コナン",
+      "series": "推理作家",
+      "tags": [
+        "知識職",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "読売テレビ『名探偵コナン』公式キャラクター https://www.ytv.co.jp/conan/character/ ／小学館『名探偵コナン』原作公式サイト https://www.conan-portal.com/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-k8as8e",
+      "name": "森谷帝二",
+      "work": "名探偵コナン",
+      "series": "劇場版『時計じかけの摩天楼』",
+      "tags": [
+        "悪役",
+        "策士",
+        "自信家",
+        "職人系",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-6fpovg",
+      "name": "沢木公平",
+      "work": "名探偵コナン",
+      "series": "劇場版『14番目の標的』",
+      "tags": [
+        "悪役",
+        "一途",
+        "危険",
+        "職人系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-7zaw0y",
+      "name": "浦思青蘭の関係者・乾将一",
+      "work": "名探偵コナン",
+      "series": "劇場版『世紀末の魔術師』",
+      "tags": [
+        "一般人",
+        "現実的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-6g3jbp",
+      "name": "風戸京介",
+      "work": "名探偵コナン",
+      "series": "劇場版『瞳の中の暗殺者』",
+      "tags": [
+        "悪役",
+        "策士",
+        "知識職",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-oe7szs",
+      "name": "如月峰水",
+      "work": "名探偵コナン",
+      "series": "劇場版『天国へのカウントダウン』",
+      "tags": [
+        "悪役",
+        "一途",
+        "寡黙",
+        "職人系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-aursy4",
+      "name": "沢口知奈美の上司・常盤美緒関係者 原佳明",
+      "work": "名探偵コナン",
+      "series": "劇場版『天国へのカウントダウン』",
+      "tags": [
+        "一般人",
+        "職人系",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-9u2d0n",
+      "name": "日下ひろなり",
+      "work": "名探偵コナン",
+      "series": "劇場版『水平線上の陰謀』",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-qyrsdv",
+      "name": "秋庭怜子関係者・譜和匠",
+      "work": "名探偵コナン",
+      "series": "劇場版『戦慄の楽譜』",
+      "tags": [
+        "悪役",
+        "一途",
+        "職人系",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-mi20av",
+      "name": "本上なな子の兄・本上和樹",
+      "work": "名探偵コナン",
+      "series": "劇場版『漆黒の追跡者』",
+      "tags": [
+        "一般人",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-q1eo0z",
+      "name": "アイリッシュ",
+      "work": "名探偵コナン",
+      "series": "劇場版『漆黒の追跡者』／黒ずくめの組織",
+      "tags": [
+        "悪役",
+        "危険",
+        "戦闘系",
+        "体格がいい",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-24q5pj",
+      "name": "山尾渓介",
+      "work": "名探偵コナン",
+      "series": "劇場版『沈黙の15分』",
+      "tags": [
+        "悪役",
+        "危険",
+        "荒っぽい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-9lutkt",
+      "name": "ケビン・ヨシノ",
+      "work": "名探偵コナン",
+      "series": "劇場版『11人目のストライカー』",
+      "tags": [
+        "悪役",
+        "一途",
+        "危険",
+        "同年代系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-xbyp2o",
+      "name": "藤岡隆道",
+      "work": "名探偵コナン",
+      "series": "劇場版『天空の難破船』",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-kg9qp4",
+      "name": "藤江星河",
+      "work": "名探偵コナン",
+      "series": "劇場版『絶海の探偵』",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-vl5pro",
+      "name": "藤井七海の上官・関口誠",
+      "work": "名探偵コナン",
+      "series": "劇場版『絶海の探偵』",
+      "tags": [
+        "現実的",
+        "指導者",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-pi3r88",
+      "name": "石嶺泰三",
+      "work": "名探偵コナン",
+      "series": "劇場版『業火の向日葵』",
+      "tags": [
+        "権力者",
+        "現実的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-o0vxws",
+      "name": "羽場二三一",
+      "work": "名探偵コナン",
+      "series": "劇場版『ゼロの執行人』",
+      "tags": [
+        "一途",
+        "一般人",
+        "誠実",
+        "知的",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-5znvac",
+      "name": "橘境子の関係者・日下部誠",
+      "work": "名探偵コナン",
+      "series": "劇場版『ゼロの執行人』",
+      "tags": [
+        "悪役",
+        "危険",
+        "権力者",
+        "策士",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-xlqp85",
+      "name": "レオン・ロー",
+      "work": "名探偵コナン",
+      "series": "劇場版『紺青の拳』",
+      "tags": [
+        "悪役",
+        "権力者",
+        "策士",
+        "自信家",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-i1ml4b",
+      "name": "リシ・ラマナサン",
+      "work": "名探偵コナン",
+      "series": "劇場版『紺青の拳』",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "知的",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-zzhllc",
+      "name": "村中努",
+      "work": "名探偵コナン",
+      "series": "劇場版『ハロウィンの花嫁』",
+      "tags": [
+        "強面",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpsft-skvs0c",
+      "name": "ピンガ",
+      "work": "名探偵コナン",
+      "series": "劇場版『黒鉄の魚影』／黒ずくめの組織",
+      "tags": [
+        "悪役",
+        "危険",
+        "自信家",
+        "戦闘系",
+        "挑発的",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "劇場版『名探偵コナン』公式サイト／読売テレビ・小学館公式キャラクター情報を確認。数値の公称身長は確認できず"
+    }
+  ],
+  "sourceOrder": {
+    "char-mtpmpsft-euenoj": 972,
+    "char-mtpmpsft-pd0r0i": 973,
+    "char-mtpmpsft-o6ejwf": 974,
+    "char-mtpmpsft-u86ofz": 975,
+    "char-mtpmpsft-77er6z": 976,
+    "char-mtpmpsft-68z50a": 977,
+    "char-mtpmpsft-ztrqnl": 978,
+    "char-mtpmpsft-28svve": 979,
+    "char-mtpmpsft-4xood2": 980,
+    "char-mtpmpsft-03c23h": 981,
+    "char-mtpmpsft-p3g3yc": 982,
+    "char-mtpmpsft-azymjo": 983,
+    "char-mtpmpsft-flvu36": 984,
+    "char-mtpmpsft-g4i8d7": 985,
+    "char-mtpmpsft-agi69m": 986,
+    "char-mtpmpsft-q00g23": 987,
+    "char-mtpmpsft-rhsqyt": 988,
+    "char-mtpmpsft-upgzpp": 989,
+    "char-mtpmpsft-cdky6x": 990,
+    "char-mtpmpsft-akaw2c": 991,
+    "char-mtpmpsft-2673q1": 992,
+    "char-mtpmpsft-ouihfo": 993,
+    "char-mtpmpsft-ig3geq": 994,
+    "char-mtpmpsft-9y84dj": 995,
+    "char-mtpmpsft-f66kvi": 996,
+    "char-mtpmpsft-ta91sw": 997,
+    "char-mtpmpsft-v90w6l": 998,
+    "char-mtpmpsft-f7ehx6": 999,
+    "char-mtpmpsft-2pdb70": 1000,
+    "char-mtpmpsft-g5a1lc": 1001,
+    "char-mtpmpsft-w9hinn": 1002,
+    "char-mtpmpsft-sz1ott": 1003,
+    "char-mtpmpsft-a39nze": 1004,
+    "char-mtpmpsft-l7zjuj": 1005,
+    "char-mtpmpsft-h5a8j3": 1006,
+    "char-mtpmpsft-f1ap46": 1007,
+    "char-mtpmpsft-2y0qtm": 1008,
+    "char-mtpmpsft-lijx6s": 1009,
+    "char-mtpmpsft-9g8tbz": 1010,
+    "char-mtpmpsft-nkszrr": 1011,
+    "char-mtpmpsft-bze71r": 1012,
+    "char-mtpmpsft-xj4k3r": 1013,
+    "char-mtpmpsft-y2d5m7": 1014,
+    "char-mtpmpsft-3cd652": 1015,
+    "char-mtpmpsft-5wtv1u": 1016,
+    "char-mtpmpsft-2smwsx": 1017,
+    "char-mtpmpsft-4bcpbs": 1018,
+    "char-mtpmpsft-jcqxjs": 1019,
+    "char-mtpmpsft-78oiwl": 1020,
+    "char-mtpmpsft-4pkp3j": 1021,
+    "char-mtpmpsft-3tq13g": 1022,
+    "char-mtpmpsft-4ajn7k": 1023,
+    "char-mtpmpsft-3ij29m": 1024,
+    "char-mtpmpsft-9a9ucj": 1025,
+    "char-mtpmpsft-ljujw9": 1026,
+    "char-mtpmpsft-zwh0sc": 1027,
+    "char-mtpmpsft-bc3pot": 1028,
+    "char-mtpmpsft-yxoueb": 1029,
+    "char-mtpmpsft-vy1y05": 1030,
+    "char-mtpmpsft-wtagx2": 1031,
+    "char-mtpmpsft-7b8gax": 1032,
+    "char-mtpmpsft-7cq1fy": 1033,
+    "char-mtpmpsft-nfda2s": 1034,
+    "char-mtpmpsft-0r7ibw": 1035,
+    "char-mtpmpsft-vkoqsu": 1036,
+    "char-mtpmpsft-l2flra": 1037,
+    "char-mtpmpsft-k8as8e": 1038,
+    "char-mtpmpsft-6fpovg": 1039,
+    "char-mtpmpsft-7zaw0y": 1040,
+    "char-mtpmpsft-6g3jbp": 1041,
+    "char-mtpmpsft-oe7szs": 1042,
+    "char-mtpmpsft-aursy4": 1043,
+    "char-mtpmpsft-9u2d0n": 1044,
+    "char-mtpmpsft-qyrsdv": 1045,
+    "char-mtpmpsft-mi20av": 1046,
+    "char-mtpmpsft-q1eo0z": 1047,
+    "char-mtpmpsft-24q5pj": 1048,
+    "char-mtpmpsft-9lutkt": 1049,
+    "char-mtpmpsft-xbyp2o": 1050,
+    "char-mtpmpsft-kg9qp4": 1051,
+    "char-mtpmpsft-vl5pro": 1052,
+    "char-mtpmpsft-pi3r88": 1053,
+    "char-mtpmpsft-o0vxws": 1054,
+    "char-mtpmpsft-5znvac": 1055,
+    "char-mtpmpsft-xlqp85": 1056,
+    "char-mtpmpsft-i1ml4b": 1057,
+    "char-mtpmpsft-zzhllc": 1058,
+    "char-mtpmpsft-skvs0c": 1059
+  }
+}

@@ -1,0 +1,1380 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "char-mtpmpysu-u9jwgp",
+      "name": "結城中佐（魔術師／ミスタ・ネモ／アンクル・ニック）",
+      "work": "ジョーカー・ゲーム",
+      "series": "TVアニメ／原作シリーズ",
+      "tags": [
+        "策士",
+        "指導者",
+        "主人公",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト CHARACTER (https://jokergame.jp/character/)／GOODS (https://jokergame.jp/goods/others.html)。公式の等身大スタンディは「各キャラクターの身長に準じます」とされるが、数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-yta3h2",
+      "name": "佐久間中尉",
+      "work": "ジョーカー・ゲーム",
+      "series": "TVアニメ 第1・2話「ジョーカー・ゲーム」／原作『ジョーカー・ゲーム』",
+      "tags": [
+        "主人公",
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト CHARACTER (https://jokergame.jp/character/)／GOODS (https://jokergame.jp/goods/others.html)。公式の等身大スタンディは「各キャラクターの身長に準じます」とされるが、数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-9ubnb5",
+      "name": "三好（真木克彦／マキ）",
+      "work": "ジョーカー・ゲーム",
+      "series": "TVアニメ／原作「柩」「ワルキューレ」ほか",
+      "tags": [
+        "キザ",
+        "策士",
+        "自信家",
+        "戦闘系",
+        "挑発的"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト CHARACTER (https://jokergame.jp/character/)／GOODS (https://jokergame.jp/goods/others.html)。公式の等身大スタンディは「各キャラクターの身長に準じます」とされるが、数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-9xrlpw",
+      "name": "神永（伊沢和男）",
+      "work": "ジョーカー・ゲーム",
+      "series": "TVアニメ 第5話「ロビンソン」／原作「ロビンソン」",
+      "tags": [
+        "自信家",
+        "女好き",
+        "戦闘系",
+        "負けず嫌い",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト CHARACTER (https://jokergame.jp/character/)／GOODS (https://jokergame.jp/goods/others.html)。公式の等身大スタンディは「各キャラクターの身長に準じます」とされるが、数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-20s74x",
+      "name": "小田切（飛崎弘行）",
+      "work": "ジョーカー・ゲーム",
+      "series": "TVアニメ 第12話「XX ダブル・クロス」／原作「XX」",
+      "tags": [
+        "寡黙",
+        "誠実",
+        "戦闘系",
+        "不器用",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト CHARACTER (https://jokergame.jp/character/)／GOODS (https://jokergame.jp/goods/others.html)。公式の等身大スタンディは「各キャラクターの身長に準じます」とされるが、数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-uhu2e6",
+      "name": "甘利（内海脩）",
+      "work": "ジョーカー・ゲーム",
+      "series": "TVアニメ 第7話「暗号名ケルベロス」／原作「暗号名ケルベロス」",
+      "tags": [
+        "マイペース",
+        "女好き",
+        "戦闘系",
+        "年上系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト CHARACTER (https://jokergame.jp/character/)／GOODS (https://jokergame.jp/goods/others.html)。公式の等身大スタンディは「各キャラクターの身長に準じます」とされるが、数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-1mxvsi",
+      "name": "波多野（島野亮祐）",
+      "work": "ジョーカー・ゲーム",
+      "series": "TVアニメ 第3話「誤算」／原作「誤算」",
+      "tags": [
+        "自信家",
+        "戦闘系",
+        "負けず嫌い",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト CHARACTER (https://jokergame.jp/character/)／GOODS (https://jokergame.jp/goods/others.html)。公式の等身大スタンディは「各キャラクターの身長に準じます」とされるが、数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-iaycms",
+      "name": "実井（森島邦雄）",
+      "work": "ジョーカー・ゲーム",
+      "series": "TVアニメ 第8・9話「ダブル・ジョーカー」／原作「ダブル・ジョーカー」",
+      "tags": [
+        "危険",
+        "策士",
+        "戦闘系",
+        "優しい",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト CHARACTER (https://jokergame.jp/character/)／GOODS (https://jokergame.jp/goods/others.html)。公式の等身大スタンディは「各キャラクターの身長に準じます」とされるが、数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-9nc168",
+      "name": "福本（塩塚朔／草薙行仁）",
+      "work": "ジョーカー・ゲーム",
+      "series": "TVアニメ 第4話「魔都」／原作「魔都」",
+      "tags": [
+        "マイペース",
+        "寡黙",
+        "策士",
+        "職人系",
+        "戦闘系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト CHARACTER (https://jokergame.jp/character/)／GOODS (https://jokergame.jp/goods/others.html)。公式の等身大スタンディは「各キャラクターの身長に準じます」とされるが、数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-mfzdrx",
+      "name": "田崎（瀬戸礼二）",
+      "work": "ジョーカー・ゲーム",
+      "series": "TVアニメ 第6話「アジア・エクスプレス」／原作「アジア・エクスプレス」",
+      "tags": [
+        "戦闘系",
+        "知的",
+        "優しい",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト CHARACTER (https://jokergame.jp/character/)／GOODS (https://jokergame.jp/goods/others.html)。公式の等身大スタンディは「各キャラクターの身長に準じます」とされるが、数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-simt1j",
+      "name": "蒲生次郎",
+      "work": "ジョーカー・ゲーム",
+      "series": "TVアニメ：風機関／原作「幽霊」：D機関",
+      "tags": [
+        "ライバル",
+        "危険",
+        "誠実",
+        "戦闘系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト CHARACTER (https://jokergame.jp/character/)／GOODS (https://jokergame.jp/goods/others.html)。公式の等身大スタンディは「各キャラクターの身長に準じます」とされるが、数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-j5hmy8",
+      "name": "武藤大佐",
+      "work": "ジョーカー・ゲーム",
+      "series": "TVアニメ 第1・2話「ジョーカー・ゲーム」／原作『ジョーカー・ゲーム』",
+      "tags": [
+        "権力者",
+        "現実的",
+        "策士",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト CHARACTER (https://jokergame.jp/character/)／GOODS (https://jokergame.jp/goods/others.html)。公式の等身大スタンディは「各キャラクターの身長に準じます」とされるが、数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-y4kfoa",
+      "name": "阿久津泰政",
+      "work": "ジョーカー・ゲーム",
+      "series": "TVアニメ 第8・9話「ダブル・ジョーカー」／原作「ダブル・ジョーカー」",
+      "tags": [
+        "権力者",
+        "策士",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト CHARACTER (https://jokergame.jp/character/)／GOODS (https://jokergame.jp/goods/others.html)。公式の等身大スタンディは「各キャラクターの身長に準じます」とされるが、数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-ve5687",
+      "name": "ジョン・ゴードン",
+      "work": "ジョーカー・ゲーム",
+      "series": "「ジョーカー・ゲーム」",
+      "tags": [
+        "悪役",
+        "策士",
+        "知的"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第1話 (https://jokergame.jp/story/story01.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-p94pyz",
+      "name": "アーネスト・グラハム",
+      "work": "ジョーカー・ゲーム",
+      "series": "「幽霊」／TVアニメ 第8・9話「ダブル・ジョーカー」",
+      "tags": [
+        "権力者",
+        "自信家",
+        "知的",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第8話 (https://jokergame.jp/story/story08.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-118u82",
+      "name": "張大明",
+      "work": "ジョーカー・ゲーム",
+      "series": "「幽霊」／TVアニメ 第8・9話「ダブル・ジョーカー」",
+      "tags": [
+        "一般人",
+        "気弱",
+        "現実的"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第8話 (https://jokergame.jp/story/story08.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-x4wvai",
+      "name": "ハワード・マークス",
+      "work": "ジョーカー・ゲーム",
+      "series": "「ロビンソン」／TVアニメ 第5話「ロビンソン」",
+      "tags": [
+        "策士",
+        "指導者",
+        "戦闘系",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第5話 (https://jokergame.jp/story/story05.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-ap15ob",
+      "name": "外村均",
+      "work": "ジョーカー・ゲーム",
+      "series": "「ロビンソン」／TVアニメ 第5話「ロビンソン」",
+      "tags": [
+        "一般人",
+        "気弱",
+        "現実的"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第5話 (https://jokergame.jp/story/story05.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-znbwvp",
+      "name": "本間英司",
+      "work": "ジョーカー・ゲーム",
+      "series": "「魔都」／TVアニメ 第4話「魔都」",
+      "tags": [
+        "現実的",
+        "誠実",
+        "戦闘系",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第4話 (https://jokergame.jp/story/story04.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-dkhhma",
+      "name": "及川政幸",
+      "work": "ジョーカー・ゲーム",
+      "series": "「魔都」／TVアニメ 第4話「魔都」",
+      "tags": [
+        "危険",
+        "権力者",
+        "現実的",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第4話 (https://jokergame.jp/story/story04.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-dqslfx",
+      "name": "吉野豊",
+      "work": "ジョーカー・ゲーム",
+      "series": "「魔都」／TVアニメ 第4話「魔都」",
+      "tags": [
+        "一途",
+        "寡黙",
+        "危険",
+        "戦闘系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第4話 (https://jokergame.jp/story/story04.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-soguqt",
+      "name": "ジェームズ警部",
+      "work": "ジョーカー・ゲーム",
+      "series": "「魔都」／TVアニメ 第4話「魔都」",
+      "tags": [
+        "権力者",
+        "現実的",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第4話 (https://jokergame.jp/story/story04.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-cm35is",
+      "name": "涌井光毅",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「魔都」",
+      "tags": [
+        "権力者",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-tcr14n",
+      "name": "宮田伸照（TVアニメ：宮田仲照）",
+      "work": "ジョーカー・ゲーム",
+      "series": "「魔都」／TVアニメ 第4話「魔都」",
+      "tags": [
+        "現実的",
+        "誠実",
+        "戦闘系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第4話 (https://jokergame.jp/story/story04.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-zebyez",
+      "name": "カール・シュナイダー",
+      "work": "ジョーカー・ゲーム",
+      "series": "「XX」／TVアニメ 第12話「XX ダブル・クロス」",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "女好き"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第12話 (https://jokergame.jp/story/story12.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-ywyqmj",
+      "name": "風戸哲正",
+      "work": "ジョーカー・ゲーム",
+      "series": "「ダブル・ジョーカー」／TVアニメ 第8・9話",
+      "tags": [
+        "ライバル",
+        "強気",
+        "策士",
+        "指導者",
+        "自信家",
+        "戦闘系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第8話 (https://jokergame.jp/story/story08.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-jl1qik",
+      "name": "白幡樹一郎",
+      "work": "ジョーカー・ゲーム",
+      "series": "「ダブル・ジョーカー」／TVアニメ 第8・9話",
+      "tags": [
+        "強気",
+        "権力者",
+        "知的",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第8話 (https://jokergame.jp/story/story08.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-zsl872",
+      "name": "脇坂衛",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「蝿の王」",
+      "tags": [
+        "危険",
+        "策士",
+        "知識職",
+        "知的"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-sxrzne",
+      "name": "藤丸",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「蝿の王」",
+      "tags": [
+        "個性的",
+        "職人系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-x3gec8",
+      "name": "小野寺",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「蝿の王」",
+      "tags": [
+        "強気",
+        "指導者",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-vdcq41",
+      "name": "西村久志",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「蝿の王」",
+      "tags": [
+        "危険",
+        "策士",
+        "戦闘系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-5yb2az",
+      "name": "片岡誠",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「蝿の王」",
+      "tags": [
+        "危険",
+        "策士",
+        "戦闘系",
+        "知的"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-rnfrqh",
+      "name": "脇坂格",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「蝿の王」",
+      "tags": [
+        "一途",
+        "一般人",
+        "情熱的",
+        "知的"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-tzvap6",
+      "name": "高林正人",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「仏印作戦」",
+      "tags": [
+        "一般人",
+        "現実的",
+        "誠実",
+        "知的"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-fwec2v",
+      "name": "永瀬則之",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「仏印作戦」",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "野心家"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-hb2tr5",
+      "name": "レイモンド",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「仏印作戦」",
+      "tags": [
+        "一般人",
+        "気弱",
+        "現実的"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-00rdnd",
+      "name": "土屋昭信",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「仏印作戦」",
+      "tags": [
+        "権力者",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-lt3arm",
+      "name": "ガオ",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「仏印作戦」",
+      "tags": [
+        "個性的",
+        "策士",
+        "戦闘系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-63574v",
+      "name": "ヘルマン・ヴォルフ",
+      "work": "ジョーカー・ゲーム",
+      "series": "「柩」／TVアニメ 第11話",
+      "tags": [
+        "ライバル",
+        "一途",
+        "強気",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第11話 (https://jokergame.jp/story/story11.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-745zqc",
+      "name": "ヨハン・バウアー",
+      "work": "ジョーカー・ゲーム",
+      "series": "「柩」／TVアニメ 第11話（原作名：ヨハン）",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年下系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第11話 (https://jokergame.jp/story/story11.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-04ea6n",
+      "name": "オットー・フランク",
+      "work": "ジョーカー・ゲーム",
+      "series": "「柩」／TVアニメ 第11話",
+      "tags": [
+        "一般人",
+        "気弱",
+        "現実的"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第11話 (https://jokergame.jp/story/story11.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-dkt2tf",
+      "name": "ギュンター・カイツ",
+      "work": "ジョーカー・ゲーム",
+      "series": "「柩」／TVアニメ 第11話",
+      "tags": [
+        "権力者",
+        "指導者",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第11話 (https://jokergame.jp/story/story11.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-3af7kd",
+      "name": "仲根晋吾",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「ブラックバード」",
+      "tags": [
+        "一途",
+        "戦闘系",
+        "知的",
+        "不器用",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-a3q67q",
+      "name": "マイケル・クーパー",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「ブラックバード」",
+      "tags": [
+        "権力者",
+        "現実的",
+        "自信家",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-fcuky7",
+      "name": "ジョナサン・クーパー",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「ブラックバード」",
+      "tags": [
+        "一般人",
+        "年下系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-qhugxi",
+      "name": "蓮見光一",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「ブラックバード」",
+      "tags": [
+        "一般人",
+        "誠実",
+        "知的",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-8c4pec",
+      "name": "サム・ブランド（フライデー）",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「ロビンソン」「眠る男」",
+      "tags": [
+        "一途",
+        "誠実",
+        "戦闘系",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-lcdf22",
+      "name": "アラン・レニエル（原作：アラン・レルニエ）",
+      "work": "ジョーカー・ゲーム",
+      "series": "「誤算」／TVアニメ 第3話",
+      "tags": [
+        "強気",
+        "指導者",
+        "情熱的",
+        "誠実",
+        "戦闘系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第3話 (https://jokergame.jp/story/story03.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-upfnww",
+      "name": "ジャン・ヴィクトール",
+      "work": "ジョーカー・ゲーム",
+      "series": "「誤算」／TVアニメ 第3話",
+      "tags": [
+        "強気",
+        "情熱的",
+        "戦闘系",
+        "体格がいい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第3話 (https://jokergame.jp/story/story03.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-s2mls0",
+      "name": "マイケル・キャンベル",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「失楽園」",
+      "tags": [
+        "一途",
+        "情熱的",
+        "誠実",
+        "戦闘系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-5grjn5",
+      "name": "ジョセフ・ブラント",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「失楽園」",
+      "tags": [
+        "一般人",
+        "個性的",
+        "自信家",
+        "挑発的"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-vboeqg",
+      "name": "リチャード・パーカー",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「失楽園」",
+      "tags": [
+        "強気",
+        "現実的",
+        "戦闘系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-u7683o",
+      "name": "トムソン",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「失楽園」",
+      "tags": [
+        "現実的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-u7ut41",
+      "name": "アーロン・プライス",
+      "work": "ジョーカー・ゲーム",
+      "series": "「追跡」／TVアニメ 第10話",
+      "tags": [
+        "現実的",
+        "策士",
+        "戦闘系",
+        "知的",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第10話 (https://jokergame.jp/story/story10.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-r98px5",
+      "name": "里村",
+      "work": "ジョーカー・ゲーム",
+      "series": "「追跡」／TVアニメ 第10話",
+      "tags": [
+        "一般人",
+        "現実的",
+        "誠実",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第10話 (https://jokergame.jp/story/story10.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-z9nonj",
+      "name": "有崎晃",
+      "work": "ジョーカー・ゲーム",
+      "series": "「追跡」／TVアニメ 第10話",
+      "tags": [
+        "一般人",
+        "強気",
+        "不器用"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第10話 (https://jokergame.jp/story/story10.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-5gx3gh",
+      "name": "有崎直哉",
+      "work": "ジョーカー・ゲーム",
+      "series": "「追跡」／TVアニメ 第10話",
+      "tags": [
+        "権力者",
+        "知的",
+        "年上系",
+        "包容力"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第10話 (https://jokergame.jp/story/story10.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-249xnh",
+      "name": "ルイス・マクラウド（ジェフリー・モーガン／教授〈ザ・プロフ〉）",
+      "work": "ジョーカー・ゲーム",
+      "series": "「暗号名ケルベロス」／TVアニメ 第7話",
+      "tags": [
+        "危険",
+        "策士",
+        "自信家",
+        "戦闘系",
+        "知的",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第7話 (https://jokergame.jp/story/story07.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-p2rkcb",
+      "name": "レイモンド・グレーン",
+      "work": "ジョーカー・ゲーム",
+      "series": "「暗号名ケルベロス」／TVアニメ 第7話",
+      "tags": [
+        "一途",
+        "一般人",
+        "誠実"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第7話 (https://jokergame.jp/story/story07.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-fa4ru4",
+      "name": "原一等航海士",
+      "work": "ジョーカー・ゲーム",
+      "series": "「暗号名ケルベロス」／TVアニメ 第7話",
+      "tags": [
+        "一般人",
+        "現実的",
+        "誠実"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第7話 (https://jokergame.jp/story/story07.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-4tkxm7",
+      "name": "湯浅船長",
+      "work": "ジョーカー・ゲーム",
+      "series": "「暗号名ケルベロス」／TVアニメ 第7話",
+      "tags": [
+        "一般人",
+        "強気",
+        "指導者",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第7話 (https://jokergame.jp/story/story07.html)／原作小説公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-zpbrcf",
+      "name": "逸見五郎",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「ワルキューレ」",
+      "tags": [
+        "個性的",
+        "自信家",
+        "女好き",
+        "職人系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-fj000g",
+      "name": "雪村幸一",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「ワルキューレ」",
+      "tags": [
+        "策士",
+        "戦闘系",
+        "知的",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-o7vz3q",
+      "name": "フィリップ・ランゲ",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「ワルキューレ」",
+      "tags": [
+        "情熱的",
+        "職人系",
+        "知的"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-0qq685",
+      "name": "加賀美正臣",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「舞踏会の夜」",
+      "tags": [
+        "悪役",
+        "権力者",
+        "年上系",
+        "野心家",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-1p4gvb",
+      "name": "桐生知哉",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「舞踏会の夜」",
+      "tags": [
+        "策士",
+        "戦闘系",
+        "年下系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-8h2w5p",
+      "name": "ヴィンター警部",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「パンドラ」",
+      "tags": [
+        "一般人",
+        "情熱的",
+        "知的",
+        "年上系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-1hnt2w",
+      "name": "ホプキンス巡査部長",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「パンドラ」",
+      "tags": [
+        "一般人",
+        "現実的",
+        "誠実",
+        "年下系"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-mgv5r6",
+      "name": "ジョン・ラーキン",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「パンドラ」",
+      "tags": [
+        "一般人",
+        "気弱",
+        "誠実"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-dd2o40",
+      "name": "サー・ウィリアムス",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「パンドラ」",
+      "tags": [
+        "権力者",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-xj1f2l",
+      "name": "フレドリクス・オグデン",
+      "work": "ジョーカー・ゲーム",
+      "series": "原作「パンドラ」",
+      "tags": [
+        "悪役",
+        "一般人",
+        "危険",
+        "策士"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "柳広司『ジョーカー・ゲーム』シリーズ（KADOKAWA／角川文庫）。公式原作情報：https://jokergame.jp/originalwork/ ／KADOKAWAシリーズ合本版：https://www.kadokawa.co.jp/product/322105000216/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpysu-48m650",
+      "name": "アントン・モロゾフ",
+      "work": "ジョーカー・ゲーム",
+      "series": "「アジア・エクスプレス」／TVアニメ 第6話",
+      "tags": [
+        "一般人",
+        "気弱",
+        "現実的"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『ジョーカー・ゲーム』公式サイト STORY 第6話 (https://jokergame.jp/story/story06.html)／原作小説公式情報。数値の公称身長は確認できず"
+    }
+  ],
+  "sourceOrder": {
+    "char-mtpmpysu-u9jwgp": 1161,
+    "char-mtpmpysu-yta3h2": 1162,
+    "char-mtpmpysu-9ubnb5": 1163,
+    "char-mtpmpysu-9xrlpw": 1164,
+    "char-mtpmpysu-20s74x": 1165,
+    "char-mtpmpysu-uhu2e6": 1166,
+    "char-mtpmpysu-1mxvsi": 1167,
+    "char-mtpmpysu-iaycms": 1168,
+    "char-mtpmpysu-9nc168": 1169,
+    "char-mtpmpysu-mfzdrx": 1170,
+    "char-mtpmpysu-simt1j": 1171,
+    "char-mtpmpysu-j5hmy8": 1172,
+    "char-mtpmpysu-y4kfoa": 1173,
+    "char-mtpmpysu-ve5687": 1174,
+    "char-mtpmpysu-p94pyz": 1175,
+    "char-mtpmpysu-118u82": 1176,
+    "char-mtpmpysu-x4wvai": 1177,
+    "char-mtpmpysu-ap15ob": 1178,
+    "char-mtpmpysu-znbwvp": 1179,
+    "char-mtpmpysu-dkhhma": 1180,
+    "char-mtpmpysu-dqslfx": 1181,
+    "char-mtpmpysu-soguqt": 1182,
+    "char-mtpmpysu-cm35is": 1183,
+    "char-mtpmpysu-tcr14n": 1184,
+    "char-mtpmpysu-zebyez": 1185,
+    "char-mtpmpysu-ywyqmj": 1186,
+    "char-mtpmpysu-jl1qik": 1187,
+    "char-mtpmpysu-zsl872": 1188,
+    "char-mtpmpysu-sxrzne": 1189,
+    "char-mtpmpysu-x3gec8": 1190,
+    "char-mtpmpysu-vdcq41": 1191,
+    "char-mtpmpysu-5yb2az": 1192,
+    "char-mtpmpysu-rnfrqh": 1193,
+    "char-mtpmpysu-tzvap6": 1194,
+    "char-mtpmpysu-fwec2v": 1195,
+    "char-mtpmpysu-hb2tr5": 1196,
+    "char-mtpmpysu-00rdnd": 1197,
+    "char-mtpmpysu-lt3arm": 1198,
+    "char-mtpmpysu-63574v": 1199,
+    "char-mtpmpysu-745zqc": 1200,
+    "char-mtpmpysu-04ea6n": 1201,
+    "char-mtpmpysu-dkt2tf": 1202,
+    "char-mtpmpysu-3af7kd": 1203,
+    "char-mtpmpysu-a3q67q": 1204,
+    "char-mtpmpysu-fcuky7": 1205,
+    "char-mtpmpysu-qhugxi": 1206,
+    "char-mtpmpysu-8c4pec": 1207,
+    "char-mtpmpysu-lcdf22": 1208,
+    "char-mtpmpysu-upfnww": 1209,
+    "char-mtpmpysu-s2mls0": 1210,
+    "char-mtpmpysu-5grjn5": 1211,
+    "char-mtpmpysu-vboeqg": 1212,
+    "char-mtpmpysu-u7683o": 1213,
+    "char-mtpmpysu-u7ut41": 1214,
+    "char-mtpmpysu-r98px5": 1215,
+    "char-mtpmpysu-z9nonj": 1216,
+    "char-mtpmpysu-5gx3gh": 1217,
+    "char-mtpmpysu-249xnh": 1218,
+    "char-mtpmpysu-p2rkcb": 1219,
+    "char-mtpmpysu-fa4ru4": 1220,
+    "char-mtpmpysu-4tkxm7": 1221,
+    "char-mtpmpysu-zpbrcf": 1222,
+    "char-mtpmpysu-fj000g": 1223,
+    "char-mtpmpysu-o7vz3q": 1224,
+    "char-mtpmpysu-0qq685": 1225,
+    "char-mtpmpysu-1p4gvb": 1226,
+    "char-mtpmpysu-8h2w5p": 1227,
+    "char-mtpmpysu-1hnt2w": 1228,
+    "char-mtpmpysu-mgv5r6": 1229,
+    "char-mtpmpysu-dd2o40": 1230,
+    "char-mtpmpysu-xj1f2l": 1231,
+    "char-mtpmpysu-48m650": 1232
+  }
+}

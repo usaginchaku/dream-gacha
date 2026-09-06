@@ -1,0 +1,227 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "char-mtpmq2f8-whszem",
+      "name": "ゲゲ郎（鬼太郎の父）",
+      "work": "鬼太郎誕生 ゲゲゲの謎",
+      "series": "昭和31年：鬼太郎の父／現代：目玉おやじ",
+      "tags": [
+        "マイペース",
+        "一途",
+        "主人公",
+        "色気",
+        "挑発的",
+        "年上系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "185cm（鬼太郎の父の姿）",
+      "heightCm": 185,
+      "heightStatus": "manual",
+      "heightSource": "手動登録（未検証）"
+    },
+    {
+      "id": "char-mtpmq2f8-ag5tkb",
+      "name": "水木",
+      "work": "鬼太郎誕生 ゲゲゲの謎",
+      "series": "",
+      "tags": [
+        "現実的",
+        "主人公",
+        "同年代系",
+        "美形",
+        "不器用",
+        "野心家"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "Febri「谷田部透湖が語る『鬼太郎誕生 ゲゲゲの謎 真生版』のキャラクターデザイン①」（https://febri.jp/topics/kitaro-tanjo3/）。「昭和31年当時の男性の平均身長くらい」とされるが、公称の数値は確認できないため不明"
+    },
+    {
+      "id": "char-mtpmq2f8-lu5ufg",
+      "name": "長田時弥",
+      "work": "鬼太郎誕生 ゲゲゲの謎",
+      "series": "",
+      "tags": [
+        "一般人",
+        "素直",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『鬼太郎誕生 ゲゲゲの謎』公式サイト CHARACTER（https://www.kitaro-tanjo.com/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq2f8-nnw5fo",
+      "name": "龍賀時貞",
+      "work": "鬼太郎誕生 ゲゲゲの謎",
+      "series": "",
+      "tags": [
+        "悪役",
+        "危険",
+        "権力者",
+        "策士",
+        "年上系",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『鬼太郎誕生 ゲゲゲの謎』公式サイト CHARACTER（https://www.kitaro-tanjo.com/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq2f8-fpeld7",
+      "name": "龍賀時麿",
+      "work": "鬼太郎誕生 ゲゲゲの謎",
+      "series": "",
+      "tags": [
+        "強気",
+        "権力者",
+        "個性的",
+        "自信家",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『鬼太郎誕生 ゲゲゲの謎』公式サイト CHARACTER（https://www.kitaro-tanjo.com/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq2f8-sf6e9z",
+      "name": "龍賀孝三",
+      "work": "鬼太郎誕生 ゲゲゲの謎",
+      "series": "",
+      "tags": [
+        "マイペース",
+        "寡黙",
+        "個性的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『鬼太郎誕生 ゲゲゲの謎』公式サイト CHARACTER（https://www.kitaro-tanjo.com/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq2f8-sze7j6",
+      "name": "龍賀克典",
+      "work": "鬼太郎誕生 ゲゲゲの謎",
+      "series": "",
+      "tags": [
+        "権力者",
+        "現実的",
+        "自信家",
+        "年上系",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『鬼太郎誕生 ゲゲゲの謎』公式サイト CHARACTER（https://www.kitaro-tanjo.com/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq2f8-ajl0iv",
+      "name": "長田幻治",
+      "work": "鬼太郎誕生 ゲゲゲの謎",
+      "series": "",
+      "tags": [
+        "一途",
+        "権力者",
+        "策士",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『鬼太郎誕生 ゲゲゲの謎』公式サイト CHARACTER（https://www.kitaro-tanjo.com/）。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq2f8-ckney9",
+      "name": "ねずみ",
+      "work": "鬼太郎誕生 ゲゲゲの謎",
+      "series": "",
+      "tags": [
+        "個性的",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『鬼太郎誕生 ゲゲゲの謎』公式サイト CHARACTER（https://www.kitaro-tanjo.com/）。「長い髭の生えた少年」とされるが、公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq2f8-fh2dx8",
+      "name": "鬼太郎",
+      "work": "鬼太郎誕生 ゲゲゲの謎",
+      "series": "ゲゲゲの鬼太郎 第6期",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年下系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "130cm",
+      "heightCm": 130,
+      "heightStatus": "verified",
+      "heightSource": "水木しげる『鬼太郎大百科』等の公称設定。『鬼太郎誕生 ゲゲゲの謎』／第6期固有の別数値は確認できず"
+    },
+    {
+      "id": "char-mtpmq2f8-kxd883",
+      "name": "山田",
+      "work": "鬼太郎誕生 ゲゲゲの謎",
+      "series": "",
+      "tags": [
+        "一般人",
+        "現実的",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "映画『鬼太郎誕生 ゲゲゲの謎』公式サイト CHARACTER（https://www.kitaro-tanjo.com/）。公称身長の数値は確認できず"
+    }
+  ],
+  "sourceOrder": {
+    "char-mtpmq2f8-whszem": 1292,
+    "char-mtpmq2f8-ag5tkb": 1293,
+    "char-mtpmq2f8-lu5ufg": 1294,
+    "char-mtpmq2f8-nnw5fo": 1295,
+    "char-mtpmq2f8-fpeld7": 1296,
+    "char-mtpmq2f8-sf6e9z": 1297,
+    "char-mtpmq2f8-sze7j6": 1298,
+    "char-mtpmq2f8-ajl0iv": 1299,
+    "char-mtpmq2f8-ckney9": 1300,
+    "char-mtpmq2f8-fh2dx8": 1301,
+    "char-mtpmq2f8-kxd883": 1302
+  }
+}

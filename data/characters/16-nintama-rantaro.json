@@ -1,0 +1,2064 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "char-mtpmppu7-bb9h5w",
+      "name": "猪名寺乱太郎",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年は組",
+      "tags": [
+        "主人公",
+        "誠実",
+        "戦闘系",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "NHKエンタープライズ『忍たま乱太郎』公式キャラクターページ https://www.nhk-character.com/character/nintama.html ／忍たま特設サイト https://www.nhk-character.com/character/nintama/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-ng1d83",
+      "name": "摂津のきり丸",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年は組",
+      "tags": [
+        "一般人",
+        "現実的",
+        "主人公",
+        "年下系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "NHKエンタープライズ『忍たま乱太郎』公式キャラクターページ https://www.nhk-character.com/character/nintama.html ／忍たま特設サイト https://www.nhk-character.com/character/nintama/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-su8khk",
+      "name": "福富しんべヱ",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年は組",
+      "tags": [
+        "マイペース",
+        "一般人",
+        "主人公",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "NHKエンタープライズ『忍たま乱太郎』公式キャラクターページ https://www.nhk-character.com/character/nintama.html ／忍たま特設サイト https://www.nhk-character.com/character/nintama/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-9lhw86",
+      "name": "黒木庄左ヱ門",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年は組",
+      "tags": [
+        "一般人",
+        "誠実",
+        "知的",
+        "年下系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "フロンティアワークス公式『忍たま乱太郎』ドラマCDシリーズ https://www.fwinc.co.jp/ ／NHK・NEP公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-o3ls8l",
+      "name": "二郭伊助",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年は組",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "フロンティアワークス公式『忍たま乱太郎』ドラマCDシリーズ https://www.fwinc.co.jp/ ／NHK・NEP公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-f8par1",
+      "name": "山村喜三太",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年は組",
+      "tags": [
+        "マイペース",
+        "一般人",
+        "個性的",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "フロンティアワークス公式『忍たま乱太郎』ドラマCDシリーズ https://www.fwinc.co.jp/ ／NHK・NEP公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-f8qlz8",
+      "name": "皆本金吾",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年は組",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "フロンティアワークス公式『忍たま乱太郎』ドラマCDシリーズ https://www.fwinc.co.jp/ ／NHK・NEP公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-hk4wij",
+      "name": "加藤団蔵",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年は組",
+      "tags": [
+        "強気",
+        "戦闘系",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "フロンティアワークス公式『忍たま乱太郎』ドラマCDシリーズ https://www.fwinc.co.jp/ ／NHK・NEP公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-oedxu1",
+      "name": "佐武虎若",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年は組",
+      "tags": [
+        "一途",
+        "情熱的",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "フロンティアワークス公式『忍たま乱太郎』ドラマCDシリーズ https://www.fwinc.co.jp/ ／NHK・NEP公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-p0fcde",
+      "name": "笹山兵太夫",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年は組",
+      "tags": [
+        "個性的",
+        "策士",
+        "職人系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "フロンティアワークス公式『忍たま乱太郎』ドラマCDシリーズ https://www.fwinc.co.jp/ ／NHK・NEP公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-bk83ck",
+      "name": "夢前三治郎",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年は組",
+      "tags": [
+        "一般人",
+        "素直",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "フロンティアワークス公式『忍たま乱太郎』ドラマCDシリーズ https://www.fwinc.co.jp/ ／NHK・NEP公式情報。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-amuyks",
+      "name": "黒門伝七",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年い組",
+      "tags": [
+        "強気",
+        "自信家",
+        "戦闘系",
+        "年下系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-fmnjiv",
+      "name": "任暁左吉",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年い組",
+      "tags": [
+        "自信家",
+        "戦闘系",
+        "知的",
+        "年下系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-t9lm16",
+      "name": "今福彦四郎",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年い組",
+      "tags": [
+        "一般人",
+        "誠実",
+        "知的",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-hty1q5",
+      "name": "上ノ島一平",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年い組",
+      "tags": [
+        "一般人",
+        "素直",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-woed76",
+      "name": "鶴町伏木蔵",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年ろ組",
+      "tags": [
+        "一般人",
+        "個性的",
+        "素直",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-jk72h5",
+      "name": "二ノ坪怪士丸",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年ろ組",
+      "tags": [
+        "一般人",
+        "寡黙",
+        "個性的",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-8iesy5",
+      "name": "下坂部平太",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年ろ組",
+      "tags": [
+        "一般人",
+        "気弱",
+        "素直",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-iyyqld",
+      "name": "初島孫次郎",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年ろ組",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-22pd6o",
+      "name": "池田三郎次",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 二年い組",
+      "tags": [
+        "戦闘系",
+        "挑発的",
+        "年下系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-3xjx99",
+      "name": "川西左近",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 二年い組",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年下系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-3zzsg7",
+      "name": "能勢久作",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 二年い組",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "知的",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-se6nn4",
+      "name": "時友四郎兵衛",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 二年は組",
+      "tags": [
+        "マイペース",
+        "一般人",
+        "素直",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-a2yooj",
+      "name": "羽丹羽石人",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 二年は組",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-1kmvjc",
+      "name": "伊賀崎孫兵",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 三年い組",
+      "tags": [
+        "マイペース",
+        "一途",
+        "個性的",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-5gin6c",
+      "name": "神崎左門",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 三年ろ組",
+      "tags": [
+        "強気",
+        "情熱的",
+        "戦闘系",
+        "年下系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-d7oenk",
+      "name": "次屋三之助",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 三年ろ組",
+      "tags": [
+        "マイペース",
+        "個性的",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-tvtod5",
+      "name": "富松作兵衛",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 三年ろ組",
+      "tags": [
+        "現実的",
+        "誠実",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-6n1797",
+      "name": "浦風藤内",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 三年は組",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-c8pjwj",
+      "name": "三反田数馬",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 三年は組",
+      "tags": [
+        "一般人",
+        "誠実",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-xjq2ky",
+      "name": "平滝夜叉丸",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 四年い組",
+      "tags": [
+        "強気",
+        "自信家",
+        "戦闘系",
+        "年下系",
+        "美形",
+        "負けず嫌い"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-26kg16",
+      "name": "綾部喜八郎",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 四年い組",
+      "tags": [
+        "マイペース",
+        "策士",
+        "職人系",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-636348",
+      "name": "田村三木ヱ門",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 四年ろ組",
+      "tags": [
+        "強気",
+        "自信家",
+        "戦闘系",
+        "年下系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-19eol7",
+      "name": "浜守一郎",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 四年ろ組",
+      "tags": [
+        "戦闘系",
+        "素直",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-2g2i4c",
+      "name": "斉藤タカ丸",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 四年は組",
+      "tags": [
+        "職人系",
+        "同年代系",
+        "美形",
+        "明るい",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-8iuwrv",
+      "name": "久々知兵助",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 五年い組",
+      "tags": [
+        "一途",
+        "誠実",
+        "戦闘系",
+        "年下系",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-7c4e6o",
+      "name": "尾浜勘右衛門",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 五年い組",
+      "tags": [
+        "マイペース",
+        "戦闘系",
+        "年下系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-lhhqf4",
+      "name": "不破雷蔵",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 五年ろ組",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "知的",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-2l5apq",
+      "name": "鉢屋三郎",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 五年ろ組",
+      "tags": [
+        "個性的",
+        "策士",
+        "戦闘系",
+        "知的",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-iphvf7",
+      "name": "竹谷八左ヱ門",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 五年ろ組",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-ht0904",
+      "name": "立花仙蔵",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 六年い組",
+      "tags": [
+        "自信家",
+        "戦闘系",
+        "知的",
+        "年下系",
+        "美形",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-65cm4n",
+      "name": "潮江文次郎",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 六年い組",
+      "tags": [
+        "強気",
+        "情熱的",
+        "戦闘系",
+        "年下系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-jrezm4",
+      "name": "中在家長次",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 六年ろ組",
+      "tags": [
+        "寡黙",
+        "誠実",
+        "戦闘系",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-94bvn7",
+      "name": "七松小平太",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 六年ろ組",
+      "tags": [
+        "情熱的",
+        "戦闘系",
+        "体格がいい",
+        "年下系",
+        "明るい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-3o9kqm",
+      "name": "善法寺伊作",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 六年は組",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年下系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-aw6xn8",
+      "name": "食満留三郎",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 六年は組",
+      "tags": [
+        "強気",
+        "情熱的",
+        "戦闘系",
+        "年下系",
+        "負けず嫌い"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-7mgx58",
+      "name": "大川平次渦正",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 学園長",
+      "tags": [
+        "マイペース",
+        "権力者",
+        "指導者",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-zl0yix",
+      "name": "土井半助／天鬼",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年は組教科担当／劇場版『ドクタケ忍者隊最強の軍師』",
+      "tags": [
+        "指導者",
+        "誠実",
+        "知的",
+        "年上系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": true,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず／『劇場版 忍たま乱太郎 ドクタケ忍者隊最強の軍師』公式サイト https://sh-anime.shochiku.co.jp/nintama-movie/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-029jis",
+      "name": "山田伝蔵",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年は組実技担当",
+      "tags": [
+        "指導者",
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-y87dyv",
+      "name": "安藤夏之丞",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年い組教科担当",
+      "tags": [
+        "個性的",
+        "指導者",
+        "自信家",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-vsok41",
+      "name": "厚着太逸",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年い組実技担当",
+      "tags": [
+        "現実的",
+        "指導者",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-shjinn",
+      "name": "斜堂影麿",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年ろ組教科担当",
+      "tags": [
+        "気弱",
+        "個性的",
+        "指導者",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-edd3nv",
+      "name": "日向墨男",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 一年ろ組実技担当",
+      "tags": [
+        "現実的",
+        "指導者",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-kavesu",
+      "name": "松千代万",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 二年い組教科担当",
+      "tags": [
+        "気弱",
+        "指導者",
+        "年上系",
+        "不器用",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-2g3gja",
+      "name": "野村雄三",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 二年い組実技担当",
+      "tags": [
+        "強気",
+        "指導者",
+        "情熱的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-bnl3nk",
+      "name": "木下鉄丸",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 五年い組実技担当",
+      "tags": [
+        "強気",
+        "指導者",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-2c2d4t",
+      "name": "戸部新左ヱ門",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 剣術師範",
+      "tags": [
+        "指導者",
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-7f410b",
+      "name": "新野洋一",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 校医",
+      "tags": [
+        "知識職",
+        "知的",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-eo7twu",
+      "name": "吉野作造",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 道具管理主任",
+      "tags": [
+        "現実的",
+        "指導者",
+        "職人系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-4nq8cf",
+      "name": "大木雅之助",
+      "work": "忍たま乱太郎",
+      "series": "元・忍術学園教師",
+      "tags": [
+        "指導者",
+        "情熱的",
+        "戦闘系",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-p5rxie",
+      "name": "小松田秀作",
+      "work": "忍たま乱太郎",
+      "series": "忍術学園 事務員",
+      "tags": [
+        "マイペース",
+        "一般人",
+        "同年代系",
+        "不器用",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-as5lmj",
+      "name": "山田利吉",
+      "work": "忍たま乱太郎",
+      "series": "フリー忍者",
+      "tags": [
+        "自信家",
+        "戦闘系",
+        "同年代系",
+        "美形",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-5yzsgn",
+      "name": "稗田八方斎",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ忍者隊",
+      "tags": [
+        "悪役",
+        "個性的",
+        "指導者",
+        "自信家",
+        "年上系",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-lde9yy",
+      "name": "木野小次郎竹高",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ城 城主",
+      "tags": [
+        "マイペース",
+        "悪役",
+        "権力者",
+        "個性的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-fj7oxg",
+      "name": "大黄奈栗野木下穴太",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ城",
+      "tags": [
+        "悪役",
+        "気弱",
+        "個性的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-h13gjb",
+      "name": "キャプテン達魔鬼",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ水軍",
+      "tags": [
+        "強気",
+        "指導者",
+        "自信家",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-h70zff",
+      "name": "魔界之小路",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ忍術教室",
+      "tags": [
+        "個性的",
+        "指導者",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-5nob9s",
+      "name": "風鬼",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ忍者隊",
+      "tags": [
+        "現実的",
+        "戦闘系",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-lkbx9q",
+      "name": "雨鬼",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ忍者隊",
+      "tags": [
+        "荒っぽい",
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-d7teai",
+      "name": "雷鬼",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ忍者隊",
+      "tags": [
+        "自信家",
+        "戦闘系",
+        "年上系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-bagme2",
+      "name": "曇鬼",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ忍者隊",
+      "tags": [
+        "悪役",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-jvc9sl",
+      "name": "竜鬼",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ忍者隊",
+      "tags": [
+        "悪役",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-zf79fi",
+      "name": "俊鬼",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ忍者隊",
+      "tags": [
+        "悪役",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-lm13vj",
+      "name": "来鬼",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ忍者隊",
+      "tags": [
+        "悪役",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-e035tk",
+      "name": "統鬼",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ忍者隊",
+      "tags": [
+        "悪役",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-tjl1bd",
+      "name": "鉄鬼",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ忍者隊",
+      "tags": [
+        "悪役",
+        "強面",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-h2slxf",
+      "name": "しぶ鬼",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ忍術教室",
+      "tags": [
+        "自信家",
+        "誠実",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-fqr0rt",
+      "name": "いぶ鬼",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ忍術教室",
+      "tags": [
+        "一般人",
+        "素直",
+        "年下系",
+        "不器用",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-rbhtv5",
+      "name": "ふぶ鬼",
+      "work": "忍たま乱太郎",
+      "series": "ドクタケ忍術教室",
+      "tags": [
+        "一般人",
+        "誠実",
+        "素直",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-4vspgt",
+      "name": "黄昏甚兵衛",
+      "work": "忍たま乱太郎",
+      "series": "タソガレドキ城 城主",
+      "tags": [
+        "権力者",
+        "現実的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-t8d1v9",
+      "name": "佐茂有南",
+      "work": "忍たま乱太郎",
+      "series": "タソガレドキ城 鉄砲隊隊長",
+      "tags": [
+        "強気",
+        "指導者",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-6lphxp",
+      "name": "雑渡昆奈門",
+      "work": "忍たま乱太郎",
+      "series": "タソガレドキ忍軍",
+      "tags": [
+        "指導者",
+        "戦闘系",
+        "知的",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-dd27f9",
+      "name": "山本陣内",
+      "work": "忍たま乱太郎",
+      "series": "タソガレドキ忍軍",
+      "tags": [
+        "指導者",
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-knsw9q",
+      "name": "高坂陣内左衛門",
+      "work": "忍たま乱太郎",
+      "series": "タソガレドキ忍軍",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-f31nj0",
+      "name": "諸泉尊奈門",
+      "work": "忍たま乱太郎",
+      "series": "タソガレドキ忍軍",
+      "tags": [
+        "ライバル",
+        "情熱的",
+        "戦闘系",
+        "同年代系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-ijfffy",
+      "name": "押都長烈",
+      "work": "忍たま乱太郎",
+      "series": "タソガレドキ忍軍",
+      "tags": [
+        "寡黙",
+        "策士",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "ミュージカル『忍たま乱太郎』公式キャスト・キャラクター紹介 https://www.musical-nintama.jp/caststaff 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-b47zov",
+      "name": "椎良勘介",
+      "work": "忍たま乱太郎",
+      "series": "タソガレドキ忍軍",
+      "tags": [
+        "マイペース",
+        "個性的",
+        "策士",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-xuxfm2",
+      "name": "反屋壮太",
+      "work": "忍たま乱太郎",
+      "series": "タソガレドキ忍軍",
+      "tags": [
+        "戦闘系",
+        "年上系",
+        "明るい",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-9a6hps",
+      "name": "五条弾",
+      "work": "忍たま乱太郎",
+      "series": "タソガレドキ忍軍",
+      "tags": [
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-yt0yf5",
+      "name": "兵庫第三協栄丸",
+      "work": "忍たま乱太郎",
+      "series": "兵庫水軍 総大将",
+      "tags": [
+        "マイペース",
+        "権力者",
+        "指導者",
+        "年上系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-woa7s1",
+      "name": "由良四郎",
+      "work": "忍たま乱太郎",
+      "series": "兵庫水軍",
+      "tags": [
+        "現実的",
+        "指導者",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-918df5",
+      "name": "鬼蜘蛛丸",
+      "work": "忍たま乱太郎",
+      "series": "兵庫水軍",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-hhy3em",
+      "name": "蜉蝣",
+      "work": "忍たま乱太郎",
+      "series": "兵庫水軍",
+      "tags": [
+        "現実的",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-4x0dc9",
+      "name": "疾風",
+      "work": "忍たま乱太郎",
+      "series": "兵庫水軍",
+      "tags": [
+        "強気",
+        "指導者",
+        "情熱的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-m4t9lx",
+      "name": "義丸",
+      "work": "忍たま乱太郎",
+      "series": "兵庫水軍",
+      "tags": [
+        "強気",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-h8rs1g",
+      "name": "舳丸",
+      "work": "忍たま乱太郎",
+      "series": "兵庫水軍",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-etjji5",
+      "name": "重",
+      "work": "忍たま乱太郎",
+      "series": "兵庫水軍",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-o4k3pi",
+      "name": "東南風",
+      "work": "忍たま乱太郎",
+      "series": "兵庫水軍",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-c3acfa",
+      "name": "間切",
+      "work": "忍たま乱太郎",
+      "series": "兵庫水軍",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-8biim0",
+      "name": "網問",
+      "work": "忍たま乱太郎",
+      "series": "兵庫水軍",
+      "tags": [
+        "現実的",
+        "誠実",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-5zczee",
+      "name": "航",
+      "work": "忍たま乱太郎",
+      "series": "兵庫水軍",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-y267un",
+      "name": "白南風丸",
+      "work": "忍たま乱太郎",
+      "series": "兵庫水軍",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-sfbngp",
+      "name": "佐武昌義",
+      "work": "忍たま乱太郎",
+      "series": "佐武村 鉄砲隊",
+      "tags": [
+        "一途",
+        "指導者",
+        "情熱的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "NHKエンタープライズ『忍たま乱太郎』公式キャラクターページ https://www.nhk-character.com/character/nintama.html ／忍たま特設サイト https://www.nhk-character.com/character/nintama/ 。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-g4rdoy",
+      "name": "錫高野与四郎",
+      "work": "忍たま乱太郎",
+      "series": "忍術学校 六年生",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "年下系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-b4x7ub",
+      "name": "山野金太",
+      "work": "忍たま乱太郎",
+      "series": "忍術学校教師",
+      "tags": [
+        "指導者",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmppu7-q2v8z9",
+      "name": "風の玉三郎",
+      "work": "忍たま乱太郎",
+      "series": "オニタケ忍者隊",
+      "tags": [
+        "個性的",
+        "自信家",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "アニメイトタイムズ『忍たま乱太郎』公式情報・NHK/NEP公式発表引用記事を参照。数値の公称身長は確認できず"
+    }
+  ],
+  "sourceOrder": {
+    "char-mtpmppu7-bb9h5w": 866,
+    "char-mtpmppu7-ng1d83": 867,
+    "char-mtpmppu7-su8khk": 868,
+    "char-mtpmppu7-9lhw86": 869,
+    "char-mtpmppu7-o3ls8l": 870,
+    "char-mtpmppu7-f8par1": 871,
+    "char-mtpmppu7-f8qlz8": 872,
+    "char-mtpmppu7-hk4wij": 873,
+    "char-mtpmppu7-oedxu1": 874,
+    "char-mtpmppu7-p0fcde": 875,
+    "char-mtpmppu7-bk83ck": 876,
+    "char-mtpmppu7-amuyks": 877,
+    "char-mtpmppu7-fmnjiv": 878,
+    "char-mtpmppu7-t9lm16": 879,
+    "char-mtpmppu7-hty1q5": 880,
+    "char-mtpmppu7-woed76": 881,
+    "char-mtpmppu7-jk72h5": 882,
+    "char-mtpmppu7-8iesy5": 883,
+    "char-mtpmppu7-iyyqld": 884,
+    "char-mtpmppu7-22pd6o": 885,
+    "char-mtpmppu7-3xjx99": 886,
+    "char-mtpmppu7-3zzsg7": 887,
+    "char-mtpmppu7-se6nn4": 888,
+    "char-mtpmppu7-a2yooj": 889,
+    "char-mtpmppu7-1kmvjc": 890,
+    "char-mtpmppu7-5gin6c": 891,
+    "char-mtpmppu7-d7oenk": 892,
+    "char-mtpmppu7-tvtod5": 893,
+    "char-mtpmppu7-6n1797": 894,
+    "char-mtpmppu7-c8pjwj": 895,
+    "char-mtpmppu7-xjq2ky": 896,
+    "char-mtpmppu7-26kg16": 897,
+    "char-mtpmppu7-636348": 898,
+    "char-mtpmppu7-19eol7": 899,
+    "char-mtpmppu7-2g2i4c": 900,
+    "char-mtpmppu7-8iuwrv": 901,
+    "char-mtpmppu7-7c4e6o": 902,
+    "char-mtpmppu7-lhhqf4": 903,
+    "char-mtpmppu7-2l5apq": 904,
+    "char-mtpmppu7-iphvf7": 905,
+    "char-mtpmppu7-ht0904": 906,
+    "char-mtpmppu7-65cm4n": 907,
+    "char-mtpmppu7-jrezm4": 908,
+    "char-mtpmppu7-94bvn7": 909,
+    "char-mtpmppu7-3o9kqm": 910,
+    "char-mtpmppu7-aw6xn8": 911,
+    "char-mtpmppu7-7mgx58": 912,
+    "char-mtpmppu7-zl0yix": 913,
+    "char-mtpmppu7-029jis": 914,
+    "char-mtpmppu7-y87dyv": 915,
+    "char-mtpmppu7-vsok41": 916,
+    "char-mtpmppu7-shjinn": 917,
+    "char-mtpmppu7-edd3nv": 918,
+    "char-mtpmppu7-kavesu": 919,
+    "char-mtpmppu7-2g3gja": 920,
+    "char-mtpmppu7-bnl3nk": 921,
+    "char-mtpmppu7-2c2d4t": 922,
+    "char-mtpmppu7-7f410b": 923,
+    "char-mtpmppu7-eo7twu": 924,
+    "char-mtpmppu7-4nq8cf": 925,
+    "char-mtpmppu7-p5rxie": 926,
+    "char-mtpmppu7-as5lmj": 927,
+    "char-mtpmppu7-5yzsgn": 928,
+    "char-mtpmppu7-lde9yy": 929,
+    "char-mtpmppu7-fj7oxg": 930,
+    "char-mtpmppu7-h13gjb": 931,
+    "char-mtpmppu7-h70zff": 932,
+    "char-mtpmppu7-5nob9s": 933,
+    "char-mtpmppu7-lkbx9q": 934,
+    "char-mtpmppu7-d7teai": 935,
+    "char-mtpmppu7-bagme2": 936,
+    "char-mtpmppu7-jvc9sl": 937,
+    "char-mtpmppu7-zf79fi": 938,
+    "char-mtpmppu7-lm13vj": 939,
+    "char-mtpmppu7-e035tk": 940,
+    "char-mtpmppu7-tjl1bd": 941,
+    "char-mtpmppu7-h2slxf": 942,
+    "char-mtpmppu7-fqr0rt": 943,
+    "char-mtpmppu7-rbhtv5": 944,
+    "char-mtpmppu7-4vspgt": 945,
+    "char-mtpmppu7-t8d1v9": 946,
+    "char-mtpmppu7-6lphxp": 947,
+    "char-mtpmppu7-dd27f9": 948,
+    "char-mtpmppu7-knsw9q": 949,
+    "char-mtpmppu7-f31nj0": 950,
+    "char-mtpmppu7-ijfffy": 951,
+    "char-mtpmppu7-b47zov": 952,
+    "char-mtpmppu7-xuxfm2": 953,
+    "char-mtpmppu7-9a6hps": 954,
+    "char-mtpmppu7-yt0yf5": 955,
+    "char-mtpmppu7-woa7s1": 956,
+    "char-mtpmppu7-918df5": 957,
+    "char-mtpmppu7-hhy3em": 958,
+    "char-mtpmppu7-4x0dc9": 959,
+    "char-mtpmppu7-m4t9lx": 960,
+    "char-mtpmppu7-h8rs1g": 961,
+    "char-mtpmppu7-etjji5": 962,
+    "char-mtpmppu7-o4k3pi": 963,
+    "char-mtpmppu7-c3acfa": 964,
+    "char-mtpmppu7-8biim0": 965,
+    "char-mtpmppu7-5zczee": 966,
+    "char-mtpmppu7-y267un": 967,
+    "char-mtpmppu7-sfbngp": 968,
+    "char-mtpmppu7-g4rdoy": 969,
+    "char-mtpmppu7-b4x7ub": 970,
+    "char-mtpmppu7-q2v8z9": 971
+  }
+}

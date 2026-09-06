@@ -1,0 +1,562 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "char-mtpmpwf9-3sct5i",
+      "name": "シンエイ・ノウゼン",
+      "work": "86―エイティシックス―",
+      "series": "第1・第2クール",
+      "tags": [
+        "寡黙",
+        "危険",
+        "主人公",
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "美形",
+        "冷静"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "175cm",
+      "heightCm": 175,
+      "heightStatus": "verified",
+      "heightSource": "電撃文庫公式Twitter『86―エイティシックス― 86の質問』企画 （2018年1月26日、安里アサト先生・担当編集による回答） 旧Twitterイベント: https://twitter.com/i/events/1060508102984839168 ／回答記録: https://forum.gamer.com.tw/G2.php?bsn=47489&lorder=2&parent=307&sn=329"
+    },
+    {
+      "id": "char-mtpmpwf9-ctpwih",
+      "name": "ハルト・キーツ",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "女好き",
+        "戦闘系",
+        "同年代系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-k9iyeq",
+      "name": "ルイ・キノ",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-1k7j9w",
+      "name": "トーマ・ソービ",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-6msnzb",
+      "name": "ライデン・シュガ",
+      "work": "86―エイティシックス―",
+      "series": "第1・第2クール",
+      "tags": [
+        "荒っぽい",
+        "誠実",
+        "戦闘系",
+        "体格がいい",
+        "同年代系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "185cm",
+      "heightCm": 185,
+      "heightStatus": "verified",
+      "heightSource": "電撃文庫公式Twitter『86―エイティシックス― 86の質問』企画 （2018年1月26日、安里アサト先生・担当編集による回答） 旧Twitterイベント: https://twitter.com/i/events/1060508102984839168 ／回答記録: https://forum.gamer.com.tw/G2.php?bsn=47489&lorder=2&parent=307&sn=329"
+    },
+    {
+      "id": "char-mtpmpwf9-p9hawj",
+      "name": "マシュー・ナナキ",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-dv8m3s",
+      "name": "チセ・オーセン",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-4w2i4l",
+      "name": "クロト・ヒニエ",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-0ksndm",
+      "name": "セオト・リッカ",
+      "work": "86―エイティシックス―",
+      "series": "第1・第2クール",
+      "tags": [
+        "強気",
+        "職人系",
+        "戦闘系",
+        "同年代系",
+        "不器用",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "165cm",
+      "heightCm": 165,
+      "heightStatus": "verified",
+      "heightSource": "電撃文庫公式Twitter『86―エイティシックス― 86の質問』企画 （2018年1月26日、安里アサト先生・担当編集による回答） 旧Twitterイベント: https://twitter.com/i/events/1060508102984839168 ／回答記録: https://forum.gamer.com.tw/G2.php?bsn=47489&lorder=2&parent=307&sn=329"
+    },
+    {
+      "id": "char-mtpmpwf9-70qnac",
+      "name": "ハリズ・センヤ",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-0xvwqd",
+      "name": "クジョー・ニコ",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "戦闘系",
+        "同年代系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-kv5oky",
+      "name": "トウザン・サシャ",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-jywiuh",
+      "name": "ダイヤ・イルマ",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "明るい",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-vq8dkj",
+      "name": "カリヤ・ロウガ",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-cs7k39",
+      "name": "シュリ・ジリス",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-1670fn",
+      "name": "オーチ・アントン",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-psjwju",
+      "name": "イオ・ドーダンセー",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-gg2xmo",
+      "name": "レフ・アルドレヒト",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "荒っぽい",
+        "指導者",
+        "職人系",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-j5dst0",
+      "name": "ジェローム・カールシュタール",
+      "work": "86―エイティシックス―",
+      "series": "第1・第2クール",
+      "tags": [
+        "権力者",
+        "現実的",
+        "指導者",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-8i7etj",
+      "name": "ショーレイ・ノウゼン（レイ）",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "一途",
+        "危険",
+        "戦闘系",
+        "年上系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "verified",
+      "heightSource": "電撃文庫公式Twitter『86―エイティシックス― 86の質問』企画 （2018年1月26日、安里アサト先生・担当編集による回答） 旧Twitterイベント: https://twitter.com/i/events/1060508102984839168 ／回答記録: https://forum.gamer.com.tw/G2.php?bsn=47489&lorder=2&parent=307&sn=329"
+    },
+    {
+      "id": "char-mtpmpwf9-5k2jki",
+      "name": "ヨーゼフ・フォン・ペンローズ",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "誠実",
+        "知識職",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER FIRST HALF https://anime-86.com/character/first-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-ttrj52",
+      "name": "ヴァーツラフ・ミリーゼ",
+      "work": "86―エイティシックス―",
+      "series": "第1クール",
+      "tags": [
+        "指導者",
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト STORY 第4話 https://anime-86.com/story/?id=04 ／公式アニメ設定を確認。数値の公称身長は確認できず"
+    },
+    {
+      "id": "char-mtpmpwf9-6y438s",
+      "name": "エルンスト・ツィマーマン",
+      "work": "86―エイティシックス―",
+      "series": "第2クール",
+      "tags": [
+        "権力者",
+        "情熱的",
+        "知的",
+        "年上系",
+        "包容力",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER SECOND HALF https://anime-86.com/character/second-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-b3cl55",
+      "name": "リヒャルト・アルトナー",
+      "work": "86―エイティシックス―",
+      "series": "第2クール",
+      "tags": [
+        "権力者",
+        "現実的",
+        "指導者",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER SECOND HALF https://anime-86.com/character/second-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-dmu67l",
+      "name": "ヴィレム・エーレンフリート",
+      "work": "86―エイティシックス―",
+      "series": "第2クール",
+      "tags": [
+        "権力者",
+        "策士",
+        "指導者",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER SECOND HALF https://anime-86.com/character/second-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-230aer",
+      "name": "ベルント・ベルノルト",
+      "work": "86―エイティシックス―",
+      "series": "第2クール",
+      "tags": [
+        "現実的",
+        "指導者",
+        "誠実",
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER SECOND HALF https://anime-86.com/character/second-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-v8tmbl",
+      "name": "ユージン・ランツ",
+      "work": "86―エイティシックス―",
+      "series": "第2クール",
+      "tags": [
+        "一途",
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER SECOND HALF https://anime-86.com/character/second-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-5lqcbv",
+      "name": "エルウィン・マルセル",
+      "work": "86―エイティシックス―",
+      "series": "第2クール",
+      "tags": [
+        "強気",
+        "現実的",
+        "戦闘系",
+        "同年代系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER SECOND HALF https://anime-86.com/character/second-half/（数値の公称身長は確認できず）"
+    },
+    {
+      "id": "char-mtpmpwf9-qdqrlf",
+      "name": "キリヤ・ノウゼン",
+      "work": "86―エイティシックス―",
+      "series": "第2クール",
+      "tags": [
+        "一途",
+        "危険",
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "美形",
+        "優しい"
+      ],
+      "archived": false,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "TVアニメ『８６―エイティシックス―』公式サイト CHARACTER SECOND HALF https://anime-86.com/character/second-half/（数値の公称身長は確認できず）"
+    }
+  ],
+  "sourceOrder": {
+    "char-mtpmpwf9-3sct5i": 1132,
+    "char-mtpmpwf9-ctpwih": 1133,
+    "char-mtpmpwf9-k9iyeq": 1134,
+    "char-mtpmpwf9-1k7j9w": 1135,
+    "char-mtpmpwf9-6msnzb": 1136,
+    "char-mtpmpwf9-p9hawj": 1137,
+    "char-mtpmpwf9-dv8m3s": 1138,
+    "char-mtpmpwf9-4w2i4l": 1139,
+    "char-mtpmpwf9-0ksndm": 1140,
+    "char-mtpmpwf9-70qnac": 1141,
+    "char-mtpmpwf9-0xvwqd": 1142,
+    "char-mtpmpwf9-kv5oky": 1143,
+    "char-mtpmpwf9-jywiuh": 1144,
+    "char-mtpmpwf9-vq8dkj": 1145,
+    "char-mtpmpwf9-cs7k39": 1146,
+    "char-mtpmpwf9-1670fn": 1147,
+    "char-mtpmpwf9-psjwju": 1148,
+    "char-mtpmpwf9-gg2xmo": 1149,
+    "char-mtpmpwf9-j5dst0": 1150,
+    "char-mtpmpwf9-8i7etj": 1151,
+    "char-mtpmpwf9-5k2jki": 1152,
+    "char-mtpmpwf9-ttrj52": 1153,
+    "char-mtpmpwf9-6y438s": 1154,
+    "char-mtpmpwf9-b3cl55": 1155,
+    "char-mtpmpwf9-dmu67l": 1156,
+    "char-mtpmpwf9-230aer": 1157,
+    "char-mtpmpwf9-v8tmbl": 1158,
+    "char-mtpmpwf9-5lqcbv": 1159,
+    "char-mtpmpwf9-qdqrlf": 1160
+  }
+}

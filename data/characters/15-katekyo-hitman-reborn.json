@@ -1,0 +1,1686 @@
+{
+  "schema": "dream-gacha.characters",
+  "version": 1,
+  "characters": [
+    {
+      "id": "char-mtpmpjkm-velybs",
+      "name": "沢田綱吉",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ボンゴレファミリー",
+      "tags": [
+        "主人公",
+        "誠実",
+        "戦闘系",
+        "年下系",
+        "不器用",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "157cm",
+      "heightCm": 157,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-ufwef3",
+      "name": "リボーン",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "アルコバレーノ／ボンゴレ側",
+      "tags": [
+        "策士",
+        "指導者",
+        "自信家",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "40cm",
+      "heightCm": 40,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-bkd37l",
+      "name": "獄寺隼人",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ボンゴレファミリー 嵐の守護者",
+      "tags": [
+        "一途",
+        "強気",
+        "情熱的",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "168cm",
+      "heightCm": 168,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-155rf3",
+      "name": "山本武",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ボンゴレファミリー 雨の守護者",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "177cm",
+      "heightCm": 177,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-oi9dlu",
+      "name": "ランボ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ボンゴレファミリー 雷の守護者",
+      "tags": [
+        "マイペース",
+        "個性的",
+        "戦闘系",
+        "年下系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "42cm（5歳）／179cm（15歳）／184cm（25歳）",
+      "heightCm": 42,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-008q3d",
+      "name": "雲雀恭弥",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ボンゴレファミリー 雲の守護者／並盛中風紀委員",
+      "tags": [
+        "危険",
+        "自信家",
+        "戦闘系",
+        "同年代系",
+        "美形",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "169cm",
+      "heightCm": 169,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-esahtz",
+      "name": "笹川了平",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ボンゴレファミリー 晴の守護者",
+      "tags": [
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "同年代系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "168cm",
+      "heightCm": 168,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-7owpfw",
+      "name": "六道骸",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ボンゴレファミリー 霧の守護者／黒曜",
+      "tags": [
+        "危険",
+        "策士",
+        "戦闘系",
+        "知的",
+        "同年代系",
+        "美形"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "177.5cm",
+      "heightCm": 177.5,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-673pj4",
+      "name": "沢田家光",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "CEDEF／沢田家",
+      "tags": [
+        "策士",
+        "指導者",
+        "戦闘系",
+        "年上系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "189cm",
+      "heightCm": 189,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-tncry7",
+      "name": "山本剛",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "竹寿司／山本武の父",
+      "tags": [
+        "職人系",
+        "戦闘系",
+        "年上系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "178cm",
+      "heightCm": 178,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-phlp3z",
+      "name": "草壁哲矢",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "並盛中風紀委員会",
+      "tags": [
+        "一途",
+        "現実的",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "181cm",
+      "heightCm": 181,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-mlb0v2",
+      "name": "持田剣介",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "並盛中",
+      "tags": [
+        "一般人",
+        "強気",
+        "同年代系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "169cm",
+      "heightCm": 169,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-1evxb0",
+      "name": "フゥ太",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ランキング星出身",
+      "tags": [
+        "一般人",
+        "個性的",
+        "素直",
+        "年下系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "123cm",
+      "heightCm": 123,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-6m43fy",
+      "name": "入江正一",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "並盛町／ミルフィオーレ",
+      "tags": [
+        "気弱",
+        "策士",
+        "知識職",
+        "知的",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "155cm",
+      "heightCm": 155,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-a0xvt7",
+      "name": "ジャンニーニ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ボンゴレ技術者",
+      "tags": [
+        "職人系",
+        "知的",
+        "年上系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "148cm",
+      "heightCm": 148,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-aeivws",
+      "name": "Dr.シャマル",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "殺し屋／医師",
+      "tags": [
+        "自信家",
+        "女好き",
+        "戦闘系",
+        "知識職",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-d34wfl",
+      "name": "ロメオ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ビアンキの元恋人",
+      "tags": [
+        "一般人",
+        "個性的",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "176cm",
+      "heightCm": 176,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-i75wbo",
+      "name": "コロネロ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "アルコバレーノ",
+      "tags": [
+        "強気",
+        "指導者",
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "41cm",
+      "heightCm": 41,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-cj5g5r",
+      "name": "スカル",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "アルコバレーノ",
+      "tags": [
+        "気弱",
+        "個性的",
+        "自信家",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "38cm",
+      "heightCm": 38,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-dzyhga",
+      "name": "風",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "アルコバレーノ",
+      "tags": [
+        "指導者",
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-jiwi78",
+      "name": "ヴェルデ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "アルコバレーノ",
+      "tags": [
+        "策士",
+        "知識職",
+        "知的",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-64xkqa",
+      "name": "川平のおじさん／チェッカーフェイス",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "トゥリニセッテ管理者",
+      "tags": [
+        "マイペース",
+        "権力者",
+        "策士",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-dto57m",
+      "name": "バミューダ・フォン・ヴェッケンシュタイン",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "復讐者／元アルコバレーノ",
+      "tags": [
+        "危険",
+        "策士",
+        "指導者",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-ijbrkl",
+      "name": "柿本千種",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "黒曜",
+      "tags": [
+        "寡黙",
+        "現実的",
+        "戦闘系",
+        "同年代系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-eeq5uh",
+      "name": "城島犬",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "黒曜",
+      "tags": [
+        "強気",
+        "荒っぽい",
+        "戦闘系",
+        "同年代系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "172cm",
+      "heightCm": 172,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-lbnjls",
+      "name": "ランチア",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "黒曜編",
+      "tags": [
+        "戦闘系",
+        "体格がいい",
+        "年上系",
+        "不器用",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "194cm",
+      "heightCm": 194,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-7iqi3f",
+      "name": "バーズ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "黒曜編",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "148cm",
+      "heightCm": 148,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-5gnef0",
+      "name": "ヂヂ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "黒曜編",
+      "tags": [
+        "悪役",
+        "危険",
+        "荒っぽい",
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "200cm（ジジと同体格）",
+      "heightCm": 200,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-pnc2so",
+      "name": "ジジ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "黒曜編",
+      "tags": [
+        "悪役",
+        "危険",
+        "荒っぽい",
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "200cm（ヂヂと同体格）",
+      "heightCm": 200,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-erep9y",
+      "name": "ディーノ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "キャバッローネファミリー",
+      "tags": [
+        "指導者",
+        "戦闘系",
+        "年上系",
+        "不器用",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "183cm",
+      "heightCm": 183,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-cuceni",
+      "name": "ロマーリオ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "キャバッローネファミリー",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "体格がいい",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "185cm",
+      "heightCm": 185,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-ghiphi",
+      "name": "内藤ロンシャン",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "トマゾファミリー",
+      "tags": [
+        "マイペース",
+        "一般人",
+        "個性的",
+        "同年代系",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "163cm",
+      "heightCm": 163,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-8mj5dz",
+      "name": "マングスタ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "トマゾファミリー",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "185cm",
+      "heightCm": 185,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-9tovjm",
+      "name": "XANXUS",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ヴァリアー",
+      "tags": [
+        "寡黙",
+        "危険",
+        "指導者",
+        "自信家",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "188cm",
+      "heightCm": 188,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-5o5eoe",
+      "name": "スペルビ・スクアーロ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ヴァリアー",
+      "tags": [
+        "荒っぽい",
+        "情熱的",
+        "戦闘系",
+        "年上系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "182cm",
+      "heightCm": 182,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-lkkyma",
+      "name": "ベルフェゴール",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ヴァリアー",
+      "tags": [
+        "危険",
+        "自信家",
+        "戦闘系",
+        "挑発的",
+        "同年代系",
+        "美形"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "170cm",
+      "heightCm": 170,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-wboh79",
+      "name": "レヴィ・ア・タン",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ヴァリアー",
+      "tags": [
+        "一途",
+        "強気",
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "193cm",
+      "heightCm": 193,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-mu3pft",
+      "name": "ルッスーリア",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ヴァリアー",
+      "tags": [
+        "個性的",
+        "戦闘系",
+        "年上系",
+        "包容力",
+        "明るい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "185cm",
+      "heightCm": 185,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-vu9su0",
+      "name": "フラン",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ヴァリアー／黒曜",
+      "tags": [
+        "個性的",
+        "戦闘系",
+        "挑発的",
+        "年下系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-hpxfe0",
+      "name": "ゴーラ・モスカ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ヴァリアー",
+      "tags": [
+        "悪役",
+        "危険",
+        "戦闘系",
+        "体格がいい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "230cm",
+      "heightCm": 230,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-48qqzf",
+      "name": "オッタビオ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "元ヴァリアー",
+      "tags": [
+        "悪役",
+        "権力者",
+        "策士",
+        "年上系",
+        "野心家"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-t1emof",
+      "name": "ボンゴレI世（ジョット）",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "初代ボンゴレファミリー",
+      "tags": [
+        "指導者",
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-hhdi0f",
+      "name": "G",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "初代ボンゴレファミリー 嵐の守護者",
+      "tags": [
+        "一途",
+        "強気",
+        "情熱的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-te9zih",
+      "name": "朝利雨月",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "初代ボンゴレファミリー 雨の守護者",
+      "tags": [
+        "職人系",
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-ikij05",
+      "name": "ナックル",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "初代ボンゴレファミリー 晴の守護者",
+      "tags": [
+        "指導者",
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-p846qp",
+      "name": "ランポウ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "初代ボンゴレファミリー 雷の守護者",
+      "tags": [
+        "マイペース",
+        "自信家",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-9qp9og",
+      "name": "アラウディ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "初代ボンゴレファミリー 雲の守護者",
+      "tags": [
+        "寡黙",
+        "強気",
+        "指導者",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-zw55pq",
+      "name": "D・スペード",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "初代ボンゴレファミリー 霧の守護者",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "戦闘系",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-gwggao",
+      "name": "ボンゴレIX世（ティモッテオ）",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ボンゴレファミリー",
+      "tags": [
+        "権力者",
+        "指導者",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "167cm",
+      "heightCm": 167,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-nf1uxf",
+      "name": "バジル",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "CEDEF",
+      "tags": [
+        "一途",
+        "誠実",
+        "戦闘系",
+        "素直",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "157cm",
+      "heightCm": 157,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-pb4vai",
+      "name": "ターメリック",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "CEDEF",
+      "tags": [
+        "現実的",
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "186cm",
+      "heightCm": 186,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-bbea60",
+      "name": "モレッティ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "CEDEF",
+      "tags": [
+        "現実的",
+        "誠実",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "180cm",
+      "heightCm": 180,
+      "heightStatus": "verified",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN! 公式キャラクターブック Vongola77』集英社"
+    },
+    {
+      "id": "char-mtpmpjkm-xu64rw",
+      "name": "白蘭",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ミルフィオーレファミリー",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "自信家",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-6vk6sp",
+      "name": "スパナ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ミルフィオーレ／ボンゴレ側",
+      "tags": [
+        "マイペース",
+        "職人系",
+        "知的",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-x88gpn",
+      "name": "γ（ガンマ）",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ミルフィオーレ ブラックスペル",
+      "tags": [
+        "一途",
+        "強気",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-y5rb4u",
+      "name": "幻騎士",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ミルフィオーレ",
+      "tags": [
+        "一途",
+        "寡黙",
+        "危険",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-8jt6zm",
+      "name": "グロ・キシニア",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ミルフィオーレ ホワイトスペル",
+      "tags": [
+        "悪役",
+        "危険",
+        "個性的",
+        "自信家",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-yijbs8",
+      "name": "ジンジャー・ブレッド",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ミルフィオーレ",
+      "tags": [
+        "危険",
+        "個性的",
+        "策士",
+        "戦闘系",
+        "知的"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-hlnnum",
+      "name": "バイシャナ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ミルフィオーレ ブラックスペル",
+      "tags": [
+        "強気",
+        "自信家",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-u1lszv",
+      "name": "デンドロ・キラム",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ミルフィオーレ ブラックスペル",
+      "tags": [
+        "荒っぽい",
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-od1gv6",
+      "name": "野猿",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ミルフィオーレ ブラックスペル",
+      "tags": [
+        "荒っぽい",
+        "戦闘系",
+        "素直",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-tgxjbk",
+      "name": "太猿",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ミルフィオーレ ブラックスペル",
+      "tags": [
+        "強気",
+        "現実的",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-ry4en6",
+      "name": "ジル",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ミルフィオーレ／王族",
+      "tags": [
+        "悪役",
+        "危険",
+        "自信家",
+        "戦闘系",
+        "挑発的",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-t9uvle",
+      "name": "桔梗",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "真6弔花",
+      "tags": [
+        "悪役",
+        "策士",
+        "戦闘系",
+        "年上系",
+        "包容力",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-v9cpcx",
+      "name": "ザクロ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "真6弔花",
+      "tags": [
+        "悪役",
+        "危険",
+        "強気",
+        "荒っぽい",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-l64dpz",
+      "name": "デイジー",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "真6弔花",
+      "tags": [
+        "マイペース",
+        "悪役",
+        "危険",
+        "個性的",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-pqcg50",
+      "name": "トリカブト",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "真6弔花",
+      "tags": [
+        "悪役",
+        "寡黙",
+        "危険",
+        "策士",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-31re9k",
+      "name": "GHOST",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "真6弔花／白蘭の別世界同位体",
+      "tags": [
+        "悪役",
+        "寡黙",
+        "危険",
+        "個性的",
+        "戦闘系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-zji5kb",
+      "name": "古里炎真",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "シモンファミリー",
+      "tags": [
+        "ライバル",
+        "一途",
+        "気弱",
+        "戦闘系",
+        "同年代系",
+        "不器用"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-136ttx",
+      "name": "青葉紅葉",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "シモンファミリー",
+      "tags": [
+        "強気",
+        "情熱的",
+        "戦闘系",
+        "同年代系",
+        "負けず嫌い"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-odus9y",
+      "name": "水野薫",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "シモンファミリー",
+      "tags": [
+        "気弱",
+        "強面",
+        "荒っぽい",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-g5wuhy",
+      "name": "大山らうじ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "シモンファミリー",
+      "tags": [
+        "誠実",
+        "戦闘系",
+        "体格がいい",
+        "同年代系",
+        "優しい"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-77uvum",
+      "name": "加藤ジュリー",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "シモンファミリー",
+      "tags": [
+        "マイペース",
+        "個性的",
+        "女好き",
+        "戦闘系",
+        "同年代系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-99kuov",
+      "name": "シモン＝コザァート",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "初代シモンファミリー",
+      "tags": [
+        "指導者",
+        "情熱的",
+        "誠実",
+        "戦闘系",
+        "年上系",
+        "包容力"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-0cyv09",
+      "name": "イェーガー",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "復讐者（ヴィンディチェ）",
+      "tags": [
+        "寡黙",
+        "危険",
+        "戦闘系",
+        "年上系",
+        "冷静"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-bjxhj8",
+      "name": "ジャック",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "復讐者（ヴィンディチェ）",
+      "tags": [
+        "危険",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-jymq7r",
+      "name": "ビッグ・ピノ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "復讐者（ヴィンディチェ）",
+      "tags": [
+        "危険",
+        "戦闘系",
+        "体格がいい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-g4462i",
+      "name": "スモール・ギア",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "復讐者（ヴィンディチェ）",
+      "tags": [
+        "危険",
+        "戦闘系",
+        "年下系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-4jy272",
+      "name": "アレハンドロ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "復讐者（ヴィンディチェ）",
+      "tags": [
+        "危険",
+        "戦闘系",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-66tqj7",
+      "name": "タルボ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "ボンゴレ彫金師",
+      "tags": [
+        "マイペース",
+        "職人系",
+        "知的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-xyd533",
+      "name": "ロッシ",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "マフィア関係者",
+      "tags": [
+        "一般人",
+        "現実的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-ec4llq",
+      "name": "サギの一郎",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "犯罪三兄弟",
+      "tags": [
+        "悪役",
+        "危険",
+        "策士",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-2j4ivq",
+      "name": "ゆすりの次郎",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "犯罪三兄弟",
+      "tags": [
+        "悪役",
+        "危険",
+        "荒っぽい",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    },
+    {
+      "id": "char-mtpmpjkm-yyi3tu",
+      "name": "スリの三郎",
+      "work": "家庭教師ヒットマンREBORN!",
+      "series": "犯罪三兄弟",
+      "tags": [
+        "悪役",
+        "危険",
+        "個性的",
+        "年上系"
+      ],
+      "archived": true,
+      "favorite": false,
+      "heightText": "不明",
+      "heightCm": null,
+      "heightStatus": "unknown",
+      "heightSource": "天野明『家庭教師ヒットマンREBORN!』集英社・週刊少年ジャンプ／公式キャラクターブック等を確認。公称身長の数値は確認できず"
+    }
+  ],
+  "sourceOrder": {
+    "char-mtpmpjkm-velybs": 782,
+    "char-mtpmpjkm-ufwef3": 783,
+    "char-mtpmpjkm-bkd37l": 784,
+    "char-mtpmpjkm-155rf3": 785,
+    "char-mtpmpjkm-oi9dlu": 786,
+    "char-mtpmpjkm-008q3d": 787,
+    "char-mtpmpjkm-esahtz": 788,
+    "char-mtpmpjkm-7owpfw": 789,
+    "char-mtpmpjkm-673pj4": 790,
+    "char-mtpmpjkm-tncry7": 791,
+    "char-mtpmpjkm-phlp3z": 792,
+    "char-mtpmpjkm-mlb0v2": 793,
+    "char-mtpmpjkm-1evxb0": 794,
+    "char-mtpmpjkm-6m43fy": 795,
+    "char-mtpmpjkm-a0xvt7": 796,
+    "char-mtpmpjkm-aeivws": 797,
+    "char-mtpmpjkm-d34wfl": 798,
+    "char-mtpmpjkm-i75wbo": 799,
+    "char-mtpmpjkm-cj5g5r": 800,
+    "char-mtpmpjkm-dzyhga": 801,
+    "char-mtpmpjkm-jiwi78": 802,
+    "char-mtpmpjkm-64xkqa": 803,
+    "char-mtpmpjkm-dto57m": 804,
+    "char-mtpmpjkm-ijbrkl": 805,
+    "char-mtpmpjkm-eeq5uh": 806,
+    "char-mtpmpjkm-lbnjls": 807,
+    "char-mtpmpjkm-7iqi3f": 808,
+    "char-mtpmpjkm-5gnef0": 809,
+    "char-mtpmpjkm-pnc2so": 810,
+    "char-mtpmpjkm-erep9y": 811,
+    "char-mtpmpjkm-cuceni": 812,
+    "char-mtpmpjkm-ghiphi": 813,
+    "char-mtpmpjkm-8mj5dz": 814,
+    "char-mtpmpjkm-9tovjm": 815,
+    "char-mtpmpjkm-5o5eoe": 816,
+    "char-mtpmpjkm-lkkyma": 817,
+    "char-mtpmpjkm-wboh79": 818,
+    "char-mtpmpjkm-mu3pft": 819,
+    "char-mtpmpjkm-vu9su0": 820,
+    "char-mtpmpjkm-hpxfe0": 821,
+    "char-mtpmpjkm-48qqzf": 822,
+    "char-mtpmpjkm-t1emof": 823,
+    "char-mtpmpjkm-hhdi0f": 824,
+    "char-mtpmpjkm-te9zih": 825,
+    "char-mtpmpjkm-ikij05": 826,
+    "char-mtpmpjkm-p846qp": 827,
+    "char-mtpmpjkm-9qp9og": 828,
+    "char-mtpmpjkm-zw55pq": 829,
+    "char-mtpmpjkm-gwggao": 830,
+    "char-mtpmpjkm-nf1uxf": 831,
+    "char-mtpmpjkm-pb4vai": 832,
+    "char-mtpmpjkm-bbea60": 833,
+    "char-mtpmpjkm-xu64rw": 834,
+    "char-mtpmpjkm-6vk6sp": 835,
+    "char-mtpmpjkm-x88gpn": 836,
+    "char-mtpmpjkm-y5rb4u": 837,
+    "char-mtpmpjkm-8jt6zm": 838,
+    "char-mtpmpjkm-yijbs8": 839,
+    "char-mtpmpjkm-hlnnum": 840,
+    "char-mtpmpjkm-u1lszv": 841,
+    "char-mtpmpjkm-od1gv6": 842,
+    "char-mtpmpjkm-tgxjbk": 843,
+    "char-mtpmpjkm-ry4en6": 844,
+    "char-mtpmpjkm-t9uvle": 845,
+    "char-mtpmpjkm-v9cpcx": 846,
+    "char-mtpmpjkm-l64dpz": 847,
+    "char-mtpmpjkm-pqcg50": 848,
+    "char-mtpmpjkm-31re9k": 849,
+    "char-mtpmpjkm-zji5kb": 850,
+    "char-mtpmpjkm-136ttx": 851,
+    "char-mtpmpjkm-odus9y": 852,
+    "char-mtpmpjkm-g5wuhy": 853,
+    "char-mtpmpjkm-77uvum": 854,
+    "char-mtpmpjkm-99kuov": 855,
+    "char-mtpmpjkm-0cyv09": 856,
+    "char-mtpmpjkm-bjxhj8": 857,
+    "char-mtpmpjkm-jymq7r": 858,
+    "char-mtpmpjkm-g4462i": 859,
+    "char-mtpmpjkm-4jy272": 860,
+    "char-mtpmpjkm-66tqj7": 861,
+    "char-mtpmpjkm-xyd533": 862,
+    "char-mtpmpjkm-ec4llq": 863,
+    "char-mtpmpjkm-2j4ivq": 864,
+    "char-mtpmpjkm-yyi3tu": 865
+  }
+}
