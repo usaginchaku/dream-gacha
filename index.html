@@ -3,7 +3,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>夢小説シチュガチャ</title>
-<link rel="stylesheet" href="styles.css?v=31">
+<link rel="stylesheet" href="styles.css?v=33">
 </head>
 <body>
 <div class="wrap">
@@ -25,6 +25,7 @@
   <section class="panel">
     <div class="panel-head"><h2>ガチャ結果</h2><span class="label">アーカイブ済みキャラは抽選対象外</span></div>
     <div class="panel-body">
+      <div class="gacha-top-actions"><button class="primary" id="rollAll">🎲 固定以外を全部ガチャ</button><span>結果を固定してから押すと、残りだけ引き直します。</span></div>
       <div class="filter-box">
         <div class="filter-title"><strong>キャラを絞り込む</strong><span class="count-badge" id="candidateCount">候補を集計中</span></div>
         <div class="world-mode-box" aria-labelledby="worldModeLabel">
@@ -41,9 +42,9 @@
           <label for="gachaSearch">キャラ検索 <span class="label">（管理画面と共通）</span></label>
           <input id="gachaSearch" type="text" placeholder="名前・作品・部・タグで検索">
         </div>
-        <div class="filter-grid" style="grid-template-columns:1fr 1fr">
-          <div class="field"><label for="workFilter">作品</label><select id="workFilter"><option value="">すべての作品</option></select></div>
-          <div class="field"><label for="seriesFilter">部・シリーズ</label><select id="seriesFilter"><option value="">すべての部・シリーズ</option></select></div>
+        <div class="filter-grid facet-grid">
+          <details class="facet-filter"><summary><span>作品</span><span class="facet-summary" id="gachaWorkSummary">すべて</span></summary><div class="facet-body"><div class="facet-mode" data-facet-mode-for="work"><button type="button" data-facet-mode="include">✓ 選択</button><button type="button" data-facet-mode="exclude">× 除外</button></div><div class="facet-chips" id="gachaWorkChips"></div></div></details>
+          <details class="facet-filter"><summary><span>部・シリーズ</span><span class="facet-summary" id="gachaSeriesSummary">すべて</span></summary><div class="facet-body"><div class="facet-mode" data-facet-mode-for="series"><button type="button" data-facet-mode="include">✓ 選択</button><button type="button" data-facet-mode="exclude">× 除外</button></div><div class="facet-chips" id="gachaSeriesChips"></div></div></details>
         </div>
         <div class="favorite-filter-row">
           <span class="label">お気に入り</span>
@@ -67,14 +68,17 @@
             <div class="tag-groups" id="tagChips"></div>
           </div>
         </details>
-        <section class="candidate-selector" id="candidatePreviewBox" aria-labelledby="candidatePreviewSummary">
+        <details class="candidate-selector" id="candidatePreviewBox">
+          <summary class="candidate-selector-summary"><span><strong id="candidatePreviewSummary">候補キャラ</strong><span class="candidate-selection-summary" id="candidateSelectionSummary">全員から抽選</span></span></summary>
+          <div class="candidate-selector-content">
           <div class="candidate-selector-head">
-            <div><strong id="candidatePreviewSummary">候補キャラ</strong><div class="candidate-selection-summary" id="candidateSelectionSummary">全員から抽選</div></div>
+            <strong>候補をクリックして選択</strong>
             <button type="button" class="small-btn" id="clearCandidateRules">選択・除外を解除</button>
           </div>
           <p class="candidate-selector-help">クリックで複数の抽選対象を選択できます。右クリック、または各キャラの「除外」で候補から外せます。</p>
           <div class="candidate-preview-body" id="candidatePreview"></div>
-        </section>
+          </div>
+        </details>
         <div class="filter-actions">
           <button class="small-btn" id="clearFilters">検索・作品・タグなどを解除</button>
         </div>
@@ -88,7 +92,7 @@
         <button type="button" class="small-btn category-reset-btn" id="resetAllCategoryRules">↺ カテゴリの選択・除外を全解除</button>
       </div>
       <div class="field" style="margin-top:14px"><label for="freeExtra">自由な追加指定（任意）</label><textarea id="freeExtra" placeholder="例：夢主側からは告白しない／雨で髪が濡れている／長めに書いて"></textarea></div>
-      <div class="main-actions"><button class="primary" id="rollAll">🎲 固定以外を全部ガチャ</button><button class="secondary" id="buildPrompt">✨ プロンプトを生成</button></div>
+      <div class="main-actions single"><button class="secondary" id="buildPrompt">✨ プロンプトを生成</button></div>
       <div class="library-quick-actions">
         <button class="small-btn" id="saveCurrentPreset">💾 この条件を保存</button>
         <button class="small-btn" id="openNovelSave">📖 この条件で小説を保存</button>
@@ -178,10 +182,8 @@
         <div class="stat"><div class="n" id="statFavorite">0</div><div class="t">★ お気に入り</div></div>
       </div>
 
-      <div class="manage-filters">
+      <div class="manage-filters compact">
         <input id="manageSearch" type="text" placeholder="名前・作品・部・タグで検索（ガチャと共通）">
-        <select id="manageWork"><option value="">すべての作品</option></select>
-        <select id="manageSeries"><option value="">すべての部・シリーズ</option></select>
         <select id="manageSort">
           <option value="work">並び：作品・シリーズ順</option>
           <option value="name-asc">名前：あ→ん</option>
@@ -191,6 +193,10 @@
           <option value="favorite">★ お気に入り優先</option>
           <option value="registered">登録順</option>
         </select>
+      </div>
+      <div class="filter-grid facet-grid manager-facets">
+        <details class="facet-filter"><summary><span>作品で絞り込む</span><span class="facet-summary" id="manageWorkSummary">すべて</span></summary><div class="facet-body"><div class="facet-mode" data-facet-mode-for="work"><button type="button" data-facet-mode="include">✓ 選択</button><button type="button" data-facet-mode="exclude">× 除外</button></div><div class="facet-chips" id="manageWorkChips"></div></div></details>
+        <details class="facet-filter"><summary><span>部・シリーズで絞り込む</span><span class="facet-summary" id="manageSeriesSummary">すべて</span></summary><div class="facet-body"><div class="facet-mode" data-facet-mode-for="series"><button type="button" data-facet-mode="include">✓ 選択</button><button type="button" data-facet-mode="exclude">× 除外</button></div><div class="facet-chips" id="manageSeriesChips"></div></div></details>
       </div>
 
       <div class="status-filter" id="manageStatusButtons">
@@ -240,11 +246,12 @@
         </div>
         <div>
           <h3 style="margin:0 0 8px;font-size:.95rem">読み込み</h3>
-          <p class="io-note">ChatGPTに作らせたJSONもそのまま読み込めます。通常は「追加・更新」がおすすめです。</p>
+          <p class="io-note">ChatGPTに作らせたJSONもそのまま読み込めます。作品を更新するときは「作品単位で置換」を選ぶと、ほかの作品やお気に入り状態を維持できます。</p>
           <div class="import-options">
-            <div class="field"><label for="importMode">読み込み方法</label><select id="importMode"><option value="merge">追加・更新（同名＋同作品は更新）</option><option value="replace">ファイル内容で全キャラ置換</option></select></div>
+            <div class="field"><label for="importMode">読み込み方法</label><select id="importMode"><option value="work-replace">作品単位で置換（おすすめ）</option><option value="merge">追加・更新（同名＋同作品は更新）</option></select></div>
             <button class="primary" id="importButton">JSONを読み込む</button>
           </div>
+          <details class="advanced-import"><summary>高度な操作</summary><div><p class="io-note">全作品のキャラ一覧をファイル内容だけで置き換えます。通常の作品更新には使用しません。</p><button type="button" class="danger-btn" id="importReplaceAllButton">全キャラを置換するJSONを選ぶ</button></div></details>
           <input id="importFile" type="file" accept=".json,application/json" hidden="">
         </div>
       </div>
@@ -321,7 +328,7 @@
     <div class="panel-body help-detail-grid">
       <article class="help-detail-card">
         <div class="help-card-icon">🎲</div><h3>ガチャ</h3>
-        <ul><li>キャラ・関係性・シチュ・雰囲気・追加条件を抽選します。</li><li>世界観モードを選ぶと、原作・現代・学園に合わないシチュを自動で外します。</li><li>固定した項目は、次の一括ガチャでも変わりません。</li><li>候補キャラはクリックで複数選択、右クリックまたは「除外」で抽選対象から外せます。</li><li>「選ぶ・カテゴリ」では結果の直接選択やカテゴリ単位の絞り込みができます。</li><li>キャラの検索条件はキャラ管理と共通です。</li></ul>
+        <ul><li>キャラ・関係性・シチュ・雰囲気・追加条件を抽選します。</li><li>スマホでは結果をコンパクトに表示し、「選択・カテゴリ詳細」を開くと追加操作を確認できます。</li><li>世界観モードを選ぶと、原作・現代・学園に合わないシチュを自動で外します。</li><li>固定した項目は、次の一括ガチャでも変わりません。</li><li>作品・部／シリーズは複数選択できます。PCでは右クリック、スマホでは「除外」モードで候補から外せます。</li><li>候補キャラはクリックで複数選択、右クリックまたは「除外」で抽選対象から外せます。</li><li>「選ぶ・カテゴリ」では結果の直接選択やカテゴリ単位の絞り込みができます。</li><li>キャラの検索条件はキャラ管理と共通です。</li></ul>
         <button type="button" class="help-action" data-go-screen="gacha">🎲 ガチャへ</button>
       </article>
       <article class="help-detail-card">
@@ -331,7 +338,7 @@
       </article>
       <article class="help-detail-card">
         <div class="help-card-icon">👤</div><h3>キャラ管理</h3>
-        <ul><li>★ お気に入りは好きなキャラを見つけやすくする印です。</li><li>アーカイブしたキャラは一覧に残り、ガチャ対象から外れます。「アーカイブ」で絞って復元できます。</li><li>チェックした複数キャラをまとめてお気に入り・アーカイブ・復元できます。</li><li>キャラだけのJSON書き出し・読み込みができます。アプリ全体のバックアップは使い方ページにあります。</li></ul>
+        <ul><li>★ お気に入りは好きなキャラを見つけやすくする印です。</li><li>アーカイブしたキャラは一覧に残り、ガチャ対象から外れます。「アーカイブ」で絞って復元できます。</li><li>チェックした複数キャラをまとめてお気に入り・アーカイブ・復元できます。</li><li>作品単位のJSON置換では、ほかの作品とお気に入り・アーカイブ状態を維持します。</li><li>全キャラ置換は「高度な操作」の中にあります。アプリ全体のバックアップは使い方ページにあります。</li></ul>
         <button type="button" class="help-action" data-go-screen="manager">👤 キャラ管理へ</button>
       </article>
     </div>
@@ -391,7 +398,7 @@
         <div class="allowed-tag-groups" id="allowedTagGuide"></div>
       </section>
 
-      <div class="import-caution"><strong>読み込む前に確認</strong><p>ChatGPTの調査結果には誤りが含まれる場合があります。人数、名前、部・シリーズ、身長と出典を確認してから読み込んでください。「ファイル内容で全キャラ置換」は現在の一覧を置き換えるため、通常は「追加・更新」を使います。</p></div>
+      <div class="import-caution"><strong>読み込む前に確認</strong><p>ChatGPTの調査結果には誤りが含まれる場合があります。人数、名前、部・シリーズ、身長と出典を確認してから読み込んでください。普段の更新は「作品単位で置換」を使います。全キャラ置換は現在の一覧全体を置き換えるため、「高度な操作」に分けています。</p></div>
       <button type="button" class="help-action" data-go-screen="manager" data-scroll-target="ioPanel">👤 キャラファイルの読み込みへ</button>
     </div>
   </section>
@@ -408,6 +415,7 @@
           <button type="button" class="secondary" id="exportFullBackup">バックアップを書き出す</button>
           <button type="button" class="primary" id="importFullBackup">バックアップを復元</button>
         </div>
+        <div class="backup-restore-status" id="backupRestoreStatus" role="status" aria-live="polite">復元すると、ブラウザ設定と夢小説の件数をここに表示します。</div>
         <input id="fullBackupFile" type="file" accept=".json,application/json" hidden="">
       </div>
     </div>
@@ -426,11 +434,12 @@
       <details><summary>世界観モードを変えると何が変わりますか？</summary><p>原作準拠では電車・スマホ・コンビニなど現代専用のシチュを外します。現代パロと学園パロでは、それぞれの候補とどの世界でも使える候補を抽選します。「制限なし」はすべての候補を使います。</p></details>
       <details><summary>保存した小説や設定は外部に送信されますか？</summary><p>このサイトの保存機能はブラウザ内を使います。サイト側のサーバーへ作品を保存する仕組みはありません。</p></details>
       <details><summary>別のスマホやパソコンでも続きから使えますか？</summary><p>この使い方ページで完全バックアップを書き出し、移動先のブラウザで復元してください。</p></details>
+      <details><summary>作品のキャラJSONだけを更新できますか？</summary><p>キャラ管理の読み込み方法で「作品単位で置換」を選び、1作品だけが入ったJSONを読み込んでください。ほかの作品と、同じキャラのお気に入り・アーカイブ状態は維持されます。</p></details>
     </div>
   </section>
 </section>
 </main>
-<footer>v0.31 / タブ操作の初期化を修正 / ブラウザ内に保存</footer>
+<footer>v0.32 / 候補キャラ一覧を折りたたみ表示 / ブラウザ内に保存</footer>
 </div>
 <div class="quick-nav" id="managerQuickNav" aria-label="キャラ管理クイック移動" hidden="">
   <button type="button" id="jumpTop">↑ 上へ</button>
@@ -470,13 +479,13 @@
 </div>
 <div class="toast" id="toast">ガチャ対象に戻しました</div>
 
-<script src="app-data.js?v=31"></script>
-<script src="app-domain.js?v=31"></script>
-<script src="app-storage.js?v=31"></script>
-<script src="app-ui.js?v=31"></script>
+<script src="app-data.js?v=33"></script>
+<script src="app-domain.js?v=33"></script>
+<script src="app-storage.js?v=33"></script>
+<script src="app-ui.js?v=33"></script>
 <script src="character-data.generated.js?v=ad66dc7fa9f3"></script>
-<script src="seed-data.js?v=31"></script>
-<script src="app.js?v=31"></script>
+<script src="seed-data.js?v=33"></script>
+<script src="app.js?v=33"></script>
 
 
 </body></html>
