@@ -333,6 +333,10 @@ function snapshotCurrentConditions(){
    freeExtra:$("#freeExtra").value,protagonistProfile:protagonistField?protagonistField.value:(state.protagonistProfile||DEFAULT_PROTAGONIST_PROFILE),workProtagonistProfile:workProtagonistProfileFor(c?.work),worldMode:state.worldMode,prompt});
 }
 function snapshotAutoTitle(s){return `${s?.character?.name||"キャラ未指定"}｜${s?.situation||"シチュ未指定"}`}
+function novelDisplayTitle(n){
+ const title=String(n?.title||"").trim()||"無題",suffix=snapshotAutoTitle(n?.snapshot);
+ return title===suffix?title:`${title}（${suffix}）`;
+}
 function snapshotMetaHtml(s){
  if(!s)return "条件なし";
  const world=WORLD_MODES[s.worldMode]?.label;
@@ -366,13 +370,14 @@ function renderPresetList(){
 function prepareNovelSave(){
  novelDraftSnapshot=snapshotCurrentConditions();
  $("#novelSnapshotPreview").innerHTML=`<strong>保存する条件</strong><div class="library-tags">${snapshotMetaHtml(novelDraftSnapshot)}</div>`;
- if(!$("#novelTitle").value.trim())$("#novelTitle").value=snapshotAutoTitle(novelDraftSnapshot);
+ // The generated prompt belongs to the saved snapshot, not to a personal memo.
+ $("#novelMemo").value="";
  switchScreen("library");setTimeout(()=>$("#novelBody").scrollIntoView({behavior:"smooth",block:"center"}),80);
 }
 async function saveNovelArchive(){
  const body=$("#novelBody").value.trim();if(!body)return showToast("夢小説本文を貼り付けてください");
- const snap=novelDraftSnapshot||snapshotCurrentConditions(),title=$("#novelTitle").value.trim()||snapshotAutoTitle(snap);
- const novel={id:libraryId("novel"),title,body,charCount:novelCharCount(body),memo:$("#novelMemo").value.trim(),favorite:$("#novelFavorite").checked,createdAt:new Date().toISOString(),snapshot:snap};
+ const snap=novelDraftSnapshot||snapshotCurrentConditions(),title=$("#novelTitle").value.trim()||"無題",enteredMemo=$("#novelMemo").value.trim();
+ const novel={id:libraryId("novel"),title,body,charCount:novelCharCount(body),memo:enteredMemo===String(snap.prompt||"").trim()?"":enteredMemo,favorite:$("#novelFavorite").checked,createdAt:new Date().toISOString(),snapshot:snap};
  try{
    await novelPut(novel);
    DreamGachaUI.resetNovelForm();
@@ -387,7 +392,7 @@ async function renderNovelList(){
  $("#novelCount").textContent=`${novelCache.length}本`;
  if(!arr.length){box.innerHTML=`<div class="empty-library">${novelCache.length?"条件に合う夢小説がありません":"まだ夢小説は保存されていません"}</div>`;return}
  box.innerHTML=arr.map(n=>`<div class="library-card">
-  <div class="library-card-head"><div><div class="library-card-title">${n.favorite?"★ ":""}${esc(n.title)}</div><div class="library-card-sub">${esc(fmtDate(n.createdAt))} / ${fmtChars(n.charCount??novelCharCount(n.body))}${n.snapshot?.character?.work?` / ${esc(n.snapshot.character.work)}`:""}</div></div></div>
+  <div class="library-card-head"><div><div class="library-card-title">${n.favorite?"★ ":""}${esc(novelDisplayTitle(n))}</div><div class="library-card-sub">${esc(fmtDate(n.createdAt))} / ${fmtChars(n.charCount??novelCharCount(n.body))}${n.snapshot?.character?.work?` / ${esc(n.snapshot.character.work)}`:""}</div></div></div>
   <div class="library-tags">${snapshotMetaHtml(n.snapshot)}</div><div class="library-preview">${esc(DreamGachaDomain.preview(n.body,DreamGachaData.NOVEL_PREVIEW_LENGTH))}</div>
   <div class="library-card-actions"><button class="primary" type="button" data-open-novel="${esc(n.id)}">読む</button><button class="small-btn" type="button" data-reuse-novel="${esc(n.id)}">条件を再利用</button><button class="small-btn" type="button" data-fav-novel="${esc(n.id)}">${n.favorite?"★解除":"☆お気に入り"}</button><button class="small-btn" type="button" data-delete-novel="${esc(n.id)}">削除</button></div>
  </div>`).join("");
@@ -396,14 +401,14 @@ async function refreshNovelCache(){novelCache=await novelAll();return novelCache
 async function renderLibrary(){renderPresetList();try{await refreshNovelCache();renderNovelList()}catch(e){const box=$("#novelList");if(box)box.innerHTML=`<div class="empty-library">アーカイブを読み込めませんでした</div>`}}
 function openNovelView(n){
  if(!n)return;
- $("#novelViewTitle").textContent=n.title;$("#novelViewMeta").textContent=[n.snapshot?.character?.name,n.snapshot?.character?.work,fmtChars(n.charCount??novelCharCount(n.body)),fmtDate(n.createdAt)].filter(Boolean).join(" / ");$("#novelViewBody").textContent=n.body;
+ $("#novelViewTitle").textContent=novelDisplayTitle(n);$("#novelViewMeta").textContent=[n.snapshot?.character?.name,n.snapshot?.character?.work,fmtChars(n.charCount??novelCharCount(n.body)),fmtDate(n.createdAt)].filter(Boolean).join(" / ");$("#novelViewBody").textContent=n.body;
  const s=n.snapshot||{},items=[["キャラ",s.character?.name],["作品",s.character?.work],["部・シリーズ",s.character?.series],["世界観",WORLD_MODES[s.worldMode]?.label],["関係性",s.relationship],["シチュ",s.situation],["雰囲気",s.mood],["追加条件",s.extra],["自由指定",s.freeExtra],["共通の夢主設定",s.protagonistProfile],["作品別の夢主設定",s.workProtagonistProfile]].filter(x=>x[1]);
  $("#novelViewConditions").innerHTML=items.map(([k,v])=>`<div class="novel-detail-item"><b>${esc(k)}</b>${esc(v)}</div>`).join("");$("#novelViewPrompt").value=s.prompt||"";
  $("#novelModal").hidden=false;document.body.style.overflow="hidden";
 }
 function closeNovelView(){$("#novelModal").hidden=true;document.body.style.overflow=""}
 async function toggleNovelFavorite(id){const index=novelCache.findIndex(n=>n.id===id);if(index<0)return;const updated={...novelCache[index],favorite:!novelCache[index].favorite};await novelPut(updated);novelCache=[...novelCache.slice(0,index),updated,...novelCache.slice(index+1)];renderNovelList()}
-async function deleteNovelArchive(id){const n=novelCache.find(n=>n.id===id);if(!n)return;if(!confirm(`「${n.title}」を削除しますか？`))return;await novelDelete(id);await refreshNovelCache();renderNovelList();showToast("夢小説を削除しました")}
+async function deleteNovelArchive(id){const n=novelCache.find(n=>n.id===id);if(!n)return;if(!confirm(`「${novelDisplayTitle(n)}」を削除しますか？`))return;await novelDelete(id);await refreshNovelCache();renderNovelList();showToast("夢小説を削除しました")}
 
 
 function switchScreen(name){

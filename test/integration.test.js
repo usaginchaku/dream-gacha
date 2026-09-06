@@ -174,12 +174,15 @@ async function main(){
  assert.equal(run(a,"state.characterId"),null);
  assert.deepStrictEqual(JSON.parse(JSON.stringify(run(a,"state.values"))),{relationship:"",situation:"",mood:"",extra:""});
 
- // Saving a novel uses the untouched manual prompt in its snapshot.
- run(a,`syncScenario=()=>{};novelPut=async n=>{globalThis.__savedNovel=n};refreshNovelCache=async()=>[];renderNovelList=()=>{};showToast=()=>{};`);
+ // The prompt stays in the snapshot, never in the memo, and the display title
+ // appends the same character and situation summary used by the old auto-title.
+ run(a,`syncScenario=()=>{};novelPut=async n=>{globalThis.__savedNovel=n};refreshNovelCache=async()=>[];renderNovelList=()=>{};showToast=()=>{};novelDraftSnapshot={character:{name:"A"},situation:"T",prompt:"MANUALLY EDITED"};`);
  a.get("#output").value="MANUALLY EDITED";
- a.get("#novelBody").value="body"; a.get("#novelTitle").value="title"; a.get("#novelMemo").value=""; a.get("#novelFavorite").checked=false;
+ a.get("#novelBody").value="body"; a.get("#novelTitle").value="AI TITLE"; a.get("#novelMemo").value="MANUALLY EDITED"; a.get("#novelFavorite").checked=false;
  await run(a,"saveNovelArchive()");
  assert.equal(run(a,"__savedNovel.snapshot.prompt"),"MANUALLY EDITED");
+ assert.equal(run(a,"__savedNovel.memo"),"");
+ assert.equal(run(a,"novelDisplayTitle(__savedNovel)"),"AI TITLE（A｜T）");
  assert.equal(run(a,"__savedNovel.charCount"),4);
 
  // Export does not download or claim success when IndexedDB cannot be read.
