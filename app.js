@@ -395,7 +395,6 @@ function switchScreen(name){
 
 
 let chooserKey=null;
-let mobileCategoryMode="include";
 function chooserEntries(key){
  if(key==="character"){
    return baseFilteredCharacters().filter(c=>categoryPass("character",c)).map(c=>({
@@ -407,25 +406,30 @@ function chooserEntries(key){
  return (state.pools[key]||[]).filter(v=>categoryPass(key,v)).map(v=>({value:v,label:v,meta:""}));
 }
 function renderChooserCategoryChips(){
- if(!chooserKey)return;
- const counts=categoryCounts(chooserKey),order=categoryOrderFor(chooserKey);
- $("#choiceCategoryWrap").hidden=!order.length;
- const isTouch=window.matchMedia("(hover:none), (pointer:coarse)").matches;
- $("#choiceCategoryTitle").textContent=isTouch
-   ?`${CATEGORY_LABELS[chooserKey]||"カテゴリ"}`
-   :`${CATEGORY_LABELS[chooserKey]||"カテゴリ"}（左＝設定 / 右＝除外）`;
- $("#choiceCategoryChips").innerHTML=
-   `<button type="button" class="choice-category-chip" data-category-clear="${esc(chooserKey)}">条件クリア</button>`+
-   order.filter(c=>(counts.get(c)||0)>0).map(c=>{
-     const included=state.categoryInclude[chooserKey]===c;
-     const excluded=state.categoryExcluded[chooserKey].has(c);
-     return `<button type="button" class="choice-category-chip${included?" included":""}${excluded?" excluded":""}" data-category-name="${esc(c)}" title="左クリック：このカテゴリに設定 / 右クリック：除外">${esc(c)} <span class="n">${counts.get(c)}</span></button>`;
-   }).join("");
+  if(!chooserKey)return;
+  const counts=categoryCounts(chooserKey),order=categoryOrderFor(chooserKey);
+  $("#choiceCategoryWrap").hidden=!order.length;
+  const include=state.categoryInclude[chooserKey],excluded=state.categoryExcluded[chooserKey];
+  $("#choiceCategoryTitle").textContent=CATEGORY_LABELS[chooserKey]||"カテゴリ";
+  const summary=[];
+  if(include)summary.push(`「${include}」だけを表示`);
+  if(excluded.size)summary.push(`${excluded.size}カテゴリを除外中`);
+  $("#choiceCategorySummary").textContent=summary.join(" ／ ")||"すべてのカテゴリを表示中";
+  $("#choiceCategoryClear").disabled=!include&&!excluded.size;
+  $("#choiceCategoryChips").innerHTML=
+    order.filter(c=>(counts.get(c)||0)>0).map(c=>{
+      const included=include===c,isExcluded=excluded.has(c);
+      return `<div class="choice-category-option${included?" included":""}${isExcluded?" excluded":""}">
+       <button type="button" class="choice-category-chip" data-category-include="${esc(c)}" aria-pressed="${included}" aria-label="${esc(c)}${included?"の絞り込みを解除":"だけに絞り込む"}。候補${counts.get(c)}件">
+        <span class="choice-category-state" aria-hidden="true">${included?"✓":""}</span><span>${esc(c)}</span><span class="n">${counts.get(c)}</span>
+       </button>
+       <button type="button" class="choice-category-exclude" data-category-exclude="${esc(c)}" aria-pressed="${isExcluded}" aria-label="${esc(c)}を${isExcluded?"除外から戻す":"除外する"}"><span aria-hidden="true">×</span> ${isExcluded?"除外中":"除外"}</button>
+      </div>`;
+    }).join("");
 }
 function openChooser(key){
- if(key!=="character")syncScenario();
- chooserKey=key;mobileCategoryMode="include";
- document.querySelectorAll("[data-mobile-category-mode]").forEach(b=>b.classList.toggle("active",b.dataset.mobileCategoryMode==="include"));
+  if(key!=="character")syncScenario();
+  chooserKey=key;
  $("#choiceTitle").textContent=`${META[key].label}を候補から選ぶ`;
  $("#choiceSearch").value="";
  renderChooserCategoryChips();renderChooserList();
@@ -956,23 +960,20 @@ function init(){
  load();renderResultCards();renderPoolEditors();renderGachaFilters();renderAddTagPicker();renderLibrary();
 
  document.querySelectorAll(".tab-btn").forEach(b=>b.addEventListener("click",()=>switchScreen(b.dataset.screen)));
- $("#choiceClose").addEventListener("click",closeChooser);
- $("#choiceSearch").addEventListener("input",renderChooserList);
- $("#choiceCategoryChips").addEventListener("click",e=>{
-   const clear=e.target.closest("[data-category-clear]");if(clear)return clearCategoryRules(clear.dataset.categoryClear);
-   const b=e.target.closest("[data-category-name]");if(!b||!chooserKey)return;
-   const isTouch=window.matchMedia("(hover:none), (pointer:coarse)").matches;
-   if(isTouch&&mobileCategoryMode==="exclude")toggleCategoryExclude(chooserKey,b.dataset.categoryName);
-   else setCategoryInclude(chooserKey,b.dataset.categoryName);
- });
- $("#choiceCategoryChips").addEventListener("contextmenu",e=>{
-   const b=e.target.closest("[data-category-name]");if(!b||!chooserKey)return;
-   e.preventDefault();toggleCategoryExclude(chooserKey,b.dataset.categoryName);
- });
- document.querySelectorAll("[data-mobile-category-mode]").forEach(b=>b.addEventListener("click",()=>{
-   mobileCategoryMode=b.dataset.mobileCategoryMode;
-   document.querySelectorAll("[data-mobile-category-mode]").forEach(x=>x.classList.toggle("active",x===b));
- }));
+  $("#choiceClose").addEventListener("click",closeChooser);
+  $("#choiceSearch").addEventListener("input",renderChooserList);
+  $("#choiceCategoryClear").addEventListener("click",()=>{if(chooserKey)clearCategoryRules(chooserKey)});
+  $("#choiceCategoryChips").addEventListener("click",e=>{
+    if(!chooserKey)return;
+    const include=e.target.closest("[data-category-include]");
+    if(include)return setCategoryInclude(chooserKey,include.dataset.categoryInclude);
+    const exclude=e.target.closest("[data-category-exclude]");
+    if(exclude)toggleCategoryExclude(chooserKey,exclude.dataset.categoryExclude);
+  });
+  $("#choiceCategoryChips").addEventListener("contextmenu",e=>{
+    const b=e.target.closest("[data-category-include]");if(!b||!chooserKey)return;
+    e.preventDefault();toggleCategoryExclude(chooserKey,b.dataset.categoryInclude);
+  });
  $("#choiceList").addEventListener("click",e=>{const b=e.target.closest("[data-choice-value]");if(b)chooseValue(b.dataset.choiceValue)});
  $("#choiceModal").addEventListener("click",e=>{if(e.target===$("#choiceModal"))closeChooser()});
  document.addEventListener("keydown",e=>{if(e.key!=="Escape")return;if(!$("#novelModal").hidden)closeNovelView();else if(!$("#choiceModal").hidden)closeChooser()});

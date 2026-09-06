@@ -65,22 +65,7 @@
         </div>
       </div>
 
-      <div class="result-grid" id="resultGrid"><div class="result-card" data-key="character"><div><div class="label">♠ キャラ</div><div class="value" data-value="character"><span>歌仙兼定</span><span class="char-meta">刀剣乱舞ONLINE / 打刀</span><span class="char-meta">身長：175cm</span></div></div>
-  <div class="card-actions"><button class="small-btn" data-reroll="character">🎲 引き直す</button>
-  <button class="favorite-btn" data-favorite-current="" type="button">☆ お気に入り</button>
-  <label class="lock-label"><input type="checkbox" data-lock="character"> 🔒 固定</label></div></div><div class="result-card" data-key="relationship"><div><div class="label">♡ 関係性</div><div class="value" data-value="relationship">両片想い</div></div>
-  <div class="card-actions"><button class="small-btn" data-reroll="relationship">🎲 引き直す</button>
-  
-  <label class="lock-label"><input type="checkbox" data-lock="relationship"> 🔒 固定</label></div></div><div class="result-card" data-key="situation"><div><div class="label">☂ シチュ</div><div class="value" data-value="situation">体調を崩して看病される</div></div>
-  <div class="card-actions"><button class="small-btn" data-reroll="situation">🎲 引き直す</button>
-  
-  <label class="lock-label"><input type="checkbox" data-lock="situation"> 🔒 固定</label></div></div><div class="result-card" data-key="mood"><div><div class="label">✦ 雰囲気</div><div class="value" data-value="mood">少し切ない</div></div>
-  <div class="card-actions"><button class="small-btn" data-reroll="mood">🎲 引き直す</button>
-  
-  <label class="lock-label"><input type="checkbox" data-lock="mood"> 🔒 固定</label></div></div><div class="result-card" data-key="extra"><div><div class="label">＋ 追加条件</div><div class="value" data-value="extra">キャラが嫉妬していることを隠そうとする</div></div>
-  <div class="card-actions"><button class="small-btn" data-reroll="extra">🎲 引き直す</button>
-  
-  <label class="lock-label"><input type="checkbox" data-lock="extra"> 🔒 固定</label></div></div></div>
+      <div class="result-grid" id="resultGrid"></div>
       <div class="field" style="margin-top:14px"><label for="freeExtra">自由な追加指定（任意）</label><textarea id="freeExtra" placeholder="例：夢主側からは告白しない／雨で髪が濡れている／長めに書いて"></textarea></div>
       <div class="main-actions"><button class="primary" id="rollAll">🎲 固定以外を全部ガチャ</button><button class="secondary" id="buildPrompt">✨ プロンプトを生成</button></div>
       <div class="library-quick-actions">
@@ -266,7 +251,7 @@
   </section>
 </section>
 </main>
-<footer>v0.23 / 固定プロンプトと夢主設定を完全分離 / ローカル利用可 / サーバー不要</footer>
+<footer>v0.24 / スマホ向けカテゴリ操作を改善 / ローカル利用可 / サーバー不要</footer>
 </div>
 <div class="quick-nav" id="managerQuickNav" aria-label="キャラ管理クイック移動" hidden="">
   <button type="button" id="jumpTop">↑ 上へ</button>
@@ -292,16 +277,13 @@
     <div class="choice-head"><div class="choice-title" id="choiceTitle">候補から選ぶ</div><button type="button" class="choice-close" id="choiceClose" aria-label="閉じる">×</button></div>
     <div class="choice-search-wrap"><input id="choiceSearch" type="text" placeholder="候補を検索"></div>
     <div class="choice-category-wrap" id="choiceCategoryWrap" hidden="">
-      <div class="choice-category-title" id="choiceCategoryTitle">カテゴリ</div>
-      <div class="choice-category-chips" id="choiceCategoryChips"></div>
-      <div class="mobile-category-mode" id="mobileCategoryMode">
-        <div class="mobile-category-mode-label">スマホ操作モード</div>
-        <div class="mobile-category-mode-buttons">
-          <button type="button" class="mobile-category-mode-btn active" data-mobile-category-mode="include">設定する</button>
-          <button type="button" class="mobile-category-mode-btn" data-mobile-category-mode="exclude">除外する</button>
-        </div>
+      <div class="choice-category-headline">
+        <div class="choice-category-title" id="choiceCategoryTitle">カテゴリ</div>
+        <button type="button" class="choice-category-clear" id="choiceCategoryClear">すべて解除</button>
       </div>
-      <div class="choice-category-help"><b>左クリック</b>：そのカテゴリに設定 ／ 同じものをもう一度左クリックで解除　　<b>右クリック</b>：そのカテゴリを除外 ／ もう一度右クリックで解除</div>
+      <div class="choice-category-summary" id="choiceCategorySummary" aria-live="polite">絞り込みなし</div>
+      <div class="choice-category-chips" id="choiceCategoryChips"></div>
+      <div class="choice-category-help">カテゴリ名を押すとそのカテゴリだけに絞り込みます。「除外」で複数カテゴリを候補から外せます。</div>
     </div>
     <div class="choice-note">選んだだけでは固定されません。次のガチャでも残したい場合は、結果カードの「🔒 固定」をONにしてください。</div>
     <div class="choice-list" id="choiceList"></div>
