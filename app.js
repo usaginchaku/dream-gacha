@@ -6,7 +6,7 @@ const state={
  manage:{status:"all",sort:"work"},
  categoryInclude:{character:null,relationship:null,situation:null,mood:null,extra:null},
  categoryExcluded:{character:new Set(),relationship:new Set(),situation:new Set(),mood:new Set(),extra:new Set()},
- presets:[], protagonistProfile:DEFAULT_PROTAGONIST_PROFILE
+ presets:[], protagonistProfile:DEFAULT_PROTAGONIST_PROFILE, workProtagonistProfiles:{}, worldMode:DEFAULT_WORLD_MODE
 };
 const $=s=>document.querySelector(s);
 const unique=a=>[...new Set(a.filter(Boolean))].sort((x,y)=>x.localeCompare(y,"ja"));
@@ -147,6 +147,8 @@ function applySettingsState(saved,overrides={}){
  state.characters=source.characters||[];state.pools=source.pools||structuredClone(DEFAULT_POOLS);
  state.basePrompt=Object.prototype.hasOwnProperty.call(source,"basePrompt")?String(source.basePrompt):DEFAULT_BASE_PROMPT;
  state.protagonistProfile=Object.prototype.hasOwnProperty.call(source,"protagonistProfile")?String(source.protagonistProfile):DEFAULT_PROTAGONIST_PROFILE;
+ state.workProtagonistProfiles=source.workProtagonistProfiles&&typeof source.workProtagonistProfiles==="object"?{...source.workProtagonistProfiles}:{};
+ state.worldMode=Object.prototype.hasOwnProperty.call(WORLD_MODES,source.worldMode)?source.worldMode:DEFAULT_WORLD_MODE;
  state.deletedSeedIds=new Set(source.deletedSeedIds||[]);state.characterId=state.characters.some(c=>c.id===source.characterId&&!c.archived)?source.characterId:null;
  state.values={...(source.values||{})};state.locks={character:false,relationship:false,situation:false,mood:false,extra:false,...(source.locks||{})};
  const f=source.filters||{};state.filters={search:String(f.search||""),work:String(f.work||""),series:String(f.series||""),tags:new Set(canonicalizeTags(f.tags||[])),tagMode:f.tagMode==="any"?"any":"all",favorite:["favorite","normal"].includes(f.favorite)?f.favorite:"all",minHeight:Number.isFinite(f.minHeight)?f.minHeight:null,maxHeight:Number.isFinite(f.maxHeight)?f.maxHeight:null,characterIncluded:new Set(f.characterIncluded||[]),characterExcluded:new Set(f.characterExcluded||[])};
@@ -158,10 +160,11 @@ function applySettingsState(saved,overrides={}){
 }
 
 function prepareSettings(raw,strict=false){
-  const prepared=DreamGachaStorage.decodeSettings(raw,{pools:DEFAULT_POOLS,basePrompt:DEFAULT_BASE_PROMPT,protagonistProfile:DEFAULT_PROTAGONIST_PROFILE},strict);
+  const prepared=DreamGachaStorage.decodeSettings(raw,{pools:DEFAULT_POOLS,basePrompt:DEFAULT_BASE_PROMPT,protagonistProfile:DEFAULT_PROTAGONIST_PROFILE,worldMode:DEFAULT_WORLD_MODE},strict);
   const previousBundledPrompt=prepared.basePrompt.replace("\n\n## 身長差・体格差\n\n夢主は160cmです。\n\n","\n\n## 身長差・体格差\n\n");
   const shouldMigrateBundledPrompt=Number(prepared.version||0)<DreamGachaData.SETTINGS_VERSION&&(LEGACY_BASE_PROMPTS.includes(prepared.basePrompt)||previousBundledPrompt===DEFAULT_BASE_PROMPT);
   if(!prepared.basePrompt||shouldMigrateBundledPrompt)prepared.basePrompt=DEFAULT_BASE_PROMPT;
+ if(Number(prepared.version||0)<DreamGachaData.SETTINGS_VERSION&&LEGACY_PROTAGONIST_PROFILES.includes(prepared.protagonistProfile))prepared.protagonistProfile=DEFAULT_PROTAGONIST_PROFILE;
  prepared.characters=cleanupCharacterData(prepared.characters.map(normalize).filter(c=>c.name));
  prepared.filters.tags=canonicalizeTags(prepared.filters.tags||[]);
  if(!prepared.characters.some(c=>c.id===prepared.characterId&&!c.archived))prepared.characterId=null;
@@ -310,12 +313,13 @@ function snapshotCurrentConditions(){
  const prompt=$("#output").value;
  const protagonistField=$("#protagonistProfile");
  return DreamGachaDomain.makeSnapshot({character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,
-   freeExtra:$("#freeExtra").value,protagonistProfile:protagonistField?protagonistField.value:(state.protagonistProfile||DEFAULT_PROTAGONIST_PROFILE),prompt});
+   freeExtra:$("#freeExtra").value,protagonistProfile:protagonistField?protagonistField.value:(state.protagonistProfile||DEFAULT_PROTAGONIST_PROFILE),workProtagonistProfile:workProtagonistProfileFor(c?.work),worldMode:state.worldMode,prompt});
 }
 function snapshotAutoTitle(s){return `${s?.character?.name||"キャラ未指定"}｜${s?.situation||"シチュ未指定"}`}
 function snapshotMetaHtml(s){
  if(!s)return "条件なし";
- return [s.character?.name,s.relationship,s.situation,s.mood,s.extra].filter(Boolean).map(v=>`<span class="library-tag">${esc(v)}</span>`).join("");
+ const world=WORLD_MODES[s.worldMode]?.label;
+ return [s.character?.name,world,s.relationship,s.situation,s.mood,s.extra].filter(Boolean).map(v=>`<span class="library-tag">${esc(v)}</span>`).join("");
 }
 function saveCurrentConditionsPreset(){
  const snap=snapshotCurrentConditions(),auto=snapshotAutoTitle(snap),name=window.prompt("条件セット名",auto);
@@ -328,9 +332,10 @@ function applySnapshot(snap){
  const resolved=DreamGachaDomain.resolveSnapshot(snap,state.characters,DEFAULT_PROTAGONIST_PROFILE);
  state.characterId=resolved.characterId;
  for(const k of DreamGachaData.SNAPSHOT_KEYS)state.values[k]=resolved[k];
+ state.worldMode=resolved.worldMode;
  $("#freeExtra").value=resolved.freeExtra;state.protagonistProfile=resolved.protagonistProfile;$("#protagonistProfile").value=resolved.protagonistProfile;$("#output").value=resolved.prompt;
  for(const k of ["character","relationship","situation","mood","extra"])updateCard(k);
- save();renderGachaFilters();switchScreen("gacha");showToast(resolved.missingCharacter?"保存キャラが利用できないため、キャラ未選択で適用しました":"保存条件をガチャへ適用しました");
+ renderWorldModeControls();save();renderGachaFilters();switchScreen("gacha");showToast(resolved.missingCharacter?"保存キャラが利用できないため、キャラ未選択で適用しました":"保存条件をガチャへ適用しました");
 }
 function renderPresetList(){
  const box=$("#presetList");if(!box)return;
@@ -375,7 +380,7 @@ async function renderLibrary(){renderPresetList();try{await refreshNovelCache();
 function openNovelView(n){
  if(!n)return;
  $("#novelViewTitle").textContent=n.title;$("#novelViewMeta").textContent=[n.snapshot?.character?.name,n.snapshot?.character?.work,fmtChars(n.charCount??novelCharCount(n.body)),fmtDate(n.createdAt)].filter(Boolean).join(" / ");$("#novelViewBody").textContent=n.body;
- const s=n.snapshot||{},items=[["キャラ",s.character?.name],["作品",s.character?.work],["部・シリーズ",s.character?.series],["関係性",s.relationship],["シチュ",s.situation],["雰囲気",s.mood],["追加条件",s.extra],["自由指定",s.freeExtra],["夢主設定",s.protagonistProfile]].filter(x=>x[1]);
+ const s=n.snapshot||{},items=[["キャラ",s.character?.name],["作品",s.character?.work],["部・シリーズ",s.character?.series],["世界観",WORLD_MODES[s.worldMode]?.label],["関係性",s.relationship],["シチュ",s.situation],["雰囲気",s.mood],["追加条件",s.extra],["自由指定",s.freeExtra],["共通の夢主設定",s.protagonistProfile],["作品別の夢主設定",s.workProtagonistProfile]].filter(x=>x[1]);
  $("#novelViewConditions").innerHTML=items.map(([k,v])=>`<div class="novel-detail-item"><b>${esc(k)}</b>${esc(v)}</div>`).join("");$("#novelViewPrompt").value=s.prompt||"";
  $("#novelModal").hidden=false;document.body.style.overflow="hidden";
 }
@@ -410,7 +415,7 @@ function chooserEntries(key){
      meta:[c.work,c.series,Number.isFinite(c.heightCm)?`${c.heightCm}cm`:""].filter(Boolean).join(" / ")
    }));
  }
- return (state.pools[key]||[]).filter(v=>categoryPass(key,v)).map(v=>({value:v,label:v,meta:""}));
+ return worldEligiblePool(key).filter(v=>categoryPass(key,v)).map(v=>({value:v,label:v,meta:key==="situation"?situationWorldLabel(v):""}));
 }
 function renderChooserCategoryChips(){
   if(!chooserKey)return;
@@ -642,6 +647,32 @@ function clearCandidateRules(){
  if(!state.filters.characterIncluded.size&&!state.filters.characterExcluded.size)return;
  state.filters.characterIncluded.clear();state.filters.characterExcluded.clear();save();renderPicker();renderCandidatePreview();showToast("キャラの選択・除外を解除しました");
 }
+function worldEligiblePool(key){
+ const pool=state.pools[key]||[];
+ return key==="situation"?pool.filter(value=>situationMatchesWorldMode(value,state.worldMode)):pool;
+}
+function situationWorldLabel(value){
+ const labels={canon:"原作・共通",modern:"現代",school:"学園"};
+ return situationWorldTags(value).map(tag=>labels[tag]||tag).join(" / ");
+}
+function renderWorldModeControls(){
+ const mode=WORLD_MODES[state.worldMode]||WORLD_MODES[DEFAULT_WORLD_MODE];
+ document.querySelectorAll("[data-world-mode]").forEach(button=>{
+  const active=button.dataset.worldMode===state.worldMode;
+  button.classList.toggle("active",active);button.setAttribute("aria-pressed",String(active));
+ });
+ const total=(state.pools.situation||[]).length,eligible=worldEligiblePool("situation").length;
+ const summary=$("#worldModeSummary");if(summary)summary.textContent=`${mode.label}・${eligible}/${total}件`;
+}
+function setWorldMode(mode){
+ if(!Object.prototype.hasOwnProperty.call(WORLD_MODES,mode)||state.worldMode===mode)return;
+ syncScenario();state.worldMode=mode;
+ if(state.values.situation&&!situationMatchesWorldMode(state.values.situation,mode)){
+  state.values.situation="";state.locks.situation=false;updateCard("situation");updateLock("situation");
+  showToast("世界観に合わないシチュを解除しました");
+ }
+ renderWorldModeControls();if(chooserKey==="situation"){renderChooserCategoryChips();renderChooserList()}save();
+}
 function renderSuggestions(){
  $("#workSuggestions").innerHTML=unique(state.characters.map(c=>c.work)).map(x=>`<option value="${esc(x)}"></option>`).join("");
  $("#seriesSuggestions").innerHTML=unique(state.characters.map(c=>c.series)).map(x=>`<option value="${esc(x)}"></option>`).join("");
@@ -651,7 +682,7 @@ function updateCard(k){
  if(k==="character"){
    const c=currentCharacter();if(!c){el.textContent="—";updateCurrentFavoriteButton();return}
    el.innerHTML=`<span>${c.favorite?`<span class="favorite-mark">★</span>`:""}${esc(c.name)}</span><span class="char-meta">${esc([c.work,c.series].filter(Boolean).join(" / "))}</span><span class="char-meta">身長：${esc(c.heightText||"不明")}</span>`;
-   updateCurrentFavoriteButton();
+   updateCurrentFavoriteButton();renderWorkProfileEditor(c.work);
  }else el.textContent=state.values[k]||"—";
 }
 function updateCurrentFavoriteButton(){
@@ -662,9 +693,35 @@ function randomItem(arr,current){
  if(!arr.length)return null;if(arr.length===1)return arr[0];let n=current,g=0;
  while(n===current&&g++<30)n=arr[Math.floor(Math.random()*arr.length)];return n;
 }
+function workProtagonistProfileFor(work){
+ const key=String(work||"");
+ if(!key)return "";
+ return Object.prototype.hasOwnProperty.call(state.workProtagonistProfiles,key)?String(state.workProtagonistProfiles[key]):String(DEFAULT_WORK_PROTAGONIST_PROFILES[key]||"");
+}
+function syncWorkProfileEditor(){
+ const select=$("#workProfileWork"),field=$("#workProtagonistProfile");
+ if(!select||!field||!select.value)return;
+ const value=field.value.trim(),initial=String(DEFAULT_WORK_PROTAGONIST_PROFILES[select.value]||"");
+ if(value===initial)delete state.workProtagonistProfiles[select.value];else state.workProtagonistProfiles[select.value]=value;
+ const customized=Object.prototype.hasOwnProperty.call(state.workProtagonistProfiles,select.value);
+ const status=$("#workProfileStatus");if(status)status.textContent=customized?(value?"変更済み":"使用しない"):"初期設定";
+ const reset=$("#resetWorkProfile");if(reset)reset.disabled=!customized;
+}
+function renderWorkProfileEditor(preferredWork){
+ const select=$("#workProfileWork"),field=$("#workProtagonistProfile");if(!select||!field)return;
+ const works=unique([...Object.keys(DEFAULT_WORK_PROTAGONIST_PROFILES),...state.characters.map(c=>c.work)]);
+ const chosen=works.includes(preferredWork)?preferredWork:works.includes(select.value)?select.value:works[0]||"";
+ select.innerHTML=works.map(work=>`<option value="${esc(work)}">${esc(work)}</option>`).join("");select.value=chosen;
+ field.value=workProtagonistProfileFor(chosen);
+ const customized=Object.prototype.hasOwnProperty.call(state.workProtagonistProfiles,chosen);
+ const status=$("#workProfileStatus");if(status)status.textContent=customized?(state.workProtagonistProfiles[chosen]?"変更済み":"使用しない"):"初期設定";
+ const reset=$("#resetWorkProfile");if(reset)reset.disabled=!customized;
+}
 function syncScenario(){
+ syncWorkProfileEditor();
  for(const k of Object.keys(DEFAULT_POOLS)){const e=$(`#pool-${k}`);if(e)state.pools[k]=parseLines(e.value)}
  state.basePrompt=$("#basePrompt").value.trim()||DEFAULT_BASE_PROMPT;state.protagonistProfile=$("#protagonistProfile").value.trim()||DEFAULT_PROTAGONIST_PROFILE;
+ renderWorldModeControls();
 }
 function rollCharacter(force=false){
  if(state.locks.character&&!force)return;const arr=filteredCharacters();
@@ -673,16 +730,18 @@ function rollCharacter(force=false){
 }
 function rollOne(k,force=false){
  syncScenario();if(k==="character")return rollCharacter(force);if(state.locks[k]&&!force)return;
- const pool=(state.pools[k]||[]).filter(v=>categoryPass(k,v));
+ const pool=worldEligiblePool(k).filter(v=>categoryPass(k,v));
  if(!pool.length){showToast(`${META[k].label}のカテゴリ条件で候補が0件です`);return}
  state.values[k]=randomItem(pool,state.values[k]);updateCard(k);
 }
 function rollAll(){for(const k of Object.keys(META))rollOne(k,false);buildPrompt(false)}
 function buildPrompt(scroll=true){
  syncScenario();if(!currentCharacter())rollCharacter(false);
+ if(state.values.situation&&!situationMatchesWorldMode(state.values.situation,state.worldMode)){state.values.situation="";state.locks.situation=false;updateCard("situation");updateLock("situation")}
  for(const k of ["relationship","situation","mood","extra"])if(!state.values[k])rollOne(k,false);
  const c=currentCharacter();
- $("#output").value=DreamGachaDomain.formatPrompt({basePrompt:state.basePrompt,character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,protagonistProfile:state.protagonistProfile,freeExtra:$("#freeExtra").value});save();
+ const world=WORLD_MODES[state.worldMode]||WORLD_MODES[DEFAULT_WORLD_MODE];
+ $("#output").value=DreamGachaDomain.formatPrompt({basePrompt:state.basePrompt,character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,protagonistProfile:state.protagonistProfile,workProtagonistProfile:workProtagonistProfileFor(c?.work),worldModeLabel:world.label,worldModePrompt:world.prompt,freeExtra:$("#freeExtra").value});save();
  if(scroll)$("#output").scrollIntoView({behavior:"smooth",block:"center"});
 }
 async function copyPrompt(){
@@ -695,6 +754,7 @@ function renderPoolEditors(){
  $("#poolGrid").innerHTML=Object.keys(names).map(k=>`<div class="field"><label for="pool-${k}">${names[k]} <span class="label">（${state.pools[k].length}件）</span></label><textarea id="pool-${k}" spellcheck="false">${esc(state.pools[k].join("\n"))}</textarea></div>`).join("");
  $("#basePrompt").value=state.basePrompt;
  $("#protagonistProfile").value=state.protagonistProfile||DEFAULT_PROTAGONIST_PROFILE;
+ renderWorkProfileEditor(currentCharacter()?.work);renderWorldModeControls();
 }
 
 function compareManagerCharacters(a,b){
@@ -1038,8 +1098,8 @@ async function handleFullBackupFile(file){
 }
 
 function resetScenario(){
- if(!confirm("シチュ・雰囲気・追加条件・固定プロンプトを初期状態に戻しますか？\nキャラ一覧は変更しません。"))return;
- state.pools=structuredClone(DEFAULT_POOLS);state.basePrompt=DEFAULT_BASE_PROMPT;state.protagonistProfile=DEFAULT_PROTAGONIST_PROFILE;
+ if(!confirm("シチュ・雰囲気・追加条件・世界観・夢主設定・固定プロンプトを初期状態に戻しますか？\nキャラ一覧は変更しません。"))return;
+ state.pools=structuredClone(DEFAULT_POOLS);state.basePrompt=DEFAULT_BASE_PROMPT;state.protagonistProfile=DEFAULT_PROTAGONIST_PROFILE;state.workProtagonistProfiles={};state.worldMode=DEFAULT_WORLD_MODE;
  for(const k of ["relationship","situation","mood","extra"]){state.categoryInclude[k]=null;state.categoryExcluded[k].clear();updateCategoryStatus(k)}
  renderPoolEditors();save();showToast("シチュ設定を初期化しました");
 }
@@ -1089,6 +1149,7 @@ function init(){
  $("#lockAllResults").addEventListener("click",()=>setAllLocks(true));
  $("#unlockAllResults").addEventListener("click",()=>setAllLocks(false));
  $("#resetAllCategoryRules").addEventListener("click",resetAllCategoryRules);
+ $("#worldModeOptions").addEventListener("click",e=>{const b=e.target.closest("[data-world-mode]");if(b)setWorldMode(b.dataset.worldMode)});
  $("#rollAll").addEventListener("click",rollAll);$("#buildPrompt").addEventListener("click",()=>buildPrompt(true));$("#copyPrompt").addEventListener("click",copyPrompt);
  $("#saveCurrentPreset").addEventListener("click",saveCurrentConditionsPreset);$("#openNovelSave").addEventListener("click",prepareNovelSave);$("#savePresetFromLibrary").addEventListener("click",saveCurrentConditionsPreset);$("#saveNovel").addEventListener("click",saveNovelArchive);
  $("#novelSearch").addEventListener("input",renderNovelList);$("#novelBody").addEventListener("input",()=>$("#novelBodyCount").textContent=fmtChars(novelCharCount($("#novelBody").value)));$("#novelFavoriteOnly").addEventListener("click",()=>{novelFavoriteOnly=!novelFavoriteOnly;$("#novelFavoriteOnly").classList.toggle("active",novelFavoriteOnly);renderNovelList()});
@@ -1096,6 +1157,9 @@ function init(){
  $("#novelList").addEventListener("click",async e=>{try{const o=e.target.closest("[data-open-novel]");if(o){openNovelView(novelCache.find(n=>n.id===o.dataset.openNovel));return}const r=e.target.closest("[data-reuse-novel]");if(r){const n=novelCache.find(n=>n.id===r.dataset.reuseNovel);if(n)applySnapshot(n.snapshot);return}const f=e.target.closest("[data-fav-novel]");if(f){await toggleNovelFavorite(f.dataset.favNovel);return}const d=e.target.closest("[data-delete-novel]");if(d){await deleteNovelArchive(d.dataset.deleteNovel)}}catch(err){alert(`夢小説アーカイブを更新できませんでした：${err.message}`)}});
  $("#novelViewClose").addEventListener("click",closeNovelView);$("#novelModal").addEventListener("click",e=>{if(e.target===$("#novelModal"))closeNovelView()});
  $("#saveSettings").addEventListener("click",()=>{syncScenario();save(true)});$("#resetScenarioSettings").addEventListener("click",resetScenario);$("#freeExtra").addEventListener("change",()=>save());
+ $("#workProfileWork").addEventListener("change",e=>renderWorkProfileEditor(e.target.value));
+ $("#workProtagonistProfile").addEventListener("input",syncWorkProfileEditor);
+ $("#resetWorkProfile").addEventListener("click",()=>{const work=$("#workProfileWork").value;if(!work)return;delete state.workProtagonistProfiles[work];renderWorkProfileEditor(work);save();showToast("作品別の夢主設定を初期化しました")});
 
  $("#manageSearch").addEventListener("input",e=>{state.filters.search=e.target.value;renderManager();renderGachaFilters()});
  $("#manageWork").addEventListener("change",e=>{state.filters.work=e.target.value;state.filters.series="";renderManager();renderGachaFilters()});
