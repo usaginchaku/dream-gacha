@@ -354,9 +354,21 @@ function applySnapshot(snap){
  state.characterId=resolved.characterId;
  for(const k of DreamGachaData.SNAPSHOT_KEYS)state.values[k]=resolved[k];
  state.worldMode=resolved.worldMode;
+ const character=currentCharacter();
+ if(character&&Object.prototype.hasOwnProperty.call(snap,"workProtagonistProfile")){
+  const work=character.work,profile=resolved.workProtagonistProfile,initial=String(DEFAULT_WORK_PROTAGONIST_PROFILES[work]||"");
+  if(profile===initial)delete state.workProtagonistProfiles[work];else state.workProtagonistProfiles[work]=profile;
+ }
  $("#freeExtra").value=resolved.freeExtra;state.protagonistProfile=resolved.protagonistProfile;$("#protagonistProfile").value=resolved.protagonistProfile;$("#output").value=resolved.prompt;
  for(const k of ["character","relationship","situation","mood","extra"])updateCard(k);
- renderWorldModeControls();save();renderGachaFilters();switchScreen("gacha");showToast(resolved.missingCharacter?"保存キャラが利用できないため、キャラ未選択で適用しました":"保存条件をガチャへ適用しました");
+ renderWorldModeControls();renderWorkProfileEditor(character?.work);save();renderGachaFilters();switchScreen("gacha");showToast(resolved.missingCharacter?"保存キャラが利用できないため、キャラ未選択で適用しました":"保存条件をガチャへ適用しました");
+}
+function rerollSnapshotScenario(snap){
+ if(!snap)return;
+ applySnapshot(snap);
+ for(const key of ["situation","mood","extra"])rollOne(key,true);
+ buildPrompt(false);
+ showToast("シチュ・雰囲気・追加条件を引き直しました");
 }
 function renderPresetList(){
  const box=$("#presetList");if(!box)return;
@@ -364,7 +376,7 @@ function renderPresetList(){
  box.innerHTML=state.presets.map(p=>`<div class="library-card">
   <div class="library-card-head"><div><div class="library-card-title">${esc(p.name)}</div><div class="library-card-sub">${esc(fmtDate(p.createdAt))}</div></div></div>
   <div class="library-tags">${snapshotMetaHtml(p.snapshot)}</div>
-  <div class="library-card-actions"><button class="primary" type="button" data-apply-preset="${esc(p.id)}">この条件を使う</button><button class="small-btn" type="button" data-delete-preset="${esc(p.id)}">削除</button></div>
+  <div class="library-card-actions"><button class="primary" type="button" data-apply-preset="${esc(p.id)}">この条件を使う</button><button class="small-btn" type="button" data-reroll-preset="${esc(p.id)}">🎲 この二人で別シチュ</button><button class="small-btn" type="button" data-delete-preset="${esc(p.id)}">削除</button></div>
  </div>`).join("");
 }
 function prepareNovelSave(){
@@ -394,7 +406,7 @@ async function renderNovelList(){
  box.innerHTML=arr.map(n=>`<div class="library-card">
   <div class="library-card-head"><div><div class="library-card-title">${n.favorite?"★ ":""}${esc(novelDisplayTitle(n))}</div><div class="library-card-sub">${esc(fmtDate(n.createdAt))} / ${fmtChars(n.charCount??novelCharCount(n.body))}${n.snapshot?.character?.work?` / ${esc(n.snapshot.character.work)}`:""}</div></div></div>
   <div class="library-tags">${snapshotMetaHtml(n.snapshot)}</div><div class="library-preview">${esc(DreamGachaDomain.preview(n.body,DreamGachaData.NOVEL_PREVIEW_LENGTH))}</div>
-  <div class="library-card-actions"><button class="primary" type="button" data-open-novel="${esc(n.id)}">読む</button><button class="small-btn" type="button" data-reuse-novel="${esc(n.id)}">条件を再利用</button><button class="small-btn" type="button" data-fav-novel="${esc(n.id)}">${n.favorite?"★解除":"☆お気に入り"}</button><button class="small-btn" type="button" data-delete-novel="${esc(n.id)}">削除</button></div>
+  <div class="library-card-actions"><button class="primary" type="button" data-open-novel="${esc(n.id)}">読む</button><button class="small-btn" type="button" data-reuse-novel="${esc(n.id)}">条件を再利用</button><button class="small-btn" type="button" data-reroll-novel="${esc(n.id)}">🎲 この二人で別シチュ</button><button class="small-btn" type="button" data-fav-novel="${esc(n.id)}">${n.favorite?"★解除":"☆お気に入り"}</button><button class="small-btn" type="button" data-delete-novel="${esc(n.id)}">削除</button></div>
  </div>`).join("");
 }
 async function refreshNovelCache(){novelCache=await novelAll();return novelCache}
@@ -1252,8 +1264,8 @@ function init(){
  $("#rollAll").addEventListener("click",rollAll);$("#buildPrompt").addEventListener("click",()=>buildPrompt(true));$("#copyPrompt").addEventListener("click",copyPrompt);
  $("#saveCurrentPreset").addEventListener("click",saveCurrentConditionsPreset);$("#openNovelSave").addEventListener("click",prepareNovelSave);$("#savePresetFromLibrary").addEventListener("click",saveCurrentConditionsPreset);$("#saveNovel").addEventListener("click",saveNovelArchive);
  $("#novelSearch").addEventListener("input",renderNovelList);$("#novelBody").addEventListener("input",()=>$("#novelBodyCount").textContent=fmtChars(novelCharCount($("#novelBody").value)));$("#novelFavoriteOnly").addEventListener("click",()=>{novelFavoriteOnly=!novelFavoriteOnly;$("#novelFavoriteOnly").classList.toggle("active",novelFavoriteOnly);renderNovelList()});
- $("#presetList").addEventListener("click",e=>{const a=e.target.closest("[data-apply-preset]");if(a){const p=state.presets.find(x=>x.id===a.dataset.applyPreset);if(p)applySnapshot(p.snapshot);return}const d=e.target.closest("[data-delete-preset]");if(d){const p=state.presets.find(x=>x.id===d.dataset.deletePreset);if(p&&confirm(`「${p.name}」を削除しますか？`)){state.presets=state.presets.filter(x=>x.id!==p.id);save();renderPresetList()}}});
- $("#novelList").addEventListener("click",async e=>{try{const o=e.target.closest("[data-open-novel]");if(o){openNovelView(novelCache.find(n=>n.id===o.dataset.openNovel));return}const r=e.target.closest("[data-reuse-novel]");if(r){const n=novelCache.find(n=>n.id===r.dataset.reuseNovel);if(n)applySnapshot(n.snapshot);return}const f=e.target.closest("[data-fav-novel]");if(f){await toggleNovelFavorite(f.dataset.favNovel);return}const d=e.target.closest("[data-delete-novel]");if(d){await deleteNovelArchive(d.dataset.deleteNovel)}}catch(err){alert(`夢小説アーカイブを更新できませんでした：${err.message}`)}});
+ $("#presetList").addEventListener("click",e=>{const a=e.target.closest("[data-apply-preset]");if(a){const p=state.presets.find(x=>x.id===a.dataset.applyPreset);if(p)applySnapshot(p.snapshot);return}const r=e.target.closest("[data-reroll-preset]");if(r){const p=state.presets.find(x=>x.id===r.dataset.rerollPreset);if(p)rerollSnapshotScenario(p.snapshot);return}const d=e.target.closest("[data-delete-preset]");if(d){const p=state.presets.find(x=>x.id===d.dataset.deletePreset);if(p&&confirm(`「${p.name}」を削除しますか？`)){state.presets=state.presets.filter(x=>x.id!==p.id);save();renderPresetList()}}});
+ $("#novelList").addEventListener("click",async e=>{try{const o=e.target.closest("[data-open-novel]");if(o){openNovelView(novelCache.find(n=>n.id===o.dataset.openNovel));return}const r=e.target.closest("[data-reuse-novel]");if(r){const n=novelCache.find(n=>n.id===r.dataset.reuseNovel);if(n)applySnapshot(n.snapshot);return}const s=e.target.closest("[data-reroll-novel]");if(s){const n=novelCache.find(n=>n.id===s.dataset.rerollNovel);if(n)rerollSnapshotScenario(n.snapshot);return}const f=e.target.closest("[data-fav-novel]");if(f){await toggleNovelFavorite(f.dataset.favNovel);return}const d=e.target.closest("[data-delete-novel]");if(d){await deleteNovelArchive(d.dataset.deleteNovel)}}catch(err){alert(`夢小説アーカイブを更新できませんでした：${err.message}`)}});
  $("#novelViewClose").addEventListener("click",closeNovelView);$("#novelModal").addEventListener("click",e=>{if(e.target===$("#novelModal"))closeNovelView()});
  $("#saveSettings").addEventListener("click",()=>{syncScenario();save(true)});$("#resetScenarioSettings").addEventListener("click",resetScenario);$("#freeExtra").addEventListener("change",()=>save());
  $("#workProfileWork").addEventListener("change",e=>renderWorkProfileEditor(e.target.value));

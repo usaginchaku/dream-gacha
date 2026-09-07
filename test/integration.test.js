@@ -180,7 +180,21 @@ async function main(){
  assert.equal(run(a,"state.characterId"),null);
  assert.deepStrictEqual(JSON.parse(JSON.stringify(run(a,"state.values"))),{relationship:"",situation:"",mood:"",extra:""});
 
- // The prompt stays in the snapshot, never in the memo, and the display title
+ // A library reroll keeps the saved pair and profiles, but force-rerolls only
+  // the scenario fields even when those cards were previously locked.
+  run(a,`state.characters=[{id:"c1",name:"A",work:"W",series:"S",tags:[],archived:false}];state.pools={relationship:["R1"],situation:["T1","T2"],mood:["M1","M2"],extra:["E1","E2"]};state.values={relationship:"R1",situation:"saved T",mood:"saved M",extra:"saved E"};state.locks={character:false,relationship:false,situation:true,mood:true,extra:true};state.workProtagonistProfiles={W:"current profile"};syncScenario=()=>{};updateCard=()=>{};renderGachaFilters=()=>{};renderWorldModeControls=()=>{};renderWorkProfileEditor=()=>{};switchScreen=()=>{};showToast=()=>{};save=()=>{};`);
+  run(a,`rerollSnapshotScenario({character:{id:"c1",name:"A",work:"W",series:"S"},relationship:"saved R",situation:"saved T",mood:"saved M",extra:"saved E",freeExtra:"keep free",protagonistProfile:"saved profile",workProtagonistProfile:"saved work profile",worldMode:"modern",prompt:"old prompt"})`);
+  assert.equal(run(a,"state.characterId"),"c1");
+  assert.equal(run(a,"state.values.relationship"),"saved R");
+  assert.equal(run(a,"state.worldMode"),"modern");
+  assert.equal(a.get("#protagonistProfile").value,"saved profile");
+  assert.equal(run(a,"state.workProtagonistProfiles.W"),"saved work profile");
+  assert.equal(a.get("#freeExtra").value,"keep free");
+  assert.notEqual(run(a,"state.values.situation"),"saved T");
+  assert.notEqual(run(a,"state.values.mood"),"saved M");
+  assert.notEqual(run(a,"state.values.extra"),"saved E");
+
+  // The prompt stays in the snapshot, never in the memo, and the display title
  // appends the same character and situation summary used by the old auto-title.
  run(a,`syncScenario=()=>{};novelPut=async n=>{globalThis.__savedNovel=n};refreshNovelCache=async()=>[];renderNovelList=()=>{};showToast=()=>{};novelDraftSnapshot={character:{name:"A"},situation:"T",prompt:"MANUALLY EDITED"};`);
  a.get("#output").value="MANUALLY EDITED";
