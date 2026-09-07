@@ -212,6 +212,8 @@ summary::after{content:"＋";float:right;color:var(--muted)} details[open] summa
 .pool-grid textarea{min-height:165px;font-size:.85rem}
 #basePrompt{min-height:350px;font-size:.85rem;line-height:1.6}
 .settings-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.settings-actions #saveSettings.is-saved{background:var(--ok);color:#fff;box-shadow:0 6px 18px rgba(78,124,101,.22)}
+.settings-save-status{min-height:1.45em;margin-top:4px;color:var(--ok);font-size:.75rem;font-weight:900}
 .work-profile-editor{display:grid;gap:10px;margin-top:14px;border:1px solid #ddd0e8;border-radius:16px;background:linear-gradient(135deg,#f8f3fd,#fff);padding:14px}
 .work-profile-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .work-profile-head strong{font-size:.9rem}
@@ -382,7 +384,7 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
   .result-bulk-label{grid-column:1/-1}
   .result-bulk-actions .small-btn{min-height:44px;width:100%}
   .result-bulk-actions .category-reset-btn{grid-column:1/-1;margin-left:0}
-  .wrap{width:min(100% - 18px,1080px)} header{padding-top:22px}
+  .wrap{width:min(100% - 18px,1080px)} header{padding-top:calc(22px + max(5mm, env(safe-area-inset-top)))}
  .panel-body{padding:14px} .panel-head{padding:15px} .result-grid,.pool-grid,.manager-form,.io-box{grid-template-columns:1fr}
  .gacha-top-actions{position:sticky;top:61px;z-index:16;align-items:stretch;flex-direction:column;padding:8px;background:rgba(248,243,252,.96);backdrop-filter:blur(10px)}
  .gacha-top-actions .primary{width:100%;min-width:0}

@@ -263,7 +263,7 @@ function save(msg=false){
  const serialized=DreamGachaStorage.plainSettings({...state,freeExtra:$("#freeExtra").value});DreamGachaStorage.validateSettings(serialized);
  try{localStorage.setItem(DreamGachaData.SETTINGS_KEY,JSON.stringify(serialized))}
  catch(error){alert(`設定を保存できませんでした：${error.message}`);throw error}
- if(msg) setStatus("設定を保存しました");
+ if(msg){setStatus("設定を保存しました");showSettingsSavedState()}
 }
 
 
@@ -1207,6 +1207,10 @@ function resetScenario(){
  renderPoolEditors();save();showToast("シチュ設定を初期化しました");
 }
 function setStatus(m){$("#status").textContent=m;clearTimeout(setStatus.t);setStatus.t=setTimeout(()=>$("#status").textContent="",2600)}
+function showSettingsSavedState(){
+ const button=$("#saveSettings"),status=$("#settingsSaveStatus");if(button){button.classList.add("is-saved");clearTimeout(showSettingsSavedState.buttonTimer);showSettingsSavedState.buttonTimer=setTimeout(()=>button.classList.remove("is-saved"),2600)}
+ if(status){status.textContent="保存しました";clearTimeout(showSettingsSavedState.statusTimer);showSettingsSavedState.statusTimer=setTimeout(()=>status.textContent="",2600)}
+}
 function showToast(m){const e=$("#toast");e.textContent=m;e.classList.add("show");clearTimeout(showToast.t);showToast.t=setTimeout(()=>e.classList.remove("show"),1700)}
 
 function init(){
