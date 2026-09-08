@@ -35,10 +35,10 @@ async function main(){
  const appSource=fs.readFileSync(path.join(root,"app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,4),["app-data.js?v=37","app-domain.js?v=37","app-storage.js?v=37","app-ui.js?v=37"]);
+  assert.deepEqual(src.slice(0,4),["app-data.js?v=38","app-domain.js?v=38","app-storage.js?v=38","app-ui.js?v=38"]);
  assert.match(src[4],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(5),["seed-data.js?v=37","app.js?v=37"]);
-  assert.ok(index.includes('href="styles.css?v=37"'));
+  assert.deepEqual(src.slice(5),["seed-data.js?v=38","app.js?v=38"]);
+  assert.ok(index.includes('href="styles.css?v=38"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
@@ -195,14 +195,14 @@ async function main(){
   assert.notEqual(run(a,"state.values.extra"),"saved E");
 
   // The prompt stays in the snapshot, never in the memo, and the display title
- // appends the same character and situation summary used by the old auto-title.
+  // uses only the saved title; character and situation remain separate metadata.
  run(a,`syncScenario=()=>{};novelPut=async n=>{globalThis.__savedNovel=n};refreshNovelCache=async()=>[];renderNovelList=()=>{};showToast=()=>{};novelDraftSnapshot={character:{name:"A"},situation:"T",prompt:"MANUALLY EDITED"};`);
  a.get("#output").value="MANUALLY EDITED";
  a.get("#novelBody").value="body"; a.get("#novelTitle").value="AI TITLE"; a.get("#novelMemo").value="MANUALLY EDITED"; a.get("#novelFavorite").checked=false;
  await run(a,"saveNovelArchive()");
  assert.equal(run(a,"__savedNovel.snapshot.prompt"),"MANUALLY EDITED");
   assert.equal(run(a,"__savedNovel.memo"),"");
-  assert.equal(run(a,"novelDisplayTitle(__savedNovel)"),"AI TITLE（A｜T）");
+   assert.equal(run(a,"novelDisplayTitle(__savedNovel)"),"AI TITLE");
   assert.equal(run(a,"__savedNovel.charCount"),4);
   assert.equal(run(a,"__savedNovel.promptSnapshot"),"MANUALLY EDITED");
   assert.equal(run(a,"__savedNovel.createdAt===__savedNovel.updatedAt"),true);
@@ -227,7 +227,7 @@ async function main(){
   assert.equal(run(editor,"__editedNovel.id"),"edit");assert.equal(run(editor,"__editedNovel.createdAt"),"2026-01-01T00:00:00.000Z");assert.equal(run(editor,"__editedNovel.favorite"),true);
   assert.equal(run(editor,"__editedNovel.snapshot.relationship"),"R");assert.equal(run(editor,"__editedNovel.promptSnapshot"),"FROZEN");assert.equal(run(editor,"__editedNovel.custom"),"kept");
   assert.equal(run(editor,"__editedNovel.charCount"),8);assert.notEqual(run(editor,"__editedNovel.updatedAt"),"2026-01-01T00:00:00.000Z");
-  assert.match(editor.get("#novelList").innerHTML,/new title/);assert.equal(editor.get("#novelViewTitle").textContent,"new title（A｜T）");
+  assert.match(editor.get("#novelList").innerHTML,/new title/);assert.equal(editor.get("#novelViewTitle").textContent,"new title");
   run(editor,"globalThis.__emptyWrite=false;novelPut=async()=>{globalThis.__emptyWrite=true};viewingNovelId='edit';");editor.get("#novelEditBody").value="   ";await run(editor,"saveNovelEdit()");assert.equal(run(editor,"__emptyWrite"),false);
 
   // Cards expose only read, edit, and the collapsed pair-reuse route; copy,

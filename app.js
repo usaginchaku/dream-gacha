@@ -336,8 +336,7 @@ function snapshotCurrentConditions(){
 }
 function snapshotAutoTitle(s){return `${s?.character?.name||"キャラ未指定"}｜${s?.situation||"シチュ未指定"}`}
 function novelDisplayTitle(n){
- const title=String(n?.title||"").trim()||"無題",suffix=snapshotAutoTitle(n?.snapshot);
- return title===suffix?title:`${title}（${suffix}）`;
+ return String(n?.title||"").trim()||"無題";
 }
 function snapshotMetaHtml(s){
  if(!s)return "条件なし";
