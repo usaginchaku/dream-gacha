@@ -9,6 +9,14 @@ test("serialization converts Sets and full backup requires loaded novels",()=>{
   assert.throws(()=>storage.makeBackup(settings,null),/アーカイブ/);assert.deepEqual(storage.makeBackup(settings,[]).data.novels,[]);
 });
 
+test("prompt draft and novel snapshots survive a full backup round trip",()=>{
+  const promptDraftSnapshot={character:{id:"c1",name:"A",work:"W"},relationship:"R",situation:"T",prompt:"frozen prompt"};
+  const novels=[{id:"n1",body:"body",createdAt:"2026-01-01",updatedAt:"2026-01-02",snapshot:promptDraftSnapshot,promptSnapshot:"frozen prompt"}];
+  const decoded=storage.validateBackup(storage.makeBackup({...settings,promptDraftSnapshot},novels));
+  assert.deepEqual(decoded.promptDraftSnapshot,promptDraftSnapshot);
+  assert.deepEqual(decoded.novels,novels);
+});
+
 test("shared decoder normalizes persisted fields before load or restore",()=>{
   const decoded=storage.decodeSettings({...storage.plainSettings(settings),pools:{relationship:[1]},locks:{character:1},filters:{tags:["x"],minHeight:"170"}}, {pools:{relationship:["default"],situation:["scene"],mood:["mood"]}},true);
   assert.deepEqual(decoded.pools.relationship,["1"]);assert.equal(decoded.locks.character,true);assert.equal(decoded.filters.minHeight,null);
@@ -26,6 +34,7 @@ test("legacy settings get the default world mode and invalid new fields are reje
   assert.throws(()=>storage.validateSettings({...storage.plainSettings(settings),worldMode:"space"}),/worldMode/);
   assert.throws(()=>storage.validateSettings({...storage.plainSettings(settings),themeMode:"neon"}),/themeMode/);
   assert.throws(()=>storage.validateSettings({...storage.plainSettings(settings),workProtagonistProfiles:[]}),/workProtagonistProfiles/);
+  assert.throws(()=>storage.validateSettings({...storage.plainSettings(settings),promptDraftSnapshot:"bad"}),/promptDraftSnapshot/);
 });
 
 test("shared decoder migrates legacy situation exclusions",()=>{

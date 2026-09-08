@@ -454,7 +454,10 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
 .novel-modal[hidden]{display:none}
 .novel-dialog{width:min(860px,100%);max-height:92vh;background:var(--surface);border-radius:20px;box-shadow:0 24px 70px rgba(0,0,0,.25);display:flex;flex-direction:column;overflow:hidden}
 .novel-view-meta{font-size:.72rem;color:var(--muted);margin-top:2px}
-.novel-view-body{padding:22px 22px 26px;overflow:auto;white-space:pre-wrap;line-height:1.9;font-size:.95rem}
+.novel-view-body{padding:22px 22px 26px;overflow:visible;white-space:pre-wrap;line-height:1.9;font-size:.95rem}
+#novelViewRead{flex:1;min-height:0;overflow:auto}
+.novel-dialog-actions{display:flex;align-items:center;gap:8px}
+.novel-edit-panel{flex:1;min-height:0;padding:18px 22px 24px;overflow:auto}
 .novel-view-details{border-top:1px solid var(--line);padding:12px 18px 18px;background:#faf9fc}
 .novel-view-details summary{font-weight:900;cursor:pointer}
 .novel-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:12px 0}

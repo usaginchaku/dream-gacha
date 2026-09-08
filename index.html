@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <script>try{const s=JSON.parse(localStorage.getItem("dreamGachaSettings")||"null"),m=s?.themeMode||"system";document.documentElement.dataset.theme=m==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):m}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=34">
+<link rel="stylesheet" href="styles.css?v=35">
 </head>
 <body>
 <div class="wrap">
@@ -469,9 +469,15 @@
   <div class="novel-dialog" role="dialog" aria-modal="true" aria-labelledby="novelViewTitle">
     <div class="choice-head">
       <div><div class="choice-title" id="novelViewTitle">夢小説</div><div class="novel-view-meta" id="novelViewMeta"></div></div>
-      <button type="button" class="choice-close" id="novelViewClose" aria-label="閉じる">×</button>
+      <div class="novel-dialog-actions"><button type="button" class="small-btn" id="startNovelEdit">編集</button><button type="button" class="choice-close" id="novelViewClose" aria-label="閉じる">×</button></div>
     </div>
-    <div class="novel-view-body" id="novelViewBody"></div>
+    <div id="novelViewRead"><div class="novel-view-body" id="novelViewBody"></div></div>
+    <div class="novel-edit-panel" id="novelEditPanel" hidden="">
+      <div class="field"><label for="novelEditTitle">タイトル</label><input id="novelEditTitle" type="text"></div>
+      <div class="field" style="margin-top:10px"><label for="novelEditBody">本文 <span class="label" id="novelEditCount">0字</span></label><textarea id="novelEditBody" class="novel-body-input" spellcheck="false"></textarea></div>
+      <div class="field" style="margin-top:10px"><label for="novelEditMemo">メモ（任意）</label><textarea id="novelEditMemo" class="novel-memo-input"></textarea></div>
+      <div class="library-form-actions"><button type="button" class="small-btn" id="cancelNovelEdit">キャンセル</button><button type="button" class="primary" id="saveNovelEdit">変更を保存</button></div>
+    </div>
     <details class="novel-view-details">
       <summary>生成条件・プロンプトを見る</summary>
       <div class="novel-detail-grid" id="novelViewConditions"></div>
@@ -498,13 +504,13 @@
 </div>
 <div class="toast" id="toast">ガチャ対象に戻しました</div>
 
-<script src="app-data.js?v=34"></script>
-<script src="app-domain.js?v=34"></script>
-<script src="app-storage.js?v=34"></script>
-<script src="app-ui.js?v=34"></script>
+<script src="app-data.js?v=35"></script>
+<script src="app-domain.js?v=35"></script>
+<script src="app-storage.js?v=35"></script>
+<script src="app-ui.js?v=35"></script>
 <script src="character-data.generated.js?v=620fbc616578"></script>
-<script src="seed-data.js?v=34"></script>
-<script src="app.js?v=34"></script>
+<script src="seed-data.js?v=35"></script>
+<script src="app.js?v=35"></script>
 
 
 </body></html>

@@ -35,10 +35,10 @@ async function main(){
  const appSource=fs.readFileSync(path.join(root,"app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
- assert.deepEqual(src.slice(0,4),["app-data.js?v=34","app-domain.js?v=34","app-storage.js?v=34","app-ui.js?v=34"]);
+  assert.deepEqual(src.slice(0,4),["app-data.js?v=35","app-domain.js?v=35","app-storage.js?v=35","app-ui.js?v=35"]);
  assert.match(src[4],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
- assert.deepEqual(src.slice(5),["seed-data.js?v=34","app.js?v=34"]);
- assert.ok(index.includes('href="styles.css?v=34"'));
+  assert.deepEqual(src.slice(5),["seed-data.js?v=35","app.js?v=35"]);
+  assert.ok(index.includes('href="styles.css?v=35"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
@@ -201,9 +201,48 @@ async function main(){
  a.get("#novelBody").value="body"; a.get("#novelTitle").value="AI TITLE"; a.get("#novelMemo").value="MANUALLY EDITED"; a.get("#novelFavorite").checked=false;
  await run(a,"saveNovelArchive()");
  assert.equal(run(a,"__savedNovel.snapshot.prompt"),"MANUALLY EDITED");
- assert.equal(run(a,"__savedNovel.memo"),"");
- assert.equal(run(a,"novelDisplayTitle(__savedNovel)"),"AI TITLE（A｜T）");
- assert.equal(run(a,"__savedNovel.charCount"),4);
+  assert.equal(run(a,"__savedNovel.memo"),"");
+  assert.equal(run(a,"novelDisplayTitle(__savedNovel)"),"AI TITLE（A｜T）");
+  assert.equal(run(a,"__savedNovel.charCount"),4);
+  assert.equal(run(a,"__savedNovel.promptSnapshot"),"MANUALLY EDITED");
+  assert.equal(run(a,"__savedNovel.createdAt===__savedNovel.updatedAt"),true);
+
+  // A generated draft is frozen with its conditions, even when the live cards
+  // change before the user pastes the finished story after a page reload.
+  const frozen=makeApp();
+  run(frozen,`state.characters=[{id:"c1",name:"A",work:"W",series:"S",tags:[],archived:false}];state.characterId="c1";state.values={relationship:"generated R",situation:"generated T",mood:"generated M",extra:"generated E"};state.promptDraftSnapshot=null;syncScenario=()=>{};novelPut=async n=>{globalThis.__frozenNovel=n};refreshNovelCache=async()=>[];renderNovelList=()=>{};showToast=()=>{};`);
+  run(frozen,"buildPrompt(false)");
+  run(frozen,`state.values.relationship="current R";novelDraftSnapshot=null;`);
+  frozen.get("#novelBody").value="frozen body";
+  await run(frozen,"saveNovelArchive()");
+  assert.equal(run(frozen,"__frozenNovel.snapshot.relationship"),"generated R");
+  assert.equal(run(frozen,"__frozenNovel.promptSnapshot"),run(frozen,"state.promptDraftSnapshot.prompt"));
+
+  // Editing only replaces user-editable fields. The original record metadata,
+  // frozen snapshots, ID, and favorite state survive the IndexedDB put.
+  const editor=makeApp();
+  run(editor,`novelCache=[{id:"edit",title:"old",body:"old",memo:"old memo",favorite:true,createdAt:"2026-01-01T00:00:00.000Z",updatedAt:"2026-01-01T00:00:00.000Z",snapshot:{character:{name:"A"},relationship:"R",situation:"T"},promptSnapshot:"FROZEN",custom:"kept"}];viewingNovelId="edit";novelPut=async n=>{globalThis.__editedNovel=n};renderNovelList=()=>{};showToast=()=>{};`);
+  editor.get("#novelEditTitle").value="new title";editor.get("#novelEditBody").value="new body";editor.get("#novelEditMemo").value="new memo";
+  await run(editor,"saveNovelEdit()");
+  assert.equal(run(editor,"__editedNovel.id"),"edit");assert.equal(run(editor,"__editedNovel.createdAt"),"2026-01-01T00:00:00.000Z");assert.equal(run(editor,"__editedNovel.favorite"),true);
+  assert.equal(run(editor,"__editedNovel.snapshot.relationship"),"R");assert.equal(run(editor,"__editedNovel.promptSnapshot"),"FROZEN");assert.equal(run(editor,"__editedNovel.custom"),"kept");
+  assert.equal(run(editor,"__editedNovel.charCount"),8);assert.notEqual(run(editor,"__editedNovel.updatedAt"),"2026-01-01T00:00:00.000Z");
+  run(editor,"globalThis.__emptyWrite=false;novelPut=async()=>{globalThis.__emptyWrite=true};viewingNovelId='edit';");editor.get("#novelEditBody").value="   ";await run(editor,"saveNovelEdit()");assert.equal(run(editor,"__emptyWrite"),false);
+
+  const exportNovel={title:"題",body:"編集後本文",memo:"メモ",charCount:5,createdAt:"2026-01-01T00:00:00.000Z",updatedAt:"2026-01-02T00:00:00.000Z",promptSnapshot:"FROZEN PROMPT",snapshot:{character:{name:"キャラ",work:"作品",series:"部"},worldMode:"modern",relationship:"関係",situation:"シチュ",mood:"雰囲気",extra:"追加",protagonistProfile:"共通",workProtagonistProfile:"作品別",freeExtra:"今回だけ"}};
+  const txt=run(a,`novelTxtContent(${JSON.stringify(exportNovel)})`);
+  for(const part of ["題（キャラ）","編集後本文","────────────────────","【生成条件】","作品：作品","共通夢主設定：共通","今回だけの追加設定：今回だけ","メモ：メモ","文字数：5字","【生成に使用した完成プロンプト】","FROZEN PROMPT"])assert.ok(txt.includes(part));
+  assert.ok(txt.indexOf("題（キャラ）")<txt.indexOf("編集後本文")&&txt.indexOf("編集後本文")<txt.indexOf("【生成条件】")&&txt.indexOf("【生成条件】")<txt.indexOf("FROZEN PROMPT"));
+  a.context.Blob=function(parts,options){this.parts=parts;this.options=options;a.context.__txtBlob=this};a.context.document.body.appendChild=()=>{};a.context.document.createElement=()=>({click(){},remove(){}});
+  run(a,`downloadNovelTxt(${JSON.stringify(exportNovel)})`);
+  assert.equal(run(a,"__txtBlob.parts[0]"),"\uFEFF");assert.equal(run(a,"__txtBlob.options.type"),"text/plain;charset=utf-8");
+  a.context.navigator.clipboard.writeText=async value=>{a.context.__copiedNovel=value};await run(a,`copyNovelArchive(${JSON.stringify(exportNovel)})`);assert.equal(a.context.__copiedNovel,"題\n\n編集後本文");
+  assert.equal(run(a,"novelPromptSnapshot({snapshot:{prompt:'legacy'}})"),"legacy");assert.match(run(a,"novelTxtContent({title:'old',body:'body',snapshot:{}})"),/（未記録）/);
+  const filename=run(a,`novelTxtFilename({title:'a<>:"/\\\\|?* .',snapshot:{character:{name:'CON'},situation:'x. '}})`);
+  assert.doesNotMatch(filename,/[<>:"/\\|?*]/);assert.doesNotMatch(filename,/[. ]\.txt$/);assert.ok(filename.endsWith(".txt"));assert.ok(filename.length<=124);
+  assert.match(run(a,`novelTxtFilename({title:"ＡＢＣ",snapshot:{character:{name:"名"},situation:"場面"}})`),/^ＡＢＣ（名・場面）\.txt$/);
+  const longFilename=run(a,`novelTxtFilename({title:"😀".repeat(130),snapshot:{character:{name:"名"},situation:"場面"}})`);
+  assert.ok(Array.from(longFilename.slice(0,-4)).length<=120);
 
  // Export does not download or claim success when IndexedDB cannot be read.
  const b=makeApp(); let alerts=[];
