@@ -35,10 +35,10 @@ async function main(){
  const appSource=fs.readFileSync(path.join(root,"app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,4),["app-data.js?v=35","app-domain.js?v=35","app-storage.js?v=35","app-ui.js?v=35"]);
+  assert.deepEqual(src.slice(0,4),["app-data.js?v=36","app-domain.js?v=36","app-storage.js?v=36","app-ui.js?v=36"]);
  assert.match(src[4],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(5),["seed-data.js?v=35","app.js?v=35"]);
-  assert.ok(index.includes('href="styles.css?v=35"'));
+  assert.deepEqual(src.slice(5),["seed-data.js?v=36","app.js?v=36"]);
+  assert.ok(index.includes('href="styles.css?v=36"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
@@ -228,6 +228,26 @@ async function main(){
   assert.equal(run(editor,"__editedNovel.snapshot.relationship"),"R");assert.equal(run(editor,"__editedNovel.promptSnapshot"),"FROZEN");assert.equal(run(editor,"__editedNovel.custom"),"kept");
   assert.equal(run(editor,"__editedNovel.charCount"),8);assert.notEqual(run(editor,"__editedNovel.updatedAt"),"2026-01-01T00:00:00.000Z");
   run(editor,"globalThis.__emptyWrite=false;novelPut=async()=>{globalThis.__emptyWrite=true};viewingNovelId='edit';");editor.get("#novelEditBody").value="   ";await run(editor,"saveNovelEdit()");assert.equal(run(editor,"__emptyWrite"),false);
+
+  // Cards expose only read, edit, and the collapsed pair-reuse route; copy,
+  // export, favorite, and delete are deliberately modal-only operations.
+  const cardUi=makeApp();
+  run(cardUi,`novelCache=[{id:"n",title:"Title",body:"body",snapshot:{character:{name:"A"},situation:"T"}}];renderNovelList()`);
+  const cardHtml=cardUi.get("#novelList").innerHTML;
+  for(const action of ["data-open-novel", "data-edit-novel", "novel-use-menu"])assert.match(cardHtml,new RegExp(action));
+  for(const removed of ["data-copy-novel", "data-export-novel", "data-fav-novel", "data-delete-novel"])assert.doesNotMatch(cardHtml,new RegExp(removed));
+  for(const id of ["copyNovelFromView", "exportNovelFromView", "favoriteNovelFromView", "deleteNovelFromEdit"])assert.ok(index.includes(`id="${id}"`));
+  assert.match(styleSource,/\.novel-use-actions\{display:none;gap:5px;padding-top:6px\}/);assert.match(styleSource,/\.novel-use-menu\[open\] \.novel-use-actions\{display:grid\}/);assert.match(styleSource,/summary::after\{content:"▾"/);
+
+  const modalActions=makeApp();let modalAlerts=[];modalActions.context.alert=message=>modalAlerts.push(message);
+  run(modalActions,`novelCache=[{id:"n",body:"body",snapshot:{}}];viewingNovelId="n";copyNovelArchive=async()=>{throw Error("clipboard denied")};`);
+  await run(modalActions,"copyNovelFromView()");assert.match(modalAlerts[0],/コピーできませんでした/);
+  run(modalActions,`downloadNovelTxt=()=>{throw Error("download denied")};exportNovelFromView();`);assert.match(modalAlerts[1],/TXTを書き出せませんでした/);
+
+  const deleteUi=makeApp();deleteUi.context.confirm=()=>true;
+  run(deleteUi,`novelCache=[{id:"remove",title:"Delete",body:"body",snapshot:{}}];viewingNovelId="remove";novelDelete=async()=>{};refreshNovelCache=async()=>{novelCache=[]};renderNovelList=()=>{};showToast=()=>{};$("#novelModal").hidden=false;`);
+  await run(deleteUi,`deleteNovelArchive("remove",true)`);
+  assert.equal(deleteUi.get("#novelModal").hidden,true);
 
   const exportNovel={title:"題",body:"編集後本文",memo:"メモ",charCount:5,createdAt:"2026-01-01T00:00:00.000Z",updatedAt:"2026-01-02T00:00:00.000Z",promptSnapshot:"FROZEN PROMPT",snapshot:{character:{name:"キャラ",work:"作品",series:"部"},worldMode:"modern",relationship:"関係",situation:"シチュ",mood:"雰囲気",extra:"追加",protagonistProfile:"共通",workProtagonistProfile:"作品別",freeExtra:"今回だけ"}};
   const txt=run(a,`novelTxtContent(${JSON.stringify(exportNovel)})`);
