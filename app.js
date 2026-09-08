@@ -465,7 +465,7 @@ async function saveNovelEdit(){
  const index=novelCache.findIndex(item=>item.id===viewingNovelId);if(index<0)return;
  const body=$("#novelEditBody").value;if(!body.trim())return showToast("本文を空にはできません");
  const current=novelCache[index],updated={...current,title:$("#novelEditTitle").value.trim()||"無題",body,memo:$("#novelEditMemo").value.trim(),charCount:novelCharCount(body),updatedAt:new Date().toISOString()};
- await novelPut(updated);novelCache=[...novelCache.slice(0,index),updated,...novelCache.slice(index+1)];renderNovelList();openNovelView(updated);showToast("夢小説を更新しました");
+ await novelPut(updated);await refreshNovelCache();const committed=novelCache.find(item=>item.id===updated.id);if(!committed)throw new Error("保存した夢小説を再読み込みできませんでした");renderNovelList();openNovelView(committed);showToast("夢小説を更新しました");
 }
 async function toggleNovelFavorite(id){const index=novelCache.findIndex(n=>n.id===id);if(index<0)return;const updated={...novelCache[index],favorite:!novelCache[index].favorite};await novelPut(updated);novelCache=[...novelCache.slice(0,index),updated,...novelCache.slice(index+1)];renderNovelList();if(viewingNovelId===id)updateNovelViewActions(updated)}
 async function deleteNovelArchive(id,closeAfter=false){const n=novelCache.find(n=>n.id===id);if(!n)return;if(!confirm(`「${novelDisplayTitle(n)}」を削除しますか？`))return;await novelDelete(id);await refreshNovelCache();renderNovelList();if(closeAfter&&viewingNovelId===id)closeNovelView(true);showToast("夢小説を削除しました")}
@@ -846,6 +846,12 @@ async function copyPrompt(){
  showToast("コピーしました");setStatus("ChatGPTにそのまま貼り付けられます");
 }
 function schedulePromptDraftSave(){clearTimeout(schedulePromptDraftSave.timer);schedulePromptDraftSave.timer=setTimeout(()=>save(),350)}
+function hasNewNovelFormInput(){return ["#novelTitle","#novelBody","#novelMemo"].some(selector=>$(selector).value.trim())}
+function reloadApp(){
+ if((hasNovelEditChanges()||hasNewNovelFormInput())&&!confirm("保存していない小説の変更を破棄して更新しますか？"))return;
+ clearTimeout(schedulePromptDraftSave.timer);schedulePromptDraftSave.timer=null;
+ try{save();window.location.reload()}catch(error){}
+}
 function renderPoolEditors(){
  const names={relationship:"関係性候補",situation:"シチュ候補",mood:"雰囲気候補",extra:"追加条件候補"};
  $("#poolGrid").innerHTML=Object.keys(names).map(k=>`<div class="field"><label for="pool-${k}">${names[k]} <span class="label">（${state.pools[k].length}件）</span></label><textarea id="pool-${k}" spellcheck="false">${esc(state.pools[k].join("\n"))}</textarea></div>`).join("");
@@ -1315,6 +1321,7 @@ function init(){
  $("#resetAllCategoryRules").addEventListener("click",resetAllCategoryRules);
  $("#worldModeOptions").addEventListener("click",e=>{const b=e.target.closest("[data-world-mode]");if(b)setWorldMode(b.dataset.worldMode)});
  $("#themeMode").addEventListener("change",e=>setTheme(e.target.value));
+  $("#reloadApp").addEventListener("click",reloadApp);
  $("#rollAll").addEventListener("click",rollAll);$("#buildPrompt").addEventListener("click",()=>buildPrompt(true));$("#copyPrompt").addEventListener("click",copyPrompt);
  $("#saveCurrentPreset").addEventListener("click",saveCurrentConditionsPreset);$("#openNovelSave").addEventListener("click",prepareNovelSave);$("#savePresetFromLibrary").addEventListener("click",saveCurrentConditionsPreset);$("#saveNovel").addEventListener("click",saveNovelArchive);
   $("#novelSearch").addEventListener("input",renderNovelList);$("#novelBody").addEventListener("input",()=>$("#novelBodyCount").textContent=fmtChars(novelCharCount($("#novelBody").value)));$("#novelFavoriteOnly").addEventListener("click",()=>{novelFavoriteOnly=!novelFavoriteOnly;$("#novelFavoriteOnly").classList.toggle("active",novelFavoriteOnly);renderNovelList()});$("#output").addEventListener("input",()=>{if(state.promptDraftSnapshot)state.promptDraftSnapshot.prompt=$("#output").value;else state.promptDraftSnapshot=snapshotCurrentConditions();schedulePromptDraftSave()});

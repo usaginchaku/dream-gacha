@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <script>try{const s=JSON.parse(localStorage.getItem("dreamGachaSettings")||"null"),m=s?.themeMode||"system";document.documentElement.dataset.theme=m==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):m}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=36">
+<link rel="stylesheet" href="styles.css?v=37">
 </head>
 <body>
 <div class="wrap">
@@ -25,7 +25,7 @@
       <p class="lead">キャラと条件をガチャして、読みたい夢小説のプロンプトを手軽に作れます。</p>
       <p class="lead">ChatGPT / Gemini / Claude などで利用できます。</p>
     </div>
-    <label class="theme-control" for="themeMode"><span>表示</span><select id="themeMode" aria-label="画面の配色"><option value="system">端末設定</option><option value="light">ライト</option><option value="dark">ダーク</option></select></label>
+    <div class="header-controls"><label class="theme-control" for="themeMode"><span>表示</span><select id="themeMode" aria-label="画面の配色"><option value="system">端末設定</option><option value="light">ライト</option><option value="dark">ダーク</option></select></label><button type="button" class="small-btn reload-btn" id="reloadApp">↻ 更新</button></div>
   </div>
 </header>
 
@@ -505,13 +505,13 @@
 </div>
 <div class="toast" id="toast">ガチャ対象に戻しました</div>
 
-<script src="app-data.js?v=36"></script>
-<script src="app-domain.js?v=36"></script>
-<script src="app-storage.js?v=36"></script>
-<script src="app-ui.js?v=36"></script>
+<script src="app-data.js?v=37"></script>
+<script src="app-domain.js?v=37"></script>
+<script src="app-storage.js?v=37"></script>
+<script src="app-ui.js?v=37"></script>
 <script src="character-data.generated.js?v=620fbc616578"></script>
-<script src="seed-data.js?v=36"></script>
-<script src="app.js?v=36"></script>
+<script src="seed-data.js?v=37"></script>
+<script src="app.js?v=37"></script>
 
 
 </body></html>

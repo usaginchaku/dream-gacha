@@ -35,10 +35,10 @@ async function main(){
  const appSource=fs.readFileSync(path.join(root,"app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,4),["app-data.js?v=36","app-domain.js?v=36","app-storage.js?v=36","app-ui.js?v=36"]);
+  assert.deepEqual(src.slice(0,4),["app-data.js?v=37","app-domain.js?v=37","app-storage.js?v=37","app-ui.js?v=37"]);
  assert.match(src[4],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(5),["seed-data.js?v=36","app.js?v=36"]);
-  assert.ok(index.includes('href="styles.css?v=36"'));
+  assert.deepEqual(src.slice(5),["seed-data.js?v=37","app.js?v=37"]);
+  assert.ok(index.includes('href="styles.css?v=37"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
@@ -221,12 +221,13 @@ async function main(){
   // Editing only replaces user-editable fields. The original record metadata,
   // frozen snapshots, ID, and favorite state survive the IndexedDB put.
   const editor=makeApp();
-  run(editor,`novelCache=[{id:"edit",title:"old",body:"old",memo:"old memo",favorite:true,createdAt:"2026-01-01T00:00:00.000Z",updatedAt:"2026-01-01T00:00:00.000Z",snapshot:{character:{name:"A"},relationship:"R",situation:"T"},promptSnapshot:"FROZEN",custom:"kept"}];viewingNovelId="edit";novelPut=async n=>{globalThis.__editedNovel=n};renderNovelList=()=>{};showToast=()=>{};`);
+  run(editor,`novelCache=[{id:"edit",title:"old",body:"old",memo:"old memo",favorite:true,createdAt:"2026-01-01T00:00:00.000Z",updatedAt:"2026-01-01T00:00:00.000Z",snapshot:{character:{name:"A"},relationship:"R",situation:"T"},promptSnapshot:"FROZEN",custom:"kept"}];viewingNovelId="edit";novelPut=async n=>{globalThis.__editedNovel=n};refreshNovelCache=async()=>{novelCache=[globalThis.__editedNovel]};showToast=()=>{};`);
   editor.get("#novelEditTitle").value="new title";editor.get("#novelEditBody").value="new body";editor.get("#novelEditMemo").value="new memo";
   await run(editor,"saveNovelEdit()");
   assert.equal(run(editor,"__editedNovel.id"),"edit");assert.equal(run(editor,"__editedNovel.createdAt"),"2026-01-01T00:00:00.000Z");assert.equal(run(editor,"__editedNovel.favorite"),true);
   assert.equal(run(editor,"__editedNovel.snapshot.relationship"),"R");assert.equal(run(editor,"__editedNovel.promptSnapshot"),"FROZEN");assert.equal(run(editor,"__editedNovel.custom"),"kept");
   assert.equal(run(editor,"__editedNovel.charCount"),8);assert.notEqual(run(editor,"__editedNovel.updatedAt"),"2026-01-01T00:00:00.000Z");
+  assert.match(editor.get("#novelList").innerHTML,/new title/);assert.equal(editor.get("#novelViewTitle").textContent,"new title（A｜T）");
   run(editor,"globalThis.__emptyWrite=false;novelPut=async()=>{globalThis.__emptyWrite=true};viewingNovelId='edit';");editor.get("#novelEditBody").value="   ";await run(editor,"saveNovelEdit()");assert.equal(run(editor,"__emptyWrite"),false);
 
   // Cards expose only read, edit, and the collapsed pair-reuse route; copy,
@@ -248,6 +249,16 @@ async function main(){
   run(deleteUi,`novelCache=[{id:"remove",title:"Delete",body:"body",snapshot:{}}];viewingNovelId="remove";novelDelete=async()=>{};refreshNovelCache=async()=>{novelCache=[]};renderNovelList=()=>{};showToast=()=>{};$("#novelModal").hidden=false;`);
   await run(deleteUi,`deleteNovelArchive("remove",true)`);
   assert.equal(deleteUi.get("#novelModal").hidden,true);
+
+  const reloadUi=makeApp();let reloads=0,reloadSaves=0,reloadConfirms=0;
+  reloadUi.context.window.location={reload(){reloads++}};reloadUi.context.confirm=()=>{reloadConfirms++;return false};
+  run(reloadUi,`novelEditOriginal={title:"old",body:"body",memo:""};$("#novelEditTitle").value="new";$("#novelEditBody").value="body";$("#novelEditMemo").value="";save=()=>{globalThis.__reloadSaved=(globalThis.__reloadSaved||0)+1};reloadApp()`);
+  assert.equal(reloads,0);assert.equal(reloadConfirms,1);assert.equal(run(reloadUi,"globalThis.__reloadSaved"),undefined);
+  run(reloadUi,"novelEditOriginal=null;");
+  reloadUi.get("#novelTitle").value="下書き";run(reloadUi,"save=()=>{globalThis.__reloadSaved=(globalThis.__reloadSaved||0)+1};reloadApp()");
+  assert.equal(reloads,0);assert.equal(reloadConfirms,2);assert.equal(run(reloadUi,"globalThis.__reloadSaved"),undefined);
+  reloadUi.get("#novelTitle").value="";reloadUi.get("#novelBody").value="";reloadUi.get("#novelMemo").value="";run(reloadUi,"reloadApp()");
+  reloadSaves=run(reloadUi,"globalThis.__reloadSaved");assert.equal(reloads,1);assert.equal(reloadSaves,1);
 
   const exportNovel={title:"題",body:"編集後本文",memo:"メモ",charCount:5,createdAt:"2026-01-01T00:00:00.000Z",updatedAt:"2026-01-02T00:00:00.000Z",promptSnapshot:"FROZEN PROMPT",snapshot:{character:{name:"キャラ",work:"作品",series:"部"},worldMode:"modern",relationship:"関係",situation:"シチュ",mood:"雰囲気",extra:"追加",protagonistProfile:"共通",workProtagonistProfile:"作品別",freeExtra:"今回だけ"}};
   const txt=run(a,`novelTxtContent(${JSON.stringify(exportNovel)})`);
