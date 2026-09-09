@@ -169,12 +169,9 @@ function applySettingsState(saved,overrides={}){
 function prepareSettings(raw,strict=false){
   const prepared=DreamGachaStorage.decodeSettings(raw,{pools:DEFAULT_POOLS,basePrompt:DEFAULT_BASE_PROMPT,protagonistProfile:DEFAULT_PROTAGONIST_PROFILE,worldMode:DEFAULT_WORLD_MODE},strict);
   const previousBundledPrompt=prepared.basePrompt.replace("\n\n## 身長差・体格差\n\n夢主は160cmです。\n\n","\n\n## 身長差・体格差\n\n");
-  const shouldMigrateBundledPrompt=Number(prepared.version||0)<DreamGachaData.SETTINGS_VERSION&&(LEGACY_BASE_PROMPTS.includes(prepared.basePrompt)||previousBundledPrompt===DEFAULT_BASE_PROMPT);
+  const shouldMigrateBundledPrompt=Number(prepared.version||0)<DreamGachaData.SETTINGS_VERSION&&(LEGACY_BASE_PROMPTS.includes(prepared.basePrompt)||LEGACY_BASE_PROMPTS.includes(previousBundledPrompt)||previousBundledPrompt===DEFAULT_BASE_PROMPT);
   if(!prepared.basePrompt||shouldMigrateBundledPrompt)prepared.basePrompt=DEFAULT_BASE_PROMPT;
- if(Number(prepared.version||0)<34&&!prepared.basePrompt.includes("## 人体・姿勢・接触の整合性")&&prepared.basePrompt.includes("## 恋愛描写")){
-  const section=DEFAULT_BASE_PROMPT.match(/## 人体・姿勢・接触の整合性[\s\S]*?(?=\n\n## 恋愛描写)/)?.[0];
-  if(section)prepared.basePrompt=prepared.basePrompt.replace("## 恋愛描写",section+"\n\n## 恋愛描写");
- }
+ // Custom prompts are user-owned; only exact bundled texts migrate above.
  if(Number(prepared.version||0)<DreamGachaData.SETTINGS_VERSION&&LEGACY_PROTAGONIST_PROFILES.includes(prepared.protagonistProfile))prepared.protagonistProfile=DEFAULT_PROTAGONIST_PROFILE;
  prepared.characters=cleanupCharacterData(prepared.characters.map(normalize).filter(c=>c.name));
  prepared.filters.tags=canonicalizeTags(prepared.filters.tags||[]);

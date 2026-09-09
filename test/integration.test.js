@@ -35,10 +35,10 @@ async function main(){
  const appSource=fs.readFileSync(path.join(root,"app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,4),["app-data.js?v=38","app-domain.js?v=38","app-storage.js?v=38","app-ui.js?v=38"]);
+  assert.deepEqual(src.slice(0,4),["app-data.js?v=39","app-domain.js?v=39","app-storage.js?v=39","app-ui.js?v=39"]);
  assert.match(src[4],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(5),["seed-data.js?v=38","app.js?v=38"]);
-  assert.ok(index.includes('href="styles.css?v=38"'));
+  assert.deepEqual(src.slice(5),["seed-data.js?v=39","app.js?v=39"]);
+  assert.ok(index.includes('href="styles.css?v=39"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
@@ -65,9 +65,13 @@ async function main(){
  const a=makeApp();
  // The bundled writing prompt asks for a title, while the concrete protagonist
  // profile lives only in the separate profile setting.
- assert.equal(run(a,"DEFAULT_BASE_PROMPT.includes('## タイトル')"),true);
- assert.equal(run(a,"DEFAULT_BASE_PROMPT.includes('## 人体・姿勢・接触の整合性')"),true);
- assert.equal(run(a,"DEFAULT_BASE_PROMPT.includes('各人物の左右の手')"),true);
+ const canonicalPrompt=fs.readFileSync(path.join(root,"prompts/dream-novel-0.1.3.2.md"),"utf8").replace(/\r\n/g,"\n").trimEnd();
+ assert.equal(run(a,"DEFAULT_BASE_PROMPT"),canonicalPrompt);
+ assert.ok(canonicalPrompt.startsWith("# 夢小説生成プロンプト Ver.0.1.3.2\n"));
+ assert.ok(canonicalPrompt.endsWith("以下が今回の条件です。"));
+ assert.ok(canonicalPrompt.includes("短編小説らしいタイトルを最初の一行に置いてください。"));
+ assert.ok(canonicalPrompt.includes("## 身体・動作"));
+ assert.ok(canonicalPrompt.includes("二人の向き、姿勢、左右の手"));
  assert.equal(run(a,"DEFAULT_BASE_PROMPT.includes('夢主は160cmです。')"),false);
  assert.equal(run(a,"DEFAULT_PROTAGONIST_PROFILE.includes('身長160cm')"),true);
  assert.equal(run(a,"DEFAULT_PROTAGONIST_PROFILE.includes('〜かしら？')"),true);
@@ -102,13 +106,28 @@ async function main(){
  assert.equal(run(a,"TAG_GROUP_ORDER.every(k=>CANONICAL_TAGS[k].every(t=>document.querySelector('#allowedTagGuide').innerHTML.includes(t)))"),true);
  const exported=run(a,"exportCharacterPayload([{id:'1',name:'A',work:'W',series:'S',tags:['冷静'],archived:false,favorite:false,heightText:'180cm',heightCm:180,heightStatus:'verified',heightSource:'公式資料'}]).characters[0]");
  assert.equal(exported.heightStatus,"verified");assert.equal(exported.heightSource,"公式資料");
- const previousDefault=run(a,"DEFAULT_BASE_PROMPT.replace('## 身長差・体格差\\n\\n','## 身長差・体格差\\n\\n夢主は160cmです。\\n\\n')");
+ const previousDefault=run(a,"PREVIOUS_BASE_PROMPT.replace('## 身長差・体格差\\n\\n','## 身長差・体格差\\n\\n夢主は160cmです。\\n\\n')");
  a.context.__previousDefault=previousDefault;
  assert.equal(run(a,"prepareSettings({version:22,characters:[],pools:{},basePrompt:__previousDefault},false).basePrompt===DEFAULT_BASE_PROMPT"),true);
  a.context.__legacyProfile=run(a,"LEGACY_PROTAGONIST_PROFILES[0]");
  assert.equal(run(a,"prepareSettings({version:29,characters:[],pools:{},protagonistProfile:__legacyProfile},false).protagonistProfile===DEFAULT_PROTAGONIST_PROFILE"),true);
  const oldCustomPrompt="custom\n\n## 恋愛描写\ntext";a.context.__oldCustomPrompt=oldCustomPrompt;
- assert.equal(run(a,"prepareSettings({version:33,characters:[],pools:{},basePrompt:__oldCustomPrompt},false).basePrompt.includes('## 人体・姿勢・接触の整合性')"),true);
+ // Custom text must not receive automatic additions or be replaced by a new default.
+ assert.equal(run(a,"prepareSettings({version:33,characters:[],pools:{},basePrompt:__oldCustomPrompt},false).basePrompt"),oldCustomPrompt);
+ assert.equal(run(a,"LEGACY_BASE_PROMPTS.every(basePrompt=>prepareSettings({version:38,characters:[],pools:{},basePrompt},false).basePrompt===DEFAULT_BASE_PROMPT)"),true);
+ assert.equal(run(a,"prepareSettings({version:38,characters:[],pools:{},basePrompt:PREVIOUS_BASE_PROMPT+' custom'},false).basePrompt===PREVIOUS_BASE_PROMPT+' custom'"),true);
+ assert.equal(run(a,"prepareSettings({version:39,characters:[],pools:{},basePrompt:DEFAULT_BASE_PROMPT},false).basePrompt===DEFAULT_BASE_PROMPT"),true);
+ const migration=makeApp();
+ const historicalSnapshot={prompt:run(migration,"PREVIOUS_BASE_PROMPT"),character:{id:"old-id",name:"旧キャラ"},relationship:"旧条件"};
+ const historicalPreset={id:"saved-preset",name:"保存条件",snapshot:historicalSnapshot};
+ migration.local.set("dreamGachaSettings",JSON.stringify({version:38,characters:[historicalSnapshot.character],characterId:"old-id",values:{relationship:"旧条件"},pools:{},basePrompt:historicalSnapshot.prompt,promptDraftSnapshot:historicalSnapshot,presets:[historicalPreset]}));
+ run(migration,"init();save()");
+ const migratedSettings=JSON.parse(migration.local.get("dreamGachaSettings"));
+ assert.equal(migratedSettings.version,39);
+ assert.equal(migratedSettings.basePrompt,canonicalPrompt);
+ assert.deepStrictEqual(migratedSettings.promptDraftSnapshot,historicalSnapshot);
+ assert.deepStrictEqual(migratedSettings.presets,[historicalPreset]);
+ assert.equal(migration.get("#output").value,historicalSnapshot.prompt);
 
  // Every category exposes separate, unambiguous include and exclude actions.
  run(a,"chooserKey='relationship';state.pools.relationship=DEFAULT_POOLS.relationship;renderChooserCategoryChips()");
