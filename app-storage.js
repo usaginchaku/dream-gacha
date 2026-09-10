@@ -1,6 +1,6 @@
 (function(root){
   "use strict";
-  const D=root.DreamGachaData||{SETTINGS_KEY:"dreamGachaSettings",SETTINGS_VERSION:39,BACKUP_SCHEMA:"dream-gacha.full-backup",BACKUP_VERSION:2};
+  const D=root.DreamGachaData||{SETTINGS_KEY:"dreamGachaSettings",SETTINGS_VERSION:40,BACKUP_SCHEMA:"dream-gacha.full-backup",BACKUP_VERSION:2};
   const clone=v=>v===undefined?undefined:JSON.parse(JSON.stringify(v));
   function plainSettings(source){
     if(!source||typeof source!=="object")throw new Error("設定データが不正です");

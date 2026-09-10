@@ -31,14 +31,34 @@ function makeApp(){
 function run(app,code){return vm.runInContext(code,app.context)}
 
 async function main(){
+ const poolApp=makeApp();
+ const poolInput={relationship:["初対面なのに妙に惹かれ合う","独自の関係"],situation:["雨宿りをしている"],mood:["普段強い側が弱さを見せる"],extra:["同じベッドで寝る","独自の追加"]};
+ poolApp.context.poolInput=poolInput;
+ const revised=JSON.parse(JSON.stringify(run(poolApp,"reviseCandidatePools40(poolInput)")));
+ assert.ok(revised.relationship.includes("独自の関係"));
+ assert.ok(!revised.relationship.includes("初対面なのに妙に惹かれ合う"));
+ assert.ok(revised.situation.includes("初対面なのに妙に惹かれ合う"));
+ assert.ok(revised.situation.includes("同じベッドで寝る"));
+ assert.ok(!revised.extra.includes("同じベッドで寝る"));
+ assert.ok(revised.extra.includes("普段強い側が弱さを見せる"));
+ assert.ok(revised.extra.includes("独自の追加"));
+ assert.deepStrictEqual(poolInput.extra,["同じベッドで寝る","独自の追加"]);
+ poolApp.context.revised=revised;
+ assert.deepStrictEqual(JSON.parse(JSON.stringify(run(poolApp,"reviseCandidatePools40(revised)"))),revised);
+ assert.equal(run(poolApp,"reviseCandidatePools40({relationship:[],situation:[],mood:[],extra:[]}).extra.length"),0);
+ const migratedPool=run(poolApp,"prepareSettings({version:39,pools:poolInput,characters:[],presets:[],values:{mood:'普段強い側が弱さを見せる'}},false)");
+ assert.ok(migratedPool.extra===undefined);
+ assert.ok(migratedPool.pools.extra.includes("独自の追加"));
+ assert.equal(migratedPool.values.mood,"普段強い側が弱さを見せる");
+ assert.equal(run(poolApp,"prepareSettings({version:40,pools:{relationship:[],situation:[],mood:[],extra:['独自']},characters:[]},false).pools.extra.length"),1);
  const index=fs.readFileSync(path.join(root,"index.html"),"utf8");
  const appSource=fs.readFileSync(path.join(root,"app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,4),["app-data.js?v=39","app-domain.js?v=39","app-storage.js?v=39","app-ui.js?v=39"]);
+  assert.deepEqual(src.slice(0,4),["app-data.js?v=40","app-domain.js?v=40","app-storage.js?v=40","app-ui.js?v=40"]);
  assert.match(src[4],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(5),["seed-data.js?v=39","app.js?v=39"]);
-  assert.ok(index.includes('href="styles.css?v=39"'));
+  assert.deepEqual(src.slice(5),["seed-data.js?v=40","app.js?v=40"]);
+  assert.ok(index.includes('href="styles.css?v=40"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
@@ -123,7 +143,7 @@ async function main(){
  migration.local.set("dreamGachaSettings",JSON.stringify({version:38,characters:[historicalSnapshot.character],characterId:"old-id",values:{relationship:"旧条件"},pools:{},basePrompt:historicalSnapshot.prompt,promptDraftSnapshot:historicalSnapshot,presets:[historicalPreset]}));
  run(migration,"init();save()");
  const migratedSettings=JSON.parse(migration.local.get("dreamGachaSettings"));
- assert.equal(migratedSettings.version,39);
+ assert.equal(migratedSettings.version,40);
  assert.equal(migratedSettings.basePrompt,canonicalPrompt);
  assert.deepStrictEqual(migratedSettings.promptDraftSnapshot,historicalSnapshot);
  assert.deepStrictEqual(migratedSettings.presets,[historicalPreset]);
