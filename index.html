@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <script>try{const s=JSON.parse(localStorage.getItem("dreamGachaSettings")||"null"),m=s?.themeMode||"system";document.documentElement.dataset.theme=m==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):m}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=42">
+<link rel="stylesheet" href="styles.css?v=43">
 </head>
 <body>
 <div class="wrap">
@@ -101,7 +101,7 @@
         </div>
       </details>
 
-      <div class="field context-stage-picker"><label for="contextStage">舞台設定 <span class="label">（任意）</span></label><select id="contextStage"><option value="">指定なし</option></select><p class="manager-note">独自の舞台は下の「文章の好み・舞台・補足設定集」で登録できます。選ぶと対応する世界観モードに切り替わります。</p></div>
+      <div class="field context-stage-picker"><label for="contextStage">舞台設定 <span class="label">（任意）</span></label><select id="contextStage"><option value="">指定なし</option></select><p class="manager-note">現パロ・学パロ・オフィスなど、14種類の初期設定から選べます。選ぶと対応する世界観モードに切り替わります。内容の編集や独自の舞台の登録は、下の「文章の好み・舞台・補足設定集」から。</p></div>
       <div id="contextReuseNotice" class="context-notice" hidden>保存条件に記録された補足設定を使用中です。設定集の最新版を使う場合は切り替えてください。<button type="button" class="small-btn" id="contextUseCurrent">現在の設定集に戻す</button></div>
       <div class="gacha-top-actions"><button class="primary" id="rollAll">🎲 固定以外を全部ガチャ</button><span>結果を固定してから押すと、残りだけ引き直します。</span></div>
       <div class="result-grid" id="resultGrid"></div>
@@ -573,16 +573,17 @@
 </div>
 <div class="toast" id="toast">ガチャ対象に戻しました</div>
 
-<script src="app-data.js?v=42"></script>
-<script src="app-context.js?v=42"></script>
-<script src="app-domain.js?v=42"></script>
-<script src="app-prompts.js?v=42"></script>
-<script src="app-storage.js?v=42"></script>
-<script src="app-ui.js?v=42"></script>
+<script src="app-data.js?v=43"></script>
+<script src="app-context.js?v=43"></script>
+<script src="app-domain.js?v=43"></script>
+<script src="app-prompts.js?v=43"></script>
+<script src="app-storage.js?v=43"></script>
+<script src="app-ui.js?v=43"></script>
 <script src="character-data.generated.js?v=620fbc616578"></script>
-<script src="seed-data.js?v=42"></script>
-<script src="app-context-ui.js?v=42"></script>
-<script src="app.js?v=42"></script>
+<script src="seed-data.js?v=43"></script>
+<script src="stage-presets.js?v=43"></script>
+<script src="app-context-ui.js?v=43"></script>
+<script src="app.js?v=43"></script>
 
 
 </body></html>

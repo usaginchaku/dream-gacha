@@ -16,6 +16,25 @@ try{
  await page.goto(pathToFileURL(path.join(root,'index.html')).href);
  await page.waitForFunction(()=>document.querySelector('#basePrompt').value.includes('0.1.3.2'));
  const standard=await page.locator('#basePrompt').inputValue();
+ const initialEntryCount=await page.evaluate(()=>state.promptSettings.entries.length);
+ assert.equal(initialEntryCount,14);assert.equal(await page.locator('#contextStage').inputValue(),'');
+ const bundled=await page.evaluate(()=>structuredClone(state.promptSettings.entries));
+ for(const e of bundled){
+   await page.locator('#contextStage').selectOption(e.id);await page.locator('#buildPrompt').click();
+   assert.equal(await page.evaluate(()=>state.worldMode),e.worldMode);
+   const result=await page.locator('#output').inputValue();
+   assert.ok(result.includes(e.body));assert.equal((result.match(/【舞台設定：/g)||[]).length,1);
+   assert.equal(await page.evaluate(()=>state.promptDraftSnapshot.promptContext.selection.stageId),e.id);
+ }
+ await page.locator('#contextStage').selectOption('');
+ await page.locator('#gachaFilterDetails').evaluate(e=>e.open=true);await page.locator('[data-world-mode="canon"]').click();
+ await page.locator('#contextManager').evaluate(e=>e.open=true);
+ await page.locator(`[data-context-edit="${bundled[0].id}"]`).click();
+ await page.locator('#contextTitle').fill('編集した初期舞台');await page.locator('#contextBody').fill('自分の現パロ本文');await page.locator('#contextEnabled').uncheck();await page.locator('#contextEntrySave').click();
+ await page.reload();await page.waitForFunction(()=>document.querySelector('#basePrompt').value.includes('0.1.3.2'));
+ const preserved=await page.evaluate(id=>state.promptSettings.entries.find(e=>e.id===id),bundled[0].id);
+ assert.equal(preserved.title,'編集した初期舞台');assert.equal(preserved.body,'自分の現パロ本文');assert.equal(preserved.enabled,false);
+ assert.equal(await page.locator(`#contextStage option[value="${bundled[0].id}"]`).count(),0);
  const who=await page.evaluate(()=>{const c=state.characters.find(c=>c.work==='ジョジョの奇妙な冒険'&&c.series==='5部');state.characterId=c.id;updateCard('character');return c;});
  await page.locator('#contextManager > summary').click();
  await page.locator('#contextStyle').fill('「即答」を避ける。<img src=x onerror=alert(1)>');
@@ -62,7 +81,7 @@ try{
  await page.locator(`[data-context-apply="${conflict}"]`).uncheck();await page.locator('#buildPrompt').click();
  const frozen=await page.evaluate(()=>structuredClone(state.promptDraftSnapshot));
  await page.locator('#saveCurrentPreset').click();
- const savedPreset=await page.evaluate(()=>structuredClone(state.presets[0]));assert.equal(savedPreset.snapshot.promptContext.settings.entries.length,6);
+ const savedPreset=await page.evaluate(()=>structuredClone(state.presets[0]));assert.equal(savedPreset.snapshot.promptContext.settings.entries.length,initialEntryCount+6);
  await page.locator('#openNovelSave').click();await page.locator('#novelTitle').fill('新設定での保存');await page.locator('#novelBody').fill('本文😀\n段落。\n');await page.locator('#saveNovel').click();
  await page.waitForFunction(()=>document.querySelector('#novelCount').textContent==='1本');
  const savedNovel=(await page.evaluate(()=>novelAll()))[0];assert.deepEqual(savedNovel.snapshot.promptContext,frozen.promptContext);
@@ -113,7 +132,7 @@ try{
    if(process.argv[3]){await mkdir(process.argv[3],{recursive:true});await page.screenshot({path:path.join(process.argv[3],`context-${width}.png`)});}
  }
  assert.deepEqual(errors,[]);assert.deepEqual(requests,[]);
- console.log('PASS: stage/mode, scopes, manual and exclusion, protagonist replacement/conflict, references, output options, snapshots and reuse, reload, quota rollback, invalid/valid backup restore, legacy empty settings, XSS escaping, 390px/1280px and themes; no page errors or external requests');
+ console.log('PASS: all 14 bundled stages, edit/disable retention, stage/mode, scopes, manual and exclusion, protagonist replacement/conflict, references, output options, snapshots and reuse, reload, quota rollback, invalid/valid backup restore, legacy empty settings, XSS escaping, 390px/1280px and themes; no page errors or external requests');
 }finally{
  if(browser)await browser.close();
  const checked=path.resolve(profile);if(path.dirname(checked)!==path.resolve(tmpdir())||!path.basename(checked).startsWith('dream-gacha-context-qa-'))throw new Error('Unexpected QA cleanup path');

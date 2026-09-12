@@ -21,7 +21,7 @@ function makeApp(){
    indexedDB:{open(){throw new Error("IndexedDB mock must be replaced by test")}},CSS:{escape:x=>x},Blob:function(){},URL:{createObjectURL:()=>"blob:x",revokeObjectURL(){}},setTimeout:(fn)=>{fn();return 1},clearTimeout(){}};
  context.globalThis=context;
  vm.createContext(context);
- for(const file of ["app-data.js","app-context.js","app-domain.js","app-prompts.js","app-storage.js","app-ui.js","character-data.generated.js","seed-data.js","app-context-ui.js"])
+ for(const file of ["app-data.js","app-context.js","app-domain.js","app-prompts.js","app-storage.js","app-ui.js","character-data.generated.js","seed-data.js","stage-presets.js","app-context-ui.js"])
    vm.runInContext(fs.readFileSync(path.join(root,file),"utf8"),context,{filename:file});
  let app=fs.readFileSync(path.join(root,"app.js"),"utf8");
  app=app.replace(/\ninit\(\);\s*$/,"\n// init stripped for controlled integration tests\n");
@@ -55,10 +55,10 @@ async function main(){
  const appSource=fs.readFileSync(path.join(root,"app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,6),["app-data.js?v=42","app-context.js?v=42","app-domain.js?v=42","app-prompts.js?v=42","app-storage.js?v=42","app-ui.js?v=42"]);
+  assert.deepEqual(src.slice(0,6),["app-data.js?v=43","app-context.js?v=43","app-domain.js?v=43","app-prompts.js?v=43","app-storage.js?v=43","app-ui.js?v=43"]);
  assert.match(src[6],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(7),["seed-data.js?v=42","app-context-ui.js?v=42","app.js?v=42"]);
-  assert.ok(index.includes('href="styles.css?v=42"'));
+  assert.deepEqual(src.slice(7),["seed-data.js?v=43","stage-presets.js?v=43","app-context-ui.js?v=43","app.js?v=43"]);
+  assert.ok(index.includes('href="styles.css?v=43"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
@@ -143,11 +143,29 @@ async function main(){
  migration.local.set("dreamGachaSettings",JSON.stringify({version:38,characters:[historicalSnapshot.character],characterId:"old-id",values:{relationship:"旧条件"},pools:{},basePrompt:historicalSnapshot.prompt,promptDraftSnapshot:historicalSnapshot,presets:[historicalPreset]}));
  run(migration,"init();save()");
  const migratedSettings=JSON.parse(migration.local.get("dreamGachaSettings"));
- assert.equal(migratedSettings.version,42);
+ assert.equal(migratedSettings.version,43);
  assert.equal(migratedSettings.basePrompt,canonicalPrompt);
  assert.deepStrictEqual(migratedSettings.promptDraftSnapshot,historicalSnapshot);
  assert.deepStrictEqual(migratedSettings.presets,[historicalPreset]);
  assert.equal(migration.get("#output").value,historicalSnapshot.prompt);
+
+ // v43 adds stage choices to current settings, never to frozen generation records.
+ const stages=makeApp();
+ const oldContext=JSON.parse(run(stages,"JSON.stringify(DreamGachaContext.capture(DreamGachaContext.emptySettings(),DreamGachaContext.emptySelection(),DreamGachaContext.emptyOutput()))"));
+ const oldStageSnapshot={prompt:'以前の完成文',relationship:'知人',promptContext:oldContext};
+ const stageRaw={version:42,characters:[],pools:{},values:{relationship:'知人'},basePrompt:canonicalPrompt,basePromptLabel:'自分の標準文の名前',promptSettings:oldContext.settings,promptContextOverride:oldContext,promptDraftSnapshot:oldStageSnapshot,presets:[{id:'old-stage-preset',snapshot:oldStageSnapshot}]};
+ stages.local.set('dreamGachaSettings',JSON.stringify(stageRaw));
+ run(stages,"init();save()");
+ const stageSaved=JSON.parse(stages.local.get('dreamGachaSettings'));
+ assert.equal(stageSaved.version,43);
+ assert.equal(stageSaved.promptSettings.entries.length,14);
+ assert.equal(stageSaved.basePromptLabel,stageRaw.basePromptLabel);
+ assert.deepStrictEqual(stageSaved.promptContextOverride,oldContext);
+ assert.deepStrictEqual(stageSaved.promptDraftSnapshot,oldStageSnapshot);
+ assert.deepStrictEqual(stageSaved.presets,stageRaw.presets);
+ run(stages,"load();save()");
+ assert.equal(JSON.parse(stages.local.get('dreamGachaSettings')).promptSettings.entries.length,14);
+ assert.equal(run(stages,"prepareSettings({version:43,characters:[],pools:{},promptSettings:DreamGachaContext.emptySettings()}).promptSettings.entries.length"),0);
 
  // Every category exposes separate, unambiguous include and exclude actions.
  run(a,"chooserKey='relationship';state.pools.relationship=DEFAULT_POOLS.relationship;renderChooserCategoryChips()");

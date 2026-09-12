@@ -1,6 +1,6 @@
 (function(root){
   "use strict";
-  const D=root.DreamGachaData||{SETTINGS_KEY:"dreamGachaSettings",SETTINGS_VERSION:42,BACKUP_SCHEMA:"dream-gacha.full-backup",BACKUP_VERSION:3};
+  const D=root.DreamGachaData||{SETTINGS_KEY:"dreamGachaSettings",SETTINGS_VERSION:43,BACKUP_SCHEMA:"dream-gacha.full-backup",BACKUP_VERSION:3};
   const C=root.DreamGachaContext||(typeof require!=="undefined"?require("./app-context.js"):null);
   const clone=v=>v===undefined?undefined:JSON.parse(JSON.stringify(v));
   const P=root.DreamGachaPrompts||(typeof require!=="undefined"?require("./app-prompts.js"):null);
