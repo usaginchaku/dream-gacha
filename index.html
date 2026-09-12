@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <script>try{const s=JSON.parse(localStorage.getItem("dreamGachaSettings")||"null"),m=s?.themeMode||"system";document.documentElement.dataset.theme=m==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):m}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=41">
+<link rel="stylesheet" href="styles.css?v=42">
 </head>
 <body>
 <div class="wrap">
@@ -101,6 +101,8 @@
         </div>
       </details>
 
+      <div class="field context-stage-picker"><label for="contextStage">舞台設定 <span class="label">（任意）</span></label><select id="contextStage"><option value="">指定なし</option></select><p class="manager-note">独自の舞台は下の「文章の好み・舞台・補足設定集」で登録できます。選ぶと対応する世界観モードに切り替わります。</p></div>
+      <div id="contextReuseNotice" class="context-notice" hidden>保存条件に記録された補足設定を使用中です。設定集の最新版を使う場合は切り替えてください。<button type="button" class="small-btn" id="contextUseCurrent">現在の設定集に戻す</button></div>
       <div class="gacha-top-actions"><button class="primary" id="rollAll">🎲 固定以外を全部ガチャ</button><span>結果を固定してから押すと、残りだけ引き直します。</span></div>
       <div class="result-grid" id="resultGrid"></div>
       <div class="result-bulk-actions" aria-label="ガチャ結果の一括操作">
@@ -109,7 +111,16 @@
         <button type="button" class="small-btn" id="unlockAllResults">🔓 固定を全解除</button>
         <button type="button" class="small-btn category-reset-btn" id="resetAllCategoryRules">↺ カテゴリの選択・除外を全解除</button>
       </div>
-      <div class="field" style="margin-top:14px"><label for="freeExtra">自由な追加指定（任意）</label><textarea id="freeExtra" placeholder="例：夢主側からは告白しない／雨で髪が濡れている／長めに書いて"></textarea></div>
+      <div class="field" style="margin-top:14px"><label for="freeExtra">今回だけの追加指定（任意）</label><textarea id="freeExtra" placeholder="例：夢主側からは告白しない／雨で髪が濡れている"></textarea></div>
+      <details id="contextPreview" class="context-panel"><summary>今回適用する設定 <span id="contextAppliedCount" class="label"></span></summary>
+        <p class="manager-note">次の生成に使う内容です。変更後は「プロンプトを生成」を押してください。チェックを外すと今回だけ除外します。</p>
+        <div id="contextErrors" class="context-error" role="alert" hidden></div>
+        <div id="contextApplied"></div>
+        <details><summary>今回の分量・視点</summary><div class="context-grid">
+          <div class="field"><label for="contextOutputLength">希望文字数（空欄で指定なし）</label><input type="text" inputmode="numeric" id="contextOutputLength" placeholder="例：3000"></div>
+          <div class="field"><label for="contextOutputPov">視点</label><select id="contextOutputPov"><option value="">指定なし</option><option value="protagonist">夢主視点</option><option value="character">相手キャラ視点</option><option value="third">三人称・切替可</option></select></div>
+        </div><button type="button" class="small-btn" id="contextOutputSave">分量・視点を適用</button></details>
+      </details>
       <div class="main-actions single"><button class="secondary" id="buildPrompt">✨ プロンプトを生成</button></div>
       <div class="library-quick-actions">
         <button class="small-btn" id="saveCurrentPreset">💾 この条件を保存</button>
@@ -136,6 +147,45 @@
           <div class="field"><label for="workProtagonistProfile">この作品での立場・能力・生活拠点</label><textarea id="workProtagonistProfile" spellcheck="false"></textarea></div>
           <div class="settings-actions"><button type="button" class="small-btn" id="resetWorkProfile">この作品の設定を初期化</button></div>
         </section>
+        <details class="context-panel" id="contextManager"><summary>文章の好み・舞台・補足設定集</summary>
+          <p class="manager-note">共通の文章の好みと、条件に合う回だけ使う補足を分けて保存します。標準の固定プロンプトは変更しません。</p>
+          <div class="field"><label for="contextStyle">文章の好み（すべての生成に使用）</label><textarea id="contextStyle" placeholder="例：「即答」という表現を避け、文脈に合う言い回しを使う。"></textarea></div>
+          <button type="button" class="small-btn" id="contextStyleSave">文章の好みを保存</button>
+          <div class="context-grid">
+            <div class="field"><label for="contextFilterKind">種類で絞る</label><select id="contextFilterKind"><option value="">すべて</option><option value="stage">舞台設定</option><option value="supplement">補足設定</option><option value="protagonist">夢主の差分</option></select></div>
+            <div class="field"><label for="contextFilterWork">作品で絞る</label><select id="contextFilterWork"><option value="">すべての作品</option></select></div>
+          </div>
+          <div id="contextEntryList" class="context-entry-list"></div>
+          <button type="button" class="secondary" id="contextNew">＋ 舞台・補足・夢主の差分を追加</button>
+          <div id="contextEditor" hidden>
+            <div class="context-grid">
+              <div class="field"><label for="contextTitle">管理名</label><input type="text" id="contextTitle" placeholder="例：ジョジョ5部の地名表記"></div>
+              <div class="field"><label for="contextKind">種類</label><select id="contextKind"><option value="supplement">補足設定</option><option value="stage">舞台設定</option><option value="protagonist">夢主の差分</option></select></div>
+            </div>
+            <label><input type="checkbox" id="contextEnabled" checked> この設定を有効にする（外すと保存したまま停止）</label>
+            <div class="field" id="contextStageModeField" hidden><label for="contextStageMode">対応する世界観モード</label><select id="contextStageMode"><option value="modern">現代パロ</option><option value="canon">原作準拠</option><option value="school">学園パロ</option><option value="unrestricted">制限なし</option></select></div>
+            <div class="field" id="contextActivationField"><label for="contextActivation">適用方法</label><select id="contextActivation"><option value="auto">条件に合う回に自動適用</option><option value="manual">条件に合う回で、自分が選んだときだけ</option></select></div>
+            <div class="field" id="contextProtagonistModeField" hidden><label for="contextProtagonistMode">夢主設定への反映</label><select id="contextProtagonistMode"><option value="append">共通・作品別設定に追加</option><option value="replace">共通・作品別設定を置き換える</option></select></div>
+            <details class="context-scope"><summary>適用する作品・キャラ・世界観を限定</summary>
+              <p class="manager-note">選択なしの項目は限定しません。異なる項目はすべて満たす場合に適用し、同じ項目の複数選択はいずれかで一致します。パソコンでは Ctrl / ⌘ を押しながら複数選べます。</p>
+              <div class="context-grid">
+                <div class="field"><label for="contextScope-works">作品</label><select id="contextScope-works" multiple size="4"></select><button type="button" class="small-btn" data-context-clear="works">限定を解除</button></div>
+                <div class="field"><label for="contextScope-series">部・シリーズ（必要なら作品も指定）</label><select id="contextScope-series" multiple size="4"></select><button type="button" class="small-btn" data-context-clear="series">限定を解除</button></div>
+                <div class="field"><label for="contextScope-characterIds">キャラ</label><select id="contextScope-characterIds" multiple size="4"></select><button type="button" class="small-btn" data-context-clear="characterIds">限定を解除</button></div>
+                <div class="field" id="contextScopeModesField"><label for="contextScope-worldModes">世界観モード</label><select id="contextScope-worldModes" multiple size="4"></select><button type="button" class="small-btn" data-context-clear="worldModes">限定を解除</button></div>
+                <div class="field" id="contextScopeStagesField"><label for="contextScope-stageIds">舞台設定</label><select id="contextScope-stageIds" multiple size="4"></select><button type="button" class="small-btn" data-context-clear="stageIds">限定を解除</button></div>
+              </div>
+            </details>
+            <div class="field"><label for="contextBody">プロンプトに加える本文</label><textarea id="contextBody" placeholder="この条件で守ってほしい設定や描写を書いてください。"></textarea></div>
+            <details><summary>参考資料（任意）</summary><p class="manager-note">外部のファイルは自動取得しません。名前と版だけの場合は参照指定を、抜粋も記入した場合はその本文をプロンプトに含めます。</p>
+              <div class="field"><label for="contextReference-name">資料名・参照先</label><input type="text" id="contextReference-name"></div>
+              <div class="field"><label for="contextReference-version">資料の版・更新日</label><input type="text" id="contextReference-version"></div>
+              <div class="field"><label for="contextReference-excerpt">今回渡す資料の抜粋</label><textarea id="contextReference-excerpt"></textarea></div>
+            </details>
+            <div class="settings-actions"><button type="button" class="secondary" id="contextEntrySave">この設定を保存</button><button type="button" class="small-btn" id="contextCancel">編集を閉じる</button></div>
+          </div>
+          <p id="contextEditorStatus" class="manager-note" role="status" aria-live="polite"></p>
+        </details>
         <div class="field" style="margin-top:14px"><label for="basePrompt">夢小説用の固定プロンプト</label><textarea id="basePrompt" spellcheck="false"></textarea></div>
         <div class="field"><label for="basePromptLabel">自分の版名（任意）</label><input id="basePromptLabel" type="text" placeholder="例：0132・視点の指示を調整"></div>
         <p class="manager-note" id="basePromptStatus" role="status"></p>
@@ -523,14 +573,16 @@
 </div>
 <div class="toast" id="toast">ガチャ対象に戻しました</div>
 
-<script src="app-data.js?v=41"></script>
-<script src="app-domain.js?v=41"></script>
-<script src="app-prompts.js?v=41"></script>
-<script src="app-storage.js?v=41"></script>
-<script src="app-ui.js?v=41"></script>
+<script src="app-data.js?v=42"></script>
+<script src="app-context.js?v=42"></script>
+<script src="app-domain.js?v=42"></script>
+<script src="app-prompts.js?v=42"></script>
+<script src="app-storage.js?v=42"></script>
+<script src="app-ui.js?v=42"></script>
 <script src="character-data.generated.js?v=620fbc616578"></script>
-<script src="seed-data.js?v=41"></script>
-<script src="app.js?v=41"></script>
+<script src="seed-data.js?v=42"></script>
+<script src="app-context-ui.js?v=42"></script>
+<script src="app.js?v=42"></script>
 
 
 </body></html>

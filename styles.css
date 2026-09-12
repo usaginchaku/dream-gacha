@@ -545,3 +545,26 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
 .prompt-version-details{margin-top:10px}
 .prompt-version-details select{width:100%;margin:8px 0}
 #novelSavePrompt{min-height:160px}
+
+/* Scoped prompt settings share the existing light/dark surfaces. */
+.context-panel{border:1px solid var(--line);border-radius:14px;background:var(--panel2);padding:14px;margin:16px 0}
+.context-panel summary{cursor:pointer;font-weight:800;overflow-wrap:anywhere}
+.context-panel details{margin:10px 0}
+.context-panel pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:.86rem;margin:10px 0}
+.context-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}
+.context-grid .field{min-width:0}
+.context-grid select[multiple]{height:132px;max-width:100%;font-size:.8rem}
+.context-grid .small-btn{margin-top:6px}
+.context-stage-picker{margin:0 0 14px}
+.context-entry-list{display:grid;gap:8px;margin:12px 0}
+.context-entry-button{display:flex;flex-direction:column;align-items:flex-start;text-align:left;white-space:normal;overflow-wrap:anywhere;width:100%}
+.context-entry-button span{font-size:.76rem;color:var(--muted)}
+.context-applied-row{padding:12px 0;border-top:1px solid var(--line)}
+.context-applied-row>label{display:block;font-weight:700;overflow-wrap:anywhere}
+.context-notice{border:1px solid var(--line);background:var(--surface-warm);padding:12px;border-radius:12px;margin-bottom:12px}
+.context-notice .small-btn{margin:8px 0 0;display:block}
+.context-error{color:var(--danger);background:var(--surface-danger);border:1px solid var(--danger);padding:12px;border-radius:10px;white-space:pre-wrap}
+#contextEditor{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+#contextEditor .field{margin-top:12px}
+.context-panel [hidden],.context-notice[hidden]{display:none!important}
+@media(max-width:600px){.context-grid{grid-template-columns:1fr}.context-panel{padding:12px}.context-panel .settings-actions{flex-wrap:wrap}}

@@ -12,6 +12,7 @@
     parts.push("","【関係性】",text(input.relationship),"","【シチュ】",text(input.situation),"","【雰囲気】",text(input.mood),"","【追加条件】",text(input.extra));
     if(input.protagonistProfile)parts.push("","【夢主設定】",text(input.protagonistProfile));
     if(input.workProtagonistProfile)parts.push("",`【作品別の夢主設定${c?.work?`：${c.work}`:""}】`,text(input.workProtagonistProfile));
+    for(const section of input.contextSections||[])if(section.text)parts.push("",`【${section.title}】`,text(section.text));
     if(free)parts.push("","【自由な追加指定】",free);
     return parts.join("\n").trim()+"\n";
   }
@@ -19,7 +20,7 @@
     const c=input.character;
     return {character:c?{id:text(c.id),name:text(c.name),work:text(c.work),series:text(c.series),tags:Array.isArray(c.tags)?[...c.tags]:[],heightText:text(c.heightText),heightCm:Number.isFinite(c.heightCm)?c.heightCm:null}:null,
       relationship:text(input.relationship),situation:text(input.situation),mood:text(input.mood),extra:text(input.extra),freeExtra:text(input.freeExtra),
-      protagonistProfile:text(input.protagonistProfile),workProtagonistProfile:text(input.workProtagonistProfile),worldMode:text(input.worldMode),prompt:text(input.prompt),...(input.promptRecord?{promptRecord:clone(input.promptRecord)}:{}),savedAt:now||new Date().toISOString()};
+      protagonistProfile:text(input.protagonistProfile),workProtagonistProfile:text(input.workProtagonistProfile),worldMode:text(input.worldMode),prompt:text(input.prompt),...(input.promptRecord?{promptRecord:clone(input.promptRecord)}:{}),...(input.promptContext?{promptContext:clone(input.promptContext)}:{}),savedAt:now||new Date().toISOString()};
   }
   function resolveSnapshot(snapshot,characters,defaultProfile){
     const s=snapshot&&typeof snapshot==="object"?snapshot:{};

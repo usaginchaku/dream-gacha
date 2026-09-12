@@ -1,4 +1,5 @@
 const state={
+ ...DreamGachaContext.fields({}),
  characters:[], pools:structuredClone(DEFAULT_POOLS), values:{}, characterId:null,
  locks:{character:false,relationship:false,situation:false,mood:false,extra:false},
  basePrompt:DEFAULT_BASE_PROMPT, basePromptLabel:"",basePromptReference:null,promptVersions:[], deletedSeedIds:new Set(), selectedIds:new Set(), editingCharacterId:null, inlineEditingId:null,
@@ -148,6 +149,7 @@ function normalize(c){
 
 function applySettingsState(saved,overrides={}){
  const source={...saved,...overrides};
+ Object.assign(state,DreamGachaContext.fields(source));
  state.characters=source.characters||[];state.pools=source.pools||structuredClone(DEFAULT_POOLS);
  state.basePrompt=Object.prototype.hasOwnProperty.call(source,"basePrompt")?String(source.basePrompt):DEFAULT_BASE_PROMPT;
  state.basePromptLabel=String(source.basePromptLabel||"");state.basePromptReference=source.basePromptReference?DreamGachaDomain.clone(source.basePromptReference):null;state.promptVersions=DreamGachaDomain.clone(source.promptVersions||[]);
@@ -331,7 +333,7 @@ function snapshotCurrentConditions(){
  const prompt=$("#output").value;
  const protagonistField=$("#protagonistProfile");
  return DreamGachaDomain.makeSnapshot({character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,
-   freeExtra:$("#freeExtra").value,protagonistProfile:protagonistField?protagonistField.value:(state.protagonistProfile||DEFAULT_PROTAGONIST_PROFILE),workProtagonistProfile:workProtagonistProfileFor(c?.work),worldMode:state.worldMode,prompt,promptRecord:prompt===state.promptDraftSnapshot?.prompt?state.promptDraftSnapshot.promptRecord:null});
+   freeExtra:$("#freeExtra").value,protagonistProfile:protagonistField?protagonistField.value:(state.protagonistProfile||DEFAULT_PROTAGONIST_PROFILE),workProtagonistProfile:workProtagonistProfileFor(c?.work),worldMode:state.worldMode,prompt,promptContext:DreamGachaContextUI.capture(),promptRecord:prompt===state.promptDraftSnapshot?.prompt?state.promptDraftSnapshot.promptRecord:null});
 }
 function snapshotAutoTitle(s){return `${s?.character?.name||"キャラ未指定"}｜${s?.situation||"シチュ未指定"}`}
 function novelDisplayTitle(n){
@@ -350,6 +352,10 @@ function saveCurrentConditionsPreset(){
 }
 function applySnapshot(snap){
  if(!snap)return;
+ if(snap.promptContext)DreamGachaContext.validateSnapshot(snap.promptContext);
+ state.promptContextOverride=snap.promptContext?DreamGachaDomain.clone(snap.promptContext):DreamGachaContext.capture(DreamGachaContext.emptySettings(),DreamGachaContext.emptySelection(),DreamGachaContext.emptyOutput());
+ state.promptSelection=DreamGachaDomain.clone(state.promptContextOverride.selection);state.promptOutput=DreamGachaDomain.clone(state.promptContextOverride.output);
+ DreamGachaContextUI.resetOutputDraft();
  const resolved=DreamGachaDomain.resolveSnapshot(snap,state.characters,DEFAULT_PROTAGONIST_PROFILE);
  state.characterId=resolved.characterId;
  for(const k of DreamGachaData.SNAPSHOT_KEYS)state.values[k]=resolved[k];
@@ -361,7 +367,7 @@ function applySnapshot(snap){
  }
   $("#freeExtra").value=resolved.freeExtra;state.protagonistProfile=resolved.protagonistProfile;$("#protagonistProfile").value=resolved.protagonistProfile;$("#output").value=resolved.prompt;state.promptDraftSnapshot=DreamGachaDomain.clone(snap);
  for(const k of ["character","relationship","situation","mood","extra"])updateCard(k);
- renderWorldModeControls();renderWorkProfileEditor(character?.work);save();renderGachaFilters();switchScreen("gacha");showToast(resolved.missingCharacter?"保存キャラが利用できないため、キャラ未選択で適用しました":"保存条件をガチャへ適用しました");
+ renderWorldModeControls();renderWorkProfileEditor(character?.work);DreamGachaContextUI.render();save();renderGachaFilters();switchScreen("gacha");showToast(resolved.missingCharacter?"保存キャラが利用できないため、キャラ未選択で適用しました":"保存条件をガチャへ適用しました");
 }
 function rerollSnapshotScenario(snap){
  if(!snap)return;
@@ -818,6 +824,7 @@ function situationWorldLabel(value){
  return situationWorldTags(value).map(tag=>labels[tag]||tag).join(" / ");
 }
 function renderWorldModeControls(){
+ DreamGachaContextUI.renderPreview();
  const mode=WORLD_MODES[state.worldMode]||WORLD_MODES[DEFAULT_WORLD_MODE];
  document.querySelectorAll("[data-world-mode]").forEach(button=>{
   const active=button.dataset.worldMode===state.worldMode;
@@ -840,6 +847,7 @@ function renderSuggestions(){
  $("#seriesSuggestions").innerHTML=unique(state.characters.map(c=>c.series)).map(x=>`<option value="${esc(x)}"></option>`).join("");
 }
 function updateCard(k){
+ DreamGachaContextUI.renderPreview();
  const el=document.querySelector(`[data-value="${k}"]`);if(!el)return;
  if(k==="character"){
    const c=currentCharacter();if(!c){el.textContent="—";updateCurrentFavoriteButton();return}
@@ -882,7 +890,7 @@ function renderWorkProfileEditor(preferredWork){
 function syncScenario(){
  syncWorkProfileEditor();
  for(const k of Object.keys(DEFAULT_POOLS)){const e=$(`#pool-${k}`);if(e)state.pools[k]=parseLines(e.value)}
- state.basePrompt=$("#basePrompt").value.trim()||DEFAULT_BASE_PROMPT;state.protagonistProfile=$("#protagonistProfile").value.trim()||DEFAULT_PROTAGONIST_PROFILE;
+ state.basePrompt=$("#basePrompt").value.trim()||DEFAULT_BASE_PROMPT;state.protagonistProfile=$("#protagonistProfile").value.trim();
  state.basePromptLabel=$("#basePromptLabel").value.trim();
  renderWorldModeControls();
 }
@@ -904,13 +912,16 @@ function buildPrompt(scroll=true){
  for(const k of ["relationship","situation","mood","extra"])if(!state.values[k])rollOne(k,false);
  const c=currentCharacter();
  const world=WORLD_MODES[state.worldMode]||WORLD_MODES[DEFAULT_WORLD_MODE];
-  const prompt=DreamGachaDomain.formatPrompt({basePrompt:state.basePrompt,character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,protagonistProfile:state.protagonistProfile,workProtagonistProfile:workProtagonistProfileFor(c?.work),worldModeLabel:world.label,worldModePrompt:world.prompt,freeExtra:$("#freeExtra").value});
+  const resolved=DreamGachaContextUI.resolve();
+  if(resolved.errors.length){DreamGachaContextUI.renderPreview();showToast("適用する設定を確認してください");return false;}
+  const promptContext=DreamGachaContextUI.capture();
+  const prompt=DreamGachaDomain.formatPrompt({basePrompt:state.basePrompt,character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,protagonistProfile:resolved.protagonist,workProtagonistProfile:resolved.workProtagonist,contextSections:resolved.sections,worldModeLabel:world.label,worldModePrompt:world.prompt,freeExtra:$("#freeExtra").value});
   const promptRecord={revision:rememberPromptRevision(),assembledPrompt:prompt};
-  state.promptDraftSnapshot=DreamGachaDomain.makeSnapshot({character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,freeExtra:$("#freeExtra").value,protagonistProfile:state.protagonistProfile,workProtagonistProfile:workProtagonistProfileFor(c?.work),worldMode:state.worldMode,prompt,promptRecord});$("#output").value=prompt;save();renderPromptVersionEditor();
+  state.promptDraftSnapshot=DreamGachaDomain.makeSnapshot({character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,freeExtra:$("#freeExtra").value,protagonistProfile:state.protagonistProfile,workProtagonistProfile:workProtagonistProfileFor(c?.work),worldMode:state.worldMode,prompt,promptRecord,promptContext});$("#output").value=prompt;save();renderPromptVersionEditor();
  if(scroll)$("#output").scrollIntoView({behavior:"smooth",block:"center"});
 }
 async function copyPrompt(){
- if(!$("#output").value.trim())buildPrompt(false);
+ if(!$("#output").value.trim()&&buildPrompt(false)===false)return;
  try{await navigator.clipboard.writeText($("#output").value)}catch(e){$("#output").select();document.execCommand("copy")}
  showToast("コピーしました");setStatus("ChatGPTにそのまま貼り付けられます");
 }
@@ -922,11 +933,12 @@ function reloadApp(){
  try{save();window.location.reload()}catch(error){}
 }
 function renderPoolEditors(){
+ DreamGachaContextUI.render();
  const names={relationship:"関係性候補",situation:"シチュ候補",mood:"雰囲気候補",extra:"追加条件候補"};
  $("#poolGrid").innerHTML=Object.keys(names).map(k=>`<div class="field"><label for="pool-${k}">${names[k]} <span class="label">（${state.pools[k].length}件）</span></label><textarea id="pool-${k}" spellcheck="false">${esc(state.pools[k].join("\n"))}</textarea></div>`).join("");
  $("#basePrompt").value=state.basePrompt;
  $("#basePromptLabel").value=state.basePromptLabel;renderPromptVersionEditor();
- $("#protagonistProfile").value=state.protagonistProfile||DEFAULT_PROTAGONIST_PROFILE;
+ $("#protagonistProfile").value=state.protagonistProfile;
  renderWorkProfileEditor(currentCharacter()?.work);renderWorldModeControls();
 }
 
@@ -1309,7 +1321,7 @@ async function restoreFullBackup(data){
    writeNovels:async value=>{phase="IndexedDBの復元";try{return await replaceAllNovels(value)}catch(error){throw new Error(`夢小説アーカイブの書き込み：${error.message}`)}}
   },{settings:nextSettings,novels:nextNovels});
   phase="復元後の画面更新";
-  applySettingsState(b);applyTheme();state.selectedIds.clear();state.inlineEditingId=null;
+  applySettingsState(b);DreamGachaContextUI.resetDrafts();applyTheme();state.selectedIds.clear();state.inlineEditingId=null;
   novelCache=structuredClone(nextNovels).sort((a,b)=>String(b.createdAt||"").localeCompare(String(a.createdAt||"")));
   renderPoolEditors();renderGachaFilters();renderManager();renderPresetList();renderNovelList();
   for(const k of ["character","relationship","situation","mood","extra"]){updateCard(k);updateCategoryStatus(k);const i=document.querySelector(`[data-lock="${k}"]`);if(i)i.checked=!!state.locks[k];updateLock(k)}
@@ -1327,7 +1339,9 @@ async function handleFullBackupFile(file){
 }
 
 function resetScenario(){
- if(!confirm("シチュ・雰囲気・追加条件・世界観・夢主設定・固定プロンプトを初期状態に戻しますか？\nキャラ一覧は変更しません。"))return;
+ if(!confirm("シチュ・雰囲気・追加条件・世界観・夢主設定・固定プロンプトを初期状態に戻しますか？\nキャラ一覧と、登録した文章の好み・舞台・補足設定集は残します。舞台の選択・今回の除外・分量・視点は解除します。"))return;
+ state.promptSelection=DreamGachaContext.emptySelection();state.promptOutput=DreamGachaContext.emptyOutput();state.promptContextOverride=null;
+ DreamGachaContextUI.resetOutputDraft();
  state.pools=structuredClone(DEFAULT_POOLS);state.basePrompt=DEFAULT_BASE_PROMPT;state.basePromptLabel="";state.basePromptReference=null;state.protagonistProfile=DEFAULT_PROTAGONIST_PROFILE;state.workProtagonistProfiles={};state.worldMode=DEFAULT_WORLD_MODE;
  for(const k of ["relationship","situation","mood","extra"]){state.categoryInclude[k]=null;state.categoryExcluded[k].clear();updateCategoryStatus(k)}
  renderPoolEditors();save();showToast("シチュ設定を初期化しました");
@@ -1349,7 +1363,7 @@ function init(){
  const compactResults=window.matchMedia?.("(max-width: 780px)");compactResults?.addEventListener?.("change",e=>document.querySelectorAll(".result-detail").forEach(detail=>detail.open=!e.matches));
  const colorScheme=window.matchMedia?.("(prefers-color-scheme: dark)");colorScheme?.addEventListener?.("change",()=>{if(state.themeMode==="system")applyTheme()});
 
- load();applyTheme();renderResultCards();renderPoolEditors();renderGachaFilters();renderAddTagPicker();renderCharacterImportGuide();renderLibrary();
+ load();applyTheme();DreamGachaContextUI.init();renderResultCards();renderPoolEditors();renderGachaFilters();renderAddTagPicker();renderCharacterImportGuide();renderLibrary();
   $("#choiceClose").addEventListener("click",closeChooser);
   $("#choiceSearch").addEventListener("input",renderChooserList);
   $("#choiceCategoryClear").addEventListener("click",()=>{if(chooserKey)clearCategoryRules(chooserKey)});

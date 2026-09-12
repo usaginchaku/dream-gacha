@@ -21,7 +21,7 @@ function makeApp(){
    indexedDB:{open(){throw new Error("IndexedDB mock must be replaced by test")}},CSS:{escape:x=>x},Blob:function(){},URL:{createObjectURL:()=>"blob:x",revokeObjectURL(){}},setTimeout:(fn)=>{fn();return 1},clearTimeout(){}};
  context.globalThis=context;
  vm.createContext(context);
- for(const file of ["app-data.js","app-domain.js","app-prompts.js","app-storage.js","app-ui.js","character-data.generated.js","seed-data.js"])
+ for(const file of ["app-data.js","app-context.js","app-domain.js","app-prompts.js","app-storage.js","app-ui.js","character-data.generated.js","seed-data.js","app-context-ui.js"])
    vm.runInContext(fs.readFileSync(path.join(root,file),"utf8"),context,{filename:file});
  let app=fs.readFileSync(path.join(root,"app.js"),"utf8");
  app=app.replace(/\ninit\(\);\s*$/,"\n// init stripped for controlled integration tests\n");
@@ -55,10 +55,10 @@ async function main(){
  const appSource=fs.readFileSync(path.join(root,"app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,5),["app-data.js?v=41","app-domain.js?v=41","app-prompts.js?v=41","app-storage.js?v=41","app-ui.js?v=41"]);
- assert.match(src[5],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(6),["seed-data.js?v=41","app.js?v=41"]);
-  assert.ok(index.includes('href="styles.css?v=41"'));
+  assert.deepEqual(src.slice(0,6),["app-data.js?v=42","app-context.js?v=42","app-domain.js?v=42","app-prompts.js?v=42","app-storage.js?v=42","app-ui.js?v=42"]);
+ assert.match(src[6],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
+  assert.deepEqual(src.slice(7),["seed-data.js?v=42","app-context-ui.js?v=42","app.js?v=42"]);
+  assert.ok(index.includes('href="styles.css?v=42"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
@@ -143,7 +143,7 @@ async function main(){
  migration.local.set("dreamGachaSettings",JSON.stringify({version:38,characters:[historicalSnapshot.character],characterId:"old-id",values:{relationship:"旧条件"},pools:{},basePrompt:historicalSnapshot.prompt,promptDraftSnapshot:historicalSnapshot,presets:[historicalPreset]}));
  run(migration,"init();save()");
  const migratedSettings=JSON.parse(migration.local.get("dreamGachaSettings"));
- assert.equal(migratedSettings.version,41);
+ assert.equal(migratedSettings.version,42);
  assert.equal(migratedSettings.basePrompt,canonicalPrompt);
  assert.deepStrictEqual(migratedSettings.promptDraftSnapshot,historicalSnapshot);
  assert.deepStrictEqual(migratedSettings.presets,[historicalPreset]);
