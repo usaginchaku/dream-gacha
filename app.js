@@ -526,12 +526,14 @@ function openNovelView(n){
   $("#novelViewConditions").innerHTML=items.map(([k,v])=>`<div class="novel-detail-item"><b>${esc(k)}</b>${esc(v)}</div>`).join("");$("#novelViewPrompt").value=novelPromptSnapshot(n)||"（未記録）";
   renderPromptRecord("#novelViewPromptInfo",{...s,prompt:novelPromptSnapshot(n)});
   $("#novelModal").hidden=false;document.body.style.overflow="hidden";
+  $("#novelDialogContent").scrollTop=0;
 }
 function hasNovelEditChanges(){return !!novelEditOriginal&&["title","body","memo"].some(k=>$("#novelEdit"+({title:"Title",body:"Body",memo:"Memo"}[k])).value!==novelEditOriginal[k])}
 function updateNovelViewActions(n){$("#favoriteNovelFromView").textContent=n?.favorite?"★ お気に入り解除":"☆ お気に入り"}
 function closeNovelView(discard=false){if(!discard&&hasNovelEditChanges()&&!confirm("保存していない変更を破棄しますか？"))return false;viewingNovelId=null;novelEditOriginal=null;$("#novelModal").hidden=true;document.body.style.overflow="";return true}
 function startNovelEdit(){
  const n=novelCache.find(item=>item.id===viewingNovelId);if(!n)return;
+ $("#novelDialogContent").scrollTop=0;
  novelEditOriginal={title:n.title||"",body:n.body||"",memo:n.memo||""};$("#novelEditTitle").value=novelEditOriginal.title;$("#novelEditBody").value=novelEditOriginal.body;$("#novelEditMemo").value=novelEditOriginal.memo;$("#novelEditCount").textContent=fmtChars(novelCharCount(n.body));$("#novelViewRead").hidden=true;$("#novelViewActions").hidden=true;$("#novelEditPanel").hidden=false;$("#startNovelEdit").hidden=true;
 }
 function cancelNovelEdit(){if(hasNovelEditChanges()&&!confirm("保存していない変更を破棄しますか？"))return;const n=novelCache.find(item=>item.id===viewingNovelId);if(n)openNovelView(n)}

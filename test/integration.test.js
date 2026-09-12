@@ -57,8 +57,8 @@ async function main(){
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
   assert.deepEqual(src.slice(0,6),["app-data.js?v=44","app-context.js?v=44","app-domain.js?v=44","app-prompts.js?v=44","app-storage.js?v=44","app-ui.js?v=44"]);
  assert.match(src[6],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(7),["seed-data.js?v=44","stage-presets.js?v=44","app-context-ui.js?v=44","app.js?v=44"]);
-  assert.ok(index.includes('href="styles.css?v=44"'));
+  assert.deepEqual(src.slice(7),["seed-data.js?v=44","stage-presets.js?v=44","app-context-ui.js?v=44","app.js?v=45"]);
+  assert.ok(index.includes('href="styles.css?v=45"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);

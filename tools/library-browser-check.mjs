@@ -82,9 +82,38 @@ try {
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   await page.locator('[data-open-novel]').click();
   assert.ok(await page.evaluate(() => document.querySelector('.novel-dialog').getBoundingClientRect().width <= innerWidth));
+  // A long reader plus both disclosures must scroll as one area on small screens.
+  await page.evaluate(() => {
+    const sample={...novelCache[0],body:'長い本文。\n'.repeat(300),promptSnapshot:'長いプロンプト。\n'.repeat(300)};
+    openNovelView(sample);
+    document.querySelectorAll('.novel-view-details').forEach(el=>el.open=true);
+  });
+  for(const viewport of [{width:375,height:667},{width:390,height:844},{width:1280,height:900}]){
+    await page.setViewportSize(viewport);
+    const scroll=page.locator('#novelDialogContent');
+    await scroll.evaluate(el=>el.scrollTop=0);
+    const bounds=await scroll.boundingBox();
+    await page.mouse.move(bounds.x+bounds.width-10,bounds.y+bounds.height/2);
+    await page.mouse.wheel(0,500);
+    await page.waitForFunction(()=>document.querySelector('#novelDialogContent').scrollTop>0);
+    await scroll.evaluate(el=>el.scrollTop=el.scrollHeight);
+    assert.ok(await page.locator('#novelViewPrompt').evaluate(el=>{
+      const field=el.getBoundingClientRect(),area=document.querySelector('#novelDialogContent').getBoundingClientRect();
+      return field.top>=area.top&&field.bottom<=area.bottom+1;
+    }), 'the complete prompt field must be reachable below all conditions');
+    assert.ok(await page.locator('#novelViewClose').isVisible());
+    await page.locator('#novelViewPrompt').evaluate(el=>el.scrollTop=el.scrollHeight);
+    assert.ok(await page.locator('#novelViewPrompt').evaluate(el=>el.scrollTop>0),'long prompt text scrolls independently');
+  }
+  await page.setViewportSize({width:375,height:667});
+  await page.locator('#startNovelEdit').click();
+  await page.locator('#novelEditTitle').fill('スクロール検証後のタイトル');
+  await page.locator('#saveNovelEdit').click();
+  await page.waitForFunction(()=>document.querySelector('#novelViewTitle').textContent==='スクロール検証後のタイトル');
+  assert.equal(await page.locator('#novelDialogContent').evaluate(el=>el.scrollTop),0);
   if (process.argv[3]) await page.screenshot({ path: process.argv[3] });
   assert.deepEqual(errors, []); assert.deepEqual(requests, []);
-  console.log('PASS: production app paste, frozen prompt/version, title edit, TXT/JSON downloads, reload, history reuse, backup, 390px layout; no page errors or external requests');
+  console.log('PASS: library persistence/export; 375/390/1280px reader, conditions, prompt and edit scrolling; no page errors or external requests');
 } finally {
   if (browser) await browser.close();
   const checked = path.resolve(profile);

@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <script>try{const s=JSON.parse(localStorage.getItem("dreamGachaSettings")||"null"),m=s?.themeMode||"system";document.documentElement.dataset.theme=m==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):m}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=44">
+<link rel="stylesheet" href="styles.css?v=45">
 </head>
 <body>
 <div class="wrap">
@@ -532,6 +532,7 @@
       <div><div class="choice-title" id="novelViewTitle">夢小説</div><div class="novel-view-meta" id="novelViewMeta"></div></div>
       <div class="novel-dialog-actions"><button type="button" class="small-btn" id="startNovelEdit">編集</button><button type="button" class="choice-close" id="novelViewClose" aria-label="閉じる">×</button></div>
     </div>
+    <div class="novel-dialog-content" id="novelDialogContent">
     <div id="novelViewRead"><div class="novel-view-body" id="novelViewBody"></div></div>
     <div class="novel-view-actions" id="novelViewActions"><button type="button" class="small-btn" id="copyNovelFromView">コピー</button><button type="button" class="small-btn" id="exportNovelFromView">TXTを書き出す</button><button type="button" class="small-btn" id="favoriteNovelFromView">☆ お気に入り</button></div>
     <details class="novel-view-details"><summary>アノテーション用に書き出す</summary>
@@ -552,6 +553,7 @@
       <div id="novelViewPromptInfo"></div>
       <textarea id="novelViewPrompt" readonly></textarea>
     </details>
+    </div>
   </div>
 </div>
 <div class="choice-modal" id="choiceModal" hidden="">
@@ -583,7 +585,7 @@
 <script src="seed-data.js?v=44"></script>
 <script src="stage-presets.js?v=44"></script>
 <script src="app-context-ui.js?v=44"></script>
-<script src="app.js?v=44"></script>
+<script src="app.js?v=45"></script>
 
 
 </body></html>
