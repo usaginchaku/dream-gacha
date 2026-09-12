@@ -16,7 +16,7 @@ try {
   page.on('request', r => { if (/^https?:/.test(r.url())) requests.push(r.url()); });
   page.on('dialog', dialog => dialog.accept());
   await page.goto(pathToFileURL(path.join(root, 'index.html')).href);
-  await page.waitForFunction(() => document.querySelector('#basePrompt').value.includes('0.1.3.2'));
+  await page.waitForFunction(() => document.querySelector('#basePrompt').value.includes('0.1.3.3'));
   const standard = await page.locator('#basePrompt').inputValue();
   await page.locator('#basePrompt').fill(standard + '\n試験用の追加指示 <b>テキストとして表示</b>');
   await page.locator('#basePromptLabel').fill('試験版 A');
