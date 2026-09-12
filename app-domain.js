@@ -19,7 +19,7 @@
     const c=input.character;
     return {character:c?{id:text(c.id),name:text(c.name),work:text(c.work),series:text(c.series),tags:Array.isArray(c.tags)?[...c.tags]:[],heightText:text(c.heightText),heightCm:Number.isFinite(c.heightCm)?c.heightCm:null}:null,
       relationship:text(input.relationship),situation:text(input.situation),mood:text(input.mood),extra:text(input.extra),freeExtra:text(input.freeExtra),
-      protagonistProfile:text(input.protagonistProfile),workProtagonistProfile:text(input.workProtagonistProfile),worldMode:text(input.worldMode),prompt:text(input.prompt),savedAt:now||new Date().toISOString()};
+      protagonistProfile:text(input.protagonistProfile),workProtagonistProfile:text(input.workProtagonistProfile),worldMode:text(input.worldMode),prompt:text(input.prompt),...(input.promptRecord?{promptRecord:clone(input.promptRecord)}:{}),savedAt:now||new Date().toISOString()};
   }
   function resolveSnapshot(snapshot,characters,defaultProfile){
     const s=snapshot&&typeof snapshot==="object"?snapshot:{};

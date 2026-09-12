@@ -1,7 +1,7 @@
 const state={
  characters:[], pools:structuredClone(DEFAULT_POOLS), values:{}, characterId:null,
  locks:{character:false,relationship:false,situation:false,mood:false,extra:false},
- basePrompt:DEFAULT_BASE_PROMPT, deletedSeedIds:new Set(), selectedIds:new Set(), editingCharacterId:null, inlineEditingId:null,
+ basePrompt:DEFAULT_BASE_PROMPT, basePromptLabel:"",basePromptReference:null,promptVersions:[], deletedSeedIds:new Set(), selectedIds:new Set(), editingCharacterId:null, inlineEditingId:null,
  filters:{search:"",workIncluded:new Set(),workExcluded:new Set(),seriesIncluded:new Set(),seriesExcluded:new Set(),tags:new Set(),tagMode:"all",favorite:"all",minHeight:null,maxHeight:null,characterIncluded:new Set(),characterExcluded:new Set()},
  filterEditMode:{work:"include",series:"include"},
  manage:{status:"all",sort:"work"},
@@ -150,6 +150,7 @@ function applySettingsState(saved,overrides={}){
  const source={...saved,...overrides};
  state.characters=source.characters||[];state.pools=source.pools||structuredClone(DEFAULT_POOLS);
  state.basePrompt=Object.prototype.hasOwnProperty.call(source,"basePrompt")?String(source.basePrompt):DEFAULT_BASE_PROMPT;
+ state.basePromptLabel=String(source.basePromptLabel||"");state.basePromptReference=source.basePromptReference?DreamGachaDomain.clone(source.basePromptReference):null;state.promptVersions=DreamGachaDomain.clone(source.promptVersions||[]);
  state.protagonistProfile=Object.prototype.hasOwnProperty.call(source,"protagonistProfile")?String(source.protagonistProfile):DEFAULT_PROTAGONIST_PROFILE;
  state.workProtagonistProfiles=source.workProtagonistProfiles&&typeof source.workProtagonistProfiles==="object"?{...source.workProtagonistProfiles}:{};
  state.worldMode=Object.prototype.hasOwnProperty.call(WORLD_MODES,source.worldMode)?source.worldMode:DEFAULT_WORLD_MODE;
@@ -171,7 +172,7 @@ function prepareSettings(raw,strict=false){
   if(Number(prepared.version||0)<40)prepared.pools=reviseCandidatePools40(prepared.pools);
   const previousBundledPrompt=prepared.basePrompt.replace("\n\n## 身長差・体格差\n\n夢主は160cmです。\n\n","\n\n## 身長差・体格差\n\n");
   const shouldMigrateBundledPrompt=Number(prepared.version||0)<DreamGachaData.SETTINGS_VERSION&&(LEGACY_BASE_PROMPTS.includes(prepared.basePrompt)||LEGACY_BASE_PROMPTS.includes(previousBundledPrompt)||previousBundledPrompt===DEFAULT_BASE_PROMPT);
-  if(!prepared.basePrompt||shouldMigrateBundledPrompt)prepared.basePrompt=DEFAULT_BASE_PROMPT;
+ if(!prepared.basePrompt||shouldMigrateBundledPrompt){prepared.basePrompt=DEFAULT_BASE_PROMPT;prepared.basePromptReference=null;prepared.basePromptLabel=""}
  // Custom prompts are user-owned; only exact bundled texts migrate above.
  if(Number(prepared.version||0)<DreamGachaData.SETTINGS_VERSION&&LEGACY_PROTAGONIST_PROFILES.includes(prepared.protagonistProfile))prepared.protagonistProfile=DEFAULT_PROTAGONIST_PROFILE;
  prepared.characters=cleanupCharacterData(prepared.characters.map(normalize).filter(c=>c.name));
@@ -330,7 +331,7 @@ function snapshotCurrentConditions(){
  const prompt=$("#output").value;
  const protagonistField=$("#protagonistProfile");
  return DreamGachaDomain.makeSnapshot({character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,
-   freeExtra:$("#freeExtra").value,protagonistProfile:protagonistField?protagonistField.value:(state.protagonistProfile||DEFAULT_PROTAGONIST_PROFILE),workProtagonistProfile:workProtagonistProfileFor(c?.work),worldMode:state.worldMode,prompt});
+   freeExtra:$("#freeExtra").value,protagonistProfile:protagonistField?protagonistField.value:(state.protagonistProfile||DEFAULT_PROTAGONIST_PROFILE),workProtagonistProfile:workProtagonistProfileFor(c?.work),worldMode:state.worldMode,prompt,promptRecord:prompt===state.promptDraftSnapshot?.prompt?state.promptDraftSnapshot.promptRecord:null});
 }
 function snapshotAutoTitle(s){return `${s?.character?.name||"キャラ未指定"}｜${s?.situation||"シチュ未指定"}`}
 function novelDisplayTitle(n){
@@ -378,21 +379,89 @@ function renderPresetList(){
   <div class="library-card-actions"><button class="primary" type="button" data-apply-preset="${esc(p.id)}">この条件を使う</button><button class="small-btn" type="button" data-reroll-preset="${esc(p.id)}">🎲 この二人で別シチュ</button><button class="small-btn" type="button" data-delete-preset="${esc(p.id)}">削除</button></div>
  </div>`).join("");
 }
+function handleNovelPaste(event){
+ const body=$("#novelBody"),title=$("#novelTitle");
+ if(!$("#novelSplitTitle").checked||body.value||title.value.trim())return;
+ const split=DreamGachaPrompts.splitNovelPaste(event.clipboardData?.getData("text/plain"));if(!split)return;
+ event.preventDefault();title.value=split.title;body.value=split.body;
+ if(!novelDraftSnapshot)novelDraftSnapshot=DreamGachaDomain.clone(state.promptDraftSnapshot||snapshotCurrentConditions());
+ $("#novelBodyCount").textContent=fmtChars(novelCharCount(split.body));renderNovelSavePrompt();
+ showToast("1行目をタイトルに分けました。タイトルは自由に変更できます");
+}
+function renderNovelSavePrompt(){
+ const snapshot=novelDraftSnapshot||state.promptDraftSnapshot||snapshotCurrentConditions();
+ $("#novelSavePrompt").value=String(snapshot.prompt||"");
+ $("#novelSavePromptStatus").textContent=DreamGachaPrompts.promptSummary(snapshot);
+}
+function rememberPromptRevision(){
+ const standardText=state.basePromptReference?.standardText||DEFAULT_BASE_PROMPT;
+ const revision=DreamGachaPrompts.captureRevision(state.promptVersions,{id:libraryId("prompt"),baseText:state.basePrompt,standardText,label:state.basePromptLabel,createdAt:new Date().toISOString()});
+ if(!state.promptVersions.some(r=>r.id===revision.id))state.promptVersions.unshift(revision);
+ return revision;
+}
+function promptDiffHtml(before,after){
+ if(before===after)return '<p class="manager-note">変更なし</p>';
+ const rows=DreamGachaPrompts.lineDiff(before,after),visible=new Set();
+ rows.forEach((row,i)=>{if(row.type!=="same")for(let j=Math.max(0,i-2);j<=Math.min(rows.length-1,i+2);j++)visible.add(j)});
+ let skipped=false;
+ return '<pre class="prompt-diff" aria-label="マイナスは元の行、プラスは変更後の行">'+rows.map((row,i)=>{
+   if(!visible.has(i)){if(skipped)return "";skipped=true;return '<span class="diff-gap">… 変更のない行を省略 …</span>'}
+   skipped=false;return `<span class="diff-${row.type}">${{same:"  ",removed:"− ",added:"＋ "}[row.type]}${esc(row.text)}</span>`;
+ }).join("")+"</pre>";
+}
+function renderPromptVersionEditor(){
+ const base=$("#basePrompt").value.trim()||DEFAULT_BASE_PROMPT,standard=state.basePromptReference?.standardText||DEFAULT_BASE_PROMPT;
+ $("#basePromptStatus").textContent=`比較基準：配布標準 Ver.${DreamGachaPrompts.headerVersion(standard)||"不明"}／${base===standard?"標準と同じ":"自分の変更あり"}`;
+ $("#basePromptDiff").innerHTML=promptDiffHtml(standard,base);
+ const select=$("#promptVersionHistory"),selected=select.value;
+ select.innerHTML='<option value="">保存した版を選択</option><option value="bundled">現在の配布標準版</option>'+state.promptVersions.map(r=>`<option value="${esc(r.id)}">${esc(DreamGachaPrompts.revisionLabel(r))}・${esc(fmtDate(r.createdAt))}</option>`).join("");
+ select.value=selected;
+}
+function usePromptVersion(){
+ const id=$("#promptVersionHistory").value;if(!id)return;
+ const revision=id==="bundled"?null:state.promptVersions.find(r=>r.id===id);if(id!=="bundled"&&!revision)return;
+ if(!confirm("編集中の固定プロンプトを選んだ版に切り替えますか？\n保存済みの小説・完成プロンプトは変更しません。切替後に「設定を保存」してください。"))return;
+ state.basePromptReference=revision?{standardText:revision.standardText}:null;
+ state.basePrompt=revision?.baseText||DEFAULT_BASE_PROMPT;state.basePromptLabel=revision?.label||"";
+ $("#basePrompt").value=state.basePrompt;$("#basePromptLabel").value=state.basePromptLabel;
+ renderPromptVersionEditor();
+}
+function renderPromptRecord(selector,snapshot){
+ const record=DreamGachaPrompts.promptRecord(snapshot);
+ let html=`<p>${esc(DreamGachaPrompts.promptSummary(snapshot))}</p>`;
+ if(record){
+   html+=`<p class="manager-note">版ID：${esc(record.revision.id)}／保存 ${esc(fmtDate(record.revision.createdAt))}</p>`;
+   html+='<details><summary>配布標準 → 自分の固定プロンプトの変更箇所</summary>'+promptDiffHtml(record.revision.standardText,record.revision.baseText)+"</details>";
+   html+='<details><summary>自動結合後 → 完成プロンプト欄での変更箇所</summary>'+promptDiffHtml(record.assembledPrompt,String(snapshot.prompt||""))+"</details>";
+ }
+ $(selector).innerHTML=html;
+}
+function exportNovelForAnnotation(format){
+ try{
+   const n=novelCache.find(item=>item.id===viewingNovelId);if(!n)return;
+   if(format==="json")downloadJson(DreamGachaPrompts.novelExport(n),novelTxtFilename(n).replace(/\.txt$/,"-prompt.json"));
+   else{
+     const blob=new Blob([String(n.body||"")],{type:"text/plain;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+     a.href=url;a.download=novelTxtFilename(n);document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),500);
+   }
+   showToast(format==="json"?"本文・プロンプト・版情報をJSONに書き出しました":"アノテーターへ追加する本文TXTを書き出しました");
+ }catch(error){alert(`書き出せませんでした：${error.message}`)}
+}
 function prepareNovelSave(){
   novelDraftSnapshot=DreamGachaDomain.clone(state.promptDraftSnapshot||snapshotCurrentConditions());
  $("#novelSnapshotPreview").innerHTML=`<strong>保存する条件</strong><div class="library-tags">${snapshotMetaHtml(novelDraftSnapshot)}</div>`;
  // The generated prompt belongs to the saved snapshot, not to a personal memo.
- $("#novelMemo").value="";
+ renderNovelSavePrompt();
  switchScreen("library");setTimeout(()=>$("#novelBody").scrollIntoView({behavior:"smooth",block:"center"}),80);
 }
 async function saveNovelArchive(){
-  const body=$("#novelBody").value.trim();if(!body)return showToast("夢小説本文を貼り付けてください");
+  const body=$("#novelBody").value;if(!body.trim())return showToast("夢小説本文を貼り付けてください");
   const snap=DreamGachaDomain.clone(novelDraftSnapshot||state.promptDraftSnapshot||snapshotCurrentConditions()),title=$("#novelTitle").value.trim()||"無題",enteredMemo=$("#novelMemo").value.trim(),now=new Date().toISOString();
   const novel={id:libraryId("novel"),title,body,charCount:novelCharCount(body),memo:enteredMemo===String(snap.prompt||"").trim()?"":enteredMemo,favorite:$("#novelFavorite").checked,createdAt:now,updatedAt:now,snapshot:snap,promptSnapshot:String(snap.prompt||"")};
  try{
    await novelPut(novel);
    DreamGachaUI.resetNovelForm();
-   novelDraftSnapshot=null;$("#novelSnapshotPreview").textContent="現在のガチャ条件を使用します";
+   novelDraftSnapshot=null;$("#novelSnapshotPreview").textContent="直前に生成したプロンプトと条件を使用します";renderNovelSavePrompt();
    await refreshNovelCache();renderNovelList();showToast("夢小説をアーカイブしました");
  }catch(e){alert(`夢小説を保存できませんでした：${e.message}`)}
 }
@@ -409,7 +478,7 @@ async function renderNovelList(){
  </div>`).join("");
 }
 async function refreshNovelCache(){novelCache=await novelAll();return novelCache}
-async function renderLibrary(){renderPresetList();try{await refreshNovelCache();renderNovelList()}catch(e){const box=$("#novelList");if(box)box.innerHTML=`<div class="empty-library">アーカイブを読み込めませんでした</div>`}}
+async function renderLibrary(){renderPresetList();renderNovelSavePrompt();try{await refreshNovelCache();renderNovelList()}catch(e){const box=$("#novelList");if(box)box.innerHTML=`<div class="empty-library">アーカイブを読み込めませんでした</div>`}}
 let viewingNovelId=null,novelEditOriginal=null;
 function novelPromptSnapshot(n){return String(n?.promptSnapshot??n?.snapshot?.prompt??"")}
 function novelTextValue(value,fallback="未記録"){const text=String(value||"").trim();return text||fallback}
@@ -433,7 +502,7 @@ function novelTxtContent(n){
  if(String(s.workProtagonistProfile||"").trim())lines.push(`作品別夢主設定：${s.workProtagonistProfile.trim()}`);
  if(String(s.freeExtra||"").trim())lines.push(`今回だけの追加設定：${s.freeExtra.trim()}`);
  if(String(n?.memo||"").trim())lines.push(`メモ：${n.memo.trim()}`);
- lines.push(`文字数：${fmtChars(n?.charCount??novelCharCount(n?.body))}`,`作成日時：${novelTextValue(n?.createdAt)}`,`最終編集日時：${novelTextValue(n?.updatedAt)}`,"","【生成に使用した完成プロンプト】",prompt||"（未記録）");
+ lines.push(`文字数：${fmtChars(n?.charCount??novelCharCount(n?.body))}`,`作成日時：${novelTextValue(n?.createdAt)}`,`最終編集日時：${novelTextValue(n?.updatedAt)}`,"","【プロンプトの版】",DreamGachaPrompts.promptSummary({...s,prompt}),"","【生成に使用した完成プロンプト】",prompt||"（未記録）");
  return lines.join("\n");
 }
 function downloadNovelTxt(n){
@@ -448,6 +517,7 @@ function openNovelView(n){
   $("#novelViewTitle").textContent=novelDisplayTitle(n);$("#novelViewMeta").textContent=[n.snapshot?.character?.name,n.snapshot?.character?.work,fmtChars(n.charCount??novelCharCount(n.body)),fmtDate(n.createdAt),n.updatedAt?`編集 ${fmtDate(n.updatedAt)}`:""].filter(Boolean).join(" / ");$("#novelViewBody").textContent=n.body;
  const s=n.snapshot||{},items=[["キャラ",s.character?.name],["作品",s.character?.work],["部・シリーズ",s.character?.series],["世界観",WORLD_MODES[s.worldMode]?.label],["関係性",s.relationship],["シチュ",s.situation],["雰囲気",s.mood],["追加条件",s.extra],["自由指定",s.freeExtra],["共通の夢主設定",s.protagonistProfile],["作品別の夢主設定",s.workProtagonistProfile]].filter(x=>x[1]);
   $("#novelViewConditions").innerHTML=items.map(([k,v])=>`<div class="novel-detail-item"><b>${esc(k)}</b>${esc(v)}</div>`).join("");$("#novelViewPrompt").value=novelPromptSnapshot(n)||"（未記録）";
+  renderPromptRecord("#novelViewPromptInfo",{...s,prompt:novelPromptSnapshot(n)});
   $("#novelModal").hidden=false;document.body.style.overflow="hidden";
 }
 function hasNovelEditChanges(){return !!novelEditOriginal&&["title","body","memo"].some(k=>$("#novelEdit"+({title:"Title",body:"Body",memo:"Memo"}[k])).value!==novelEditOriginal[k])}
@@ -813,6 +883,7 @@ function syncScenario(){
  syncWorkProfileEditor();
  for(const k of Object.keys(DEFAULT_POOLS)){const e=$(`#pool-${k}`);if(e)state.pools[k]=parseLines(e.value)}
  state.basePrompt=$("#basePrompt").value.trim()||DEFAULT_BASE_PROMPT;state.protagonistProfile=$("#protagonistProfile").value.trim()||DEFAULT_PROTAGONIST_PROFILE;
+ state.basePromptLabel=$("#basePromptLabel").value.trim();
  renderWorldModeControls();
 }
 function rollCharacter(force=false){
@@ -834,7 +905,8 @@ function buildPrompt(scroll=true){
  const c=currentCharacter();
  const world=WORLD_MODES[state.worldMode]||WORLD_MODES[DEFAULT_WORLD_MODE];
   const prompt=DreamGachaDomain.formatPrompt({basePrompt:state.basePrompt,character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,protagonistProfile:state.protagonistProfile,workProtagonistProfile:workProtagonistProfileFor(c?.work),worldModeLabel:world.label,worldModePrompt:world.prompt,freeExtra:$("#freeExtra").value});
-  state.promptDraftSnapshot=DreamGachaDomain.makeSnapshot({character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,freeExtra:$("#freeExtra").value,protagonistProfile:state.protagonistProfile,workProtagonistProfile:workProtagonistProfileFor(c?.work),worldMode:state.worldMode,prompt});$("#output").value=prompt;save();
+  const promptRecord={revision:rememberPromptRevision(),assembledPrompt:prompt};
+  state.promptDraftSnapshot=DreamGachaDomain.makeSnapshot({character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,freeExtra:$("#freeExtra").value,protagonistProfile:state.protagonistProfile,workProtagonistProfile:workProtagonistProfileFor(c?.work),worldMode:state.worldMode,prompt,promptRecord});$("#output").value=prompt;save();renderPromptVersionEditor();
  if(scroll)$("#output").scrollIntoView({behavior:"smooth",block:"center"});
 }
 async function copyPrompt(){
@@ -853,6 +925,7 @@ function renderPoolEditors(){
  const names={relationship:"関係性候補",situation:"シチュ候補",mood:"雰囲気候補",extra:"追加条件候補"};
  $("#poolGrid").innerHTML=Object.keys(names).map(k=>`<div class="field"><label for="pool-${k}">${names[k]} <span class="label">（${state.pools[k].length}件）</span></label><textarea id="pool-${k}" spellcheck="false">${esc(state.pools[k].join("\n"))}</textarea></div>`).join("");
  $("#basePrompt").value=state.basePrompt;
+ $("#basePromptLabel").value=state.basePromptLabel;renderPromptVersionEditor();
  $("#protagonistProfile").value=state.protagonistProfile||DEFAULT_PROTAGONIST_PROFILE;
  renderWorkProfileEditor(currentCharacter()?.work);renderWorldModeControls();
 }
@@ -1255,7 +1328,7 @@ async function handleFullBackupFile(file){
 
 function resetScenario(){
  if(!confirm("シチュ・雰囲気・追加条件・世界観・夢主設定・固定プロンプトを初期状態に戻しますか？\nキャラ一覧は変更しません。"))return;
- state.pools=structuredClone(DEFAULT_POOLS);state.basePrompt=DEFAULT_BASE_PROMPT;state.protagonistProfile=DEFAULT_PROTAGONIST_PROFILE;state.workProtagonistProfiles={};state.worldMode=DEFAULT_WORLD_MODE;
+ state.pools=structuredClone(DEFAULT_POOLS);state.basePrompt=DEFAULT_BASE_PROMPT;state.basePromptLabel="";state.basePromptReference=null;state.protagonistProfile=DEFAULT_PROTAGONIST_PROFILE;state.workProtagonistProfiles={};state.worldMode=DEFAULT_WORLD_MODE;
  for(const k of ["relationship","situation","mood","extra"]){state.categoryInclude[k]=null;state.categoryExcluded[k].clear();updateCategoryStatus(k)}
  renderPoolEditors();save();showToast("シチュ設定を初期化しました");
 }
@@ -1325,7 +1398,12 @@ function init(){
  $("#presetList").addEventListener("click",e=>{const a=e.target.closest("[data-apply-preset]");if(a){const p=state.presets.find(x=>x.id===a.dataset.applyPreset);if(p)applySnapshot(p.snapshot);return}const r=e.target.closest("[data-reroll-preset]");if(r){const p=state.presets.find(x=>x.id===r.dataset.rerollPreset);if(p)rerollSnapshotScenario(p.snapshot);return}const d=e.target.closest("[data-delete-preset]");if(d){const p=state.presets.find(x=>x.id===d.dataset.deletePreset);if(p&&confirm(`「${p.name}」を削除しますか？`)){state.presets=state.presets.filter(x=>x.id!==p.id);save();renderPresetList()}}});
   $("#novelList").addEventListener("click",async e=>{try{const o=e.target.closest("[data-open-novel]");if(o){openNovelView(novelCache.find(n=>n.id===o.dataset.openNovel));return}const edit=e.target.closest("[data-edit-novel]");if(edit){openNovelView(novelCache.find(n=>n.id===edit.dataset.editNovel));startNovelEdit();return}const r=e.target.closest("[data-reuse-novel]");if(r){const n=novelCache.find(n=>n.id===r.dataset.reuseNovel);if(n)applySnapshot(n.snapshot);return}const s=e.target.closest("[data-reroll-novel]");if(s){const n=novelCache.find(n=>n.id===s.dataset.rerollNovel);if(n)rerollSnapshotScenario(n.snapshot)}}catch(err){alert(`夢小説アーカイブを更新できませんでした：${err.message}`)}});
   $("#novelViewClose").addEventListener("click",closeNovelView);$("#startNovelEdit").addEventListener("click",startNovelEdit);$("#cancelNovelEdit").addEventListener("click",cancelNovelEdit);$("#saveNovelEdit").addEventListener("click",()=>saveNovelEdit().catch(err=>alert(`夢小説を更新できませんでした：${err.message}`)));$("#deleteNovelFromEdit").addEventListener("click",()=>deleteNovelArchive(viewingNovelId,true).catch(err=>alert(`夢小説を削除できませんでした：${err.message}`)));$("#copyNovelFromView").addEventListener("click",copyNovelFromView);$("#exportNovelFromView").addEventListener("click",exportNovelFromView);$("#favoriteNovelFromView").addEventListener("click",()=>toggleNovelFavorite(viewingNovelId).catch(err=>alert(`夢小説を更新できませんでした：${err.message}`)));$("#novelEditBody").addEventListener("input",()=>$("#novelEditCount").textContent=fmtChars(novelCharCount($("#novelEditBody").value)));$("#novelModal").addEventListener("click",e=>{if(e.target===$("#novelModal"))closeNovelView()});
- $("#saveSettings").addEventListener("click",()=>{syncScenario();save(true)});$("#resetScenarioSettings").addEventListener("click",resetScenario);$("#freeExtra").addEventListener("change",()=>save());
+ $("#saveSettings").addEventListener("click",()=>{syncScenario();rememberPromptRevision();save(true);renderPromptVersionEditor()});$("#resetScenarioSettings").addEventListener("click",resetScenario);$("#freeExtra").addEventListener("change",()=>save());
+ $("#novelBody").addEventListener("paste",handleNovelPaste);
+ $("#basePrompt").addEventListener("input",renderPromptVersionEditor);
+ $("#usePromptVersion").addEventListener("click",usePromptVersion);
+ $("#exportNovelJson").addEventListener("click",()=>exportNovelForAnnotation("json"));
+ $("#exportNovelBody").addEventListener("click",()=>exportNovelForAnnotation("txt"));
  $("#workProfileWork").addEventListener("change",e=>renderWorkProfileEditor(e.target.value));
  $("#workProtagonistProfile").addEventListener("input",syncWorkProfileEditor);
  $("#resetWorkProfile").addEventListener("click",()=>{const work=$("#workProfileWork").value;if(!work)return;delete state.workProtagonistProfiles[work];renderWorkProfileEditor(work);save();showToast("作品別の夢主設定を初期化しました")});

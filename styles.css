@@ -537,3 +537,11 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
 :root[data-theme="dark"] .allowed-tag{background:var(--surface-accent);color:var(--muted)}
 :root[data-theme="dark"] .help-action{color:var(--text)}
 :root[data-theme="dark"] :where(.import-caution,.data-guide .panel-body p:last-of-type){color:#f7e7b0}
+.prompt-diff{white-space:pre-wrap;overflow-wrap:anywhere;max-height:340px;overflow:auto;padding:12px;border:1px solid var(--line);border-radius:8px;font-size:13px;line-height:1.6}
+.prompt-diff span{display:block;min-height:1.6em}
+.prompt-diff .diff-added{background:#daf1e4;color:#174b2d}
+.prompt-diff .diff-removed{background:#f9e0e3;color:#722431}
+.prompt-diff .diff-gap{opacity:.65}
+.prompt-version-details{margin-top:10px}
+.prompt-version-details select{width:100%;margin:8px 0}
+#novelSavePrompt{min-height:160px}

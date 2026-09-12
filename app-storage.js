@@ -1,13 +1,21 @@
 (function(root){
   "use strict";
-  const D=root.DreamGachaData||{SETTINGS_KEY:"dreamGachaSettings",SETTINGS_VERSION:40,BACKUP_SCHEMA:"dream-gacha.full-backup",BACKUP_VERSION:2};
+  const D=root.DreamGachaData||{SETTINGS_KEY:"dreamGachaSettings",SETTINGS_VERSION:41,BACKUP_SCHEMA:"dream-gacha.full-backup",BACKUP_VERSION:2};
   const clone=v=>v===undefined?undefined:JSON.parse(JSON.stringify(v));
+  const P=root.DreamGachaPrompts||(typeof require!=="undefined"?require("./app-prompts.js"):null);
+  function promptSettings(source){return {basePromptLabel:String(source.basePromptLabel||""),basePromptReference:clone(source.basePromptReference||null),promptVersions:clone(source.promptVersions||[])}}
   function plainSettings(source){
     if(!source||typeof source!=="object")throw new Error("設定データが不正です");
-    return {version:D.SETTINGS_VERSION,characters:clone(source.characters||[]),pools:clone(source.pools||{}),basePrompt:String(source.basePrompt||""),protagonistProfile:String(source.protagonistProfile||""),workProtagonistProfiles:clone(source.workProtagonistProfiles||{}),worldMode:String(source.worldMode||"canon"),themeMode:String(source.themeMode||"system"),freeExtra:String(source.freeExtra||""),promptDraftSnapshot:clone(source.promptDraftSnapshot||null),deletedSeedIds:[...(source.deletedSeedIds||[])],characterId:source.characterId||null,values:clone(source.values||{}),locks:clone(source.locks||{}),filters:{...(source.filters||{}),workIncluded:[...(source.filters?.workIncluded||[])],workExcluded:[...(source.filters?.workExcluded||[])],seriesIncluded:[...(source.filters?.seriesIncluded||[])],seriesExcluded:[...(source.filters?.seriesExcluded||[])],tags:[...(source.filters?.tags||[])],characterIncluded:[...(source.filters?.characterIncluded||[])],characterExcluded:[...(source.filters?.characterExcluded||[])]},manage:clone(source.manage||{}),categoryInclude:clone(source.categoryInclude||{}),categoryExcluded:Object.fromEntries(Object.entries(source.categoryExcluded||{}).map(([k,v])=>[k,[...(v||[])]])),presets:clone(source.presets||[])};
+    return {version:D.SETTINGS_VERSION,...promptSettings(source),characters:clone(source.characters||[]),pools:clone(source.pools||{}),basePrompt:String(source.basePrompt||""),protagonistProfile:String(source.protagonistProfile||""),workProtagonistProfiles:clone(source.workProtagonistProfiles||{}),worldMode:String(source.worldMode||"canon"),themeMode:String(source.themeMode||"system"),freeExtra:String(source.freeExtra||""),promptDraftSnapshot:clone(source.promptDraftSnapshot||null),deletedSeedIds:[...(source.deletedSeedIds||[])],characterId:source.characterId||null,values:clone(source.values||{}),locks:clone(source.locks||{}),filters:{...(source.filters||{}),workIncluded:[...(source.filters?.workIncluded||[])],workExcluded:[...(source.filters?.workExcluded||[])],seriesIncluded:[...(source.filters?.seriesIncluded||[])],seriesExcluded:[...(source.filters?.seriesExcluded||[])],tags:[...(source.filters?.tags||[])],characterIncluded:[...(source.filters?.characterIncluded||[])],characterExcluded:[...(source.filters?.characterExcluded||[])]},manage:clone(source.manage||{}),categoryInclude:clone(source.categoryInclude||{}),categoryExcluded:Object.fromEntries(Object.entries(source.categoryExcluded||{}).map(([k,v])=>[k,[...(v||[])]])),presets:clone(source.presets||[])};
   }
   function validateSettings(raw){
     if(!raw||typeof raw!=="object"||Array.isArray(raw))throw new Error("settings が不正です");
+    if(raw.basePromptLabel!==undefined&&typeof raw.basePromptLabel!=="string")throw new Error("固定プロンプトの版名が不正です");
+    if(raw.basePromptReference!=null&&(typeof raw.basePromptReference!=="object"||typeof raw.basePromptReference.standardText!=="string"||!raw.basePromptReference.standardText.trim()))throw new Error("固定プロンプトの比較基準が不正です");
+    if(raw.promptVersions!==undefined){
+      if(!Array.isArray(raw.promptVersions))throw new Error("プロンプト履歴が配列ではありません");
+      const ids=new Set();for(const revision of raw.promptVersions){if(!P.validRevision(revision)||ids.has(revision.id))throw new Error("プロンプト履歴が不正またはIDが重複しています");ids.add(revision.id)}
+    }
     if(!Array.isArray(raw.characters))throw new Error("characters が見つかりません");
     if(!raw.pools||typeof raw.pools!=="object"||Array.isArray(raw.pools))throw new Error("pools が不正です");
     for(const [k,v] of Object.entries(raw.pools))if(!Array.isArray(v))throw new Error(`pools.${k} が配列ではありません`);

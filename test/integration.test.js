@@ -21,7 +21,7 @@ function makeApp(){
    indexedDB:{open(){throw new Error("IndexedDB mock must be replaced by test")}},CSS:{escape:x=>x},Blob:function(){},URL:{createObjectURL:()=>"blob:x",revokeObjectURL(){}},setTimeout:(fn)=>{fn();return 1},clearTimeout(){}};
  context.globalThis=context;
  vm.createContext(context);
- for(const file of ["app-data.js","app-domain.js","app-storage.js","app-ui.js","character-data.generated.js","seed-data.js"])
+ for(const file of ["app-data.js","app-domain.js","app-prompts.js","app-storage.js","app-ui.js","character-data.generated.js","seed-data.js"])
    vm.runInContext(fs.readFileSync(path.join(root,file),"utf8"),context,{filename:file});
  let app=fs.readFileSync(path.join(root,"app.js"),"utf8");
  app=app.replace(/\ninit\(\);\s*$/,"\n// init stripped for controlled integration tests\n");
@@ -55,10 +55,10 @@ async function main(){
  const appSource=fs.readFileSync(path.join(root,"app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,4),["app-data.js?v=40","app-domain.js?v=40","app-storage.js?v=40","app-ui.js?v=40"]);
- assert.match(src[4],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(5),["seed-data.js?v=40","app.js?v=40"]);
-  assert.ok(index.includes('href="styles.css?v=40"'));
+  assert.deepEqual(src.slice(0,5),["app-data.js?v=41","app-domain.js?v=41","app-prompts.js?v=41","app-storage.js?v=41","app-ui.js?v=41"]);
+ assert.match(src[5],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
+  assert.deepEqual(src.slice(6),["seed-data.js?v=41","app.js?v=41"]);
+  assert.ok(index.includes('href="styles.css?v=41"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
@@ -143,7 +143,7 @@ async function main(){
  migration.local.set("dreamGachaSettings",JSON.stringify({version:38,characters:[historicalSnapshot.character],characterId:"old-id",values:{relationship:"旧条件"},pools:{},basePrompt:historicalSnapshot.prompt,promptDraftSnapshot:historicalSnapshot,presets:[historicalPreset]}));
  run(migration,"init();save()");
  const migratedSettings=JSON.parse(migration.local.get("dreamGachaSettings"));
- assert.equal(migratedSettings.version,40);
+ assert.equal(migratedSettings.version,41);
  assert.equal(migratedSettings.basePrompt,canonicalPrompt);
  assert.deepStrictEqual(migratedSettings.promptDraftSnapshot,historicalSnapshot);
  assert.deepStrictEqual(migratedSettings.presets,[historicalPreset]);
@@ -256,6 +256,27 @@ async function main(){
   await run(frozen,"saveNovelArchive()");
   assert.equal(run(frozen,"__frozenNovel.snapshot.relationship"),"generated R");
   assert.equal(run(frozen,"__frozenNovel.promptSnapshot"),run(frozen,"state.promptDraftSnapshot.prompt"));
+  assert.equal(run(frozen,"__frozenNovel.snapshot.promptRecord.revision.standardVersion"),"0.1.3.2");
+  assert.equal(run(frozen,"state.promptVersions.length"),1);
+  const savedRecord=JSON.stringify(run(frozen,"__frozenNovel.snapshot.promptRecord"));
+  run(frozen,"state.basePrompt='custom fixed prompt';state.basePromptLabel='trial';rememberPromptRevision();save();");
+  assert.equal(run(frozen,"state.promptVersions.length"),2);
+  assert.equal(JSON.stringify(run(frozen,"__frozenNovel.snapshot.promptRecord")),savedRecord);
+  assert.equal(JSON.parse(frozen.local.get("dreamGachaSettings")).promptVersions.length,2);
+
+  const paste=makeApp();paste.get("#novelSplitTitle").checked=true;
+  run(paste,"showToast=()=>{};state.promptDraftSnapshot={prompt:'frozen',relationship:'original'};");
+  const pasteEvent={clipboardData:{getData:()=>"題名\n\n　本文😀\n"},preventDefault(){this.prevented=true}};
+  paste.context.pasteEvent=pasteEvent;run(paste,"handleNovelPaste(pasteEvent)");
+  assert.equal(pasteEvent.prevented,true);assert.equal(paste.get("#novelTitle").value,"題名");assert.equal(paste.get("#novelBody").value,"\n　本文😀\n");
+  run(paste,"state.promptDraftSnapshot={prompt:'later'};novelPut=async n=>{globalThis.__pasted=n};refreshNovelCache=async()=>[];renderNovelList=()=>{};");
+  paste.get("#novelTitle").value="手直しした題名";await run(paste,"saveNovelArchive()");
+  assert.equal(run(paste,"__pasted.title"),"手直しした題名");assert.equal(run(paste,"__pasted.body"),"\n　本文😀\n");assert.equal(run(paste,"__pasted.promptSnapshot"),"frozen");
+  paste.get("#novelTitle").value="手動入力";pasteEvent.prevented=false;run(paste,"handleNovelPaste(pasteEvent)");assert.equal(pasteEvent.prevented,false);
+  paste.get("#novelTitle").value="";paste.get("#novelSplitTitle").checked=false;run(paste,"handleNovelPaste(pasteEvent)");assert.equal(pasteEvent.prevented,false);
+  paste.get("#novelBody").value="失敗しても残る本文";paste.context.alert=()=>{};
+  run(paste,"novelPut=async()=>{throw Error('quota')}");await run(paste,"saveNovelArchive()");assert.equal(paste.get("#novelBody").value,"失敗しても残る本文");
+  assert.doesNotMatch(run(paste,"promptDiffHtml('before','<script>alert(1)</script>')"),/<script>/);
 
   // Editing only replaces user-editable fields. The original record metadata,
   // frozen snapshots, ID, and favorite state survive the IndexedDB put.

@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <script>try{const s=JSON.parse(localStorage.getItem("dreamGachaSettings")||"null"),m=s?.themeMode||"system";document.documentElement.dataset.theme=m==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):m}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=40">
+<link rel="stylesheet" href="styles.css?v=41">
 </head>
 <body>
 <div class="wrap">
@@ -137,6 +137,14 @@
           <div class="settings-actions"><button type="button" class="small-btn" id="resetWorkProfile">この作品の設定を初期化</button></div>
         </section>
         <div class="field" style="margin-top:14px"><label for="basePrompt">夢小説用の固定プロンプト</label><textarea id="basePrompt" spellcheck="false"></textarea></div>
+        <div class="field"><label for="basePromptLabel">自分の版名（任意）</label><input id="basePromptLabel" type="text" placeholder="例：0132・視点の指示を調整"></div>
+        <p class="manager-note" id="basePromptStatus" role="status"></p>
+        <details class="prompt-version-details"><summary>配布標準との差分・保存した版</summary>
+          <p class="manager-note">配布標準＝このアプリに収録された固定プロンプト。比較基準は派生元の推定ではありません。設定保存・プロンプト生成時に版を記録し、小説には生成時の版を残します。標準本文は書き換えません。</p>
+          <div id="basePromptDiff"></div>
+          <label for="promptVersionHistory">保存した固定プロンプト</label><select id="promptVersionHistory"></select>
+          <button type="button" class="small-btn" id="usePromptVersion">選んだ版を編集欄へ戻す</button>
+        </details>
         <div class="settings-actions"><button class="secondary" id="saveSettings">設定を保存</button><button class="small-btn" id="resetScenarioSettings">シチュ設定だけ初期化</button></div>
         <div class="settings-save-status" id="settingsSaveStatus" role="status" aria-live="polite"></div>
       </div>
@@ -163,9 +171,12 @@
   <section class="panel" id="novelSavePanel">
     <div class="panel-head"><h2>夢小説を保存</h2><span class="label">本文＋生成条件＋プロンプト</span></div>
     <div class="panel-body">
-      <div class="library-snapshot" id="novelSnapshotPreview">現在のガチャ条件を使用します</div>
-      <div class="field"><label for="novelTitle">AIが考えたタイトル</label><input id="novelTitle" type="text" placeholder="例：月明かりの約束（キャラ名とシチュは自動で追記されます）"></div>
-      <div class="field" style="margin-top:10px"><label for="novelBody">夢小説本文 <span class="label" id="novelBodyCount">0字</span></label><textarea id="novelBody" class="novel-body-input" spellcheck="false" placeholder="ChatGPTでできた神夢小説をここへ貼り付け"></textarea></div>
+      <div class="library-snapshot" id="novelSnapshotPreview">直前に生成したプロンプトと条件を使用します</div>
+      <label class="lock-label"><input id="novelSplitTitle" type="checkbox" checked> 貼り付けた1行目をタイトルにする</label>
+      <div class="field" style="margin-top:10px"><label for="novelBody">小説をタイトルごと貼り付け <span class="label" id="novelBodyCount">0字</span></label><textarea id="novelBody" class="novel-body-input" spellcheck="false" placeholder="1行目：タイトル&#10;2行目以降：本文"></textarea></div>
+      <p class="manager-note">タイトル・本文が空のときに自動で分離します。本文だけの場合はチェックを外してください。本文の空行は保持します。</p>
+      <div class="field"><label for="novelTitle">タイトル（登録後も編集できます）</label><input id="novelTitle" type="text" placeholder="1行目から自動入力／手入力もできます"></div>
+      <details><summary>一緒に保存するプロンプトを確認</summary><p class="manager-note" id="novelSavePromptStatus"></p><textarea id="novelSavePrompt" readonly aria-label="保存する完成プロンプト"></textarea><p class="manager-note">直前の生成内容、または「小説を保存」で選んだ内容です。外部AI側だけで変更した内容は自動取得できません。</p></details>
       <div class="field" style="margin-top:10px"><label for="novelMemo">メモ（任意）</label><textarea id="novelMemo" class="novel-memo-input" placeholder="刺さったところ、後で読み返したい理由など"></textarea></div>
       <div class="library-form-actions">
         <label class="lock-label"><input type="checkbox" id="novelFavorite"> ★ お気に入り</label>
@@ -473,6 +484,12 @@
     </div>
     <div id="novelViewRead"><div class="novel-view-body" id="novelViewBody"></div></div>
     <div class="novel-view-actions" id="novelViewActions"><button type="button" class="small-btn" id="copyNovelFromView">コピー</button><button type="button" class="small-btn" id="exportNovelFromView">TXTを書き出す</button><button type="button" class="small-btn" id="favoriteNovelFromView">☆ お気に入り</button></div>
+    <details class="novel-view-details"><summary>アノテーション用に書き出す</summary>
+      <p class="manager-note">本文TXTは夢アノテーターの「新規作品 → ファイル」から追加できます。タイトルやプロンプトは本文に混ぜません。</p>
+      <button type="button" class="small-btn" id="exportNovelBody">本文だけTXT</button>
+      <button type="button" class="small-btn" id="exportNovelJson">本文＋プロンプト・版情報JSON</button>
+      <p class="manager-note">JSONはAI分析・保管用です。現行アノテーターのJSON復元には非対応です（既存作品の全置換・OLD/NEWへの変換を避けるため）。版情報はこのJSONと夢ガチャ側で保持します。</p>
+    </details>
     <div class="novel-edit-panel" id="novelEditPanel" hidden="">
       <div class="field"><label for="novelEditTitle">タイトル</label><input id="novelEditTitle" type="text"></div>
       <div class="field" style="margin-top:10px"><label for="novelEditBody">本文 <span class="label" id="novelEditCount">0字</span></label><textarea id="novelEditBody" class="novel-body-input" spellcheck="false"></textarea></div>
@@ -482,6 +499,7 @@
     <details class="novel-view-details">
       <summary>生成条件・プロンプトを見る</summary>
       <div class="novel-detail-grid" id="novelViewConditions"></div>
+      <div id="novelViewPromptInfo"></div>
       <textarea id="novelViewPrompt" readonly></textarea>
     </details>
   </div>
@@ -505,13 +523,14 @@
 </div>
 <div class="toast" id="toast">ガチャ対象に戻しました</div>
 
-<script src="app-data.js?v=40"></script>
-<script src="app-domain.js?v=40"></script>
-<script src="app-storage.js?v=40"></script>
-<script src="app-ui.js?v=40"></script>
+<script src="app-data.js?v=41"></script>
+<script src="app-domain.js?v=41"></script>
+<script src="app-prompts.js?v=41"></script>
+<script src="app-storage.js?v=41"></script>
+<script src="app-ui.js?v=41"></script>
 <script src="character-data.generated.js?v=620fbc616578"></script>
-<script src="seed-data.js?v=40"></script>
-<script src="app.js?v=40"></script>
+<script src="seed-data.js?v=41"></script>
+<script src="app.js?v=41"></script>
 
 
 </body></html>
