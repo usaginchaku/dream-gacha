@@ -63,6 +63,8 @@ AIの出力をタイトルごと「小説をタイトルごと貼り付け」へ
 
 ## キャラデータの更新
 
+お気に入りは端末ごとの設定です。配布用の初期キャラJSONでは `favorite: false` とし、ビルド時にも全件解除します。更新時に端末へ保存済みのお気に入りは変更しません。
+
 作品別の初期キャラデータは `data/characters/` にあります。JSONはアプリのキャラ入出力と同じ `schema: "dream-gacha.characters"`、`version: 1`、`characters` 配列の形式です。作品を追加するときは、同じ形式のJSONをこのフォルダーへ追加し、各キャラに重複しない `id`、`name`、`work` を指定してください。タグはアプリに表示される共通タグだけを使い、身長不明は `heightCm: null`、`heightStatus: "unknown"` とします。
 
 Node.js 18以降が入っているWindowsでは `キャラデータを更新.bat` をダブルクリックすると、JSONを検証して `character-data.generated.js` を生成できます。コマンドラインでは `node tools/build-character-data.js` を実行します。JSON構文、schema/version、必須項目、ID重複、同じ作品の同名重複、許可外タグ、身長4項目（表示・数値・状態・出典）の整合性を検査します。失敗した場合は内容を確認してJSONを修正してから再実行してください。

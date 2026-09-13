@@ -48,7 +48,7 @@
         "優しい"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "不明",
       "heightCm": null,
       "heightStatus": "unknown",
@@ -138,7 +138,7 @@
         "冷静"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "不明",
       "heightCm": null,
       "heightStatus": "unknown",
@@ -283,7 +283,7 @@
         "負けず嫌い"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "不明",
       "heightCm": null,
       "heightStatus": "unknown",

@@ -127,7 +127,7 @@
         "優しい"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "162cm",
       "heightCm": 162,
       "heightStatus": "verified",
@@ -447,7 +447,7 @@
         "冷静"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "189cm",
       "heightCm": 189,
       "heightStatus": "verified",

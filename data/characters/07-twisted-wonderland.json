@@ -39,7 +39,7 @@
         "明るい"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "172cm",
       "heightCm": 172,
       "heightStatus": "manual",
@@ -63,7 +63,7 @@
         "優しい"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "173cm",
       "heightCm": 173,
       "heightStatus": "manual",
@@ -108,7 +108,7 @@
         "明るい"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "176cm",
       "heightCm": 176,
       "heightStatus": "manual",
@@ -371,7 +371,7 @@
         "不器用"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "183cm",
       "heightCm": 183,
       "heightStatus": "manual",
@@ -491,7 +491,7 @@
         "年上系"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "不明",
       "heightCm": null,
       "heightStatus": "unknown",

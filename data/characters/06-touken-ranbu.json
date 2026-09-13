@@ -131,7 +131,7 @@
         "包容力"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "177cm",
       "heightCm": 177,
       "heightStatus": "manual",
@@ -163,7 +163,7 @@
         "年上系"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "176cm",
       "heightCm": 176,
       "heightStatus": "manual",
@@ -198,7 +198,7 @@
         "包容力"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "186cm",
       "heightCm": 186,
       "heightStatus": "manual",
@@ -686,7 +686,7 @@
         "年上系"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "189cm",
       "heightCm": 189,
       "heightStatus": "manual",
@@ -720,7 +720,7 @@
         "年上系"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "196cm",
       "heightCm": 196,
       "heightStatus": "manual",
@@ -1705,7 +1705,7 @@
         "冷静"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "153cm",
       "heightCm": 153,
       "heightStatus": "manual",

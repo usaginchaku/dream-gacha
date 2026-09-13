@@ -31,6 +31,23 @@ function makeApp(){
 function run(app,code){return vm.runInContext(code,app.context)}
 
 async function main(){
+ const favoritesApp=makeApp();
+ run(favoritesApp,"load()");
+ assert.equal(run(favoritesApp,"state.characters.filter(c=>c.favorite).length"),0,"fresh installs start with no favorites");
+ favoritesApp.local.set("dreamGachaSettings",JSON.stringify({version:44,characters:[
+   {id:"jojo-caesar",name:"シーザー・A・ツェペリ",work:"ジョジョの奇妙な冒険",favorite:true},
+   {id:"local-joseph",name:"ジョセフ・ジョースター",work:"ジョジョの奇妙な冒険",favorite:true},
+   {id:"jojo-jonathan",name:"ジョナサン・ジョースター",work:"ジョジョの奇妙な冒険",favorite:false},
+   {id:"local-custom",name:"独自キャラ",work:"独自作品",favorite:true,archived:true}
+ ]}));
+ const savedFavorites=favoritesApp.local.get("dreamGachaSettings");
+ run(favoritesApp,"load()");
+ assert.equal(favoritesApp.local.get("dreamGachaSettings"),savedFavorites,"loading must not reset persisted settings");
+ assert.deepStrictEqual(JSON.parse(run(favoritesApp,"JSON.stringify(state.characters.filter(c=>c.favorite).map(c=>c.id).sort())")),["jojo-caesar","local-custom","local-joseph"]);
+ assert.equal(run(favoritesApp,"state.characters.find(c=>c.id==='jojo-jonathan').favorite"),false);
+ assert.equal(run(favoritesApp,"state.characters.find(c=>c.id==='local-custom').archived"),true);
+ run(favoritesApp,"save(); load()");
+ assert.deepStrictEqual(JSON.parse(run(favoritesApp,"JSON.stringify(state.characters.filter(c=>c.favorite).map(c=>c.id).sort())")),["jojo-caesar","local-custom","local-joseph"],"local favorites survive save and reload, including name/work matches and custom characters");
  const poolApp=makeApp();
  const poolInput={relationship:["初対面なのに妙に惹かれ合う","独自の関係"],situation:["雨宿りをしている"],mood:["普段強い側が弱さを見せる"],extra:["同じベッドで寝る","独自の追加"]};
  poolApp.context.poolInput=poolInput;

@@ -191,6 +191,8 @@ function orderedCharacter(character) {
   for (const field of CHARACTER_FIELDS) {
     if (Object.prototype.hasOwnProperty.call(character, field)) result[field] = character[field];
   }
+  // Favorites belong to each user's saved settings, never the public seed bundle.
+  result.favorite = false;
   return result;
 }
 

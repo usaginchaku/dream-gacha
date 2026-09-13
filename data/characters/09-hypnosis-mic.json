@@ -145,7 +145,7 @@
         "美形"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "177cm",
       "heightCm": 177,
       "heightStatus": "manual",
@@ -163,7 +163,7 @@
         "同年代系"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "177cm",
       "heightCm": 177,
       "heightStatus": "manual",
@@ -201,7 +201,7 @@
         "明るい"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "179cm",
       "heightCm": 179,
       "heightStatus": "manual",
@@ -238,7 +238,7 @@
         "明るい"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "174cm",
       "heightCm": 174,
       "heightStatus": "manual",

@@ -827,7 +827,7 @@
         "優しい"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "不明",
       "heightCm": null,
       "heightStatus": "unknown",
@@ -885,7 +885,7 @@
         "優しい"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "不明",
       "heightCm": null,
       "heightStatus": "unknown",

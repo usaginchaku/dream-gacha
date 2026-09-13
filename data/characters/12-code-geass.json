@@ -24,7 +24,7 @@
         "冷静"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "178cm→181cm（1期→R2）",
       "heightCm": 181,
       "heightStatus": "manual",
@@ -50,7 +50,7 @@
         "優しい"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "176cm→179cm（1期→R2）",
       "heightCm": 179,
       "heightStatus": "manual",
@@ -702,7 +702,7 @@
         "美形"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "不明",
       "heightCm": null,
       "heightStatus": "unknown",

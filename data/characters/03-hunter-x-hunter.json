@@ -41,7 +41,7 @@
         "冷静"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "成人版は公式未設定（原作プロフィール値：171cm）",
       "heightCm": null,
       "heightStatus": "verified",
@@ -81,7 +81,7 @@
         "明るい"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "154cm（原作プロフィール値）",
       "heightCm": 154,
       "heightStatus": "verified",
@@ -100,7 +100,7 @@
         "冷静"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "成人版は公式未設定（原作プロフィール値：158cm）",
       "heightCm": null,
       "heightStatus": "verified",
@@ -145,7 +145,7 @@
         "年上系"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "187cm（公式データブック値。作中では190cm超との言及あり）",
       "heightCm": 187,
       "heightStatus": "verified",

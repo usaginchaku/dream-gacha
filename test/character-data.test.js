@@ -32,14 +32,27 @@ function withFixture(document, callback) {
 test("generated bundle preserves every seeded character and major fields", () => {
   const characters = generatedCharacters();
   assert.equal(characters.length, 1303);
-  assert.equal(crypto.createHash("sha256").update(JSON.stringify(characters)).digest("hex"), "d59fb8522438067e9513bbccf0e1b08f7829c03bce0a8a9d6a6e37eb3a412f61");
+  assert.equal(crypto.createHash("sha256").update(JSON.stringify(characters)).digest("hex"), "9320c34775835cc7d82d08976caa2d35ae73ef7ba992c4b019fc97ca352e36cb");
   assert.deepEqual(JSON.parse(JSON.stringify(characters.find(character => character.id === "jojo-caesar"))), {
     id: "jojo-caesar", name: "シーザー・A・ツェペリ", work: "ジョジョの奇妙な冒険", series: "2部",
     tags: ["キザ", "自信家", "女好き", "情熱的", "年上系", "包容力", "優しい"], archived: false,
-    favorite: true, heightText: "186cm", heightCm: 186, heightStatus: "verified",
+    favorite: false, heightText: "186cm", heightCm: 186, heightStatus: "verified",
     heightSource: "JoJo Wiki「Caesar Anthonio Zeppeli」プロフィール：186cm"
   });
   assert.equal(new Set(characters.map(character => character.work)).size, 22);
+});
+
+test("public seeds never inherit favorites from an imported source", () => {
+  const input = [{ id: "a", favorite: true }, { id: "b", favorite: false }, { id: "c" }];
+  const before = JSON.stringify(input);
+  const context = {};
+  vm.runInNewContext(builder.generateSource(input), context);
+  assert.ok(context.DreamGachaCharacterData.DEFAULT_CHARACTERS.every(c => c.favorite === false));
+  assert.equal(JSON.stringify(input), before, "building must not mutate imported settings");
+  assert.ok(generatedCharacters().every(c => c.favorite === false));
+  for (const { document } of builder.readDocuments(dataDir)) {
+    assert.ok(document.characters.every(c => c.favorite !== true), "published source JSON must also be neutral");
+  }
 });
 
 test("index.html cache key matches the generated bundle", () => {

@@ -68,7 +68,7 @@
         "明るい"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "168.5cm（ゲーム内モデル計測）",
       "heightCm": 168.5,
       "heightStatus": "manual",
@@ -105,7 +105,7 @@
         "美形"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "187.3cm（ゲーム内モデル計測）",
       "heightCm": 187.3,
       "heightStatus": "manual",
@@ -140,7 +140,7 @@
         "冷静"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "165.8cm（ゲーム内モデル計測）",
       "heightCm": 165.8,
       "heightStatus": "manual",
@@ -261,7 +261,7 @@
         "冷静"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "166.7cm（ゲーム内モデル計測）",
       "heightCm": 166.7,
       "heightStatus": "manual",
@@ -278,7 +278,7 @@
         "挑発的"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "167.8cm（ゲーム内モデル計測）",
       "heightCm": 167.8,
       "heightStatus": "manual",
@@ -349,7 +349,7 @@
         "優しい"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "187.5cm（ゲーム内モデル計測）",
       "heightCm": 187.5,
       "heightStatus": "manual",
@@ -367,7 +367,7 @@
         "冷静"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "188.4cm（ゲーム内モデル計測）",
       "heightCm": 188.4,
       "heightStatus": "manual",
@@ -473,7 +473,7 @@
         "不器用"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "約160cm前後（Medium Maleモデル目安）",
       "heightCm": 160,
       "heightStatus": "manual",
@@ -491,7 +491,7 @@
         "冷静"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "約185〜195cm（Tall Maleモデル目安）",
       "heightCm": 190,
       "heightStatus": "manual",
@@ -729,7 +729,7 @@
         "明るい"
       ],
       "archived": false,
-      "favorite": true,
+      "favorite": false,
       "heightText": "188.8cm（ゲーム内モデル計測）",
       "heightCm": 188.8,
       "heightStatus": "manual",
