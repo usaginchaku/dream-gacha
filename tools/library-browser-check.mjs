@@ -33,9 +33,14 @@ try {
   }, rawBody);
   assert.equal(await page.locator('#novelTitle').inputValue(), 'テストの題名');
   assert.equal(await page.locator('#novelBody').inputValue(), rawBody);
+  await page.locator('#novelGenerationAi').fill('ChatGPT');
+  assert.ok(await page.locator('#novelModelChoices option[value="GPT-6 Astra"]').count());
+  await page.locator('#novelGenerationModel').fill('GPT-6 Astra');
   await page.locator('#saveNovel').click();
   await page.waitForFunction(() => document.querySelector('#novelCount').textContent === '1本');
   let novels = await page.evaluate(() => novelAll());
+  assert.equal(novels[0].generationAi, 'ChatGPT');assert.equal(novels[0].generationModel, 'GPT-6 Astra');
+  assert.equal(await page.locator('#novelGenerationAi').inputValue(), '');
   assert.equal(novels[0].body, rawBody); assert.equal(novels[0].promptSnapshot, assembled + '\n完成欄だけの追記');
   assert.equal(novels[0].snapshot.promptRecord.revision.baseText, standard + '\n試験用の追加指示 <b>テキストとして表示</b>');
   const frozenPrompt = JSON.stringify(novels[0].snapshot);
@@ -43,6 +48,10 @@ try {
   assert.match(await page.locator('#novelViewPromptInfo').textContent(), /試験版 A.*追加編集あり/);
   assert.equal(await page.locator('#novelViewPromptInfo b').count(), 0);
   await page.locator('#startNovelEdit').click();
+  assert.equal(await page.locator('#novelEditGenerationModel').inputValue(), 'GPT-6 Astra');
+  await page.locator('#novelEditGenerationAi').fill('Gemini');
+  assert.ok(await page.locator('#novelEditModelChoices option[value="Gemini 3.1 Pro"]').count());
+  await page.locator('#novelEditGenerationModel').fill('Gemini 3.1 Pro');
   await page.locator('#novelEditTitle').fill('あとから変えたタイトル');
   await page.locator('#saveNovelEdit').click();
   await page.waitForFunction(() => document.querySelector('#novelViewTitle').textContent === 'あとから変えたタイトル');
@@ -50,6 +59,7 @@ try {
   await page.locator('summary').filter({ hasText: 'アノテーション用に書き出す' }).click();
   let waiting = page.waitForEvent('download'); await page.locator('#exportNovelJson').click();
   const json = JSON.parse(await readFile(await (await waiting).path(), 'utf8'));
+  assert.equal(json.novel.generationAi, 'Gemini');assert.equal(json.novel.generationModel, 'Gemini 3.1 Pro');
   assert.equal(json.novel.title, 'あとから変えたタイトル'); assert.equal(json.prompt.text, assembled + '\n完成欄だけの追記');
   assert.equal(json.annotation.text, rawBody); assert.equal(json.prompt.record.revision.label, '試験版 A');
   waiting = page.waitForEvent('download'); await page.locator('#exportNovelBody').click();
@@ -58,6 +68,7 @@ try {
   await page.reload(); await page.locator('#tab-library').click();
   await page.waitForFunction(() => document.querySelector('#novelCount').textContent === '1本');
   assert.equal((await page.evaluate(() => novelAll()))[0].title, 'あとから変えたタイトル');
+  assert.equal((await page.evaluate(() => novelAll()))[0].generationModel, 'Gemini 3.1 Pro');
   await page.locator('#tab-gacha').click();
   await page.locator('#basePrompt').fill(standard + '\n次の版の指示');
   await page.locator('#basePromptLabel').fill('試験版 B');
@@ -73,6 +84,7 @@ try {
   await page.locator('#saveSettings').click();
   assert.equal((await page.evaluate(() => JSON.parse(localStorage.getItem('dreamGachaSettings')).promptVersions)).length, versions.length);
   const backup = await page.evaluate(() => fullBackupPayload());
+  assert.equal(backup.data.novels[0].generationModel, 'Gemini 3.1 Pro');
   assert.equal(backup.data.promptVersions.length, versions.length); assert.equal(JSON.stringify(backup.data.novels[0].snapshot), frozenPrompt);
   await page.evaluate(data => restoreFullBackup(data), backup);
   assert.deepEqual(await page.evaluate(() => novelAll()), backup.data.novels);
@@ -108,10 +120,16 @@ try {
   await page.setViewportSize({width:375,height:667});
   await page.locator('#startNovelEdit').click();
   await page.locator('#novelEditTitle').fill('スクロール検証後のタイトル');
+  await page.locator('#novelEditGenerationAi').fill('独自AI');
+  await page.locator('#novelEditGenerationModel').fill('任意のモデル名');
+  assert.ok(await page.locator('#novelEditGenerationModel').evaluate(el=>{
+    const field=el.getBoundingClientRect();return field.left>=0&&field.right<=innerWidth;
+  }));
+  if (process.argv[3]) await page.screenshot({ path: process.argv[3] });
   await page.locator('#saveNovelEdit').click();
   await page.waitForFunction(()=>document.querySelector('#novelViewTitle').textContent==='スクロール検証後のタイトル');
   assert.equal(await page.locator('#novelDialogContent').evaluate(el=>el.scrollTop),0);
-  if (process.argv[3]) await page.screenshot({ path: process.argv[3] });
+  assert.equal((await page.evaluate(() => novelAll()))[0].generationModel, '任意のモデル名');
   assert.deepEqual(errors, []); assert.deepEqual(requests, []);
   console.log('PASS: library persistence/export; 375/390/1280px reader, conditions, prompt and edit scrolling; no page errors or external requests');
 } finally {

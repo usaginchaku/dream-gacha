@@ -72,9 +72,9 @@ async function main(){
  const appSource=fs.readFileSync(path.join(root,"app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,6),["app-data.js?v=44","app-context.js?v=44","app-domain.js?v=44","app-prompts.js?v=44","app-storage.js?v=44","app-ui.js?v=44"]);
+  assert.deepEqual(src.slice(0,6),["app-data.js?v=44","app-context.js?v=44","app-domain.js?v=46","app-prompts.js?v=46","app-storage.js?v=46","app-ui.js?v=46"]);
  assert.match(src[6],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(7),["seed-data.js?v=44","stage-presets.js?v=44","app-context-ui.js?v=44","app.js?v=45"]);
+  assert.deepEqual(src.slice(7),["seed-data.js?v=44","stage-presets.js?v=44","app-context-ui.js?v=44","app.js?v=46"]);
   assert.ok(index.includes('href="styles.css?v=45"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
@@ -298,8 +298,12 @@ async function main(){
  run(a,`syncScenario=()=>{};novelPut=async n=>{globalThis.__savedNovel=n};refreshNovelCache=async()=>[];renderNovelList=()=>{};showToast=()=>{};novelDraftSnapshot={character:{name:"A"},situation:"T",prompt:"MANUALLY EDITED"};`);
  a.get("#output").value="MANUALLY EDITED";
  a.get("#novelBody").value="body"; a.get("#novelTitle").value="AI TITLE"; a.get("#novelMemo").value="MANUALLY EDITED"; a.get("#novelFavorite").checked=false;
+ a.get("#novelGenerationAi").value=" ChatGPT ";a.get("#novelGenerationModel").value=" GPT-6 Astra ";
  await run(a,"saveNovelArchive()");
  assert.equal(run(a,"__savedNovel.snapshot.prompt"),"MANUALLY EDITED");
+ assert.equal(run(a,"__savedNovel.generationAi"),"ChatGPT");assert.equal(run(a,"__savedNovel.generationModel"),"GPT-6 Astra");
+ assert.equal(a.get("#novelGenerationAi").value,"");assert.equal(a.get("#novelGenerationModel").value,"");
+ assert.match(run(a,"novelTxtContent(__savedNovel)"),/生成AI：ChatGPT\nモデル：GPT-6 Astra/);
   assert.equal(run(a,"__savedNovel.memo"),"");
    assert.equal(run(a,"novelDisplayTitle(__savedNovel)"),"AI TITLE");
   assert.equal(run(a,"__savedNovel.charCount"),4);
@@ -315,6 +319,7 @@ async function main(){
   frozen.get("#novelBody").value="frozen body";
   await run(frozen,"saveNovelArchive()");
   assert.equal(run(frozen,"__frozenNovel.snapshot.relationship"),"generated R");
+  assert.equal(run(frozen,"__frozenNovel.generationAi"),"");assert.equal(run(frozen,"__frozenNovel.generationModel"),"");
   assert.equal(run(frozen,"__frozenNovel.promptSnapshot"),run(frozen,"state.promptDraftSnapshot.prompt"));
   assert.equal(run(frozen,"__frozenNovel.snapshot.promptRecord.revision.standardVersion"),"0.1.3.3");
   assert.equal(run(frozen,"state.promptVersions.length"),1);
@@ -336,6 +341,8 @@ async function main(){
   paste.get("#novelTitle").value="";paste.get("#novelSplitTitle").checked=false;run(paste,"handleNovelPaste(pasteEvent)");assert.equal(pasteEvent.prevented,false);
   paste.get("#novelBody").value="失敗しても残る本文";paste.context.alert=()=>{};
   run(paste,"novelPut=async()=>{throw Error('quota')}");await run(paste,"saveNovelArchive()");assert.equal(paste.get("#novelBody").value,"失敗しても残る本文");
+  paste.get("#novelGenerationAi").value="独自AI";paste.get("#novelGenerationModel").value="試験版";
+  await run(paste,"saveNovelArchive()");assert.equal(paste.get("#novelGenerationAi").value,"独自AI");assert.equal(paste.get("#novelGenerationModel").value,"試験版");
   assert.doesNotMatch(run(paste,"promptDiffHtml('before','<script>alert(1)</script>')"),/<script>/);
 
   // Editing only replaces user-editable fields. The original record metadata,
@@ -343,9 +350,23 @@ async function main(){
   const editor=makeApp();
   run(editor,`novelCache=[{id:"edit",title:"old",body:"old",memo:"old memo",favorite:true,createdAt:"2026-01-01T00:00:00.000Z",updatedAt:"2026-01-01T00:00:00.000Z",snapshot:{character:{name:"A"},relationship:"R",situation:"T"},promptSnapshot:"FROZEN",custom:"kept"}];viewingNovelId="edit";novelPut=async n=>{globalThis.__editedNovel=n};refreshNovelCache=async()=>{novelCache=[globalThis.__editedNovel]};showToast=()=>{};`);
   editor.get("#novelEditTitle").value="new title";editor.get("#novelEditBody").value="new body";editor.get("#novelEditMemo").value="new memo";
+  editor.get("#novelEditGenerationAi").value="独自AI <b>";editor.get("#novelEditGenerationModel").value="非公開モデル";
   await run(editor,"saveNovelEdit()");
   assert.equal(run(editor,"__editedNovel.id"),"edit");assert.equal(run(editor,"__editedNovel.createdAt"),"2026-01-01T00:00:00.000Z");assert.equal(run(editor,"__editedNovel.favorite"),true);
   assert.equal(run(editor,"__editedNovel.snapshot.relationship"),"R");assert.equal(run(editor,"__editedNovel.promptSnapshot"),"FROZEN");assert.equal(run(editor,"__editedNovel.custom"),"kept");
+  assert.equal(run(editor,"__editedNovel.generationAi"),"独自AI <b>");assert.equal(run(editor,"__editedNovel.generationModel"),"非公開モデル");
+  assert.match(editor.get("#novelViewConditions").innerHTML,/独自AI &lt;b&gt;/);assert.doesNotMatch(editor.get("#novelViewConditions").innerHTML,/独自AI <b>/);
+  run(editor,"startNovelEdit()");assert.equal(run(editor,"hasNovelEditChanges()"),false);
+  editor.get("#novelEditGenerationModel").value="";assert.equal(run(editor,"hasNovelEditChanges()"),true);
+  editor.context.confirm=()=>false;assert.equal(run(editor,"closeNovelView()"),false);
+  await run(editor,"saveNovelEdit()");assert.equal(run(editor,"__editedNovel.generationModel"),"");
+  assert.equal(run(editor,"DreamGachaDomain.filterNovels(novelCache,'独自AI',false).length"),1);
+  const suggestions=makeApp();suggestions.get("#novelGenerationAi").value="Gemini";run(suggestions,"renderNovelModelChoices()");
+  assert.match(suggestions.get("#novelModelChoices").innerHTML,/Gemini 3.1 Pro/);assert.doesNotMatch(suggestions.get("#novelModelChoices").innerHTML,/GPT/);
+  suggestions.get("#novelGenerationModel").value="独自モデル";suggestions.get("#novelGenerationAi").value="別のAI";run(suggestions,"renderNovelModelChoices()");
+  assert.equal(suggestions.get("#novelGenerationModel").value,"独自モデル");assert.equal(run(suggestions,"hasNewNovelFormInput()"),true);
+  run(suggestions,"openNovelView({id:'legacy',body:'旧作',snapshot:{}})");
+  assert.match(suggestions.get("#novelViewConditions").innerHTML,/<b>生成AI<\/b>未記録/);
   assert.equal(run(editor,"__editedNovel.charCount"),8);assert.notEqual(run(editor,"__editedNovel.updatedAt"),"2026-01-01T00:00:00.000Z");
   assert.match(editor.get("#novelList").innerHTML,/new title/);assert.equal(editor.get("#novelViewTitle").textContent,"new title");
   run(editor,"globalThis.__emptyWrite=false;novelPut=async()=>{globalThis.__emptyWrite=true};viewingNovelId='edit';");editor.get("#novelEditBody").value="   ";await run(editor,"saveNovelEdit()");assert.equal(run(editor,"__emptyWrite"),false);

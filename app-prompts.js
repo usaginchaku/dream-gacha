@@ -55,7 +55,7 @@
   function novelExport(n,now){
     const snapshot=clone(n.snapshot||{}),prompt=text(n.promptSnapshot??snapshot.prompt),record=promptRecord(snapshot);
     return {schema:"dream-gacha.novel-export",version:1,exportedAt:now||new Date().toISOString(),
-      novel:{id:n.id,title:text(n.title),body:text(n.body),memo:text(n.memo),favorite:!!n.favorite,createdAt:n.createdAt,updatedAt:n.updatedAt,snapshot},
+      novel:{id:n.id,title:text(n.title),body:text(n.body),memo:text(n.memo),generationAi:text(n.generationAi),generationModel:text(n.generationModel),favorite:!!n.favorite,createdAt:n.createdAt,updatedAt:n.updatedAt,snapshot},
       prompt:{text:prompt,record,versionId:record?.revision.id||null,headerVersion:headerVersion(prompt),status:record?"recorded":"unknown"},
       annotation:{sourceNovelId:n.id,text:text(n.body),offsetUnit:"UTF-16",reviewStatus:"unknown",annotations:[]}};
   }

@@ -75,6 +75,9 @@
     if(data.novels!==undefined&&!Array.isArray(data.novels))throw new Error("novels が配列ではありません");
     const novelIds=new Set();for(const n of data.novels||[]){const id=n?.id;if(!n||typeof n!=="object"||typeof id!=="string"||!id.trim()||typeof n.body!=="string")throw new Error("夢小説データが不正です");if(novelIds.has(id))throw new Error(`夢小説IDが重複しています: ${id}`);novelIds.add(id)}
     for(const n of data.novels||[])if(n.snapshot?.promptContext)C.validateSnapshot(n.snapshot.promptContext);
+    for(const n of data.novels||[])for(const key of ["generationAi","generationModel"]){
+      if(n[key]!==undefined&&typeof n[key]!=="string")throw new Error(`夢小説の ${key} は文字列で指定してください`);
+    }
     return data;
   }
   async function restoreAtomically(adapters,next){

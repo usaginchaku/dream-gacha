@@ -55,3 +55,17 @@ test("full backup restores new prompt history while old backups remain valid",()
   assert.throws(()=>storage.validateSettings({...settings,promptVersions:[{...revision,id:"bundled"}]}));
   assert.throws(()=>storage.validateSettings({...settings,basePromptReference:{}}));
 });
+
+test("generation AI and model survive export and backup without changing historical snapshots",()=>{
+  const novel={id:"ai",body:"本文",generationAi:"独自AI",generationModel:"任意の旧モデル",snapshot:{prompt:"frozen"}};
+  const exported=p.novelExport(novel);
+  assert.equal(exported.novel.generationAi,novel.generationAi);assert.equal(exported.novel.generationModel,novel.generationModel);
+  assert.equal(exported.annotation.text,novel.body);
+  assert.equal(p.novelExport({id:"legacy",body:"old"}).novel.generationAi,"");
+  const backup=storage.makeBackup({characters:[],pools:{}},[novel]);
+  assert.deepEqual(storage.validateBackup(JSON.parse(JSON.stringify(backup))).novels,[novel]);
+  for(const key of ["generationAi","generationModel"]){
+    const bad=JSON.parse(JSON.stringify(backup));bad.data.novels[0][key]={unexpected:true};
+    assert.throws(()=>storage.validateBackup(bad),/文字列/);
+  }
+});

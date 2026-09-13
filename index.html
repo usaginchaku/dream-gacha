@@ -226,6 +226,11 @@
       <div class="field" style="margin-top:10px"><label for="novelBody">小説をタイトルごと貼り付け <span class="label" id="novelBodyCount">0字</span></label><textarea id="novelBody" class="novel-body-input" spellcheck="false" placeholder="1行目：タイトル&#10;2行目以降：本文"></textarea></div>
       <p class="manager-note">タイトル・本文が空のときに自動で分離します。本文だけの場合はチェックを外してください。本文の空行は保持します。</p>
       <div class="field"><label for="novelTitle">タイトル（登録後も編集できます）</label><input id="novelTitle" type="text" placeholder="1行目から自動入力／手入力もできます"></div>
+      <div class="field" style="margin-top:10px"><label for="novelGenerationAi">生成AI（任意）</label><input id="novelGenerationAi" type="text" list="novelAiChoices" placeholder="ChatGPT、Geminiなど／自由入力も可"></div>
+      <div class="field" style="margin-top:10px"><label for="novelGenerationModel">モデル（任意）</label><input id="novelGenerationModel" type="text" list="novelModelChoices" placeholder="候補から選択、またはモデル名を入力"></div>
+      <datalist id="novelAiChoices"><option value="ChatGPT"></option><option value="Gemini"></option><option value="Claude"></option><option value="Microsoft Copilot"></option><option value="Grok"></option><option value="DeepSeek"></option><option value="Google AI Studio"></option><option value="その他"></option></datalist>
+      <datalist id="novelModelChoices"></datalist>
+      <p class="manager-note">実際に生成したAI・モデルを記録します。自動取得はしません。不明なら空欄で保存でき、新旧モデル・候補にない名前も入力できます。</p>
       <details><summary>一緒に保存するプロンプトを確認</summary><p class="manager-note" id="novelSavePromptStatus"></p><textarea id="novelSavePrompt" readonly aria-label="保存する完成プロンプト"></textarea><p class="manager-note">直前の生成内容、または「小説を保存」で選んだ内容です。外部AI側だけで変更した内容は自動取得できません。</p></details>
       <div class="field" style="margin-top:10px"><label for="novelMemo">メモ（任意）</label><textarea id="novelMemo" class="novel-memo-input" placeholder="刺さったところ、後で読み返したい理由など"></textarea></div>
       <div class="library-form-actions">
@@ -543,6 +548,9 @@
     </details>
     <div class="novel-edit-panel" id="novelEditPanel" hidden="">
       <div class="field"><label for="novelEditTitle">タイトル</label><input id="novelEditTitle" type="text"></div>
+      <div class="field" style="margin-top:10px"><label for="novelEditGenerationAi">生成AI（任意）</label><input id="novelEditGenerationAi" type="text" list="novelAiChoices" placeholder="候補から選択、または自由入力"></div>
+      <div class="field" style="margin-top:10px"><label for="novelEditGenerationModel">モデル（任意）</label><input id="novelEditGenerationModel" type="text" list="novelEditModelChoices" placeholder="不明なら空欄／自由入力も可"></div>
+      <datalist id="novelEditModelChoices"></datalist>
       <div class="field" style="margin-top:10px"><label for="novelEditBody">本文 <span class="label" id="novelEditCount">0字</span></label><textarea id="novelEditBody" class="novel-body-input" spellcheck="false"></textarea></div>
       <div class="field" style="margin-top:10px"><label for="novelEditMemo">メモ（任意）</label><textarea id="novelEditMemo" class="novel-memo-input"></textarea></div>
       <div class="library-form-actions"><button type="button" class="danger-btn" id="deleteNovelFromEdit">削除</button><button type="button" class="small-btn" id="cancelNovelEdit">キャンセル</button><button type="button" class="primary" id="saveNovelEdit">変更を保存</button></div>
@@ -577,15 +585,15 @@
 
 <script src="app-data.js?v=44"></script>
 <script src="app-context.js?v=44"></script>
-<script src="app-domain.js?v=44"></script>
-<script src="app-prompts.js?v=44"></script>
-<script src="app-storage.js?v=44"></script>
-<script src="app-ui.js?v=44"></script>
+<script src="app-domain.js?v=46"></script>
+<script src="app-prompts.js?v=46"></script>
+<script src="app-storage.js?v=46"></script>
+<script src="app-ui.js?v=46"></script>
 <script src="character-data.generated.js?v=68469b168f3d"></script>
 <script src="seed-data.js?v=44"></script>
 <script src="stage-presets.js?v=44"></script>
 <script src="app-context-ui.js?v=44"></script>
-<script src="app.js?v=45"></script>
+<script src="app.js?v=46"></script>
 
 
 </body></html>

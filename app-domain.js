@@ -36,7 +36,7 @@
   }
   function filterNovels(items,query,favoriteOnly){
     const q=text(query).trim().toLowerCase();
-    return (items||[]).filter(n=>{if(favoriteOnly&&!n.favorite)return false;if(!q)return true;const s=n.snapshot||{};return [n.title,n.body,n.memo,s.character?.name,s.character?.work,s.relationship,s.situation,s.mood,s.extra,s.worldMode,s.protagonistProfile,s.workProtagonistProfile].join(" ").toLowerCase().includes(q)});
+    return (items||[]).filter(n=>{if(favoriteOnly&&!n.favorite)return false;if(!q)return true;const s=n.snapshot||{};return [n.title,n.body,n.memo,n.generationAi,n.generationModel,s.character?.name,s.character?.work,s.relationship,s.situation,s.mood,s.extra,s.worldMode,s.protagonistProfile,s.workProtagonistProfile].join(" ").toLowerCase().includes(q)});
   }
   root.DreamGachaDomain={clone,formatPrompt,makeSnapshot,resolveSnapshot,preview,filterNovels};
   if(typeof module!=="undefined"&&module.exports)module.exports=root.DreamGachaDomain;
