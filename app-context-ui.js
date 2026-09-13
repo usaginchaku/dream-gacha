@@ -12,7 +12,10 @@
     $(id).innerHTML=Array.from(list,([id,label])=>`<option value="${esc(id)}"${values.includes(id)?" selected":""}>${esc(label)}</option>`).join("");
   }
   function capture(){return C.capture(config(),state.promptSelection,state.promptOutput)}
-  function resolve(){return C.resolve(config(),state.promptSelection,state.promptOutput,{character:currentCharacter(),worldMode:state.worldMode,protagonistProfile:state.protagonistProfile,workProtagonistProfile:workProtagonistProfileFor(currentCharacter()?.work)})}
+  function resolve(){
+    const protagonist=typeof currentProtagonistSettings==="function"?currentProtagonistSettings():{protagonistProfile:state.protagonistProfile,workProtagonistProfile:workProtagonistProfileFor(currentCharacter()?.work)};
+    return C.resolve(config(),state.promptSelection,state.promptOutput,{character:currentCharacter(),worldMode:state.worldMode,...protagonist});
+  }
   function readableScope(e){
     const all=config().entries;
     return C.SCOPES.filter(k=>e.scope[k].length).map(k=>{
@@ -39,11 +42,12 @@
     if(setting.style)textRows.push(`<details><summary>文章の好み</summary><pre>${esc(setting.style)}</pre></details>`);
     if(result.stage)textRows.push(`<details><summary>舞台：${esc(result.stage.title)}（版 ${result.stage.revision}）</summary><p>${esc(readableScope(result.stage))}・${esc(modes[result.stage.worldMode])}</p><pre>${esc(result.stage.body)}</pre>${referenceHtml(result.stage)}</details>`);
     for(const {entry:e,active,reason} of result.rows){
-      textRows.push(`<div class="context-applied-row"><label><input type="checkbox" data-context-apply="${esc(e.id)}"${active?" checked":""}> ${esc(e.title)}</label><span class="label">${esc(reason)}・版 ${e.revision}</span><details><summary>内容と適用条件</summary><p>${esc(readableScope(e))}${e.kind==="protagonist"?`・${e.protagonistMode==="replace"?"共通・作品別の夢主設定を置き換え":"夢主設定に追加"}`:""}</p><pre>${esc(e.body)}</pre>${referenceHtml(e)}</details></div>`);
+      textRows.push(`<div class="context-applied-row"><label><input type="checkbox" data-context-apply="${esc(e.id)}"${active?" checked":""}> ${esc(e.title)}</label><span class="label">${esc(reason)}・版 ${e.revision}</span><details><summary>内容と適用条件</summary><p>${esc(readableScope(e))}${e.characterNote?`・${esc(C.characterNoteLabel(e,setting))}`:""}${e.kind==="protagonist"?`・${e.protagonistMode==="replace"?"共通・作品別の夢主設定を置き換え":"夢主設定に追加"}`:""}</p><pre>${esc(e.body)}</pre>${referenceHtml(e)}</details></div>`);
     }
     list.innerHTML=textRows.join("")||'<p class="manager-note">該当する舞台・補足はありません。共通の夢主設定と作品別設定を使用します。</p>';
     $("#contextAppliedCount").textContent=`舞台 ${result.stage?1:0}件・補足 ${result.rows.filter(r=>r.active).length}件${result.replacement?"・夢主を置き換え":""}`;
     if(!outputDirty){$("#contextOutputLength").value=state.promptOutput.length;$("#contextOutputPov").value=state.promptOutput.pov;}
+    if(typeof refreshPromptStatus==="function")refreshPromptStatus();
   }
   function resetOutputDraft(){outputDirty=false;}
   function resetDrafts(){
@@ -96,6 +100,7 @@
     if(kind==="stage"){scope.worldModes=[];scope.stageIds=[];}
     if(old?.kind==="stage"&&kind!=="stage"&&state.promptSettings.entries.some(e=>e.scope.stageIds.includes(old.id))){$("#contextEditorStatus").textContent="この舞台を参照する補足があります。参照を外してから種類を変更してください。";return;}
     const entry={id:old?.id||libraryId("context"),revision:(old?.revision||0)+1,title:$("#contextTitle").value.trim(),kind,body:$("#contextBody").value,enabled:$("#contextEnabled").checked,scope,activation:$("#contextActivation").value,protagonistMode:$("#contextProtagonistMode").value,worldMode:$("#contextStageMode").value,reference:Object.fromEntries(["name","version","excerpt"].map(k=>[k,$("#contextReference-"+k).value]))};
+    if(old?.characterNote)entry.characterNote=structuredClone(old.characterNote);
     if(!entry.title){$("#contextEditorStatus").textContent="管理名を入力してください。";return;}
     const settings=structuredClone(state.promptSettings);
     const index=settings.entries.findIndex(e=>e.id===entry.id);if(index<0)settings.entries.push(entry);else settings.entries[index]=entry;
@@ -116,10 +121,7 @@
     $("#contextStage").addEventListener("change",e=>{const id=e.target.value;persistChange(()=>{
       state.promptSelection={...state.promptSelection,stageId:id};
       const stage=config().entries.find(e=>e.id===id&&e.kind==="stage");
-      if(stage){
-        state.worldMode=stage.worldMode;
-        if(state.values.situation&&!situationMatchesWorldMode(state.values.situation,state.worldMode)){state.values.situation="";state.locks.situation=false;}
-      }
+      if(stage)state.worldMode=stage.worldMode;
     });renderWorldModeControls();updateCard("situation");updateLock("situation");});
     $("#contextApplied").addEventListener("change",e=>{const box=e.target.closest("[data-context-apply]");if(!box)return;
       const id=box.dataset.contextApply,entry=config().entries.find(e=>e.id===id);if(!entry)return;

@@ -2,9 +2,9 @@
   "use strict";
   root.DreamGachaData=Object.freeze({
     SETTINGS_KEY:"dreamGachaSettings",
-    SETTINGS_VERSION:44,
+    SETTINGS_VERSION:45,
     BACKUP_SCHEMA:"dream-gacha.full-backup",
-    BACKUP_VERSION:3,
+    BACKUP_VERSION:4,
     SNAPSHOT_KEYS:Object.freeze(["relationship","situation","mood","extra"]),
     CARD_KEYS:Object.freeze(["character","relationship","situation","mood","extra"]),
     NOVEL_PREVIEW_LENGTH:320

@@ -572,3 +572,23 @@ footer{padding:22px 0 8px;text-align:center;color:var(--muted);font-size:.77rem}
 #contextEditor .field{margin-top:12px}
 .context-panel [hidden],.context-notice[hidden]{display:none!important}
 @media(max-width:600px){.context-grid{grid-template-columns:1fr}.context-panel{padding:12px}.context-panel .settings-actions{flex-wrap:wrap}}
+/* Optional creation details share the existing palette and remain usable on phones. */
+#recipeEditor{margin:12px 0}
+#recipeEditor textarea{min-height:80px}
+#recipeError:empty{display:none}
+#promptFreshness[data-state="stale"]{padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--surface-warm);color:var(--text)}
+.character-card-dialog{width:min(760px,calc(100vw - 24px));max-width:none;max-height:calc(100dvh - 28px);padding:0;border:1px solid var(--line);border-radius:18px;background:var(--panel);color:var(--text);box-shadow:var(--shadow)}
+.character-card-dialog[open]{display:flex;flex-direction:column}
+.character-card-dialog::backdrop{background:rgba(20,12,30,.5)}
+.character-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:16px;border-bottom:1px solid var(--line);flex-shrink:0}
+.character-card-head h2{margin:0;font-size:1.15rem}
+#characterCardClose{flex-shrink:0;white-space:nowrap}
+.character-card-head .manager-note{margin-bottom:0}
+.character-card-content{padding:16px;overflow:auto;min-height:0;overscroll-behavior:contain;scrollbar-gutter:stable}
+.character-card-note{border:1px solid var(--line);border-radius:12px;background:var(--panel2);padding:12px;margin:12px 0;overflow-wrap:anywhere}
+.character-card-note h3{margin:0;font-size:1rem}
+.character-card-note pre{white-space:pre-wrap;overflow-wrap:anywhere;font-family:inherit;line-height:1.7}
+#characterNoteEditor{margin-top:16px}
+#characterNoteBody{min-height:160px}
+.character-card-dialog [hidden]{display:none!important}
+@media(max-width:600px){.character-card-head,.character-card-content{padding:12px}.character-card-dialog .context-grid{grid-template-columns:minmax(0,1fr)}}

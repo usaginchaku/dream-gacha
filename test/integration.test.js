@@ -8,27 +8,7 @@ const path=require("path");
 const vm=require("vm");
 const root=path.resolve(__dirname,"..");
 
-function element(){return {value:"",checked:false,textContent:"",innerHTML:"",hidden:false,open:false,style:{},dataset:{},listeners:{},classList:{add(){},remove(){},toggle(){}},setAttribute(){},scrollIntoView(){},focus(){},select(){},appendChild(){},addEventListener(type,fn){this.listeners[type]=fn},querySelector(){return null},querySelectorAll(){return []}}}
-function makeApp(){
- const elements=new Map();
- const get=s=>{if(!elements.has(s))elements.set(s,element());return elements.get(s)};
- const tabs=["gacha","library","manager","help"].map(screen=>{const item=element();item.dataset.screen=screen;return item});
- const local=new Map();
- const context={console,structuredClone,Set,Map,Date,Math,JSON,Intl,AggregateError,
-   document:{querySelector:get,querySelectorAll:s=>s===".tab-btn"?tabs:[],createElement:()=>element(),addEventListener(){},documentElement:{dataset:{},removeAttribute(name){delete this.dataset[name]}},body:{style:{}},execCommand(){}},
-   window:{prompt:()=>null,matchMedia:()=>({matches:false})},navigator:{clipboard:{writeText:async()=>{}}},
-   localStorage:{getItem:k=>local.has(k)?local.get(k):null,setItem:(k,v)=>local.set(k,String(v)),removeItem:k=>local.delete(k)},
-   indexedDB:{open(){throw new Error("IndexedDB mock must be replaced by test")}},CSS:{escape:x=>x},Blob:function(){},URL:{createObjectURL:()=>"blob:x",revokeObjectURL(){}},setTimeout:(fn)=>{fn();return 1},clearTimeout(){}};
- context.globalThis=context;
- vm.createContext(context);
- for(const file of ["app-data.js","app-context.js","app-domain.js","app-prompts.js","app-storage.js","app-ui.js","character-data.generated.js","seed-data.js","stage-presets.js","app-context-ui.js"])
-   vm.runInContext(fs.readFileSync(path.join(root,file),"utf8"),context,{filename:file});
- let app=fs.readFileSync(path.join(root,"app.js"),"utf8");
- app=app.replace(/\ninit\(\);\s*$/,"\n// init stripped for controlled integration tests\n");
- vm.runInContext(app,context,{filename:"app.js"});
- return {context,elements,local,get,tabs};
-}
-function run(app,code){return vm.runInContext(code,app.context)}
+const {makeApp,run}=require("./helpers/app-harness.js");
 
 async function main(){
  // The owner-authorized reset clears all character favorites exactly once,
@@ -115,10 +95,10 @@ async function main(){
  const appSource=fs.readFileSync(path.join(root,"app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,6),["app-data.js?v=44","app-context.js?v=44","app-domain.js?v=46","app-prompts.js?v=46","app-storage.js?v=47","app-ui.js?v=46"]);
+  assert.deepEqual(src.slice(0,6),["app-data.js?v=48","app-context.js?v=48","app-domain.js?v=48","app-prompts.js?v=48","app-storage.js?v=48","app-ui.js?v=46"]);
  assert.match(src[6],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(7),["seed-data.js?v=44","stage-presets.js?v=44","app-context-ui.js?v=44","app.js?v=47"]);
-  assert.ok(index.includes('href="styles.css?v=45"'));
+  assert.deepEqual(src.slice(7),["seed-data.js?v=44","stage-presets.js?v=44","app-context-ui.js?v=48","app-character-card-ui.js?v=48","app-recipe.js?v=48","app.js?v=48"]);
+  assert.ok(index.includes('href="styles.css?v=48"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
@@ -209,7 +189,7 @@ async function main(){
  migration.local.set("dreamGachaSettings",JSON.stringify({version:38,characters:[historicalSnapshot.character],characterId:"old-id",values:{relationship:"旧条件"},pools:{},basePrompt:historicalSnapshot.prompt,promptDraftSnapshot:historicalSnapshot,presets:[historicalPreset]}));
  run(migration,"init();save()");
  const migratedSettings=JSON.parse(migration.local.get("dreamGachaSettings"));
- assert.equal(migratedSettings.version,44);
+ assert.equal(migratedSettings.version,45);
  assert.equal(migratedSettings.basePrompt,canonicalPrompt);
  assert.deepStrictEqual(migratedSettings.promptDraftSnapshot,historicalSnapshot);
  assert.deepStrictEqual(migratedSettings.presets,[historicalPreset]);
@@ -242,7 +222,7 @@ async function main(){
  stages.local.set('dreamGachaSettings',JSON.stringify(stageRaw));
  run(stages,"init();save()");
  const stageSaved=JSON.parse(stages.local.get('dreamGachaSettings'));
- assert.equal(stageSaved.version,44);
+ assert.equal(stageSaved.version,45);
  assert.equal(stageSaved.promptSettings.entries.length,14);
  assert.equal(stageSaved.basePromptLabel,stageRaw.basePromptLabel);
  assert.deepStrictEqual(stageSaved.promptContextOverride,oldContext);
@@ -308,14 +288,15 @@ async function main(){
  assert.equal(run(a,"DreamGachaData.CARD_KEYS.some(k=>state.categoryInclude[k]||state.categoryExcluded[k].size)"),false);
  assert.equal(run(a,"__bulkSaved"),3);
 
- // Manual prompt is retained while a snapshot is saved, and becomes its saved prompt.
- run(a,`state.characters=[{id:"c1",name:"A",work:"W",series:"S",tags:[],archived:false}];state.characterId="c1";state.values={relationship:"R",situation:"T",mood:"M",extra:"E"};syncScenario=()=>{};`);
- a.get("#output").value="MANUALLY EDITED";
+ // Manual output stays with its original conditions; later edits save condition-only.
+ run(a,`state.characters=[{id:"c1",name:"A",work:"W",series:"S",tags:[],archived:false}];state.characterId="c1";state.values={relationship:"R",situation:"T",mood:"M",extra:"E"};state.requestProtagonist=null;syncScenario=()=>{};$("#output").value="";state.promptDraftSnapshot=null;buildPrompt(false);`);
+ a.get("#output").value="MANUALLY EDITED";run(a,'state.promptDraftSnapshot.prompt=$("#output").value');
+ assert.equal(run(a,"snapshotCurrentConditions().prompt"),"MANUALLY EDITED");
  a.get("#protagonistProfile").value="JUST EDITED PROFILE";
  const snap=run(a,"snapshotCurrentConditions()");
- assert.equal(a.get("#output").value,"MANUALLY EDITED");
- assert.equal(snap.prompt,"MANUALLY EDITED");
+ assert.equal(a.get("#output").value,"MANUALLY EDITED");assert.equal(snap.prompt,"");assert.equal(snap.promptRecord,undefined);
  assert.equal(snap.protagonistProfile,"JUST EDITED PROFILE");
+ assert.equal(run(a,"state.promptDraftSnapshot.prompt"),"MANUALLY EDITED");
 
  // Applying an empty/missing snapshot must not retain any prior roll.
  run(a,`updateCard=()=>{};renderGachaFilters=()=>{};switchScreen=()=>{};showToast=()=>{};save=()=>{};state.characterId="c1";state.values={relationship:"old",situation:"old",mood:"old",extra:"old"};applySnapshot({character:null,relationship:"",situation:"",mood:"",extra:"",freeExtra:"",protagonistProfile:"P",prompt:""});`);
@@ -329,8 +310,10 @@ async function main(){
   assert.equal(run(a,"state.characterId"),"c1");
   assert.equal(run(a,"state.values.relationship"),"saved R");
   assert.equal(run(a,"state.worldMode"),"modern");
-  assert.equal(a.get("#protagonistProfile").value,"saved profile");
-  assert.equal(run(a,"state.workProtagonistProfiles.W"),"saved work profile");
+  assert.equal(a.get("#protagonistProfile").value,"JUST EDITED PROFILE");
+  assert.equal(run(a,"currentProtagonistSettings().protagonistProfile"),"saved profile");
+  assert.equal(run(a,"state.workProtagonistProfiles.W"),"current profile");
+  assert.equal(run(a,"currentProtagonistSettings().workProtagonistProfile"),"saved work profile");
   assert.equal(a.get("#freeExtra").value,"keep free");
   assert.notEqual(run(a,"state.values.situation"),"saved T");
   assert.notEqual(run(a,"state.values.mood"),"saved M");

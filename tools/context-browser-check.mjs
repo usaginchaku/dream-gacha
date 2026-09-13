@@ -12,9 +12,11 @@ let browser;
 try{
  browser=await chromium.launchPersistentContext(profile,{headless:true,channel:'chrome',viewport:{width:1280,height:1000},acceptDownloads:true});
  const page=await browser.newPage(),errors=[],requests=[];
+ const showSettings=()=>page.locator('#contextManager').evaluate(element=>{for(let parent=element.parentElement;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;});
  page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url());});page.on('dialog',d=>d.accept());
  await page.goto(pathToFileURL(path.join(root,'index.html')).href);
  await page.waitForFunction(()=>document.querySelector('#basePrompt').value.includes('0.1.3.3'));
+ await showSettings();
  const standard=await page.locator('#basePrompt').inputValue();
  const initialEntryCount=await page.evaluate(()=>state.promptSettings.entries.length);
  assert.equal(initialEntryCount,14);assert.equal(await page.locator('#contextStage').inputValue(),'');
@@ -31,7 +33,7 @@ try{
  await page.locator('#contextManager').evaluate(e=>e.open=true);
  await page.locator(`[data-context-edit="${bundled[0].id}"]`).click();
  await page.locator('#contextTitle').fill('編集した初期舞台');await page.locator('#contextBody').fill('自分の現パロ本文');await page.locator('#contextEnabled').uncheck();await page.locator('#contextEntrySave').click();
- await page.reload();await page.waitForFunction(()=>document.querySelector('#basePrompt').value.includes('0.1.3.3'));
+ await page.reload();await page.waitForFunction(()=>document.querySelector('#basePrompt').value.includes('0.1.3.3'));await showSettings();
  const preserved=await page.evaluate(id=>state.promptSettings.entries.find(e=>e.id===id),bundled[0].id);
  assert.equal(preserved.title,'編集した初期舞台');assert.equal(preserved.body,'自分の現パロ本文');assert.equal(preserved.enabled,false);
  assert.equal(await page.locator(`#contextStage option[value="${bundled[0].id}"]`).count(),0);
@@ -90,7 +92,7 @@ try{
  await page.locator('#buildPrompt').click();assert.match(await page.locator('#output').inputValue(),/更新した設定/);
  await page.evaluate(s=>applySnapshot(s),savedPreset.snapshot);assert.ok(await page.locator('#contextReuseNotice').isVisible());
  await page.locator('#buildPrompt').click();assert.doesNotMatch(await page.locator('#output').inputValue(),/更新した設定/);assert.match(await page.locator('#output').inputValue(),/部署や学歴/);
- await page.reload();await page.waitForFunction(()=>document.querySelector('#basePrompt').value.includes('0.1.3.3'));assert.ok(await page.locator('#contextReuseNotice').isVisible());
+ await page.reload();await page.waitForFunction(()=>document.querySelector('#basePrompt').value.includes('0.1.3.3'));await showSettings();assert.ok(await page.locator('#contextReuseNotice').isVisible());
  await page.locator('#buildPrompt').click();assert.doesNotMatch(await page.locator('#output').inputValue(),/更新した設定/);
  // Restore an old snapshot: new auto supplements and style must not leak into it.
  await page.evaluate(()=>applySnapshot({character:{...currentCharacter()},worldMode:'canon',protagonistProfile:'',workProtagonistProfile:'',prompt:'旧完成',relationship:'知人',situation:'雨宿りをしている',mood:'静か',extra:'接触なし'}));
@@ -110,7 +112,7 @@ try{
  await page.locator('#contextStyleSave').click();assert.match(await page.locator('#contextEditorStatus').textContent(),/保存できません/);assert.equal(await page.locator('#contextStyle').inputValue(),'保存失敗でも残す入力');
  await page.evaluate(()=>{Storage.prototype.setItem=window.qaSetItem;delete window.qaSetItem;});assert.equal(await page.evaluate(()=>localStorage.getItem('dreamGachaSettings')),before);
  await page.locator('#contextStyleSave').click();
- const backup=await page.evaluate(()=>fullBackupPayload());assert.equal(backup.version,3);
+ const backup=await page.evaluate(()=>fullBackupPayload());assert.equal(backup.version,4);
  const corrupt=structuredClone(backup);corrupt.data.promptSettings.entries.push(corrupt.data.promptSettings.entries[0]);
  const beforeCorrupt=await page.evaluate(()=>localStorage.getItem('dreamGachaSettings'));
  assert.match(await page.evaluate(async b=>{try{await restoreFullBackup(b);return '';}catch(e){return e.message;}},corrupt),/重複/);
@@ -123,7 +125,7 @@ try{
  // Both themes and narrow mobile layout with a long, scoped entry editor.
  for(const width of [390,1280]){
    await page.setViewportSize({width,height:950});await page.locator('#themeMode').selectOption(width===390?'dark':'light');
-   await page.reload();await page.waitForFunction(()=>document.querySelector('#basePrompt').value.includes('0.1.3.3'));
+   await page.reload();await page.waitForFunction(()=>document.querySelector('#basePrompt').value.includes('0.1.3.3'));await showSettings();
    await page.locator('#contextManager').evaluate(e=>e.open=true);await page.locator(`[data-context-edit="${note}"]`).click();await page.locator('#contextEditor .context-scope').evaluate(e=>e.open=true);
    await page.locator('#contextEditor').evaluate(e=>window.scrollTo({top:scrollY+e.getBoundingClientRect().top-70,behavior:'instant'}));
    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));

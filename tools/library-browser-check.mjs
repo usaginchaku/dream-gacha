@@ -18,6 +18,7 @@ try {
   await page.goto(pathToFileURL(path.join(root, 'index.html')).href);
   await page.waitForFunction(() => document.querySelector('#basePrompt').value.includes('0.1.3.3'));
   const standard = await page.locator('#basePrompt').inputValue();
+  await page.locator('#basePrompt').evaluate(el => { el.closest('details').open = true; });
   await page.locator('#basePrompt').fill(standard + '\n試験用の追加指示 <b>テキストとして表示</b>');
   await page.locator('#basePromptLabel').fill('試験版 A');
   await page.locator('#saveSettings').click();
@@ -70,6 +71,7 @@ try {
   assert.equal((await page.evaluate(() => novelAll()))[0].title, 'あとから変えたタイトル');
   assert.equal((await page.evaluate(() => novelAll()))[0].generationModel, 'Gemini 3.1 Pro');
   await page.locator('#tab-gacha').click();
+  await page.locator('#basePrompt').evaluate(el => { el.closest('details').open = true; });
   await page.locator('#basePrompt').fill(standard + '\n次の版の指示');
   await page.locator('#basePromptLabel').fill('試験版 B');
   await page.locator('#saveSettings').click();

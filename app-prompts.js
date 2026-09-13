@@ -52,11 +52,25 @@
     }
     a.slice(endA).forEach(line=>add("same",line));return rows;
   }
+  function appliedContextForExport(snapshot){
+    const captured=snapshot.promptContext;
+    if(!Array.isArray(captured?.settings?.entries)||!captured.settings.entries.some(e=>e?.characterNote!==undefined))return null;
+    const context=root.DreamGachaContext||(typeof require==="function"?require("./app-context.js"):null);
+    if(!context)throw new Error("カルテの書き出しに必要な補足設定を読み込めませんでした。");
+    context.validateSnapshot(captured);
+    const resolved=context.resolve(captured.settings,captured.selection,captured.output,{character:snapshot.character,worldMode:snapshot.worldMode,protagonistProfile:snapshot.protagonistProfile,workProtagonistProfile:snapshot.workProtagonistProfile});
+    if(resolved.errors.length)throw new Error(`適用したカルテを確認できないため書き出しを中止しました：${resolved.errors.join("／")}`);
+    // Export only the resolved content. Keeping a trimmed settings object would
+    // leave broken stage references or imply it can restore the original library.
+    return {sections:clone(resolved.sections),protagonistProfile:resolved.protagonist,workProtagonistProfile:resolved.workProtagonist,output:clone(captured.output),stage:resolved.stage?{id:resolved.stage.id,title:resolved.stage.title,revision:resolved.stage.revision,worldMode:resolved.stage.worldMode}:null};
+  }
   function novelExport(n,now){
     const snapshot=clone(n.snapshot||{}),prompt=text(n.promptSnapshot??snapshot.prompt),record=promptRecord(snapshot);
-    return {schema:"dream-gacha.novel-export",version:1,exportedAt:now||new Date().toISOString(),
+    const appliedContext=appliedContextForExport(snapshot);
+    if(appliedContext)delete snapshot.promptContext;
+    return {schema:"dream-gacha.novel-export",version:appliedContext?2:1,...(appliedContext?{contextScope:"applied-only"}:{}),exportedAt:now||new Date().toISOString(),
       novel:{id:n.id,title:text(n.title),body:text(n.body),memo:text(n.memo),generationAi:text(n.generationAi),generationModel:text(n.generationModel),favorite:!!n.favorite,createdAt:n.createdAt,updatedAt:n.updatedAt,snapshot},
-      prompt:{text:prompt,record,versionId:record?.revision.id||null,headerVersion:headerVersion(prompt),status:record?"recorded":"unknown"},
+      prompt:{text:prompt,record,versionId:record?.revision.id||null,headerVersion:headerVersion(prompt),status:record?"recorded":"unknown",...(appliedContext?{appliedContext}:{})},
       annotation:{sourceNovelId:n.id,text:text(n.body),offsetUnit:"UTF-16",reviewStatus:"unknown",annotations:[]}};
   }
   root.DreamGachaPrompts={splitNovelPaste,headerVersion,validRevision,captureRevision,revisionLabel,promptRecord,promptSummary,lineDiff,novelExport};

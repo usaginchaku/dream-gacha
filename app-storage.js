@@ -1,19 +1,28 @@
 (function(root){
   "use strict";
-  const D=root.DreamGachaData||{SETTINGS_KEY:"dreamGachaSettings",SETTINGS_VERSION:44,BACKUP_SCHEMA:"dream-gacha.full-backup",BACKUP_VERSION:3};
+  const D=root.DreamGachaData||{SETTINGS_KEY:"dreamGachaSettings",SETTINGS_VERSION:45,BACKUP_SCHEMA:"dream-gacha.full-backup",BACKUP_VERSION:4};
   const C=root.DreamGachaContext||(typeof require!=="undefined"?require("./app-context.js"):null);
   const clone=v=>v===undefined?undefined:JSON.parse(JSON.stringify(v));
   const P=root.DreamGachaPrompts||(typeof require!=="undefined"?require("./app-prompts.js"):null);
   function promptSettings(source){return {...C.fields(source),basePromptLabel:String(source.basePromptLabel||""),basePromptReference:clone(source.basePromptReference||null),promptVersions:clone(source.promptVersions||[])}}
   function plainSettings(source){
     if(!source||typeof source!=="object")throw new Error("設定データが不正です");
-    return {version:D.SETTINGS_VERSION,favoriteResetRevision:source.favoriteResetRevision===1?1:0,...promptSettings(source),characters:clone(source.characters||[]),pools:clone(source.pools||{}),basePrompt:String(source.basePrompt||""),protagonistProfile:String(source.protagonistProfile||""),workProtagonistProfiles:clone(source.workProtagonistProfiles||{}),worldMode:String(source.worldMode||"canon"),themeMode:String(source.themeMode||"system"),freeExtra:String(source.freeExtra||""),promptDraftSnapshot:clone(source.promptDraftSnapshot||null),deletedSeedIds:[...(source.deletedSeedIds||[])],characterId:source.characterId||null,values:clone(source.values||{}),locks:clone(source.locks||{}),filters:{...(source.filters||{}),workIncluded:[...(source.filters?.workIncluded||[])],workExcluded:[...(source.filters?.workExcluded||[])],seriesIncluded:[...(source.filters?.seriesIncluded||[])],seriesExcluded:[...(source.filters?.seriesExcluded||[])],tags:[...(source.filters?.tags||[])],characterIncluded:[...(source.filters?.characterIncluded||[])],characterExcluded:[...(source.filters?.characterExcluded||[])]},manage:clone(source.manage||{}),categoryInclude:clone(source.categoryInclude||{}),categoryExcluded:Object.fromEntries(Object.entries(source.categoryExcluded||{}).map(([k,v])=>[k,[...(v||[])]])),presets:clone(source.presets||[])};
+    return {version:D.SETTINGS_VERSION,favoriteResetRevision:source.favoriteResetRevision===1?1:0,...promptSettings(source),requestProtagonist:clone(source.requestProtagonist??null),conditionEditMode:!!source.conditionEditMode,editingPresetId:String(source.editingPresetId||""),supportingSituation:String(source.supportingSituation||""),characters:clone(source.characters||[]),pools:clone(source.pools||{}),basePrompt:String(source.basePrompt||""),protagonistProfile:String(source.protagonistProfile||""),workProtagonistProfiles:clone(source.workProtagonistProfiles||{}),worldMode:String(source.worldMode||"canon"),themeMode:String(source.themeMode||"system"),freeExtra:String(source.freeExtra||""),promptDraftSnapshot:clone(source.promptDraftSnapshot||null),deletedSeedIds:[...(source.deletedSeedIds||[])],characterId:source.characterId||null,values:clone(source.values||{}),locks:clone(source.locks||{}),filters:{...(source.filters||{}),workIncluded:[...(source.filters?.workIncluded||[])],workExcluded:[...(source.filters?.workExcluded||[])],seriesIncluded:[...(source.filters?.seriesIncluded||[])],seriesExcluded:[...(source.filters?.seriesExcluded||[])],tags:[...(source.filters?.tags||[])],characterIncluded:[...(source.filters?.characterIncluded||[])],characterExcluded:[...(source.filters?.characterExcluded||[])]},manage:clone(source.manage||{}),categoryInclude:clone(source.categoryInclude||{}),categoryExcluded:Object.fromEntries(Object.entries(source.categoryExcluded||{}).map(([k,v])=>[k,[...(v||[])]])),presets:clone(source.presets||[])};
+  }
+  function validateRecipeFields(raw){
+    if(raw.requestProtagonist!=null){
+      const p=raw.requestProtagonist;
+      if(typeof p!=="object"||Array.isArray(p)||["work","protagonistProfile","workProtagonistProfile"].some(k=>typeof p[k]!=="string"))throw new Error("今回の夢主設定が不正です");
+    }
+    if(raw.supportingSituation!==undefined&&typeof raw.supportingSituation!=="string")throw new Error("補助シチュが不正です");
+    if(raw.conditionEditMode!==undefined&&typeof raw.conditionEditMode!=="boolean")throw new Error("条件の編集状態が不正です");
+    if(raw.editingPresetId!==undefined&&typeof raw.editingPresetId!=="string")throw new Error("編集中の保存条件IDが不正です");
   }
   function validateSettings(raw){
     if(raw?.favoriteResetRevision!==undefined&&![0,1].includes(raw.favoriteResetRevision))throw new Error("favoriteResetRevision が不正です");
     for(const c of Array.isArray(raw?.characters)?raw.characters:[])if(c?.favoriteSource!==undefined&&!["default","user","unknown"].includes(c.favoriteSource))throw new Error("favoriteSource が不正です");
     if(!raw||typeof raw!=="object"||Array.isArray(raw))throw new Error("settings が不正です");
-    C.validateFields(raw);
+    C.validateFields(raw);validateRecipeFields(raw);
     if(raw.promptDraftSnapshot?.promptContext)C.validateSnapshot(raw.promptDraftSnapshot.promptContext);
     if(raw.basePromptLabel!==undefined&&typeof raw.basePromptLabel!=="string")throw new Error("固定プロンプトの版名が不正です");
     if(raw.basePromptReference!=null&&(typeof raw.basePromptReference!=="object"||typeof raw.basePromptReference.standardText!=="string"||!raw.basePromptReference.standardText.trim()))throw new Error("固定プロンプトの比較基準が不正です");
@@ -45,7 +54,7 @@
     return r;
   }
   function decodeSettings(raw,defaults,strict){
-    C.validateFields(raw||{});
+    C.validateFields(raw||{});validateRecipeFields(raw||{});
     const d=defaults||{},r=migrateSettings(raw,d),keys=["relationship","situation","mood","extra"];
     // A backup may contain only the pools that were customized. Hydrate every
     // omitted key from the defaults, while preserving an explicitly empty pool.

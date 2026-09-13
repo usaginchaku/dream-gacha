@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <script>try{const s=JSON.parse(localStorage.getItem("dreamGachaSettings")||"null"),m=s?.themeMode||"system";document.documentElement.dataset.theme=m==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):m}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=45">
+<link rel="stylesheet" href="styles.css?v=48">
 </head>
 <body>
 <div class="wrap">
@@ -105,6 +105,28 @@
       <div id="contextReuseNotice" class="context-notice" hidden>保存条件に記録された補足設定を使用中です。設定集の最新版を使う場合は切り替えてください。<button type="button" class="small-btn" id="contextUseCurrent">現在の設定集に戻す</button></div>
       <div class="gacha-top-actions"><button class="primary" id="rollAll">🎲 固定以外を全部ガチャ</button><span>結果を固定してから押すと、残りだけ引き直します。</span></div>
       <div class="result-grid" id="resultGrid"></div>
+      <button type="button" class="small-btn" data-character-card="">選んだキャラのカルテ</button>
+      <details id="recipeEditor" class="context-panel">
+        <summary>今回の条件を編集</summary>
+        <p class="manager-note">ここでの修正は今回の条件だけ。ガチャの候補一覧は変わりません。空欄もそのまま使えます。</p>
+        <p id="recipeError" class="context-error" role="alert"></p>
+        <div class="context-grid">
+          <div class="field"><label for="recipe-relationship">関係性</label><textarea id="recipe-relationship" rows="3"></textarea></div>
+          <div class="field"><label for="recipe-situation">シチュ</label><textarea id="recipe-situation" rows="3"></textarea></div>
+          <div class="field"><label for="recipe-mood">雰囲気</label><textarea id="recipe-mood" rows="2"></textarea></div>
+          <div class="field"><label for="recipe-extra">追加条件</label><textarea id="recipe-extra" rows="2"></textarea></div>
+        </div>
+        <details><summary>関係性の文を追加する</summary><p class="manager-note">押すと関係性欄へ追加します。合わない文は自由に書き直してください。</p><div class="settings-actions">
+          <button type="button" class="small-btn" data-relationship-text="同僚">同僚</button><button type="button" class="small-btn" data-relationship-text="相手が先輩、夢主が後輩">先輩・後輩</button><button type="button" class="small-btn" data-relationship-text="交際前">交際前</button><button type="button" class="small-btn" data-relationship-text="互いに好意を察しているが未告白">両片想い</button><button type="button" class="small-btn" data-relationship-text="夢主から相手への片想い">夢主の片想い</button>
+        </div></details>
+        <div class="field"><label for="recipeSupportingSituation">補助シチュ（任意）</label><textarea id="recipeSupportingSituation" rows="2" placeholder="メインの出来事を支える小さな状況"></textarea></div>
+        <details><summary>今回の夢主設定</summary>
+          <p id="requestProtagonistStatus" class="manager-note"></p>
+          <div class="field"><label for="requestProtagonistProfile">今回の共通設定</label><textarea id="requestProtagonistProfile" rows="4"></textarea></div>
+          <div class="field"><label for="requestWorkProtagonistProfile">今回の作品別設定</label><textarea id="requestWorkProtagonistProfile" rows="4"></textarea></div>
+          <button type="button" class="small-btn" id="useStandardProtagonist">標準の夢主設定に戻す</button>
+        </details>
+      </details>
       <div class="result-bulk-actions" aria-label="ガチャ結果の一括操作">
         <span class="result-bulk-label">一括操作</span>
         <button type="button" class="small-btn" id="lockAllResults">🔒 すべて固定</button>
@@ -124,6 +146,7 @@
       <div class="main-actions single"><button class="secondary" id="buildPrompt">✨ プロンプトを生成</button></div>
       <div class="library-quick-actions">
         <button class="small-btn" id="saveCurrentPreset">💾 この条件を保存</button>
+        <button class="small-btn" id="updateCurrentPreset" hidden>編集中の保存条件を更新</button>
         <button class="small-btn" id="openNovelSave">📖 この条件で小説を保存</button>
       </div>
     </div>
@@ -133,9 +156,11 @@
     <div class="panel-head"><h2>完成プロンプト</h2><span class="label">そのままコピーして使えます</span></div>
     <div class="panel-body">
       <textarea id="output" spellcheck="false" placeholder="「プロンプトを生成」を押すとここに表示されます。"></textarea>
+      <p id="promptFreshness" class="manager-note" role="status"></p>
+      <button type="button" class="small-btn" id="copyStoredPrompt" hidden>表示中の文をそのままコピー</button>
       <div class="copy-row"><span class="status" id="status"></span><button class="primary" id="copyPrompt">コピー</button></div>
     </div>
-    <details open="">
+    <details>
       <summary>夢主設定・シチュ候補・固定プロンプトを編集</summary>
       <div class="settings">
         <p class="manager-note">各候補は1行に1つ。編集内容はブラウザに保存されます。</p>
@@ -310,6 +335,7 @@
         <button class="danger-btn" id="bulkDelete">削除</button>
       </div>
 
+      <details id="orphanCharacterNotes" hidden><summary>未登録キャラのカルテ</summary><p class="manager-note">キャラが一覧にいなくても記録は残っています。開いて対象キャラを変更できます。</p><div id="orphanCharacterNoteList"></div></details>
       <div class="character-table" id="characterTable"></div>
       <div class="pager-note" id="manageCount">表示 0件 / 全0件</div>
       <details class="advanced-import" id="favoriteRepair"><summary>旧初期お気に入り67件の確認・修復</summary><div>
@@ -530,7 +556,7 @@
   </section>
 </section>
 </main>
-<footer>v0.32 / 候補キャラ一覧を折りたたみ表示 / ブラウザ内に保存</footer>
+<footer>v0.33 / カルテ・条件編集 / ブラウザ内に保存</footer>
 </div>
 <div class="quick-nav" id="managerQuickNav" aria-label="キャラ管理クイック移動" hidden="">
   <button type="button" id="jumpTop">↑ 上へ</button>
@@ -588,18 +614,21 @@
   </div>
 </div>
 <div class="toast" id="toast">ガチャ対象に戻しました</div>
+<dialog id="characterCardDialog" class="character-card-dialog" aria-labelledby="characterCardTitle"></dialog>
 
-<script src="app-data.js?v=44"></script>
-<script src="app-context.js?v=44"></script>
-<script src="app-domain.js?v=46"></script>
-<script src="app-prompts.js?v=46"></script>
-<script src="app-storage.js?v=47"></script>
+<script src="app-data.js?v=48"></script>
+<script src="app-context.js?v=48"></script>
+<script src="app-domain.js?v=48"></script>
+<script src="app-prompts.js?v=48"></script>
+<script src="app-storage.js?v=48"></script>
 <script src="app-ui.js?v=46"></script>
 <script src="character-data.generated.js?v=68469b168f3d"></script>
 <script src="seed-data.js?v=44"></script>
 <script src="stage-presets.js?v=44"></script>
-<script src="app-context-ui.js?v=44"></script>
-<script src="app.js?v=47"></script>
+<script src="app-context-ui.js?v=48"></script>
+<script src="app-character-card-ui.js?v=48"></script>
+<script src="app-recipe.js?v=48"></script>
+<script src="app.js?v=48"></script>
 
 
 </body></html>

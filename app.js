@@ -8,7 +8,7 @@ const state={
  manage:{status:"all",sort:"work"},
  categoryInclude:{character:null,relationship:null,situation:null,mood:null,extra:null},
  categoryExcluded:{character:new Set(),relationship:new Set(),situation:new Set(),mood:new Set(),extra:new Set()},
-  presets:[], protagonistProfile:DEFAULT_PROTAGONIST_PROFILE, workProtagonistProfiles:{}, worldMode:DEFAULT_WORLD_MODE, themeMode:"system", promptDraftSnapshot:null
+  presets:[], requestProtagonist:null, conditionEditMode:false, editingPresetId:"", supportingSituation:"", protagonistProfile:DEFAULT_PROTAGONIST_PROFILE, workProtagonistProfiles:{}, worldMode:DEFAULT_WORLD_MODE, themeMode:"system", promptDraftSnapshot:null
 };
 const $=s=>document.querySelector(s);
 const unique=a=>[...new Set(a.filter(Boolean))].sort((x,y)=>x.localeCompare(y,"ja"));
@@ -125,12 +125,14 @@ function mergeCharacterRecords(a,b){
  if(String(other.id||"").startsWith("seed-")&&!String(keep.id||"").startsWith("seed-"))keep.id=other.id;
  return keep;
 }
-function cleanupCharacterData(list){
+function cleanupCharacterData(list,noteEntries=state.promptSettings?.entries||[],preservedIds=[]){
+ const notedIds=new Set([...preservedIds,...noteEntries.filter(e=>e.characterNote).flatMap(e=>e.scope.characterIds)]);
  const out=[],seen=new Map();
  for(const raw of list){
   const c=normalize(raw);if(!c.name)continue;
   if(c.work==="Dr.STONE"&&["サガラ","チョーク"].includes(c.name))c.archived=true;
   const k=characterIdentityKey(c);
+  if(seen.has(k)&&out[seen.get(k)].id!==c.id&&(notedIds.has(c.id)||notedIds.has(out[seen.get(k)].id))){out.push(c);continue;}
   if(seen.has(k)){const i=seen.get(k);out[i]=mergeCharacterRecords(out[i],c)}
   else{seen.set(k,out.length);out.push(c)}
  }
@@ -184,6 +186,7 @@ function normalize(c){
 
 function applySettingsState(saved,overrides={}){
  const source={...saved,...overrides};
+ state.requestProtagonist=DreamGachaDomain.clone(source.requestProtagonist??null);state.conditionEditMode=!!source.conditionEditMode;state.editingPresetId=String(source.editingPresetId||"");state.supportingSituation=String(source.supportingSituation||"");
  Object.assign(state,DreamGachaContext.fields(source));
  state.characters=source.characters||[];state.pools=source.pools||structuredClone(DEFAULT_POOLS);
  state.favoriteResetRevision=source.favoriteResetRevision===1?1:0;
@@ -214,7 +217,7 @@ function prepareSettings(raw,strict=false){
  if(!prepared.basePrompt||(shouldMigrateBundledPrompt&&prepared.basePrompt!==DEFAULT_BASE_PROMPT)){prepared.basePrompt=DEFAULT_BASE_PROMPT;prepared.basePromptReference=null;prepared.basePromptLabel=""}
  // Custom prompts are user-owned; only exact bundled texts migrate above.
  if(Number(prepared.version||0)<DreamGachaData.SETTINGS_VERSION&&LEGACY_PROTAGONIST_PROFILES.includes(prepared.protagonistProfile))prepared.protagonistProfile=DEFAULT_PROTAGONIST_PROFILE;
- prepared.characters=cleanupCharacterData(prepared.characters.map(normalize).filter(c=>c.name));
+ prepared.characters=cleanupCharacterData(prepared.characters.map(normalize).filter(c=>c.name),prepared.promptSettings.entries);
  prepared.filters.tags=canonicalizeTags(prepared.filters.tags||[]);
  if(!prepared.characters.some(c=>c.id===prepared.characterId&&!c.archived))prepared.characterId=null;
  return prepared;
@@ -310,6 +313,7 @@ function applyTheme(mode=state.themeMode){
 function setTheme(mode){applyTheme(mode);save();showToast(`表示を「${{system:"端末設定",light:"ライト",dark:"ダーク"}[state.themeMode]}」にしました`)}
 
 function save(msg=false){
+ refreshPromptStatus();
  const serialized=DreamGachaStorage.plainSettings({...state,freeExtra:$("#freeExtra").value});DreamGachaStorage.validateSettings(serialized);
  try{localStorage.setItem(DreamGachaData.SETTINGS_KEY,JSON.stringify(serialized))}
  catch(error){alert(`設定を保存できませんでした：${error.message}`);throw error}
@@ -375,13 +379,9 @@ function fmtChars(n){return `${Number(n||0).toLocaleString("ja-JP")}字`}
 function fmtDate(iso){
  try{return new Intl.DateTimeFormat("ja-JP",{year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}).format(new Date(iso))}catch(e){return String(iso||"")}
 }
-function snapshotCurrentConditions(){
- const c=currentCharacter();
- const prompt=$("#output").value;
- const protagonistField=$("#protagonistProfile");
- return DreamGachaDomain.makeSnapshot({character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,
-   freeExtra:$("#freeExtra").value,protagonistProfile:protagonistField?protagonistField.value:(state.protagonistProfile||DEFAULT_PROTAGONIST_PROFILE),workProtagonistProfile:workProtagonistProfileFor(c?.work),worldMode:state.worldMode,prompt,promptContext:DreamGachaContextUI.capture(),promptRecord:prompt===state.promptDraftSnapshot?.prompt?state.promptDraftSnapshot.promptRecord:null});
-}
+function currentProtagonistSettings(){return DreamGachaRecipe.profiles()}
+function refreshPromptStatus(){if(typeof DreamGachaRecipe!=="undefined")DreamGachaRecipe.refresh()}
+function snapshotCurrentConditions(){return DreamGachaRecipe.capture()}
 function snapshotAutoTitle(s){return `${s?.character?.name||"キャラ未指定"}｜${s?.situation||"シチュ未指定"}`}
 function novelDisplayTitle(n){
  return String(n?.title||"").trim()||"無題";
@@ -389,15 +389,10 @@ function novelDisplayTitle(n){
 function snapshotMetaHtml(s){
  if(!s)return "条件なし";
  const world=WORLD_MODES[s.worldMode]?.label;
- return [s.character?.name,world,s.relationship,s.situation,s.mood,s.extra].filter(Boolean).map(v=>`<span class="library-tag">${esc(v)}</span>`).join("");
+ return [s.character?.name,world,s.relationship,s.situation,s.supportingSituation,s.mood,s.extra].filter(Boolean).map(v=>`<span class="library-tag">${esc(v)}</span>`).join("");
 }
-function saveCurrentConditionsPreset(){
- const snap=snapshotCurrentConditions(),auto=snapshotAutoTitle(snap),name=window.prompt("条件セット名",auto);
- if(name===null)return;
- state.presets.unshift({id:libraryId("preset"),name:String(name||auto).trim()||auto,createdAt:new Date().toISOString(),snapshot:snap});
- save();renderPresetList();showToast("条件を保存しました");
-}
-function applySnapshot(snap){
+function saveCurrentConditionsPreset(){return DreamGachaRecipe.savePreset(false)}
+function applySnapshot(snap,presetId=""){
  if(!snap)return;
  if(snap.promptContext)DreamGachaContext.validateSnapshot(snap.promptContext);
  state.promptContextOverride=snap.promptContext?DreamGachaDomain.clone(snap.promptContext):DreamGachaContext.capture(DreamGachaContext.emptySettings(),DreamGachaContext.emptySelection(),DreamGachaContext.emptyOutput());
@@ -408,13 +403,11 @@ function applySnapshot(snap){
  for(const k of DreamGachaData.SNAPSHOT_KEYS)state.values[k]=resolved[k];
  state.worldMode=resolved.worldMode;
  const character=currentCharacter();
- if(character&&Object.prototype.hasOwnProperty.call(snap,"workProtagonistProfile")){
-  const work=character.work,profile=resolved.workProtagonistProfile,initial=String(DEFAULT_WORK_PROTAGONIST_PROFILES[work]||"");
-  if(profile===initial)delete state.workProtagonistProfiles[work];else state.workProtagonistProfiles[work]=profile;
- }
-  $("#freeExtra").value=resolved.freeExtra;state.protagonistProfile=resolved.protagonistProfile;$("#protagonistProfile").value=resolved.protagonistProfile;$("#output").value=resolved.prompt;state.promptDraftSnapshot=DreamGachaDomain.clone(snap);
+ state.requestProtagonist={work:snap.character?.work||"",protagonistProfile:resolved.protagonistProfile,workProtagonistProfile:resolved.workProtagonistProfile};
+ state.supportingSituation=resolved.supportingSituation;state.conditionEditMode=true;state.editingPresetId=presetId;
+ $("#freeExtra").value=resolved.freeExtra;$("#output").value=resolved.prompt;state.promptDraftSnapshot=DreamGachaDomain.clone(snap);
  for(const k of ["character","relationship","situation","mood","extra"])updateCard(k);
- renderWorldModeControls();renderWorkProfileEditor(character?.work);DreamGachaContextUI.render();save();renderGachaFilters();switchScreen("gacha");showToast(resolved.missingCharacter?"保存キャラが利用できないため、キャラ未選択で適用しました":"保存条件をガチャへ適用しました");
+ renderWorldModeControls();renderWorkProfileEditor(character?.work);DreamGachaContextUI.render();DreamGachaRecipe.render();save();renderGachaFilters();switchScreen("gacha");showToast(resolved.missingCharacter?"保存キャラが利用できないため、キャラ未選択で適用しました":"保存条件をガチャへ適用しました");
 }
 function rerollSnapshotScenario(snap){
  if(!snap)return;
@@ -571,6 +564,7 @@ function novelTxtContent(n){
   `作品：${novelTextValue(s.character?.work)}`,`部・シリーズ：${novelTextValue(s.character?.series)}`,`キャラクター：${character}`,`世界観：${novelTextValue(WORLD_MODES[s.worldMode]?.label)}`,
   `関係性：${novelTextValue(s.relationship)}`,`シチュ：${novelTextValue(s.situation)}`,`雰囲気：${novelTextValue(s.mood)}`,`追加条件：${novelTextValue(s.extra)}`
  ];
+ if(s.supportingSituation)lines.push(`補助シチュ：${s.supportingSituation}`);
  if(String(s.protagonistProfile||"").trim())lines.push(`共通夢主設定：${s.protagonistProfile.trim()}`);
  if(String(s.workProtagonistProfile||"").trim())lines.push(`作品別夢主設定：${s.workProtagonistProfile.trim()}`);
  if(String(s.freeExtra||"").trim())lines.push(`今回だけの追加設定：${s.freeExtra.trim()}`);
@@ -588,7 +582,7 @@ function openNovelView(n){
   if(!n)return;
   viewingNovelId=n.id;novelEditOriginal=null;$("#novelViewRead").hidden=false;$("#novelViewActions").hidden=false;$("#novelEditPanel").hidden=true;$("#startNovelEdit").hidden=false;updateNovelViewActions(n);
   $("#novelViewTitle").textContent=novelDisplayTitle(n);$("#novelViewMeta").textContent=[n.snapshot?.character?.name,n.snapshot?.character?.work,fmtChars(n.charCount??novelCharCount(n.body)),fmtDate(n.createdAt),n.updatedAt?`編集 ${fmtDate(n.updatedAt)}`:""].filter(Boolean).join(" / ");$("#novelViewBody").textContent=n.body;
- const s=n.snapshot||{},items=[["キャラ",s.character?.name],["作品",s.character?.work],["部・シリーズ",s.character?.series],["世界観",WORLD_MODES[s.worldMode]?.label],["関係性",s.relationship],["シチュ",s.situation],["雰囲気",s.mood],["追加条件",s.extra],["自由指定",s.freeExtra],["共通の夢主設定",s.protagonistProfile],["作品別の夢主設定",s.workProtagonistProfile]].filter(x=>x[1]);
+ const s=n.snapshot||{},items=[["キャラ",s.character?.name],["作品",s.character?.work],["部・シリーズ",s.character?.series],["世界観",WORLD_MODES[s.worldMode]?.label],["関係性",s.relationship],["シチュ",s.situation],["補助シチュ",s.supportingSituation],["雰囲気",s.mood],["追加条件",s.extra],["自由指定",s.freeExtra],["共通の夢主設定",s.protagonistProfile],["作品別の夢主設定",s.workProtagonistProfile]].filter(x=>x[1]);
   items.unshift(["生成AI",novelTextValue(n.generationAi)],["モデル",novelTextValue(n.generationModel)]);
   $("#novelViewConditions").innerHTML=items.map(([k,v])=>`<div class="novel-detail-item"><b>${esc(k)}</b>${esc(v)}</div>`).join("");$("#novelViewPrompt").value=novelPromptSnapshot(n)||"（未記録）";
   renderPromptRecord("#novelViewPromptInfo",{...s,prompt:novelPromptSnapshot(n)});
@@ -689,14 +683,14 @@ function renderChooserList(){
  }).join(""):`<div class="choice-empty">該当する候補がありません</div>`;
 }
 function chooseValue(value){
- if(!chooserKey)return;
+ if(!chooserKey)return;state.conditionEditMode=true;
  if(chooserKey==="character"){
    if(!state.characters.some(c=>c.id===value&&!c.archived))return;
    state.characterId=value;updateCard("character");renderPicker();
  }else{
    state.values[chooserKey]=value;updateCard(chooserKey);
  }
- save();closeChooser();
+ DreamGachaRecipe.render();save();closeChooser();
 }
 function updateCategoryStatus(key){
   const el=document.querySelector(`[data-category-status="${key}"]`);if(!el)return;
@@ -907,10 +901,6 @@ function renderWorldModeControls(){
 function setWorldMode(mode){
  if(!Object.prototype.hasOwnProperty.call(WORLD_MODES,mode)||state.worldMode===mode)return;
  syncScenario();state.worldMode=mode;
- if(state.values.situation&&!situationMatchesWorldMode(state.values.situation,mode)){
-  state.values.situation="";state.locks.situation=false;updateCard("situation");updateLock("situation");
-  showToast("世界観に合わないシチュを解除しました");
- }
  renderWorldModeControls();if(chooserKey==="situation"){renderChooserCategoryChips();renderChooserList()}save();
 }
 function renderSuggestions(){
@@ -918,6 +908,7 @@ function renderSuggestions(){
  $("#seriesSuggestions").innerHTML=unique(state.characters.map(c=>c.series)).map(x=>`<option value="${esc(x)}"></option>`).join("");
 }
 function updateCard(k){
+ if(typeof DreamGachaRecipe!=="undefined")DreamGachaRecipe.render();
  DreamGachaContextUI.renderPreview();
  const el=document.querySelector(`[data-value="${k}"]`);if(!el)return;
  if(k==="character"){
@@ -976,26 +967,9 @@ function rollOne(k,force=false){
  if(!pool.length){showToast(`${META[k].label}のカテゴリ条件で候補が0件です`);return}
  state.values[k]=randomItem(pool,state.values[k]);updateCard(k);
 }
-function rollAll(){for(const k of Object.keys(META))rollOne(k,false);buildPrompt(false)}
-function buildPrompt(scroll=true){
- syncScenario();if(!currentCharacter())rollCharacter(false);
- if(state.values.situation&&!situationMatchesWorldMode(state.values.situation,state.worldMode)){state.values.situation="";state.locks.situation=false;updateCard("situation");updateLock("situation")}
- for(const k of ["relationship","situation","mood","extra"])if(!state.values[k])rollOne(k,false);
- const c=currentCharacter();
- const world=WORLD_MODES[state.worldMode]||WORLD_MODES[DEFAULT_WORLD_MODE];
-  const resolved=DreamGachaContextUI.resolve();
-  if(resolved.errors.length){DreamGachaContextUI.renderPreview();showToast("適用する設定を確認してください");return false;}
-  const promptContext=DreamGachaContextUI.capture();
-  const prompt=DreamGachaDomain.formatPrompt({basePrompt:state.basePrompt,character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,protagonistProfile:resolved.protagonist,workProtagonistProfile:resolved.workProtagonist,contextSections:resolved.sections,worldModeLabel:world.label,worldModePrompt:world.prompt,freeExtra:$("#freeExtra").value});
-  const promptRecord={revision:rememberPromptRevision(),assembledPrompt:prompt};
-  state.promptDraftSnapshot=DreamGachaDomain.makeSnapshot({character:c,relationship:state.values.relationship,situation:state.values.situation,mood:state.values.mood,extra:state.values.extra,freeExtra:$("#freeExtra").value,protagonistProfile:state.protagonistProfile,workProtagonistProfile:workProtagonistProfileFor(c?.work),worldMode:state.worldMode,prompt,promptRecord,promptContext});$("#output").value=prompt;save();renderPromptVersionEditor();
- if(scroll)$("#output").scrollIntoView({behavior:"smooth",block:"center"});
-}
-async function copyPrompt(){
- if(!$("#output").value.trim()&&buildPrompt(false)===false)return;
- try{await navigator.clipboard.writeText($("#output").value)}catch(e){$("#output").select();document.execCommand("copy")}
- showToast("コピーしました");setStatus("ChatGPTにそのまま貼り付けられます");
-}
+function rollAll(){state.conditionEditMode=false;for(const k of Object.keys(META))rollOne(k,false);DreamGachaRecipe.render();buildPrompt(false)}
+function buildPrompt(scroll=true){return DreamGachaRecipe.build(scroll)}
+async function copyPrompt(){return DreamGachaRecipe.copy()}
 function schedulePromptDraftSave(){clearTimeout(schedulePromptDraftSave.timer);schedulePromptDraftSave.timer=setTimeout(()=>save(),350)}
 function hasNewNovelFormInput(){return ["#novelTitle","#novelBody","#novelMemo","#novelGenerationAi","#novelGenerationModel"].some(selector=>$(selector).value.trim())}
 function reloadApp(){
@@ -1124,6 +1098,7 @@ function saveInlineCharacter(id){
 }
 
 function renderManager(){
+ DreamGachaRecipe.renderOrphanNotes();
  renderFavoriteRepair();
  renderManagerFilters();renderStats();renderSuggestions();
  const arr=managerFiltered(), table=$("#characterTable");
@@ -1136,7 +1111,7 @@ function renderManager(){
    <div class="work-cell"><div>${esc(c.work||"作品未設定")}</div><div class="char-sub">${esc(c.series||"部・シリーズ未設定")}</div></div>
    <div class="tags-cell mini-tags">${c.tags.map(t=>`<span class="mini-tag">${esc(t)}</span>`).join("")||`<span class="char-sub">タグなし</span>`}</div>
    <div class="height-cell"><div class="height-main">${esc(c.heightText||"不明")}</div></div>
-   <div class="row-actions"><button class="favorite-btn${c.favorite?" active":""}" data-favorite="${esc(c.id)}">${c.favorite?"★":"☆"}</button><button class="small-btn" data-edit="${esc(c.id)}">${state.inlineEditingId===c.id?"閉じる":"編集"}</button>
+   <div class="row-actions"><button class="favorite-btn${c.favorite?" active":""}" data-favorite="${esc(c.id)}">${c.favorite?"★":"☆"}</button><button class="small-btn" data-character-card="${esc(c.id)}">カルテ</button><button class="small-btn" data-edit="${esc(c.id)}">${state.inlineEditingId===c.id?"閉じる":"編集"}</button>
      <button class="${c.archived?"ok-btn":"small-btn"}" data-archive="${esc(c.id)}">${c.archived?"復元":"アーカイブ"}</button></div>
    </div>`;
    return row+(state.inlineEditingId===c.id?inlineEditorHtml(c):"");
@@ -1183,6 +1158,8 @@ function deleteIds(ids){
  const arr=state.characters.filter(c=>ids.includes(c.id));if(!arr.length)return;
  if(!confirm(`${arr.length}件のキャラを完全に削除しますか？\nアーカイブなら後から戻せます。`))return;
  for(const c of arr)if(c.id.startsWith("seed-"))state.deletedSeedIds.add(c.id);
+ // Startup also matches legacy IDs by name/work; suppress the same bundled records here.
+ for(const seed of DEFAULT_CHARACTERS)if(arr.some(c=>c.id===seed.id||(c.name===seed.name&&c.work===seed.work)))state.deletedSeedIds.add(seed.id);
  state.characters=state.characters.filter(c=>!ids.includes(c.id));
  for(const id of ids){state.filters.characterIncluded.delete(id);state.filters.characterExcluded.delete(id)}
  if(ids.includes(state.characterId)){state.characterId=null;updateCard("character")}
@@ -1294,14 +1271,18 @@ function normalizeImported(raw,existing=null){
 }
 function dedupeImported(rawList){
  const normalized=rawList.filter(raw=>raw&&typeof raw==="object"&&!Array.isArray(raw)&&String(raw.name||"").trim()).map(raw=>normalizeImported(raw));
- return cleanupCharacterData(normalized);
+ return cleanupCharacterData(normalized,state.promptSettings.entries,state.characters.map(c=>c.id));
 }
 function analyzeWorkReplacement(raws){
  const works=unique(raws.map(c=>c.work));
  if(raws.some(c=>!c.work)||works.length!==1||!works[0])throw new Error("作品単位の置換では、全キャラに同じ作品名が入った1作品だけのJSONを使用してください");
- const work=works[0],oldWork=state.characters.filter(c=>c.work===work),used=new Set();
- const matches=raws.map(raw=>{
-  const exact=oldWork.find(c=>!used.has(c.id)&&((raw.id&&c.id===raw.id)||characterIdentityKey(c)===characterIdentityKey(raw)));
+ const work=works[0],oldWork=state.characters.filter(c=>c.work===work);
+ // Reserve every explicit match before a name fallback can consume its ID.
+ const exactMatches=raws.map(raw=>oldWork.find(c=>raw.id&&c.id===raw.id));
+ const used=new Set(exactMatches.filter(Boolean).map(c=>c.id));
+ const matches=raws.map((raw,index)=>{
+  if(exactMatches[index])return exactMatches[index];
+  const exact=oldWork.find(c=>!used.has(c.id)&&characterIdentityKey(c)===characterIdentityKey(raw));
   const sameName=oldWork.filter(c=>!used.has(c.id)&&c.name===raw.name);
   const existing=exact||(sameName.length===1?sameName[0]:null);
   if(existing)used.add(existing.id);
@@ -1344,7 +1325,8 @@ function importCharactersData(data,mode){
    state.characters=next;added=next.length;state.selectedIds.clear();state.filters.characterIncluded.clear();state.filters.characterExcluded.clear();state.characterId=null;
  }else{
    for(const raw of raws){
-     const existing=state.characters.find(c=>(raw.id&&c.id===raw.id)||characterIdentityKey(c)===characterIdentityKey(raw));
+     const noted=new Set(state.promptSettings.entries.filter(e=>e.characterNote).flatMap(e=>e.scope.characterIds));
+     const existing=state.characters.find(c=>(raw.id&&c.id===raw.id)||(characterIdentityKey(c)===characterIdentityKey(raw)&&!noted.has(c.id)&&!noted.has(raw.id)));
      const normalized=existing?mergeCharacterRecords(existing,raw):raw;
      if(existing){Object.assign(existing,normalized);updated++}else{state.characters.push(normalized);added++}
    }
@@ -1418,9 +1400,9 @@ function resetScenario(){
  if(!confirm("シチュ・雰囲気・追加条件・世界観・夢主設定・固定プロンプトを初期状態に戻しますか？\nキャラ一覧と、登録した文章の好み・舞台・補足設定集は残します。舞台の選択・今回の除外・分量・視点は解除します。"))return;
  state.promptSelection=DreamGachaContext.emptySelection();state.promptOutput=DreamGachaContext.emptyOutput();state.promptContextOverride=null;
  DreamGachaContextUI.resetOutputDraft();
- state.pools=structuredClone(DEFAULT_POOLS);state.basePrompt=DEFAULT_BASE_PROMPT;state.basePromptLabel="";state.basePromptReference=null;state.protagonistProfile=DEFAULT_PROTAGONIST_PROFILE;state.workProtagonistProfiles={};state.worldMode=DEFAULT_WORLD_MODE;
+ state.requestProtagonist=null;state.supportingSituation="";state.conditionEditMode=false;state.editingPresetId="";state.pools=structuredClone(DEFAULT_POOLS);state.basePrompt=DEFAULT_BASE_PROMPT;state.basePromptLabel="";state.basePromptReference=null;state.protagonistProfile=DEFAULT_PROTAGONIST_PROFILE;state.workProtagonistProfiles={};state.worldMode=DEFAULT_WORLD_MODE;
  for(const k of ["relationship","situation","mood","extra"]){state.categoryInclude[k]=null;state.categoryExcluded[k].clear();updateCategoryStatus(k)}
- renderPoolEditors();save();showToast("シチュ設定を初期化しました");
+ renderPoolEditors();DreamGachaRecipe.render();save();showToast("シチュ設定を初期化しました");
 }
 function setStatus(m){$("#status").textContent=m;clearTimeout(setStatus.t);setStatus.t=setTimeout(()=>$("#status").textContent="",2600)}
 function showSettingsSavedState(){
@@ -1444,7 +1426,7 @@ function init(){
  const compactResults=window.matchMedia?.("(max-width: 780px)");compactResults?.addEventListener?.("change",e=>document.querySelectorAll(".result-detail").forEach(detail=>detail.open=!e.matches));
  const colorScheme=window.matchMedia?.("(prefers-color-scheme: dark)");colorScheme?.addEventListener?.("change",()=>{if(state.themeMode==="system")applyTheme()});
 
- load();applyTheme();DreamGachaContextUI.init();renderResultCards();renderPoolEditors();renderGachaFilters();renderAddTagPicker();renderCharacterImportGuide();renderLibrary();
+ load();applyTheme();DreamGachaContextUI.init();if(typeof DreamGachaCharacterCardUI!=="undefined")DreamGachaCharacterCardUI.init();DreamGachaRecipe.init();renderResultCards();renderPoolEditors();renderGachaFilters();renderAddTagPicker();renderCharacterImportGuide();renderLibrary();
   $("#choiceClose").addEventListener("click",closeChooser);
   $("#choiceSearch").addEventListener("input",renderChooserList);
   $("#choiceCategoryClear").addEventListener("click",()=>{if(chooserKey)clearCategoryRules(chooserKey)});
@@ -1489,8 +1471,8 @@ function init(){
   $("#reloadApp").addEventListener("click",reloadApp);
  $("#rollAll").addEventListener("click",rollAll);$("#buildPrompt").addEventListener("click",()=>buildPrompt(true));$("#copyPrompt").addEventListener("click",copyPrompt);
  $("#saveCurrentPreset").addEventListener("click",saveCurrentConditionsPreset);$("#openNovelSave").addEventListener("click",prepareNovelSave);$("#savePresetFromLibrary").addEventListener("click",saveCurrentConditionsPreset);$("#saveNovel").addEventListener("click",saveNovelArchive);
-  $("#novelSearch").addEventListener("input",renderNovelList);$("#novelBody").addEventListener("input",()=>$("#novelBodyCount").textContent=fmtChars(novelCharCount($("#novelBody").value)));$("#novelFavoriteOnly").addEventListener("click",()=>{novelFavoriteOnly=!novelFavoriteOnly;$("#novelFavoriteOnly").classList.toggle("active",novelFavoriteOnly);renderNovelList()});$("#output").addEventListener("input",()=>{if(state.promptDraftSnapshot)state.promptDraftSnapshot.prompt=$("#output").value;else state.promptDraftSnapshot=snapshotCurrentConditions();schedulePromptDraftSave()});
- $("#presetList").addEventListener("click",e=>{const a=e.target.closest("[data-apply-preset]");if(a){const p=state.presets.find(x=>x.id===a.dataset.applyPreset);if(p)applySnapshot(p.snapshot);return}const r=e.target.closest("[data-reroll-preset]");if(r){const p=state.presets.find(x=>x.id===r.dataset.rerollPreset);if(p)rerollSnapshotScenario(p.snapshot);return}const d=e.target.closest("[data-delete-preset]");if(d){const p=state.presets.find(x=>x.id===d.dataset.deletePreset);if(p&&confirm(`「${p.name}」を削除しますか？`)){state.presets=state.presets.filter(x=>x.id!==p.id);save();renderPresetList()}}});
+  $("#novelSearch").addEventListener("input",renderNovelList);$("#novelBody").addEventListener("input",()=>$("#novelBodyCount").textContent=fmtChars(novelCharCount($("#novelBody").value)));$("#novelFavoriteOnly").addEventListener("click",()=>{novelFavoriteOnly=!novelFavoriteOnly;$("#novelFavoriteOnly").classList.toggle("active",novelFavoriteOnly);renderNovelList()});$("#output").addEventListener("input",()=>{if(state.promptDraftSnapshot?.prompt)state.promptDraftSnapshot.prompt=$("#output").value;else state.promptDraftSnapshot=DreamGachaRecipe.manualSnapshot();refreshPromptStatus();schedulePromptDraftSave()});
+ $("#presetList").addEventListener("click",e=>{const a=e.target.closest("[data-apply-preset]");if(a){const p=state.presets.find(x=>x.id===a.dataset.applyPreset);if(p)applySnapshot(p.snapshot,p.id);return}const r=e.target.closest("[data-reroll-preset]");if(r){const p=state.presets.find(x=>x.id===r.dataset.rerollPreset);if(p)rerollSnapshotScenario(p.snapshot);return}const d=e.target.closest("[data-delete-preset]");if(d){const p=state.presets.find(x=>x.id===d.dataset.deletePreset);if(p&&confirm(`「${p.name}」を削除しますか？`)){state.presets=state.presets.filter(x=>x.id!==p.id);save();renderPresetList()}}});
   $("#novelList").addEventListener("click",async e=>{try{const o=e.target.closest("[data-open-novel]");if(o){openNovelView(novelCache.find(n=>n.id===o.dataset.openNovel));return}const edit=e.target.closest("[data-edit-novel]");if(edit){openNovelView(novelCache.find(n=>n.id===edit.dataset.editNovel));startNovelEdit();return}const r=e.target.closest("[data-reuse-novel]");if(r){const n=novelCache.find(n=>n.id===r.dataset.reuseNovel);if(n)applySnapshot(n.snapshot);return}const s=e.target.closest("[data-reroll-novel]");if(s){const n=novelCache.find(n=>n.id===s.dataset.rerollNovel);if(n)rerollSnapshotScenario(n.snapshot)}}catch(err){alert(`夢小説アーカイブを更新できませんでした：${err.message}`)}});
   $("#novelViewClose").addEventListener("click",closeNovelView);$("#startNovelEdit").addEventListener("click",startNovelEdit);$("#cancelNovelEdit").addEventListener("click",cancelNovelEdit);$("#saveNovelEdit").addEventListener("click",()=>saveNovelEdit().catch(err=>alert(`夢小説を更新できませんでした：${err.message}`)));$("#deleteNovelFromEdit").addEventListener("click",()=>deleteNovelArchive(viewingNovelId,true).catch(err=>alert(`夢小説を削除できませんでした：${err.message}`)));$("#copyNovelFromView").addEventListener("click",copyNovelFromView);$("#exportNovelFromView").addEventListener("click",exportNovelFromView);$("#favoriteNovelFromView").addEventListener("click",()=>toggleNovelFavorite(viewingNovelId).catch(err=>alert(`夢小説を更新できませんでした：${err.message}`)));$("#novelEditBody").addEventListener("input",()=>$("#novelEditCount").textContent=fmtChars(novelCharCount($("#novelEditBody").value)));$("#novelModal").addEventListener("click",e=>{if(e.target===$("#novelModal"))closeNovelView()});
  $("#saveSettings").addEventListener("click",()=>{syncScenario();rememberPromptRevision();save(true);renderPromptVersionEditor()});$("#resetScenarioSettings").addEventListener("click",resetScenario);$("#freeExtra").addEventListener("change",()=>save());
@@ -1544,5 +1526,6 @@ function init(){
  if(hasSavedRoll){
    for(const k of ["character","relationship","situation","mood","extra"]){updateCard(k);updateLock(k)}
  }else rollAll();
+ DreamGachaRecipe.render();
 }
 init();

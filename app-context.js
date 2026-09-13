@@ -4,6 +4,9 @@
   const MODES=["canon","modern","school","unrestricted"];
   const KINDS=["stage","supplement","protagonist"];
   const SCOPES=["works","series","characterIds","worldModes","stageIds"];
+  const NOTE_SECTIONS={voice:"話し方",personality:"人格・判断",romance:"感情・恋愛",examples:"言動例",background:"所属・経歴",memo:"自由メモ"};
+  const NOTE_SOURCES={canon:"原作情報",interpretation:"自分の解釈",au:"AU創作設定",unclassified:"未分類"};
+  const MODE_LABELS={canon:"原作世界",modern:"現代パロ",school:"学園パロ",unrestricted:"制限なし"};
   const emptySettings=()=>({style:"",entries:[]});
   const emptySelection=()=>({stageId:"",manualIds:[],excludedIds:[]});
   const emptyOutput=()=>({length:"",pov:""});
@@ -22,6 +25,11 @@
       if(e.scope.worldModes.some(m=>!MODES.includes(m)))fail("補足設定の世界観が不正です");
       if(e.kind==="stage"&&(e.scope.stageIds.length||e.scope.worldModes.length))fail("舞台の世界観は対応モードで指定してください");
       if(!object(e.reference)||["name","version","excerpt"].some(k=>typeof e.reference[k]!=="string"))fail("参考資料の形式が不正です");
+      if(e.characterNote!==undefined){
+        const note=e.characterNote;
+        if(e.kind!=="supplement"||e.scope.characterIds.length!==1)fail("キャラカルテは一人のキャラを対象にした補足として保存してください");
+        if(!object(note)||!Object.hasOwn(NOTE_SECTIONS,note.section)||!Object.hasOwn(NOTE_SOURCES,note.sourceKind)||!["unverified","user_checked"].includes(note.verification))fail("キャラカルテの項目・出所・確認状態が不正です");
+      }
     }
     for(const e of value.entries)for(const id of e.scope.stageIds)if(!value.entries.some(s=>s.id===id&&s.kind==="stage"))fail(`参照先の舞台設定がありません：${e.title}`);
     return value;
@@ -36,11 +44,13 @@
   }
   function capture(settings,selection,output){
     validateSettings(settings);validateSelection(selection);validateOutput(output);
-    return clone({version:1,settings,selection,output});
+    return clone({version:settings.entries.some(e=>e.characterNote!==undefined)?2:1,settings,selection,output});
   }
   function validateSnapshot(value){
-    if(!object(value)||value.version!==1)fail("補足設定の生成時記録が不正です");
-    capture(value.settings,value.selection,value.output);return value;
+    if(!object(value)||![1,2].includes(value.version))fail("補足設定の生成時記録が不正です");
+    const captured=capture(value.settings,value.selection,value.output);
+    if(value.version===1&&captured.version===2)fail("キャラカルテを含む生成時記録には形式2が必要です");
+    return value;
   }
   function fields(source){
     return {promptSettings:clone(source.promptSettings??emptySettings()),promptSelection:clone(source.promptSelection??emptySelection()),promptOutput:clone(source.promptOutput??emptyOutput()),promptContextOverride:clone(source.promptContextOverride??null)};
@@ -62,6 +72,15 @@
     return r.excerpt?`参考資料${heading?`：${heading}`:""}（以下の抜粋を提供）\n${r.excerpt}`:`参照資料：${heading}\n資料本文はこのプロンプトに含まれていません。参照できない場合は、内容を推測せず確認してください。`;
   }
   function entryText(e){return [e.body,referenceText(e)].filter(Boolean).join("\n\n")}
+  function characterNoteLabel(e,settings){
+    if(!e.characterNote)return "";
+    const scope=e.scope,parts=[];
+    if(scope.stageIds.length)parts.push(`舞台：${scope.stageIds.map(id=>settings.entries.find(s=>s.id===id&&s.kind==="stage")?.title||"未登録の舞台").join("／")}`);
+    if(scope.worldModes.length)parts.push(scope.worldModes.map(m=>MODE_LABELS[m]).join("／"));
+    if(!parts.length)parts.push("共通");
+    parts.push(NOTE_SOURCES[e.characterNote.sourceKind],NOTE_SECTIONS[e.characterNote.section],e.characterNote.verification==="user_checked"?"利用者確認済み":"未確認");
+    return parts.join("・");
+  }
   function resolve(settings,selection,output,context){
     validateSettings(settings);validateSelection(selection);validateOutput(output);
     const errors=[],rows=[],sections=[];
@@ -82,7 +101,9 @@
     if(replacements.length===1){protagonist=entryText(replacements[0]);workProtagonist="";}
     for(const e of active){
       if(e.kind==="protagonist"&&e.protagonistMode==="replace")continue;
-      sections.push({id:e.id,title:`${e.kind==="protagonist"?"夢主の補足":"補足設定"}：${e.title}`,text:entryText(e),revision:e.revision});
+      const title=e.characterNote?`キャラカルテ（${characterNoteLabel(e,settings)}）`:(e.kind==="protagonist"?"夢主の補足":"補足設定");
+      const auRule=e.characterNote?.sourceKind==="au"&&e.scope.stageIds.includes(selection.stageId)?"この舞台のキャラ設定として適用してください。共通カルテと異なる内容は、この舞台について明記された点だけを優先し、記載のない人格・口調の変更は補わないでください。":"";
+      sections.push({id:e.id,title:`${title}：${e.title}`,text:[auRule,entryText(e)].filter(Boolean).join("\n\n"),revision:e.revision});
     }
     if(settings.style)sections.unshift({title:"文章の好み",text:settings.style});
     const pov={protagonist:"夢主の視点を中心に描いてください。",character:"相手キャラクターの視点を中心に描いてください。",third:"三人称で描き、視点を変える際は切り替わりを明確にしてください。"};
@@ -90,6 +111,6 @@
     if(instructions)sections.push({title:"今回の出力指定",text:instructions});
     return {errors,rows,stage,sections,protagonist,workProtagonist,replacement:replacements[0]||null};
   }
-  root.DreamGachaContext={emptySettings,emptySelection,emptyOutput,fields,validateFields,validateSettings,validateSelection,validateOutput,validateSnapshot,capture,matches,resolve,KINDS,SCOPES};
+  root.DreamGachaContext={emptySettings,emptySelection,emptyOutput,fields,validateFields,validateSettings,validateSelection,validateOutput,validateSnapshot,capture,matches,resolve,characterNoteLabel,KINDS,SCOPES,NOTE_SECTIONS,NOTE_SOURCES};
   if(typeof module!=="undefined"&&module.exports)module.exports=root.DreamGachaContext;
 })(typeof globalThis!=="undefined"?globalThis:this);
