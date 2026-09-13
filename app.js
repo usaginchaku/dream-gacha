@@ -1,6 +1,6 @@
 const state={
  ...DreamGachaContext.fields({}),
- characters:[], pools:structuredClone(DEFAULT_POOLS), values:{}, characterId:null,
+ characters:[], favoriteResetRevision:0, pools:structuredClone(DEFAULT_POOLS), values:{}, characterId:null,
  locks:{character:false,relationship:false,situation:false,mood:false,extra:false},
  basePrompt:DEFAULT_BASE_PROMPT, basePromptLabel:"",basePromptReference:null,promptVersions:[], deletedSeedIds:new Set(), selectedIds:new Set(), editingCharacterId:null, inlineEditingId:null,
  filters:{search:"",workIncluded:new Set(),workExcluded:new Set(),seriesIncluded:new Set(),seriesExcluded:new Set(),tags:new Set(),tagMode:"all",favorite:"all",minHeight:null,maxHeight:null,characterIncluded:new Set(),characterExcluded:new Set()},
@@ -17,6 +17,40 @@ const parseLines=t=>t.split(/\r?\n/).map(v=>v.trim()).filter(Boolean);
 const parseTags=t=>canonicalizeTags(t.split(/[,、，]/));
 const makeId=()=> "char-"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+// Historical IDs from 22b79b4, before the public favorites were cleared.
+// Matching this list alone cannot prove that a favorite was inherited.
+const LEGACY_FAVORITE_IDS=["jojo-josuke","jojo-joseph","jojo-caesar","jojo-bucciarati","jojo-fugo","fe-yuri","hxh-kurapika","seed-0001","seed-0004","seed-0005","seed-0026","seed-0027","seed-0030","seed-0143","seed-0161","seed-0190","seed-0191","seed-0193","seed-0195","seed-0226","jojo-p1-dio","jojo-p2-joseph","jojo-p3-kakyoin","jojo-p3-dio","jojo-p4-josuke","jojo-p4-rohan","jojo-p4-kira","pack-e829ec25d2a6bc","pack-e84778b642f35a","pack-d37f052ca8c135","pack-36142173e89720","pack-8232d30e622a32","pack-7c385895fe08b1","pack-434610ad56d04d","pack-9484f37b3bfc4c","pack-a794515a8381b6","pack-90081959e61b40","pack-a9b66b4dd328a2","pack-19a8df05235091","pack-d44e26472fae39","pack-723e3ce4b836b1","pack-43e6f732cfbd3f","pack-72c317ca8f4c95","pack-6edc653d1a5f5c","pack-04659e2183cf78","pack-81d30f45e1e72f","pack-75dcf72d6eb293","pack-2505ca943306b1","pack-21b2a1285cf457","pack-9864d2e0c8d738","pack-3d2233b2ce1bb8","pack-0961bf313d0224","pack-5a1e9b9911e187","pack-912475549f4154","pack-9e4464feb0b722","pack-446264a67f00ad","pack-aa663e9f44b740","pack-058c05366c7fd8","pack-e015ed5b52b1ca","pack-f3ba0525f01c71","pack-ae1abf7c58c0db","char-mtpmppu7-3o9kqm","char-mtpmppu7-zl0yix","char-mtpmpuh5-sgog2t","char-mtpmq0me-vtmnro","char-mtpmq0me-o60um4","char-mtpmq2f8-ag5tkb"];
+const FAVORITE_SOURCE_LABELS={default:"初期設定",user:"自分で設定",unknown:"登録元不明（旧データ等）"};
+function favoriteSource(c){return Object.hasOwn(FAVORITE_SOURCE_LABELS,c.favoriteSource)?c.favoriteSource:"unknown"}
+function mergedFavoriteSource(records,value){
+ const sources=records.filter(c=>!!c.favorite===value).map(favoriteSource);
+ return ["user","unknown","default"].find(source=>sources.includes(source))||"unknown";
+}
+function legacyFavoriteEntries(){
+ return LEGACY_FAVORITE_IDS.map(id=>{
+   const seed=DEFAULT_CHARACTERS.find(c=>c.id===id);
+   const current=state.characters.find(c=>c.id===id)||(seed&&state.characters.find(c=>c.name===seed.name&&c.work===seed.work));
+   return {id,seed,current};
+ });
+}
+function renderFavoriteRepair(){
+ const panel=$("#favoriteRepair");if(!panel?.open)return;
+ $("#legacyFavoriteList").innerHTML=legacyFavoriteEntries().map(({id,seed,current})=>{
+   const active=!!current?.favorite,source=current?favoriteSource(current):"default";
+   return `<label class="lock-label" style="display:flex;align-items:flex-start;margin:10px 0"><input type="checkbox" data-repair-favorite="${esc(current?.id||id)}" ${active?"":"disabled"} ${active&&source!=="user"?"checked":""}><span>${esc(current?.name||seed?.name||id)}／${esc(current?.work||seed?.work||"")}<br><small>${active?"★ お気に入り":"お気に入りではありません"}・${esc(FAVORITE_SOURCE_LABELS[source])}</small></span></label>`;
+ }).join("");
+}
+function repairLegacyFavorites(){
+ const allowed=new Set(legacyFavoriteEntries().filter(e=>e.current?.favorite).map(e=>e.current.id));
+ const selected=new Set([...document.querySelectorAll("[data-repair-favorite]:checked")].map(el=>el.dataset.repairFavorite).filter(id=>allowed.has(id)));
+ if(!selected.size)return showToast("解除するキャラにチェックを入れてください");
+ if(!confirm(`選択した${selected.size}件のキャラのお気に入りを解除しますか？\n未選択のキャラ・アーカイブ・小説は変更しません。`))return;
+ const before=state.characters;
+ state.characters=before.map(c=>selected.has(c.id)?{...c,favorite:false,favoriteSource:"user"}:c);
+ try{save()}catch(error){state.characters=before;return}
+ renderManager();renderGachaFilters();updateCard("character");showToast(`${selected.size}件のお気に入りを解除しました`);
+}
 
 
 const HEIGHT_SLIDER_FALLBACK_MIN=100,HEIGHT_SLIDER_FALLBACK_MAX=260;
@@ -84,7 +118,8 @@ function mergeCharacterRecords(a,b){
  if(String(other.name||"").length>String(keep.name||"").length&&keep.work!=="コードギアス")keep.name=other.name;
  keep.work=keep.work||other.work;keep.series=normalizeSeries(keep.work,keep.series||other.series);
  keep.tags=canonicalizeTags([...(keep.tags||[]),...(other.tags||[])]);
- keep.favorite=!!keep.favorite||!!other.favorite;
+ const favorite=!!keep.favorite||!!other.favorite;
+ keep.favoriteSource=mergedFavoriteSource([keep,other],favorite);keep.favorite=favorite;
  keep.archived=!!keep.archived&&!!other.archived;
  if(heightQuality(other)>heightQuality(keep))for(const k of ["heightText","heightCm","heightStatus","heightSource"])keep[k]=other[k];
  if(String(other.id||"").startsWith("seed-")&&!String(keep.id||"").startsWith("seed-"))keep.id=other.id;
@@ -141,7 +176,7 @@ function normalize(c){
  const rawCm=(c.heightCm===null||c.heightCm===undefined||c.heightCm==="")?null:Number(c.heightCm);
  return {id:c.id||makeId(),name:String(c.name||"").trim(),work:String(c.work||"").trim(),
    series:normalizeSeries(String(c.work||"").trim(),String(c.series||"").trim()),tags:Array.isArray(c.tags)?canonicalizeTags(c.tags):[],
-   archived:!!c.archived,favorite:!!c.favorite,heightText:String(c.heightText||"不明（公称値を確認できず）").trim(),
+   archived:!!c.archived,favorite:!!c.favorite,favoriteSource:favoriteSource(c),heightText:String(c.heightText||"不明（公称値を確認できず）").trim(),
    heightCm:Number.isFinite(rawCm)?rawCm:null,
    heightStatus:["verified","unknown","manual"].includes(c.heightStatus)?c.heightStatus:"unknown",
    heightSource:String(c.heightSource||"今回確認できた公称資料では数値を特定できず。推測値は登録していません。").trim()};
@@ -151,6 +186,7 @@ function applySettingsState(saved,overrides={}){
  const source={...saved,...overrides};
  Object.assign(state,DreamGachaContext.fields(source));
  state.characters=source.characters||[];state.pools=source.pools||structuredClone(DEFAULT_POOLS);
+ state.favoriteResetRevision=source.favoriteResetRevision===1?1:0;
  state.basePrompt=Object.prototype.hasOwnProperty.call(source,"basePrompt")?String(source.basePrompt):DEFAULT_BASE_PROMPT;
  state.basePromptLabel=String(source.basePromptLabel||"");state.basePromptReference=source.basePromptReference?DreamGachaDomain.clone(source.basePromptReference):null;state.promptVersions=DreamGachaDomain.clone(source.promptVersions||[]);
  state.protagonistProfile=Object.prototype.hasOwnProperty.call(source,"protagonistProfile")?String(source.protagonistProfile):DEFAULT_PROTAGONIST_PROFILE;
@@ -196,7 +232,7 @@ function load(){
  state.characters=[...savedChars];
 
  for(const d0 of DEFAULT_CHARACTERS){
-   const d=normalize(d0);
+   const d=normalize({...d0,favorite:false,favoriteSource:"default"});
    if(state.deletedSeedIds.has(d.id)) continue;
    const existing=byId.get(d.id)||byNameWork.get(d.work+"\u0000"+d.name);
    if(existing){
@@ -237,6 +273,15 @@ function load(){
  // Re-apply through the canonical path so migrations and seed enrichment leave
  // the same normalized shape used by restore and serialization.
  applySettingsState(prepareSettings({...saved,characters:state.characters,pools:state.pools,deletedSeedIds:[...state.deletedSeedIds],characterId:state.characterId},false));
+ // Owner-authorized one-time reset. Persist the marker and cleared flags together;
+ // never run this in prepareSettings(), which is also used for intentional restores.
+ if(state.favoriteResetRevision<1){
+   const characters=state.characters.map(c=>({...c,favorite:false,favoriteSource:"default"}));
+   const next={...saved,characters,favoriteResetRevision:1,filters:{...saved.filters,favorite:"all"}};
+   try{localStorage.setItem(DreamGachaData.SETTINGS_KEY,JSON.stringify(next))}
+   catch(error){alert(`お気に入りの初期化を保存できませんでした。保存済みデータは変更していません。\n${error.message}`);throw error}
+   state.characters=characters;state.favoriteResetRevision=1;state.filters.favorite="all";
+ }
 }
 
 
@@ -245,10 +290,11 @@ function migrateAmbiguousDio(){
  const ambiguous=state.characters.filter(c=>c.work===work&&c.name==="DIO"&&(c.series.includes("1・3")||c.series.includes("1・3")||c.series.startsWith("5部")));
  if(!ambiguous.length)return;
  const fav=ambiguous.some(c=>c.favorite),arch=ambiguous.every(c=>c.archived);
+ const source=mergedFavoriteSource(ambiguous,fav);
  let p1=state.characters.find(c=>c.work===work&&c.name==="ディオ・ブランドー（1部）");
  let p3=state.characters.find(c=>c.work===work&&c.name==="DIO（3部）");
- if(p1){if(fav)p1.favorite=true;if(arch)p1.archived=true}
- if(p3){if(fav)p3.favorite=true;if(arch)p3.archived=true}
+ if(p1){if(fav){p1.favoriteSource=mergedFavoriteSource([p1,{favorite:true,favoriteSource:source}],true);p1.favorite=true}if(arch)p1.archived=true}
+ if(p3){if(fav){p3.favoriteSource=mergedFavoriteSource([p3,{favorite:true,favoriteSource:source}],true);p3.favorite=true}if(arch)p3.archived=true}
  const ids=new Set(ambiguous.map(c=>c.id));
  for(const c of ambiguous)if(String(c.id).startsWith("seed-"))state.deletedSeedIds.add(c.id);
  state.characters=state.characters.filter(c=>!ids.has(c.id));
@@ -1061,7 +1107,9 @@ function saveInlineCharacter(id){
  c.name=name;
  c.work=box.querySelector('[data-inline-field="work"]').value.trim();
  c.series=box.querySelector('[data-inline-field="series"]').value.trim();
- c.favorite=box.querySelector('[data-inline-field="favorite"]').checked;
+ const nextFavorite=box.querySelector('[data-inline-field="favorite"]').checked;
+ if(c.favorite!==nextFavorite)c.favoriteSource="user";
+ c.favorite=nextFavorite;
  c.tags=canonicalizeTags(selectedTags);
  if(heightText!==oldHeight){
    c.heightText=heightText||"不明（公称値を確認できず）";
@@ -1076,6 +1124,7 @@ function saveInlineCharacter(id){
 }
 
 function renderManager(){
+ renderFavoriteRepair();
  renderManagerFilters();renderStats();renderSuggestions();
  const arr=managerFiltered(), table=$("#characterTable");
  state.selectedIds=new Set([...state.selectedIds].filter(id=>state.characters.some(c=>c.id===id)));
@@ -1083,7 +1132,7 @@ function renderManager(){
  else table.innerHTML=arr.map(c=>{
    const row=`<div class="char-row${c.archived?" archived":""}">
    <input class="row-check" type="checkbox" data-select="${esc(c.id)}" ${state.selectedIds.has(c.id)?"checked":""}>
-   <div><div class="char-name">${c.favorite?`<span class="favorite-mark">★</span>`:""}${esc(c.name)}</div><div class="char-sub">${c.archived?"📦 アーカイブ":"🎲 ガチャ対象"}${c.favorite?" ・ ★お気に入り":""}</div></div>
+   <div><div class="char-name">${c.favorite?`<span class="favorite-mark">★</span>`:""}${esc(c.name)}</div><div class="char-sub">${c.archived?"📦 アーカイブ":"🎲 ガチャ対象"}${c.favorite?` ・ ★お気に入り（${esc(FAVORITE_SOURCE_LABELS[favoriteSource(c)])}）`:""}</div></div>
    <div class="work-cell"><div>${esc(c.work||"作品未設定")}</div><div class="char-sub">${esc(c.series||"部・シリーズ未設定")}</div></div>
    <div class="tags-cell mini-tags">${c.tags.map(t=>`<span class="mini-tag">${esc(t)}</span>`).join("")||`<span class="char-sub">タグなし</span>`}</div>
    <div class="height-cell"><div class="height-main">${esc(c.heightText||"不明")}</div></div>
@@ -1111,7 +1160,7 @@ function saveCharacterForm(){
  const name=$("#charName").value.trim();if(!name){showToast("キャラ名を入力してください");return $("#charName").focus()}
  const heightText=$("#charHeight").value.trim();
  const data={name,work:$("#charWork").value.trim(),series:$("#charSeries").value.trim(),tags:parseTags($("#charTags").value),favorite:$("#charFavorite").checked};
- state.characters.push({id:makeId(),...data,archived:false,heightText:heightText||"不明（公称値を確認できず）",
+ state.characters.push({id:makeId(),...data,favoriteSource:"user",archived:false,heightText:heightText||"不明（公称値を確認できず）",
    heightCm:heightText?parseHeightCm(heightText):null,heightStatus:heightText?"manual":"unknown",
    heightSource:heightText?"手動登録（未検証）":"今回確認できた公称資料では数値を特定できず。推測値は登録していません。"});
  showToast(`${name}を追加しました`);
@@ -1141,17 +1190,17 @@ function deleteIds(ids){
 }
 function setFavorite(ids,value){
  let changed=0;
- for(const id of ids){const c=state.characters.find(c=>c.id===id);if(c&&c.favorite!==value){c.favorite=value;changed++}}
+ for(const id of ids){const c=state.characters.find(c=>c.id===id);if(c&&(c.favorite!==value||favoriteSource(c)!=="user")){c.favorite=value;c.favoriteSource="user";changed++}}
  if(!changed)return showToast(value?"すでにお気に入りです":"すでにお気に入り解除済みです");
  save();renderManager();renderGachaFilters();updateCard("character");showToast(value?`★ ${changed}件をお気に入りにしました`:`☆ ${changed}件のお気に入りを解除しました`);
 }
 function toggleFavorite(ids){
- for(const id of ids){const c=state.characters.find(c=>c.id===id);if(c)c.favorite=!c.favorite}
+ for(const id of ids){const c=state.characters.find(c=>c.id===id);if(c){c.favorite=!c.favorite;c.favoriteSource="user"}}
  save();renderManager();renderGachaFilters();updateCard("character");showToast("お気に入りを更新しました");
 }
 function exportCharacterPayload(chars){
  return {schema:"dream-gacha.characters",version:1,app:"夢小説シチュガチャ",exportedAt:new Date().toISOString(),characters:chars.map(c=>({
-   id:c.id,name:c.name,work:c.work,series:c.series,tags:[...c.tags],archived:!!c.archived,favorite:!!c.favorite,
+   id:c.id,name:c.name,work:c.work,series:c.series,tags:[...c.tags],archived:!!c.archived,favorite:!!c.favorite,favoriteSource:favoriteSource(c),
    heightText:c.heightText||"",heightCm:c.heightCm??null,heightStatus:c.heightStatus||"unknown",heightSource:c.heightSource||""
  }))};
 }
@@ -1271,7 +1320,7 @@ function importCharactersData(data,mode){
      const existing=matches[index];
      if(!existing){added++;return raw}
      updated++;
-     const next={...raw,id:existing.id,favorite:existing.favorite,archived:existing.archived};
+     const next={...raw,id:existing.id,favorite:existing.favorite,favoriteSource:favoriteSource(existing),archived:existing.archived};
      if(existing.heightStatus==="manual"&&raw.heightStatus!=="verified")for(const key of ["heightText","heightCm","heightStatus","heightSource"])next[key]=existing[key];
      return next;
    });
@@ -1334,6 +1383,8 @@ async function restoreFullBackup(data){
  let phase="バックアップ内容の検証";
  try{
   const validated=DreamGachaStorage.validateBackup(data),b=prepareSettings(validated,true);
+  // Explicit backup restoration must survive the next reload, including old backups.
+  b.favoriteResetRevision=1;
   phase="復元前の夢小説読み込み";
   const currentNovels=await novelAll(),nextNovels=Object.prototype.hasOwnProperty.call(validated,"novels")?validated.novels:currentNovels;
   const before=backupCounts(state,currentNovels),after=backupCounts(b,nextNovels),nextSettings=DreamGachaStorage.plainSettings(b);
@@ -1379,6 +1430,8 @@ function showSettingsSavedState(){
 function showToast(m){const e=$("#toast");e.textContent=m;e.classList.add("show");clearTimeout(showToast.t);showToast.t=setTimeout(()=>e.classList.remove("show"),1700)}
 
 function init(){
+ $("#favoriteRepair").addEventListener("toggle",renderFavoriteRepair);
+ $("#repairLegacyFavorites").addEventListener("click",repairLegacyFavorites);
  renderNovelModelChoices();
  $("#novelGenerationAi").addEventListener("input",()=>renderNovelModelChoices());
  $("#novelEditGenerationAi").addEventListener("input",()=>renderNovelModelChoices(true));

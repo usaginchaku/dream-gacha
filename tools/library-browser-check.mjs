@@ -130,8 +130,42 @@ try {
   await page.waitForFunction(()=>document.querySelector('#novelViewTitle').textContent==='スクロール検証後のタイトル');
   assert.equal(await page.locator('#novelDialogContent').evaluate(el=>el.scrollTop),0);
   assert.equal((await page.evaluate(() => novelAll()))[0].generationModel, '任意のモデル名');
+  // Simulate an installation that still contains the 67 public favorites.
+  // Everything runs in this disposable profile, never in the user's storage.
+  await page.locator('#novelViewClose').click();
+  const oldFavoriteBackup = await page.evaluate(async () => {
+    const novel=(await novelAll())[0];await novelPut({...novel,favorite:true});
+    const backup=await fullBackupPayload(),saved=JSON.parse(localStorage.getItem('dreamGachaSettings'));
+    delete saved.favoriteResetRevision;
+    saved.characters=saved.characters.map(c=>{const next={...c,favorite:LEGACY_FAVORITE_IDS.includes(c.id)};delete next.favoriteSource;return next;});
+    backup.data={...backup.data,...saved};delete backup.data.favoriteResetRevision;
+    localStorage.setItem('dreamGachaSettings',JSON.stringify(saved));return backup;
+  });
+  const archivedCount=oldFavoriteBackup.data.characters.filter(c=>c.archived).length;
+  await page.reload();await page.locator('#tab-manager').click();
+  assert.equal(await page.locator('#statFavorite').textContent(),'0');
+  assert.equal(Number(await page.locator('#statArchived').textContent()),archivedCount);
+  assert.equal((await page.evaluate(()=>novelAll()))[0].favorite,true);
+  await page.locator('[data-favorite="jojo-caesar"]').click();
+  await page.reload();await page.locator('#tab-manager').click();
+  assert.equal(await page.locator('#statFavorite').textContent(),'1');
+  assert.equal(await page.evaluate(()=>state.characters.find(c=>c.id==='jojo-caesar').favoriteSource),'user');
+  await page.evaluate(backup=>restoreFullBackup(backup),oldFavoriteBackup);
+  await page.reload();await page.locator('#tab-manager').click();
+  assert.equal(await page.locator('#statFavorite').textContent(),'67');
+  await page.locator('[data-favorite="jojo-fugo"]').click();
+  await page.locator('[data-favorite="jojo-fugo"]').click();
+  await page.locator('#favoriteRepair > summary').click();
+  assert.equal(await page.locator('[data-repair-favorite]').count(),67);
+  assert.equal(await page.locator('[data-repair-favorite="jojo-fugo"]').isChecked(),false);
+  await page.locator('[data-repair-favorite="jojo-caesar"]').uncheck();
+  await page.locator('#repairLegacyFavorites').click();
+  assert.equal(await page.locator('#statFavorite').textContent(),'2');
+  await page.reload();await page.locator('#tab-manager').click();
+  assert.equal(await page.locator('#statFavorite').textContent(),'2');
+  assert.equal((await page.evaluate(()=>novelAll()))[0].favorite,true);
   assert.deepEqual(errors, []); assert.deepEqual(requests, []);
-  console.log('PASS: library persistence/export; 375/390/1280px reader, conditions, prompt and edit scrolling; no page errors or external requests');
+  console.log('PASS: library persistence/export/scrolling; one-time favorite reset, provenance, old backup restore and selective repair at 375px; no page errors or external requests');
 } finally {
   if (browser) await browser.close();
   const checked = path.resolve(profile);

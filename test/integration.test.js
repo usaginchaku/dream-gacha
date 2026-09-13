@@ -31,10 +31,53 @@ function makeApp(){
 function run(app,code){return vm.runInContext(code,app.context)}
 
 async function main(){
+ // The owner-authorized reset clears all character favorites exactly once,
+ // without modifying archives, novels, custom prompts or unrelated settings.
+ const reset=makeApp();
+ run(reset,`globalThis.__oldSettings={version:44,characters:DEFAULT_CHARACTERS.map(c=>({...c,favorite:LEGACY_FAVORITE_IDS.includes(c.id)})),pools:DEFAULT_POOLS,basePrompt:'CUSTOM PROMPT',freeExtra:'keep notes',filters:{favorite:'favorite',search:'keep search'}};__oldSettings.characters.push({id:'custom-reset',name:'独自',work:'独自',favorite:true,favoriteSource:'user',archived:true});`);
+ const oldSettings=JSON.parse(JSON.stringify(run(reset,"__oldSettings")));
+ reset.local.set("dreamGachaSettings",JSON.stringify(oldSettings));reset.local.set("unrelated","untouched");
+ run(reset,"load()");
+ assert.equal(run(reset,"state.characters.filter(c=>c.favorite).length"),0);
+ assert.equal(run(reset,"state.favoriteResetRevision"),1);
+ assert.equal(run(reset,"state.characters.find(c=>c.id==='custom-reset').archived"),true);
+ assert.equal(run(reset,"state.characters.filter(c=>c.archived).length"),oldSettings.characters.filter(c=>c.archived).length);
+ assert.equal(run(reset,"state.basePrompt"),"CUSTOM PROMPT");assert.equal(reset.get("#freeExtra").value,"keep notes");
+ assert.equal(reset.local.get("unrelated"),"untouched");assert.equal(run(reset,"state.filters.favorite"),"all");assert.equal(run(reset,"state.filters.search"),"keep search");
+ assert.equal(JSON.parse(reset.local.get("dreamGachaSettings")).favoriteResetRevision,1);
+ run(reset,"renderManager=()=>{};renderGachaFilters=()=>{};updateCard=()=>{};showToast=()=>{};toggleFavorite(['jojo-caesar']);load()");
+ assert.equal(run(reset,"state.characters.find(c=>c.id==='jojo-caesar').favorite"),true);
+ assert.equal(run(reset,"state.characters.find(c=>c.id==='jojo-caesar').favoriteSource"),"user");
+ assert.equal(run(reset,"exportCharacterPayload(state.characters).characters.find(c=>c.id==='jojo-caesar').favoriteSource"),"user");
+ const failedReset=makeApp(),oldText=JSON.stringify(oldSettings);failedReset.local.set("dreamGachaSettings",oldText);
+ failedReset.context.alert=()=>{};
+ failedReset.context.localStorage.setItem=()=>{throw Error("quota")};
+ assert.throws(()=>run(failedReset,"load()"),/quota/);assert.equal(failedReset.local.get("dreamGachaSettings"),oldText);
+
+ const repair=makeApp();repair.context.confirm=()=>true;
+ run(repair,`load();state.characters.find(c=>c.id==='jojo-caesar').favorite=true;state.characters.find(c=>c.id==='jojo-caesar').favoriteSource='unknown';state.characters.find(c=>c.id==='jojo-fugo').favorite=true;state.characters.find(c=>c.id==='jojo-fugo').favoriteSource='user';state.characters.push(normalize({id:'outside',name:'Outside',favorite:true}));renderGachaFilters=()=>{};updateCard=()=>{};showToast=()=>{};`);
+ repair.get("#favoriteRepair").open=true;run(repair,"renderFavoriteRepair()");
+ const repairHtml=repair.get("#legacyFavoriteList").innerHTML;
+ assert.equal((repairHtml.match(/data-repair-favorite=/g)||[]).length,67);
+ assert.match(repairHtml,/data-repair-favorite="jojo-caesar"[^>]*checked/);
+ assert.doesNotMatch(repairHtml,/data-repair-favorite="jojo-fugo"[^>]*checked/);
+ assert.equal(run(repair,"new Set(LEGACY_FAVORITE_IDS).size"),67);
+ assert.equal(run(repair,"legacyFavoriteEntries().every(e=>!!e.seed)"),true);
+ repair.context.document.querySelectorAll=s=>s==="[data-repair-favorite]:checked"?[{dataset:{repairFavorite:"jojo-caesar"}},{dataset:{repairFavorite:"outside"}}]:[];
+ run(repair,"renderManager=()=>{};globalThis.__realSave=save;save=()=>{throw Error('quota')};repairLegacyFavorites()");
+ assert.equal(run(repair,"state.characters.find(c=>c.id==='jojo-caesar').favorite"),true);
+ run(repair,"save=__realSave");repair.context.confirm=()=>false;run(repair,"repairLegacyFavorites()");
+ assert.equal(run(repair,"state.characters.find(c=>c.id==='jojo-caesar').favorite"),true);
+ repair.context.confirm=()=>true;run(repair,"repairLegacyFavorites();load()");
+ assert.equal(run(repair,"state.characters.find(c=>c.id==='jojo-caesar').favorite"),false);
+ assert.equal(run(repair,"state.characters.find(c=>c.id==='jojo-fugo').favorite"),true);
+ assert.equal(run(repair,"state.characters.find(c=>c.id==='outside').favorite"),true);
+ assert.equal(run(repair,"normalize({name:'legacy',favorite:true}).favoriteSource"),"unknown");
+ assert.equal(run(repair,"mergeCharacterRecords(normalize({name:'same',favorite:true,favoriteSource:'default'}),normalize({name:'same',favorite:true,favoriteSource:'user'})).favoriteSource"),"user");
  const favoritesApp=makeApp();
  run(favoritesApp,"load()");
  assert.equal(run(favoritesApp,"state.characters.filter(c=>c.favorite).length"),0,"fresh installs start with no favorites");
- favoritesApp.local.set("dreamGachaSettings",JSON.stringify({version:44,characters:[
+ favoritesApp.local.set("dreamGachaSettings",JSON.stringify({version:44,favoriteResetRevision:1,characters:[
    {id:"jojo-caesar",name:"シーザー・A・ツェペリ",work:"ジョジョの奇妙な冒険",favorite:true},
    {id:"local-joseph",name:"ジョセフ・ジョースター",work:"ジョジョの奇妙な冒険",favorite:true},
    {id:"jojo-jonathan",name:"ジョナサン・ジョースター",work:"ジョジョの奇妙な冒険",favorite:false},
@@ -72,9 +115,9 @@ async function main(){
  const appSource=fs.readFileSync(path.join(root,"app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,6),["app-data.js?v=44","app-context.js?v=44","app-domain.js?v=46","app-prompts.js?v=46","app-storage.js?v=46","app-ui.js?v=46"]);
+  assert.deepEqual(src.slice(0,6),["app-data.js?v=44","app-context.js?v=44","app-domain.js?v=46","app-prompts.js?v=46","app-storage.js?v=47","app-ui.js?v=46"]);
  assert.match(src[6],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(7),["seed-data.js?v=44","stage-presets.js?v=44","app-context-ui.js?v=44","app.js?v=46"]);
+  assert.deepEqual(src.slice(7),["seed-data.js?v=44","stage-presets.js?v=44","app-context-ui.js?v=44","app.js?v=47"]);
   assert.ok(index.includes('href="styles.css?v=45"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
@@ -438,6 +481,9 @@ async function main(){
  run(d,"novelAll=async()=>[{id:'keep',body:'old'}];replaceAllNovels=async xs=>{globalThis.__novels=xs};renderPoolEditors=()=>{};renderGachaFilters=()=>{};renderManager=()=>{};renderLibrary=async()=>{};updateCard=()=>{};updateCategoryStatus=()=>{};updateLock=()=>{};showToast=()=>{};");
  await run(d,`restoreFullBackup(${JSON.stringify(legacy)})`);
  assert.equal(run(d,"__novels[0].id"),"keep");
+ const restoredFavorites=run(d,"state.characters.filter(c=>c.favorite).length");assert.ok(restoredFavorites>0);
+ run(d,"load()");assert.equal(run(d,"state.characters.filter(c=>c.favorite).length"),restoredFavorites);
+ assert.equal(run(d,"state.characters.filter(c=>c.favorite).every(c=>c.favoriteSource==='unknown')"),true);
 
  // A valid partial pool payload is hydrated before commit and before UI code reads pool lengths.
  const f=makeApp();

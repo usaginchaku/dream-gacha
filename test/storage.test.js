@@ -4,6 +4,14 @@ global.DreamGachaData=require("../app-data.js");
 const storage=require("../app-storage.js");
 const settings={characters:[{id:"c1",name:"A"}],pools:{relationship:[]},deletedSeedIds:new Set(["x"]),filters:{workIncluded:new Set(["W1"]),workExcluded:new Set(["W2"]),seriesIncluded:new Set(["S1"]),seriesExcluded:new Set(["S2"]),tags:new Set(["t"]),characterIncluded:new Set(["c1"]),characterExcluded:new Set(["c2"])},categoryExcluded:{situation:new Set(["bad"])},workProtagonistProfiles:{W:"作品設定"},worldMode:"modern",themeMode:"dark",presets:[]};
 
+test("favorite reset marker and provenance survive backup; invalid provenance is rejected",()=>{
+  const input={...settings,favoriteResetRevision:1,characters:[{id:"c1",name:"A",favorite:true,favoriteSource:"user"}]};
+  const decoded=storage.validateBackup(storage.makeBackup(input,[{id:"novel",body:"body",favorite:true}]));
+  assert.equal(decoded.favoriteResetRevision,1);assert.equal(decoded.characters[0].favoriteSource,"user");assert.equal(decoded.novels[0].favorite,true);
+  assert.throws(()=>storage.validateSettings({...input,favoriteResetRevision:2}),/favoriteResetRevision/);
+  assert.throws(()=>storage.validateSettings({...input,characters:[{id:"c1",favoriteSource:"guessed"}]}),/favoriteSource/);
+});
+
 test("serialization converts Sets and full backup requires loaded novels",()=>{
   const plain=storage.plainSettings(settings);assert.deepEqual(plain.deletedSeedIds,["x"]);assert.deepEqual(plain.filters.tags,["t"]);assert.deepEqual(plain.filters.workIncluded,["W1"]);assert.deepEqual(plain.filters.workExcluded,["W2"]);assert.deepEqual(plain.filters.seriesIncluded,["S1"]);assert.deepEqual(plain.filters.seriesExcluded,["S2"]);assert.deepEqual(plain.filters.characterIncluded,["c1"]);assert.deepEqual(plain.filters.characterExcluded,["c2"]);assert.deepEqual(plain.workProtagonistProfiles,{W:"作品設定"});assert.equal(plain.worldMode,"modern");assert.equal(plain.themeMode,"dark");
   assert.throws(()=>storage.makeBackup(settings,null),/アーカイブ/);assert.deepEqual(storage.makeBackup(settings,[]).data.novels,[]);
