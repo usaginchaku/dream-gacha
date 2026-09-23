@@ -1,6 +1,6 @@
 const test=require("node:test");
 const assert=require("node:assert/strict");
-const domain=require("../app-domain.js");
+const domain=require("../src/app-domain.js");
 
 test("prompt formatting is pure and includes world and protagonist layers",()=>{
   const input={basePrompt:"BASE",character:{name:"A",work:"W",series:"S",heightText:"180cm"},relationship:"恋人",situation:"雨",mood:"甘い",extra:"夜",protagonistProfile:"共通設定",workProtagonistProfile:"作品設定",worldModeLabel:"原作準拠",worldModePrompt:"原作世界を使う",freeExtra:"今回だけ"};

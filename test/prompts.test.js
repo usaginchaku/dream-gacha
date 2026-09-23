@@ -1,9 +1,9 @@
 const test=require("node:test");
 const assert=require("node:assert/strict");
-const p=require("../app-prompts.js");
-const domain=require("../app-domain.js");
-const storage=require("../app-storage.js");
-const context=require("../app-context.js");
+const p=require("../src/app-prompts.js");
+const domain=require("../src/app-domain.js");
+const storage=require("../src/app-storage.js");
+const context=require("../src/app-context.js");
 const standard="# 【夢小説生成プロンプト Ver.0.1.3.2】\n標準の指示";
 const input={id:"p1",baseText:standard,standardText:standard,label:"",createdAt:"2026-09-12T00:00:00.000Z"};
 

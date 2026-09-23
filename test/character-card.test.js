@@ -4,7 +4,7 @@ const assert=require("node:assert/strict");
 const fs=require("node:fs");
 const path=require("node:path");
 const vm=require("node:vm");
-const C=require("../app-context.js");
+const C=require("../src/app-context.js");
 const entry=(id,patch={})=>({id,revision:1,title:id,kind:"supplement",body:`内容 ${id}`,enabled:true,activation:"manual",protagonistMode:"append",worldMode:"modern",scope:{works:[],series:[],characterIds:["c1"],worldModes:[],stageIds:[]},reference:{name:"",version:"",excerpt:""},...patch});
 const note=(id,patch={})=>entry(id,{characterNote:{section:"voice",sourceKind:"interpretation",verification:"unverified"},...patch});
 const settings=entries=>({style:"",entries});
@@ -53,7 +53,7 @@ function uiApp(entries=[]){
   const app={state,structuredClone,JSON,Map,Set,Date,Math,Object,window:{confirm:()=>true},document:{querySelector:get,querySelectorAll:()=>[]},$:get,unique:values=>Array.from(new Set(values.filter(Boolean))),esc:value=>String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]),saveCount:0,save(){app.saveCount++;},libraryId:()=>`note-${state.promptSettings.entries.length}`,showToast(){},currentCharacter:()=>state.characters[0],workProtagonistProfileFor:()=>"作品の標準夢主",currentProtagonistSettings:()=>({protagonistProfile:"今回だけの夢主",workProtagonistProfile:"今回の作品夢主"}),DreamGachaContext:C,DreamGachaContextUI:{render(){}}};
   app.globalThis=app;vm.createContext(app);
   const load=file=>vm.runInContext(fs.readFileSync(path.join(__dirname,"..",file),"utf8"),app,{filename:file});
-  load("app-character-card-ui.js");
+  load("src/app-character-card-ui.js");
   const click=id=>get(id).listeners.click({target:get(id)});
   const submit=()=>get("#characterNoteEditor").listeners.submit({preventDefault(){}});
   return {app,get,load,click,submit};
@@ -80,7 +80,7 @@ test("removed character notes remain editable and can be reassigned without chan
 });
 
 test("context UI resolves per-request protagonist and generic editor retains card metadata",()=>{
-  const original=note("n"),ui=uiApp([original]);ui.load("app-context-ui.js");ui.app.DreamGachaContextUI.init();
+  const original=note("n"),ui=uiApp([original]);ui.load("src/app-context-ui.js");ui.app.DreamGachaContextUI.init();
   assert.equal(ui.app.DreamGachaContextUI.resolve().protagonist,"今回だけの夢主");assert.equal(ui.app.DreamGachaContextUI.resolve().workProtagonist,"今回の作品夢主");
   ui.get("#contextEntryList").listeners.click({target:{closest:()=>({dataset:{contextEdit:"n"}})}});
   for(const scope of C.SCOPES)ui.get("#contextScope-"+scope).selectedOptions=original.scope[scope].map(value=>({value}));
@@ -92,7 +92,7 @@ test("changing stage preserves the selected situation and lock for the user to r
   const stage=entry("office",{kind:"stage",worldMode:"modern"}),ui=uiApp([stage]);
   ui.app.state.values={situation:"原作の基地で再会する"};ui.app.state.locks={situation:true};
   ui.app.renderWorldModeControls=()=>{};ui.app.updateCard=()=>{};ui.app.updateLock=()=>{};
-  ui.load("app-context-ui.js");ui.app.DreamGachaContextUI.init();
+  ui.load("src/app-context-ui.js");ui.app.DreamGachaContextUI.init();
   ui.get("#contextStage").listeners.change({target:{value:"office"}});
   assert.equal(ui.app.state.worldMode,"modern");assert.equal(ui.app.state.promptSelection.stageId,"office");assert.equal(ui.app.state.values.situation,"原作の基地で再会する");assert.equal(ui.app.state.locks.situation,true);
 });

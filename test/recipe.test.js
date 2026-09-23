@@ -2,8 +2,8 @@
 const test=require("node:test");
 const assert=require("node:assert/strict");
 const {makeApp,run}=require("./helpers/app-harness.js");
-const S=require("../app-storage.js");
-const C=require("../app-context.js");
+const S=require("../src/app-storage.js");
+const C=require("../src/app-context.js");
 const json=(app,code)=>JSON.parse(run(app,`JSON.stringify(${code})`));
 
 function app(){

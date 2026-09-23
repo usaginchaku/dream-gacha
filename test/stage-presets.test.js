@@ -1,7 +1,7 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
-const C=require('../app-context.js');
-const P=require('../stage-presets.js');
+const C=require('../src/app-context.js');
+const P=require('../src/stage-presets.js');
 
 test('bundled stages are valid independent choices and never apply until selected',()=>{
  const settings=P.addMissing(C.emptySettings());

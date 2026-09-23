@@ -1,0 +1,24 @@
+{
+  "schema": "dream-gacha.full-backup",
+  "version": 1,
+  "appVersion": 22,
+  "data": {
+    "characters": [
+      {
+        "id": "fixture-legacy-favorite",
+        "name": "旧形式テストキャラ",
+        "work": "テスト作品",
+        "tags": [],
+        "favorite": true,
+        "archived": false
+      }
+    ],
+    "pools": {
+      "relationship": ["顔見知り"],
+      "situation": ["待ち合わせ"],
+      "mood": ["穏やか"],
+      "extra": []
+    },
+    "presets": []
+  }
+}

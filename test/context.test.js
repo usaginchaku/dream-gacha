@@ -1,8 +1,8 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
-const C=require('../app-context.js');
-const D=require('../app-domain.js');
-const S=require('../app-storage.js');
+const C=require('../src/app-context.js');
+const D=require('../src/app-domain.js');
+const S=require('../src/app-storage.js');
 const entry=(id,patch={})=>({id,revision:1,title:id,kind:'supplement',body:'補足 '+id,enabled:true,activation:'auto',protagonistMode:'append',worldMode:'modern',scope:{works:[],series:[],characterIds:[],worldModes:[],stageIds:[]},reference:{name:'',version:'',excerpt:''},...patch});
 const context={character:{id:'c1',name:'人物',work:'ジョジョ',series:'5部'},worldMode:'canon',protagonistProfile:'共通夢主',workProtagonistProfile:'作品夢主'};
 const resolve=(entries,selection={},extra={},style='')=>C.resolve({style,entries},{...C.emptySelection(),...selection},C.emptyOutput(),{...context,...extra});

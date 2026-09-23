@@ -12,7 +12,7 @@ const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
 const DEFAULT_DATA_DIR = path.join(ROOT, "data", "characters");
-const DEFAULT_OUTPUT = path.join(ROOT, "character-data.generated.js");
+const DEFAULT_OUTPUT = path.join(ROOT, "data", "character-data.generated.js");
 const SCHEMA = "dream-gacha.characters";
 const VERSION = 1;
 
@@ -20,7 +20,7 @@ if (Number(process.versions.node.split(".")[0]) < 18) {
   throw new Error("このスクリプトは Node.js 18 以降が必要です");
 }
 
-function readCanonicalTags(seedPath = path.join(ROOT, "seed-data.js")) {
+function readCanonicalTags(seedPath = path.join(ROOT, "src", "seed-data.js")) {
   const source = fs.readFileSync(seedPath, "utf8");
   const marker = "const CANONICAL_TAGS=";
   const start = source.indexOf(marker);
@@ -206,9 +206,9 @@ function updateIndexCacheKey(output, source) {
   const digest = require("node:crypto").createHash("sha256").update(source, "utf8").digest("hex").slice(0, 12);
   const indexPath = path.join(ROOT, "index.html");
   const index = fs.readFileSync(indexPath, "utf8");
-  const referencePattern = /character-data\.generated\.js\?v=[^"']+/;
+  const referencePattern = /data\/character-data\.generated\.js\?v=[^"']+/;
   if (!referencePattern.test(index)) throw usageError("index.html に character-data.generated.js の参照が見つかりません");
-  const updated = index.replace(referencePattern, `character-data.generated.js?v=${digest}`);
+  const updated = index.replace(referencePattern, `data/character-data.generated.js?v=${digest}`);
   if (updated !== index) fs.writeFileSync(indexPath, updated, "utf8");
 }
 

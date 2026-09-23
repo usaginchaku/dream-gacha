@@ -1,7 +1,7 @@
 const test=require("node:test");
 const assert=require("node:assert/strict");
-global.DreamGachaData=require("../app-data.js");
-const storage=require("../app-storage.js");
+global.DreamGachaData=require("../src/app-data.js");
+const storage=require("../src/app-storage.js");
 const settings={characters:[{id:"c1",name:"A"}],pools:{relationship:[]},deletedSeedIds:new Set(["x"]),filters:{workIncluded:new Set(["W1"]),workExcluded:new Set(["W2"]),seriesIncluded:new Set(["S1"]),seriesExcluded:new Set(["S2"]),tags:new Set(["t"]),characterIncluded:new Set(["c1"]),characterExcluded:new Set(["c2"])},categoryExcluded:{situation:new Set(["bad"])},workProtagonistProfiles:{W:"作品設定"},worldMode:"modern",themeMode:"dark",presets:[]};
 
 test("favorite reset marker and provenance survive backup; invalid provenance is rejected",()=>{

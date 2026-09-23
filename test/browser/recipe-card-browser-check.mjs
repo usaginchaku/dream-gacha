@@ -8,7 +8,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 if (!process.argv[2]) throw new Error('Pass the installed playwright directory; optional output directory and --smoke follow.');
 const { chromium } = await import(pathToFileURL(path.join(process.argv[2], 'index.mjs')).href);
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const smokeOnly = process.argv.includes('--smoke');
 const output = process.argv[3] && process.argv[3] !== '--smoke' ? path.resolve(process.argv[3]) : path.join(root, 'output', 'recipe-card-browser');
 const profile = await mkdtemp(path.join(tmpdir(), 'dream-gacha-recipe-card-qa-'));

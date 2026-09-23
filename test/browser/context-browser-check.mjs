@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 if(!process.argv[2])throw new Error('Pass the installed playwright directory; optional screenshot directory follows.');
 const {chromium}=await import(pathToFileURL(path.join(process.argv[2],'index.mjs')).href);
-const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 const profile=await mkdtemp(path.join(tmpdir(),'dream-gacha-context-qa-'));
 let browser;
 try{

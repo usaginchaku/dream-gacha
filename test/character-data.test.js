@@ -15,7 +15,7 @@ const dataDir = path.join(root, "data", "characters");
 function generatedCharacters() {
   const context = {};
   vm.createContext(context);
-  vm.runInContext(fs.readFileSync(path.join(root, "character-data.generated.js"), "utf8"), context);
+  vm.runInContext(fs.readFileSync(path.join(root, "data/character-data.generated.js"), "utf8"), context);
   return context.DreamGachaCharacterData.DEFAULT_CHARACTERS;
 }
 
@@ -56,7 +56,7 @@ test("public seeds never inherit favorites from an imported source", () => {
 });
 
 test("index.html cache key matches the generated bundle", () => {
-  const source = fs.readFileSync(path.join(root, "character-data.generated.js"), "utf8");
+  const source = fs.readFileSync(path.join(root, "data/character-data.generated.js"), "utf8");
   const digest = crypto.createHash("sha256").update(source, "utf8").digest("hex").slice(0, 12);
   const index = fs.readFileSync(path.join(root, "index.html"), "utf8");
   assert.match(index, new RegExp(`character-data\\.generated\\.js\\?v=${digest}`));
@@ -64,10 +64,10 @@ test("index.html cache key matches the generated bundle", () => {
 
 test("normal build is idempotent when output and cache key are already current", () => {
   builder.main([]);
-  const firstBundle = fs.readFileSync(path.join(root, "character-data.generated.js"), "utf8");
+  const firstBundle = fs.readFileSync(path.join(root, "data/character-data.generated.js"), "utf8");
   const firstIndex = fs.readFileSync(path.join(root, "index.html"), "utf8");
   assert.doesNotThrow(() => builder.main([]));
-  assert.equal(fs.readFileSync(path.join(root, "character-data.generated.js"), "utf8"), firstBundle);
+  assert.equal(fs.readFileSync(path.join(root, "data/character-data.generated.js"), "utf8"), firstBundle);
   assert.equal(fs.readFileSync(path.join(root, "index.html"), "utf8"), firstIndex);
 });
 

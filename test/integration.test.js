@@ -92,13 +92,13 @@ async function main(){
  assert.equal(migratedPool.values.mood,"普段強い側が弱さを見せる");
  assert.equal(run(poolApp,"prepareSettings({version:40,pools:{relationship:[],situation:[],mood:[],extra:['独自']},characters:[]},false).pools.extra.length"),1);
  const index=fs.readFileSync(path.join(root,"index.html"),"utf8");
- const appSource=fs.readFileSync(path.join(root,"app.js"),"utf8");
- const styleSource=fs.readFileSync(path.join(root,"styles.css"),"utf8");
+ const appSource=fs.readFileSync(path.join(root,"src/app.js"),"utf8");
+ const styleSource=fs.readFileSync(path.join(root,"assets/styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,6),["app-data.js?v=48","app-context.js?v=48","app-domain.js?v=48","app-prompts.js?v=48","app-storage.js?v=48","app-ui.js?v=46"]);
- assert.match(src[6],/^character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(7),["seed-data.js?v=44","stage-presets.js?v=44","app-context-ui.js?v=48","app-character-card-ui.js?v=48","app-recipe.js?v=48","app.js?v=48"]);
-  assert.ok(index.includes('href="styles.css?v=48"'));
+  assert.deepEqual(src.slice(0,6),["src/app-data.js?v=48","src/app-context.js?v=48","src/app-domain.js?v=48","src/app-prompts.js?v=48","src/app-storage.js?v=48","src/app-ui.js?v=46"]);
+ assert.match(src[6],/^data\/character-data\.generated\.js\?v=[a-f0-9]{12}$/);
+  assert.deepEqual(src.slice(7),["src/seed-data.js?v=44","src/stage-presets.js?v=44","src/app-context-ui.js?v=48","src/app-character-card-ui.js?v=48","src/app-recipe.js?v=48","src/app.js?v=48"]);
+  assert.ok(index.includes('href="assets/styles.css?v=48"'));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
@@ -459,7 +459,7 @@ async function main(){
  assert.equal(run(c,"state.characters[0].id"),"before");
 
  // A v1 backup without novels preserves the existing archive through real restore wiring.
- const legacy=JSON.parse(fs.readFileSync(path.join(root,"old","dream-gacha-full-backup-20260905.json"),"utf8"));
+ const legacy=JSON.parse(fs.readFileSync(path.join(__dirname,"fixtures","legacy-backup-v1.json"),"utf8"));
  const d=makeApp();
  run(d,"novelAll=async()=>[{id:'keep',body:'old'}];replaceAllNovels=async xs=>{globalThis.__novels=xs};renderPoolEditors=()=>{};renderGachaFilters=()=>{};renderManager=()=>{};renderLibrary=async()=>{};updateCard=()=>{};updateCategoryStatus=()=>{};updateLock=()=>{};showToast=()=>{};");
  await run(d,`restoreFullBackup(${JSON.stringify(legacy)})`);
