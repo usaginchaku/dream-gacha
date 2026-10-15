@@ -12,18 +12,26 @@ let browser;
 try {
   browser = await chromium.launchPersistentContext(profile, { headless: true, channel: 'chrome', viewport: { width: 1280, height: 900 }, acceptDownloads: true });
   const page = await browser.newPage(), errors = [], requests = [];
+  async function reveal(selector) {
+    const details = page.locator(selector).locator('xpath=ancestor-or-self::details');
+    for (let i = 0; i < await details.count(); i++) {
+      if (!await details.nth(i).evaluate(el => el.open)) await details.nth(i).locator(':scope > summary').click();
+    }
+  }
   page.on('pageerror', e => errors.push(e.message));
   page.on('request', r => { if (/^https?:/.test(r.url())) requests.push(r.url()); });
   page.on('dialog', dialog => dialog.accept());
   await page.goto(pathToFileURL(path.join(root, 'index.html')).href);
   await page.waitForFunction(() => document.querySelector('#basePrompt').value.includes('0.1.3.3'));
   const standard = await page.locator('#basePrompt').inputValue();
-  await page.locator('#basePrompt').evaluate(el => { el.closest('details').open = true; });
+  await page.locator('[data-gacha-mode="custom"]').click();
+  await reveal('#basePrompt');
   await page.locator('#basePrompt').fill(standard + '\n試験用の追加指示 <b>テキストとして表示</b>');
   await page.locator('#basePromptLabel').fill('試験版 A');
   await page.locator('#saveSettings').click();
   await page.locator('#buildPrompt').click();
   const assembled = await page.locator('#output').inputValue();
+  await reveal('#output');
   await page.locator('#output').fill(assembled + '\n完成欄だけの追記');
   await page.locator('#openNovelSave').click();
   await page.waitForSelector('#novelBody', { state: 'visible' });
@@ -71,7 +79,7 @@ try {
   assert.equal((await page.evaluate(() => novelAll()))[0].title, 'あとから変えたタイトル');
   assert.equal((await page.evaluate(() => novelAll()))[0].generationModel, 'Gemini 3.1 Pro');
   await page.locator('#tab-gacha').click();
-  await page.locator('#basePrompt').evaluate(el => { el.closest('details').open = true; });
+  await reveal('#basePrompt');
   await page.locator('#basePrompt').fill(standard + '\n次の版の指示');
   await page.locator('#basePromptLabel').fill('試験版 B');
   await page.locator('#saveSettings').click();
@@ -148,6 +156,7 @@ try {
   assert.equal(await page.locator('#statFavorite').textContent(),'0');
   assert.equal(Number(await page.locator('#statArchived').textContent()),archivedCount);
   assert.equal((await page.evaluate(()=>novelAll()))[0].favorite,true);
+  await page.locator('#manageSearch').fill('シーザー');
   await page.locator('[data-favorite="jojo-caesar"]').click();
   await page.reload();await page.locator('#tab-manager').click();
   assert.equal(await page.locator('#statFavorite').textContent(),'1');
@@ -155,9 +164,11 @@ try {
   await page.evaluate(backup=>restoreFullBackup(backup),oldFavoriteBackup);
   await page.reload();await page.locator('#tab-manager').click();
   assert.equal(await page.locator('#statFavorite').textContent(),'67');
+  await page.locator('#manageSearch').fill('フーゴ');
   await page.locator('[data-favorite="jojo-fugo"]').click();
   await page.locator('[data-favorite="jojo-fugo"]').click();
   await page.locator('#favoriteRepair > summary').click();
+  await page.locator('[data-repair-favorite]').first().waitFor({state:'visible'});
   assert.equal(await page.locator('[data-repair-favorite]').count(),67);
   assert.equal(await page.locator('[data-repair-favorite="jojo-fugo"]').isChecked(),false);
   await page.locator('[data-repair-favorite="jojo-caesar"]').uncheck();

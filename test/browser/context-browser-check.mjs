@@ -12,7 +12,11 @@ let browser;
 try{
  browser=await chromium.launchPersistentContext(profile,{headless:true,channel:'chrome',viewport:{width:1280,height:1000},acceptDownloads:true});
  const page=await browser.newPage(),errors=[],requests=[];
- const showSettings=()=>page.locator('#contextManager').evaluate(element=>{for(let parent=element.parentElement;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;});
+ async function reveal(selector){
+   const details=page.locator(selector).locator('xpath=ancestor-or-self::details');
+   for(let i=0;i<await details.count();i++)if(!await details.nth(i).evaluate(el=>el.open))await details.nth(i).locator(':scope > summary').click();
+ }
+ const showSettings=async()=>{await page.locator('[data-gacha-mode="custom"]').click();await reveal('#gachaSettings');};
  page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url());});page.on('dialog',d=>d.accept());
  await page.goto(pathToFileURL(path.join(root,'index.html')).href);
  await page.waitForFunction(()=>document.querySelector('#basePrompt').value.includes('0.1.3.3'));
@@ -29,8 +33,8 @@ try{
    assert.equal(await page.evaluate(()=>state.promptDraftSnapshot.promptContext.selection.stageId),e.id);
  }
  await page.locator('#contextStage').selectOption('');
- await page.locator('#gachaFilterDetails').evaluate(e=>e.open=true);await page.locator('[data-world-mode="canon"]').click();
- await page.locator('#contextManager').evaluate(e=>e.open=true);
+ await reveal('#gachaFilterDetails');await page.locator('[data-world-mode="canon"]').click();
+ await reveal('#contextManager');
  await page.locator(`[data-context-edit="${bundled[0].id}"]`).click();
  await page.locator('#contextTitle').fill('編集した初期舞台');await page.locator('#contextBody').fill('自分の現パロ本文');await page.locator('#contextEnabled').uncheck();await page.locator('#contextEntrySave').click();
  await page.reload();await page.waitForFunction(()=>document.querySelector('#basePrompt').value.includes('0.1.3.3'));await showSettings();
@@ -44,13 +48,13 @@ try{
  async function create({title,kind='supplement',body='',work=who.work,series='',stage='',action='append',activation='auto',reference=null}){
    await page.locator('#contextNew').click();await page.locator('#contextTitle').fill(title);await page.locator('#contextKind').selectOption(kind);
    await page.locator('#contextBody').fill(body);
-   await page.locator('#contextEditor .context-scope').evaluate(e=>e.open=true);
+   await reveal('#contextEditor .context-scope');
    await page.locator('#contextScope-works').selectOption(work?[work]:[]);
    if(series)await page.locator('#contextScope-series').selectOption([series]);
    if(stage)await page.locator('#contextScope-stageIds').selectOption([stage]);
    if(kind==='protagonist')await page.locator('#contextProtagonistMode').selectOption(action);
    if(kind!=='stage')await page.locator('#contextActivation').selectOption(activation);
-   if(reference){await page.locator('#contextEditor > details').filter({hasText:'参考資料（任意）'}).evaluate(e=>e.open=true);await page.locator('#contextReference-name').fill(reference.name);await page.locator('#contextReference-version').fill('2026-09-12');await page.locator('#contextReference-excerpt').fill(reference.excerpt||'');}
+   if(reference){await reveal('#contextReference-name');await page.locator('#contextReference-name').fill(reference.name);await page.locator('#contextReference-version').fill('2026-09-12');await page.locator('#contextReference-excerpt').fill(reference.excerpt||'');}
    await page.locator('#contextEntrySave').click();
    assert.match(await page.locator('#contextEditorStatus').textContent(),/保存しました/);
    const id=await page.evaluate(title=>state.promptSettings.entries.find(e=>e.title===title).id,title);
@@ -63,7 +67,7 @@ try{
  const office=await create({title:'仕事上の距離',stage,body:'部署や学歴を必要なく説明しない。',reference:{name:'抜粋.md',excerpt:'部署設定😀\n同期関係'}});
  const manual=await create({title:'任意の解釈',body:'今回選んだ補足。',activation:'manual'});
  const protagonist=await create({title:'会社員の夢主',kind:'protagonist',stage,action:'replace',body:'成人女性、身長170cm。会社員。'});
- await page.locator('#contextPreview').evaluate(e=>e.open=true);
+ await reveal('#contextPreview');
  await page.locator(`[data-context-apply="${manual}"]`).check();
  await page.locator('#contextPreview > details > summary').click();
  await page.locator('#contextOutputLength').fill('3000');await page.locator('#contextOutputPov').selectOption('character');
@@ -97,7 +101,7 @@ try{
  // Restore an old snapshot: new auto supplements and style must not leak into it.
  await page.evaluate(()=>applySnapshot({character:{...currentCharacter()},worldMode:'canon',protagonistProfile:'',workProtagonistProfile:'',prompt:'旧完成',relationship:'知人',situation:'雨宿りをしている',mood:'静か',extra:'接触なし'}));
  await page.locator('#buildPrompt').click();let legacy=await page.locator('#output').inputValue();assert.doesNotMatch(legacy,/ネアポリス|即答|【夢主設定】/);
- await page.locator('#contextUseCurrent').click();await page.locator('#contextStage').selectOption(stage);await page.locator('#contextPreview').evaluate(e=>e.open=true);
+ await page.locator('#contextUseCurrent').click();await page.locator('#contextStage').selectOption(stage);await reveal('#contextPreview');
  await page.locator(`[data-context-apply="${conflict}"]`).uncheck();await page.locator('#buildPrompt').click();assert.match(await page.locator('#output').inputValue(),/更新した設定/);
  // An incompatible reroll blocks generation and keeps the previous completed prompt.
  const validPrompt=await page.locator('#output').inputValue();
@@ -124,9 +128,9 @@ try{
  assert.equal(await page.locator('#basePrompt').inputValue(),standard);
  // Both themes and narrow mobile layout with a long, scoped entry editor.
  for(const width of [390,1280]){
-   await page.setViewportSize({width,height:950});await page.locator('#themeMode').selectOption(width===390?'dark':'light');
+   await page.setViewportSize({width,height:width===390?844:950});await page.locator('#tab-help').click();await page.locator('#themeMode').selectOption(width===390?'dark':'light');await page.locator('#tab-gacha').click();
    await page.reload();await page.waitForFunction(()=>document.querySelector('#basePrompt').value.includes('0.1.3.3'));await showSettings();
-   await page.locator('#contextManager').evaluate(e=>e.open=true);await page.locator(`[data-context-edit="${note}"]`).click();await page.locator('#contextEditor .context-scope').evaluate(e=>e.open=true);
+   await reveal('#contextManager');await page.locator(`[data-context-edit="${note}"]`).click();await reveal('#contextEditor .context-scope');
    await page.locator('#contextEditor').evaluate(e=>window.scrollTo({top:scrollY+e.getBoundingClientRect().top-70,behavior:'instant'}));
    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));

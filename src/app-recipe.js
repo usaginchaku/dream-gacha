@@ -30,6 +30,7 @@
   label.textContent=!hasPrompt?"条件を保存してからでも、すぐにプロンプトを作れます。":current?"現在の条件を反映しています。":"条件・設定が変わったか、作成時の情報が未記録です。表示中の文はそのまま残しています。";
   label.dataset.state=!hasPrompt?"empty":current?"current":"stale";
   if(copyStored)copyStored.hidden=!hasPrompt||current;
+  root.DreamGachaExperience?.refresh();
  }
  function capture(){
   const snapshot=read();
@@ -82,11 +83,11 @@
   }
   const character=currentCharacter();if(!character){showToast("キャラを選んでください");return false;}
   if(state.values.situation&&!situationMatchesWorldMode(state.values.situation,state.worldMode)){
-   $("#recipeEditor").open=true;$("#recipeError").textContent="シチュと世界観の組合せを確認してください。内容を編集するか、世界観を選び直してください。";return false;
+   $("#recipeEditor").open=true;$("#recipeError").textContent="シチュと世界観の組合せを確認してください。内容を編集するか、世界観を選び直してください。";root.DreamGachaExperience?.showCustom("recipeEditor");return false;
   }
   $("#recipeError").textContent="";
   const resolved=DreamGachaContextUI.resolve();
-  if(resolved.errors.length){DreamGachaContextUI.renderPreview();showToast("適用する設定を確認してください");return false;}
+  if(resolved.errors.length){DreamGachaContextUI.renderPreview();root.DreamGachaExperience?.showCustom("contextPreview");showToast("適用する設定を確認してください");return false;}
   const world=WORLD_MODES[state.worldMode]||WORLD_MODES[DEFAULT_WORLD_MODE],conditions=read();
   const prompt=D.formatPrompt({...conditions,basePrompt:state.basePrompt,protagonistProfile:resolved.protagonist,workProtagonistProfile:resolved.workProtagonist,contextSections:resolved.sections,worldModeLabel:world.label,worldModePrompt:world.prompt});
   const previous=state.promptDraftSnapshot,previousOutput=$("#output").value;
@@ -94,15 +95,15 @@
   state.promptDraftSnapshot={...conditions,prompt,promptRecord};$("#output").value=prompt;
   try{save()}catch(error){state.promptDraftSnapshot=previous;$("#output").value=previousOutput;refresh();return false;}
   renderPromptVersionEditor();render();
-  if(explicit)$("#output").scrollIntoView({behavior:"smooth",block:"center"});
+  if(explicit){if(root.DreamGachaExperience)root.DreamGachaExperience.showPrompt();else $("#output").scrollIntoView({behavior:"smooth",block:"center"});}
   return true;
  }
  async function copyStored(){
   try{await copyTextToClipboard($("#output").value);showToast("表示中の文をコピーしました");return true;}
-  catch(error){showToast("コピーできませんでした。完成欄から選択してコピーしてください");return false;}
+  catch(error){root.DreamGachaExperience?.showPrompt();showToast("コピーできませんでした。完成欄から選択してコピーしてください");return false;}
  }
  async function copy(){
-  if((!$("#output").value.trim()||!isCurrent())&&build(false)===false)return false;
+  if((!$("#output").value.trim()||!isCurrent())&&build(false)===false){if(hasManualPrompt())root.DreamGachaExperience?.showPrompt();return false;}
   const copied=await copyStored();if(copied)setStatus("お使いのAIに貼り付けられます");return copied;
  }
  function editProtagonist(){

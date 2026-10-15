@@ -14,7 +14,10 @@ const checks = [], errors = [], badResponses = [];
 let browser, page;
 async function check(name, task) { await task(); checks.push(name); console.log(`PASS: ${name}`); }
 async function reveal(selector) {
-  await page.locator(selector).evaluate(el => { for (let p = el.parentElement; p; p = p.parentElement) if (p.tagName === 'DETAILS') p.open = true; });
+  const details = page.locator(selector).locator('xpath=ancestor-or-self::details');
+  for (let i = 0; i < await details.count(); i++) {
+    if (!await details.nth(i).evaluate(el => el.open)) await details.nth(i).locator(':scope > summary').click();
+  }
 }
 try {
   await mkdir(output, { recursive: true });
@@ -27,12 +30,14 @@ try {
   let first, second;
   await check('character create, inline edit/cancel, tags, favorite and archive/restore', async () => {
     await page.locator('#tab-manager').click();
+    await page.locator('[data-manager-pane="add"]').click();
     for (const [name, height] of [['QA人物A', '175cm'], ['QA人物B', '185cm']]) {
       await page.locator('#charName').fill(name);await page.locator('#charWork').fill('QA作品');await page.locator('#charSeries').fill('QAシリーズ');await page.locator('#charHeight').fill(height);
       await page.locator('#charTagPicker [data-pick-tag]').first().click();await page.locator('#saveCharacter').click();
     }
     assert.equal(await page.evaluate(() => state.characters.length), initial + 2);
     [first, second] = await page.evaluate(() => state.characters.filter(c => c.work === 'QA作品').map(c => c.id));
+    await page.locator('[data-manager-pane="list"]').click();
     await page.locator('#manageSearch').fill('QA人物');assert.equal(await page.locator('#characterTable .char-row').count(), 2);
     await page.locator(`[data-edit="${first}"]`).click();await page.locator('[data-inline-field="name"]').fill('破棄する編集');await page.locator(`[data-inline-cancel="${first}"]`).click();
     assert.equal(await page.evaluate(id => state.characters.find(c => c.id === id).name, first), 'QA人物A');
@@ -40,10 +45,11 @@ try {
     await page.locator(`[data-favorite="${first}"]`).click();assert.equal(await page.evaluate(id => state.characters.find(c => c.id === id).favorite, first), true);
     await page.locator(`[data-archive="${second}"]`).click();assert.equal(await page.evaluate(id => filteredCharacters().some(c => c.id === id), second), false);
     await page.locator(`[data-archive="${second}"]`).click();assert.equal(await page.evaluate(id => state.characters.find(c => c.id === id).archived, second), false);
-    await page.locator('#selectAllVisible').check();await page.locator('#bulkFavorite').click();assert.equal(await page.evaluate(() => state.characters.filter(c => c.work === 'QA作品' && c.favorite).length), 2);
+    await reveal('#selectAllVisible');await page.locator('#selectAllVisible').check();await page.locator('#bulkFavorite').click();assert.equal(await page.evaluate(() => state.characters.filter(c => c.work === 'QA作品' && c.favorite).length), 2);
     await page.locator('#bulkUnfavorite').click();assert.equal(await page.evaluate(() => state.characters.filter(c => c.work === 'QA作品' && c.favorite).length), 0);
   });
   await check('character JSON downloads, merge, work replacement and invalid input preserve unrelated data', async () => {
+    await page.locator('[data-manager-pane="files"]').click();
     let pending = page.waitForEvent('download');await page.locator('#exportSelected').click();const exported = JSON.parse(await readFile(await (await pending).path(), 'utf8'));
     assert.equal(exported.characters.length, 2);assert.equal(exported.schema, 'dream-gacha.characters');
     await page.locator('#importMode').selectOption('merge');
@@ -58,28 +64,28 @@ try {
     pending = page.waitForEvent('download');await page.locator('#exportTemplate').click();assert.ok((await readFile(await (await pending).path(), 'utf8')).includes('characters'));
   });
   await check('shared search, multi-select/exclude, chooser, category reset and partial/all locks', async () => {
-    await page.locator('#tab-gacha').click();await reveal('#gachaSearch');assert.equal(await page.locator('#gachaSearch').inputValue(), 'QA人物');
+    await page.locator('#tab-gacha').click();await page.locator('[data-gacha-mode="custom"]').click();await reveal('#gachaSearch');assert.equal(await page.locator('#gachaSearch').inputValue(), 'QA人物');
     await reveal('#candidatePreview');await page.locator(`[data-toggle-candidate="${first}"]`).click();await page.locator(`[data-exclude-candidate="${second}"]`).click();
     assert.deepEqual(await page.evaluate(() => filteredCharacters().map(c => c.id)), [first]);await page.locator('#rollAll').click();assert.equal(await page.evaluate(() => state.characterId), first);
     await page.locator('#lockAllResults').click();const locked = await page.evaluate(() => JSON.stringify([state.characterId,state.values]));await page.locator('#rollAll').click();assert.equal(await page.evaluate(() => JSON.stringify([state.characterId,state.values])), locked);
     await page.locator('#unlockAllResults').click();await page.locator('[data-lock="relationship"]').check();const relationship = await page.evaluate(() => state.values.relationship);
     await page.locator('#rollAll').click();assert.equal(await page.evaluate(() => state.values.relationship), relationship);
     await reveal('[data-choose="situation"]');await page.locator('[data-choose="situation"]').click();const choice = await page.locator('[data-choice-value]').first().getAttribute('data-choice-value');await page.locator('[data-choice-value]').first().click();assert.equal(await page.evaluate(() => state.values.situation), choice);
-    await page.locator('[data-choose="situation"]').click();await page.locator('[data-category-include]').first().click();await page.locator('#choiceClose').click();await page.locator('#resetAllCategoryRules').click();
+    await page.locator('[data-choose="situation"]').click();await reveal('#choiceCategoryWrap');await page.locator('[data-category-include]').first().click();await page.locator('#choiceClose').click();await page.locator('#resetAllCategoryRules').click();
     assert.equal(await page.evaluate(() => Object.values(state.categoryInclude).some(Boolean)), false);
     await page.locator('#clearCandidateRules').click();await page.locator('#clearFilters').click();assert.equal(await page.evaluate(() => state.filters.search), '');
   });
   await check('preset creation, reuse and deletion; help, theme, keyboard navigation and mobile fitting', async () => {
-    await page.locator('#saveCurrentPreset').click();await page.locator('#tab-library').click();assert.equal(await page.locator('[data-apply-preset]').count(), 1);await page.locator('[data-apply-preset]').click();assert.equal(await page.locator('#updateCurrentPreset').isVisible(), true);
+    await page.locator('#saveCurrentPreset').click();await page.locator('#tab-library').click();await page.locator('[data-library-pane="presets"]').click();assert.equal(await page.locator('[data-apply-preset]').count(), 1);await page.locator('[data-apply-preset]').click();assert.equal(await page.locator('#updateCurrentPreset').isVisible(), true);
     await page.locator('#tab-library').click();await page.locator('[data-delete-preset]').click();assert.equal(await page.locator('[data-apply-preset]').count(), 0);
-    await page.locator('#tab-help').click();await page.locator('#characterResearchWork').fill('QA作品');assert.ok((await page.locator('#characterResearchPromptPreview').inputValue()).includes('QA作品'));
+    await page.locator('#tab-help').click();await reveal('#characterResearchWork');await page.locator('#characterResearchWork').fill('QA作品');assert.ok((await page.locator('#characterResearchPromptPreview').inputValue()).includes('QA作品'));
     await page.locator('#themeMode').selectOption('dark');await page.reload();await page.waitForFunction(() => state.characters.length > 0);assert.equal(await page.evaluate(() => document.documentElement.dataset.theme), 'dark');
     await page.locator('#tab-gacha').focus();await page.keyboard.press('ArrowRight');assert.equal(await page.locator('#screen-library').isVisible(), true);
-    for (const width of [375,390,1280]) { await page.setViewportSize({ width, height: 900 });for (const tab of ['gacha','manager','library','help']) { await page.locator('#tab-'+tab).click();assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `overflow ${width} ${tab}`); } }
+    for (const viewport of [{width:375,height:667},{width:390,height:844},{width:1280,height:900}]) { await page.setViewportSize(viewport);for (const tab of ['gacha','manager','library','help']) { await page.locator('#tab-'+tab).click();assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `overflow ${viewport.width} ${tab}`); } }
     await page.screenshot({ path: path.join(output, 'core-help.png') });
   });
   await check('bulk deletion remains deleted after reload, including bundled characters', async () => {
-    await page.locator('#tab-manager').click();await page.locator('#manageSearch').fill('QA人物');await page.locator('#selectAllVisible').check();await page.locator('#bulkDelete').click();
+    await page.locator('#tab-manager').click();await page.locator('[data-manager-pane="list"]').click();await page.locator('#manageSearch').fill('QA人物');await reveal('#selectAllVisible');await page.locator('#selectAllVisible').check();await page.locator('#bulkDelete').click();
     await page.locator('#manageSearch').fill('パンナコッタ');await page.locator('[data-select="jojo-fugo"]').check();await page.locator('#bulkDelete').click();await page.reload();await page.waitForFunction(() => state.characters.length > 0);
     assert.equal(await page.evaluate(() => state.characters.some(c => c.id === 'jojo-fugo' || c.work === 'QA作品')), false);
   });

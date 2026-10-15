@@ -12,45 +12,39 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <script>try{const s=JSON.parse(localStorage.getItem("dreamGachaSettings")||"null"),m=s?.themeMode||"system";document.documentElement.dataset.theme=m==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):m}catch(e){}</script>
-<link rel="stylesheet" href="assets/styles.css?v=48">
+<link rel="stylesheet" href="assets/styles.css?v=49">
+<link rel="stylesheet" href="assets/mobile-ui.css?v=49">
 </head>
 <body>
 <div class="wrap">
 <header id="pageTop">
-  <div class="header-row">
-    <div>
-      <div class="eyebrow">Dream Scenario Gacha</div>
-      <h1>夢小説シチュガチャ</h1>
-      <p class="lead">推しを選ぶ。シチュを回す。あとはAIに渡すだけ。</p>
-      <p class="lead">キャラと条件をガチャして、読みたい夢小説のプロンプトを手軽に作れます。</p>
-      <p class="lead">ChatGPT / Gemini / Claude などで利用できます。</p>
-    </div>
-    <div class="header-controls"><label class="theme-control" for="themeMode"><span>表示</span><select id="themeMode" aria-label="画面の配色"><option value="system">端末設定</option><option value="light">ライト</option><option value="dark">ダーク</option></select></label><button type="button" class="small-btn reload-btn" id="reloadApp">↻ 更新</button></div>
-  </div>
+  <a class="brand" href="#" data-go-screen="gacha" aria-label="夢シチュガチャ ホーム"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="8" cy="8" r="1"/><circle cx="16" cy="8" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="8" cy="16" r="1"/><circle cx="16" cy="16" r="1"/></svg><h1>夢シチュガチャ</h1></a>
+  <button type="button" class="header-help" data-go-screen="help" aria-label="使い方と設定">使い方</button>
 </header>
-
 <nav class="tabs" aria-label="ページ切り替え" role="tablist">
-  <button class="tab-btn active" id="tab-gacha" data-screen="gacha" role="tab" aria-controls="screen-gacha" aria-selected="true" tabindex="0">🎲 ガチャ</button>
-  <button class="tab-btn" id="tab-library" data-screen="library" role="tab" aria-controls="screen-library" aria-selected="false" tabindex="-1">📚 ライブラリ</button>
-  <button class="tab-btn" id="tab-manager" data-screen="manager" role="tab" aria-controls="screen-manager" aria-selected="false" tabindex="-1">👤 キャラ管理</button>
-  <button class="tab-btn" id="tab-help" data-screen="help" role="tab" aria-controls="screen-help" aria-selected="false" tabindex="-1">❓ 使い方</button>
+  <button class="tab-btn active" id="tab-gacha" data-screen="gacha" role="tab" aria-controls="screen-gacha" aria-selected="true" tabindex="0"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M8 8h.01M16 8h.01M12 12h.01M8 16h.01M16 16h.01"/></svg><span>ガチャ</span></button>
+  <button class="tab-btn" id="tab-library" data-screen="library" role="tab" aria-controls="screen-library" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6a3 3 0 0 1 3 3v14a4 4 0 0 0-4-2H4zM13 7a3 3 0 0 1 3-3h5v15h-4a4 4 0 0 0-4 2"/></svg><span>アーカイブ</span></button>
+  <button class="tab-btn" id="tab-manager" data-screen="manager" role="tab" aria-controls="screen-manager" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg><span>キャラ管理</span></button>
+  <button class="tab-btn" id="tab-help" data-screen="help" role="tab" aria-controls="screen-help" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4M12 17h.01"/></svg><span>使い方・設定</span></button>
 </nav>
 
 <main>
-<section class="screen" id="screen-gacha" role="tabpanel" aria-labelledby="tab-gacha">
+<section class="screen" id="screen-gacha" role="tabpanel" aria-labelledby="tab-gacha" data-mode="simple">
+  <div class="mode-switch" role="group" aria-label="ガチャの操作モード"><button type="button" data-gacha-mode="simple" aria-pressed="true">簡単モード</button><button type="button" data-gacha-mode="custom" aria-pressed="false">カスタマイズ</button></div>
   <section class="panel">
-    <div class="panel-head"><h2>ガチャ結果</h2><span class="label">アーカイブ済みキャラは抽選対象外</span></div>
+    <div class="panel-head"><h2>今回の組み合わせ</h2><span class="label" id="rollFeedback" role="status"></span></div>
     <div class="panel-body">
-      <details class="filter-box filter-disclosure" id="gachaFilterDetails">
-        <summary class="filter-title"><span><strong>キャラを絞り込む</strong><small id="filterSummaryMeta">条件を集計中</small></span><span class="count-badge" id="candidateCount">候補を集計中</span></summary>
+      <div id="gachaCharacterSlot"></div>
+      <details class="filter-box filter-disclosure custom-only" id="gachaFilterDetails">
+        <summary class="filter-title"><span><strong>抽選するキャラを絞る</strong><small id="filterSummaryMeta">条件を集計中</small></span><span class="count-badge" id="candidateCount">候補を集計中</span></summary>
         <div class="filter-content">
         <div class="world-mode-box" aria-labelledby="worldModeLabel">
           <div class="world-mode-head"><strong id="worldModeLabel">世界観モード</strong><span class="label" id="worldModeSummary"></span></div>
           <div class="world-mode-options" id="worldModeOptions">
-            <button type="button" data-world-mode="canon">📖 原作準拠</button>
-            <button type="button" data-world-mode="modern">🏙️ 現代パロ</button>
-            <button type="button" data-world-mode="school">🏫 学園パロ</button>
-            <button type="button" data-world-mode="unrestricted">✨ 制限なし</button>
+            <button type="button" data-world-mode="canon">原作準拠</button>
+            <button type="button" data-world-mode="modern">現代パロ</button>
+            <button type="button" data-world-mode="school">学園パロ</button>
+            <button type="button" data-world-mode="unrestricted">制限なし</button>
           </div>
           <p class="world-mode-note">選んだ世界観に合わないシチュ候補を、自動でガチャから外します。</p>
         </div>
@@ -101,12 +95,12 @@
         </div>
       </details>
 
-      <div class="field context-stage-picker"><label for="contextStage">舞台設定 <span class="label">（任意）</span></label><select id="contextStage"><option value="">指定なし</option></select><p class="manager-note">現パロ・学パロ・オフィスなど、14種類の初期設定から選べます。選ぶと対応する世界観モードに切り替わります。内容の編集や独自の舞台の登録は、下の「文章の好み・舞台・補足設定集」から。</p></div>
+      <div class="field context-stage-picker custom-only"><label for="contextStage">舞台</label><select id="contextStage"><option value="">指定なし</option></select></div>
       <div id="contextReuseNotice" class="context-notice" hidden>保存条件に記録された補足設定を使用中です。設定集の最新版を使う場合は切り替えてください。<button type="button" class="small-btn" id="contextUseCurrent">現在の設定集に戻す</button></div>
-      <div class="gacha-top-actions"><button class="primary" id="rollAll">🎲 固定以外を全部ガチャ</button><span>結果を固定してから押すと、残りだけ引き直します。</span></div>
+
       <div class="result-grid" id="resultGrid"></div>
-      <button type="button" class="small-btn" data-character-card="">選んだキャラのカルテ</button>
-      <details id="recipeEditor" class="context-panel">
+      <button type="button" class="small-btn custom-only" data-character-card="">キャラのカルテ</button>
+      <details id="recipeEditor" class="context-panel custom-only">
         <summary>今回の条件を編集</summary>
         <p class="manager-note">ここでの修正は今回の条件だけ。ガチャの候補一覧は変わりません。空欄もそのまま使えます。</p>
         <p id="recipeError" class="context-error" role="alert"></p>
@@ -127,14 +121,14 @@
           <button type="button" class="small-btn" id="useStandardProtagonist">標準の夢主設定に戻す</button>
         </details>
       </details>
-      <div class="result-bulk-actions" aria-label="ガチャ結果の一括操作">
+      <div class="result-bulk-actions custom-only" aria-label="ガチャ結果の一括操作">
         <span class="result-bulk-label">一括操作</span>
-        <button type="button" class="small-btn" id="lockAllResults">🔒 すべて固定</button>
-        <button type="button" class="small-btn" id="unlockAllResults">🔓 固定を全解除</button>
-        <button type="button" class="small-btn category-reset-btn" id="resetAllCategoryRules">↺ カテゴリの選択・除外を全解除</button>
+        <button type="button" class="small-btn" id="lockAllResults">すべて固定</button>
+        <button type="button" class="small-btn" id="unlockAllResults">固定を全解除</button>
+        <button type="button" class="small-btn category-reset-btn" id="resetAllCategoryRules">カテゴリをリセット</button>
       </div>
-      <div class="field" style="margin-top:14px"><label for="freeExtra">今回だけの追加指定（任意）</label><textarea id="freeExtra" placeholder="例：夢主側からは告白しない／雨で髪が濡れている"></textarea></div>
-      <details id="contextPreview" class="context-panel"><summary>今回適用する設定 <span id="contextAppliedCount" class="label"></span></summary>
+      <div class="field custom-only" style="margin-top:14px"><label for="freeExtra">今回だけの追加指定（任意）</label><textarea id="freeExtra" placeholder="例：夢主側からは告白しない／雨で髪が濡れている"></textarea></div>
+      <details id="contextPreview" class="context-panel custom-only"><summary>今回適用する設定 <span id="contextAppliedCount" class="label"></span></summary>
         <p class="manager-note">次の生成に使う内容です。変更後は「プロンプトを生成」を押してください。チェックを外すと今回だけ除外します。</p>
         <div id="contextErrors" class="context-error" role="alert" hidden></div>
         <div id="contextApplied"></div>
@@ -143,25 +137,28 @@
           <div class="field"><label for="contextOutputPov">視点</label><select id="contextOutputPov"><option value="">指定なし</option><option value="protagonist">夢主視点</option><option value="character">相手キャラ視点</option><option value="third">三人称・切替可</option></select></div>
         </div><button type="button" class="small-btn" id="contextOutputSave">分量・視点を適用</button></details>
       </details>
-      <div class="main-actions single"><button class="secondary" id="buildPrompt">✨ プロンプトを生成</button></div>
+      <button type="button" class="active-settings-link" id="activeSettingsLink" hidden></button>
+      <div class="main-actions single custom-only"><button class="secondary" id="buildPrompt">プロンプトを生成</button></div>
+      <div class="gacha-primary-actions"><button class="primary" id="rollAll"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M8 8h.01M16 8h.01M12 12h.01M8 16h.01M16 16h.01"/></svg><span>ガチャを回す</span></button><button class="secondary" id="copyPrompt">プロンプトをコピー</button></div>
       <div class="library-quick-actions">
-        <button class="small-btn" id="saveCurrentPreset">💾 この条件を保存</button>
+        <button class="small-btn" id="saveCurrentPreset">条件を保存</button>
         <button class="small-btn" id="updateCurrentPreset" hidden>編集中の保存条件を更新</button>
-        <button class="small-btn" id="openNovelSave">📖 この条件で小説を保存</button>
+        <button class="small-btn" id="openNovelSave">小説を保存</button>
       </div>
     </div>
   </section>
 
-  <section class="panel">
-    <div class="panel-head"><h2>完成プロンプト</h2><span class="label">そのままコピーして使えます</span></div>
+  <section class="panel prompt-panel">
+    <details id="promptPreview"><summary>プロンプトを確認・編集</summary>
     <div class="panel-body">
-      <textarea id="output" spellcheck="false" placeholder="「プロンプトを生成」を押すとここに表示されます。"></textarea>
+      <textarea id="output" aria-label="完成プロンプト" spellcheck="false" placeholder="「プロンプトを生成」を押すとここに表示されます。"></textarea>
       <p id="promptFreshness" class="manager-note" role="status"></p>
       <button type="button" class="small-btn" id="copyStoredPrompt" hidden>表示中の文をそのままコピー</button>
-      <div class="copy-row"><span class="status" id="status"></span><button class="primary" id="copyPrompt">コピー</button></div>
+      <div class="copy-row"><span class="status" id="status" role="status"></span></div>
     </div>
-    <details>
-      <summary>夢主設定・シチュ候補・固定プロンプトを編集</summary>
+    </details>
+    <details id="gachaSettings" class="custom-only">
+      <summary>夢主・候補・固定プロンプトの設定</summary>
       <div class="settings">
         <p class="manager-note">各候補は1行に1つ。編集内容はブラウザに保存されます。</p>
         <div class="pool-grid" id="poolGrid"></div>
@@ -229,7 +226,8 @@
 
 
 <section class="screen" id="screen-library" role="tabpanel" aria-labelledby="tab-library" hidden="">
-  <section class="panel">
+  <div class="section-nav" role="tablist" aria-label="アーカイブの表示"><button id="library-tab-novels" role="tab" data-library-pane="novels" aria-controls="novelArchivePanel" aria-selected="true">小説</button><button id="library-tab-presets" role="tab" data-library-pane="presets" aria-controls="presetPanel" aria-selected="false" tabindex="-1">保存した条件</button><button id="library-tab-save" role="tab" data-library-pane="save" aria-controls="novelSavePanel" aria-selected="false" tabindex="-1">新しく保存</button></div>
+  <section class="panel" id="presetPanel" role="tabpanel" aria-labelledby="library-tab-presets" hidden>
     <div class="panel-head"><h2>保存した条件</h2><span class="label">気に入った組み合わせを再利用</span></div>
     <div class="panel-body">
       <div class="library-head-row">
@@ -243,7 +241,7 @@
     </div>
   </section>
 
-  <section class="panel" id="novelSavePanel">
+  <section class="panel" id="novelSavePanel" role="tabpanel" aria-labelledby="library-tab-save" hidden>
     <div class="panel-head"><h2>夢小説を保存</h2><span class="label">本文＋生成条件＋プロンプト</span></div>
     <div class="panel-body">
       <div class="library-snapshot" id="novelSnapshotPreview">直前に生成したプロンプトと条件を使用します</div>
@@ -260,16 +258,16 @@
       <div class="field" style="margin-top:10px"><label for="novelMemo">メモ（任意）</label><textarea id="novelMemo" class="novel-memo-input" placeholder="刺さったところ、後で読み返したい理由など"></textarea></div>
       <div class="library-form-actions">
         <label class="lock-label"><input type="checkbox" id="novelFavorite"> ★ お気に入り</label>
-        <button class="primary" id="saveNovel">📚 小説をアーカイブ</button>
+        <button class="primary" id="saveNovel">小説を保存</button>
       </div>
     </div>
   </section>
 
-  <section class="panel">
-    <div class="panel-head"><h2>夢小説アーカイブ</h2><span class="count-badge" id="novelCount">0本</span></div>
+  <section class="panel" id="novelArchivePanel" role="tabpanel" aria-labelledby="library-tab-novels">
+    <div class="panel-head"><h2>小説アーカイブ</h2><span class="count-badge" id="novelCount">0本</span></div>
     <div class="panel-body">
       <div class="library-search-row">
-        <input id="novelSearch" type="text" placeholder="タイトル・本文・キャラ・作品・シチュで検索">
+        <input id="novelSearch" type="text" aria-label="保存した小説を検索" placeholder="タイトル・キャラ・本文を検索">
         <button type="button" class="favorite-toggle-btn" id="novelFavoriteOnly">★ お気に入りだけ</button>
       </div>
       <div class="library-list" id="novelList"></div>
@@ -278,23 +276,20 @@
 </section>
 
 <section class="screen" id="screen-manager" role="tabpanel" aria-labelledby="tab-manager" hidden="">
-  <section class="panel">
-    <div class="panel-head"><h2>キャラ管理</h2><span class="label">チェックして一括操作できます</span></div>
+  <div class="section-nav" role="tablist" aria-label="キャラ管理の表示"><button id="manager-tab-list" role="tab" data-manager-pane="list" aria-controls="characterListPanel" aria-selected="true">一覧</button><button id="manager-tab-add" role="tab" data-manager-pane="add" aria-controls="characterFormPanel" aria-selected="false" tabindex="-1">追加</button><button id="manager-tab-files" role="tab" data-manager-pane="files" aria-controls="ioPanel" aria-selected="false" tabindex="-1">ファイル</button></div>
+  <section class="panel" id="characterListPanel" role="tabpanel" aria-labelledby="manager-tab-list">
+    <div class="panel-head"><h2>キャラ管理</h2></div>
     <div class="panel-body">
-      <div class="manager-guide" aria-label="お気に入りとアーカイブの使い分け">
-        <div><strong>★ 好きなキャラ</strong><span>「お気に入り」にすると、ガチャでお気に入りだけに絞れます。</span></div>
-        <div><strong>📦 苦手・今は出したくないキャラ</strong><span>「アーカイブ」にすると、削除せずガチャ対象から外せます。あとで復元できます。</span></div>
-      </div>
       <div class="stats">
         <div class="stat"><div class="n" id="statTotal">0</div><div class="t">登録キャラ</div></div>
         <div class="stat"><div class="n" id="statActive">0</div><div class="t">ガチャ対象</div></div>
         <div class="stat"><div class="n" id="statArchived">0</div><div class="t">アーカイブ</div></div>
-        <div class="stat"><div class="n" id="statFavorite">0</div><div class="t">★ お気に入り</div></div>
+        <div class="stat"><div class="n" id="statFavorite">0</div><div class="t">お気に入り</div></div>
       </div>
 
       <div class="manage-filters compact">
-        <input id="manageSearch" type="text" placeholder="名前・作品・部・タグで検索（ガチャと共通）">
-        <select id="manageSort">
+        <input id="manageSearch" type="text" aria-label="登録キャラを検索（ガチャの抽選条件と共通）" placeholder="名前・作品で検索">
+        <select id="manageSort" aria-label="キャラの並び順">
           <option value="work">並び：作品・シリーズ順</option>
           <option value="name-asc">名前：あ→ん</option>
           <option value="name-desc">名前：ん→あ</option>
@@ -304,18 +299,12 @@
           <option value="registered">登録順</option>
         </select>
       </div>
+      <details class="manager-filter-details"><summary>作品・シリーズ・身長で絞る</summary>
       <div class="filter-grid facet-grid manager-facets">
         <details class="facet-filter"><summary><span>作品で絞り込む</span><span class="facet-summary" id="manageWorkSummary">すべて</span></summary><div class="facet-body"><div class="facet-mode" data-facet-mode-for="work"><button type="button" data-facet-mode="include">✓ 選択</button><button type="button" data-facet-mode="exclude">× 除外</button></div><div class="facet-chips" id="manageWorkChips"></div></div></details>
         <details class="facet-filter"><summary><span>部・シリーズで絞り込む</span><span class="facet-summary" id="manageSeriesSummary">すべて</span></summary><div class="facet-body"><div class="facet-mode" data-facet-mode-for="series"><button type="button" data-facet-mode="include">✓ 選択</button><button type="button" data-facet-mode="exclude">× 除外</button></div><div class="facet-chips" id="manageSeriesChips"></div></div></details>
       </div>
 
-      <div class="status-filter" id="manageStatusButtons">
-        <span class="label">絞り込み</span>
-        <button type="button" class="status-filter-btn" data-manage-status="active">🎲 ガチャ対象</button>
-        <button type="button" class="status-filter-btn" data-manage-status="archived">📦 アーカイブ</button>
-        <button type="button" class="favorite-toggle-btn" data-favorite-filter="">★ お気に入り</button>
-        <button type="button" class="small-btn" id="clearSharedManagerFilters">共通検索条件を解除</button>
-      </div>
       <details class="optional-filter height-filter-details" id="manageHeightDetails">
         <summary class="height-filter-summary"><span>身長で絞り込む <span class="label">（ガチャと共通）</span></span><span class="height-range-value" id="manageHeightSummary">指定なし</span></summary>
         <div class="optional-filter-body height-filter-body">
@@ -325,8 +314,16 @@
         </div>
       </details>
 
-      <div class="bulkbar">
-        <label class="lock-label"><input class="select-all" id="selectAllVisible" type="checkbox"> 表示中を全選択</label>
+      </details>
+      <div class="status-filter" id="manageStatusButtons">
+        <span class="label">絞り込み</span>
+        <button type="button" class="status-filter-btn" data-manage-status="active">ガチャ対象</button>
+        <button type="button" class="status-filter-btn" data-manage-status="archived">アーカイブ</button>
+        <button type="button" class="favorite-toggle-btn" data-favorite-filter="">★ お気に入り</button>
+        <button type="button" class="small-btn" id="clearSharedManagerFilters">共通検索条件を解除</button>
+      </div>
+      <details class="bulk-actions"><summary>まとめて操作 <span id="bulkSelectionSummary"></span></summary><div class="bulkbar">
+        <label class="lock-label"><input class="select-all" id="selectAllVisible" type="checkbox"> 検索結果を全選択</label>
         <span class="selected-count" id="selectedCount">0件選択</span>
         <button class="favorite-btn active" id="bulkFavorite">★ お気に入り</button>
         <button class="favorite-btn" id="bulkUnfavorite">☆ お気に入り解除</button>
@@ -335,9 +332,11 @@
         <button class="danger-btn" id="bulkDelete">削除</button>
       </div>
 
+      </details>
       <details id="orphanCharacterNotes" hidden><summary>未登録キャラのカルテ</summary><p class="manager-note">キャラが一覧にいなくても記録は残っています。開いて対象キャラを変更できます。</p><div id="orphanCharacterNoteList"></div></details>
-      <div class="character-table" id="characterTable"></div>
       <div class="pager-note" id="manageCount">表示 0件 / 全0件</div>
+      <div class="character-table" id="characterTable"></div>
+      <button type="button" class="small-btn load-more" id="manageMore" hidden>さらに表示</button>
       <details class="advanced-import" id="favoriteRepair"><summary>旧初期お気に入り67件の確認・修復</summary><div>
         <p class="io-note">2026年9月13日の修正で、キャラのお気に入りは端末ごとに一度だけ0件に戻します。以後、自分で付けたお気に入りは維持します。アーカイブ・小説のお気に入りは変更しません。</p>
         <p class="io-note">古いバックアップを復元した場合などに使えます。下のチェックは「解除するキャラ」です。残したいキャラのチェックを外してください。「自分で設定」は最初から未選択です。旧67件と同じキャラでも、以前ご自身で登録した可能性があるため確認してください。</p>
@@ -348,7 +347,7 @@
   </section>
 
 
-  <section class="panel" id="ioPanel" tabindex="-1">
+  <section class="panel" id="ioPanel" role="tabpanel" aria-labelledby="manager-tab-files" tabindex="-1" hidden>
     <div class="panel-head"><h2>キャラファイル</h2><span class="label">JSONでインポート / エクスポート</span></div>
     <div class="panel-body">
       <div class="io-box">
@@ -384,7 +383,7 @@
     </div>
   </section>
 
-  <section class="panel" id="characterFormPanel">
+  <section class="panel" id="characterFormPanel" role="tabpanel" aria-labelledby="manager-tab-add" hidden>
     <div class="panel-head"><h2 id="formTitle">キャラを追加</h2><span class="label">作品名・タグは自由入力</span></div>
     <div class="panel-body">
       <p class="manager-note">印象タグは共通候補からクリックして選べます。★お気に入りもキャラ情報として保存されます。身長は公称値を確認できたものだけ数値登録し、確認できないキャラは「不明」としています。手動で身長を書き換えると「手動登録（未検証）」になります。</p>
@@ -402,13 +401,14 @@
 </section>
 
 <section class="screen help-screen" id="screen-help" role="tabpanel" aria-labelledby="tab-help" hidden="">
+  <section class="panel"><div class="panel-head"><h2>表示設定</h2></div><div class="panel-body appearance-settings"><label class="theme-control" for="themeMode"><span>配色</span><select id="themeMode" aria-label="画面の配色"><option value="system">端末設定</option><option value="light">ライト</option><option value="dark">ダーク</option></select></label><button type="button" class="small-btn" id="reloadApp">最新版を読み込む</button></div></section>
   <section class="help-hero">
     <div>
       <div class="eyebrow">QUICK START</div>
       <h2>はじめての使い方</h2>
-      <p>最初にキャラの好みを整えてからガチャを回すと、欲しい組み合わせを作りやすくなります。</p>
+      <p>「簡単」で好きなキャラを選んで、シチュエーションを回すところから始められます。</p>
     </div>
-    <button type="button" class="primary" data-go-screen="manager">👤 キャラ管理から始める</button>
+    <button type="button" class="primary" data-go-screen="gacha">ガチャを開く</button>
   </section>
 
   <nav class="help-local-nav" aria-label="使い方ページ内メニュー">
@@ -423,19 +423,19 @@
     <div class="panel-body help-steps">
       <article class="help-step">
         <span class="step-number">1</span>
-        <div><h3>キャラの好みを整える</h3><p>好きなキャラは「★ お気に入り」へ。苦手なキャラや今は出したくないキャラは「アーカイブ」へ移します。</p><button type="button" class="help-action" data-go-screen="manager">👤 キャラ管理を開く</button></div>
+        <div><h3>好きなキャラを選ぶ</h3><p>「キャラを選ぶ」から名前や作品で探します。選んだキャラは自動で固定されます。★を付けると次から見つけやすくなります。</p><button type="button" class="help-action" data-go-screen="gacha">ガチャを開く</button></div>
       </article>
       <article class="help-step">
         <span class="step-number">2</span>
-        <div><h3>ガチャを回す</h3><p>作品・部・タグ・お気に入り・身長でキャラ候補を絞り、「固定以外を全部ガチャ」を押します。</p><button type="button" class="help-action" data-go-screen="gacha">🎲 ガチャを開く</button></div>
+        <div><h3>シチュエーションを回す</h3><p>「シチュを回す」で、キャラをそのままに条件を抽選します。キャラもおまかせにするなら、キャラの「固定」を外します。</p></div>
       </article>
       <article class="help-step">
         <span class="step-number">3</span>
-        <div><h3>プロンプトを作る</h3><p>残したい結果を固定し、夢主設定や自由な追加指定を入力して「プロンプトを生成」。完成した文章をコピーして生成AIで使います。</p></div>
+        <div><h3>コピーして生成AIで使う</h3><p>「プロンプトをコピー」で現在の条件から依頼文を作れます。条件の固定、夢主設定、追加指定は「カスタマイズ」で調整できます。モードを切り替えても設定は保たれます。</p></div>
       </article>
       <article class="help-step">
         <span class="step-number">4</span>
-        <div><h3>条件や小説を保存する</h3><p>気に入った条件セットと、生成した夢小説本文をライブラリに保存できます。小説には文字数も表示されます。</p><button type="button" class="help-action" data-go-screen="library">📚 ライブラリを開く</button></div>
+        <div><h3>条件や小説を保存する</h3><p>気に入った条件セットと、生成AIで作った小説本文を「アーカイブ」へ保存できます。「小説」「保存した条件」「新しく保存」のタブで切り替えます。</p><button type="button" class="help-action" data-go-screen="library">アーカイブを開く</button></div>
       </article>
     </div>
   </section>
@@ -445,17 +445,17 @@
     <div class="panel-body help-detail-grid">
       <article class="help-detail-card">
         <div class="help-card-icon">🎲</div><h3>ガチャ</h3>
-        <ul><li>キャラ・関係性・シチュ・雰囲気・追加条件を抽選します。</li><li>スマホでは結果をコンパクトに表示し、「選択・カテゴリ詳細」を開くと追加操作を確認できます。</li><li>世界観モードを選ぶと、原作・現代・学園に合わないシチュを自動で外します。</li><li>固定した項目は、次の一括ガチャでも変わりません。</li><li>作品・部／シリーズは複数選択できます。PCでは右クリック、スマホでは「除外」モードで候補から外せます。</li><li>候補キャラはクリックで複数選択、右クリックまたは「除外」で抽選対象から外せます。</li><li>「選ぶ・カテゴリ」では結果の直接選択やカテゴリ単位の絞り込みができます。</li><li>キャラの検索条件はキャラ管理と共通です。</li></ul>
+        <ul><li>キャラ・関係性・シチュ・雰囲気・追加条件を抽選します。</li><li>「簡単」は選んで回す操作に、「カスタマイズ」は条件ごとの固定・抽選・設定に使います。</li><li>「キャラを選ぶ」では、抽選の絞り込み条件にかかわらず、利用中のキャラから直接選べます。</li><li>世界観モードを選ぶと、原作・現代・学園に合わないシチュを自動で外します。</li><li>固定した項目は、次の一括ガチャでも変わりません。</li><li>作品・部／シリーズは複数選択できます。PCでは右クリック、スマホでは「除外」モードで候補から外せます。</li><li>候補キャラはクリックで複数選択、右クリックまたは「除外」で抽選対象から外せます。</li><li>「選ぶ・カテゴリ」では結果の直接選択やカテゴリ単位の絞り込みができます。</li><li>抽選候補の検索条件はキャラ管理と共通です。</li></ul>
         <button type="button" class="help-action" data-go-screen="gacha">🎲 ガチャへ</button>
       </article>
       <article class="help-detail-card">
-        <div class="help-card-icon">📚</div><h3>ライブラリ</h3>
+        <div class="help-card-icon">📚</div><h3>アーカイブ</h3>
         <ul><li>条件セットは現在の組み合わせと追加指定をまとめて保存します。</li><li>夢小説は本文・文字数・生成条件・プロンプト・メモを一緒に保存します。</li><li>保存した条件は「この条件を使う」からガチャへ戻して再利用できます。</li><li>小説はタイトルや本文などで検索し、お気に入りだけにも絞れます。</li></ul>
-        <button type="button" class="help-action" data-go-screen="library">📚 ライブラリへ</button>
+        <button type="button" class="help-action" data-go-screen="library">アーカイブへ</button>
       </article>
       <article class="help-detail-card">
         <div class="help-card-icon">👤</div><h3>キャラ管理</h3>
-        <ul><li>★ お気に入りは好きなキャラを見つけやすくする印です。</li><li>アーカイブしたキャラは一覧に残り、ガチャ対象から外れます。「アーカイブ」で絞って復元できます。</li><li>チェックした複数キャラをまとめてお気に入り・アーカイブ・復元できます。</li><li>作品単位のJSON置換では、ほかの作品とお気に入り・アーカイブ状態を維持します。</li><li>全キャラ置換は「高度な操作」の中にあります。アプリ全体のバックアップは使い方ページにあります。</li></ul>
+        <ul><li>「一覧」「追加」「ファイル」のタブで操作を切り替えます。登録済みキャラは一覧の「編集」から変更できます。</li><li>★ お気に入りは好きなキャラを見つけやすくする印です。</li><li>アーカイブしたキャラは一覧に残り、ガチャ対象から外れます。「アーカイブ」で絞って復元できます。</li><li>一覧は40件ずつ表示します。「検索結果を全選択」は、まだ表示していない検索結果も含めて選びます。</li><li>チェックした複数キャラを「まとめて操作」でお気に入り・アーカイブ・復元できます。</li><li>作品単位のJSON置換では、ほかの作品とお気に入り・アーカイブ状態を維持します。</li><li>全キャラ置換は「高度な操作」の中にあります。アプリ全体のバックアップは使い方ページにあります。</li></ul>
         <button type="button" class="help-action" data-go-screen="manager">👤 キャラ管理へ</button>
       </article>
     </div>
@@ -542,7 +542,7 @@
     <div class="panel-head"><h2>よくある質問</h2><span class="label">FAQ</span></div>
     <div class="panel-body faq-list">
       <details><summary>お気に入りとアーカイブはどう違いますか？</summary><p>お気に入りは、好きなキャラだけに絞り込むための印です。アーカイブはキャラを消さずにガチャ対象から外す機能です。</p></details>
-      <details><summary>アーカイブしたキャラは消えますか？</summary><p>消えません。キャラ管理の「📦 アーカイブ」で絞り込み、対象を選んで「復元」を押すとガチャ対象に戻せます。</p></details>
+      <details><summary>アーカイブしたキャラは消えますか？</summary><p>消えません。キャラ管理の「アーカイブ」で絞り込み、対象を選んで「復元」を押すとガチャ対象に戻せます。</p></details>
       <details><summary>「カテゴリを選ぶ」と「除外」の違いは？</summary><p>カテゴリ名を選ぶと、その1カテゴリだけを候補にします。「除外」は指定したカテゴリを候補から外し、複数同時に設定できます。</p></details>
       <details><summary>候補キャラの選択と除外はどう使いますか？</summary><p>通常クリックしたキャラは複数まとめて抽選対象にできます。右クリック、またはキャラ横の「除外」を押すと、そのキャラを抽選対象から外せます。スマホでは「除外」ボタンを使ってください。</p></details>
       <details><summary>ガチャ結果の「固定」とは？</summary><p>固定した項目は「固定以外を全部ガチャ」を押しても残ります。画面上の「固定を全解除」でまとめて戻せます。</p></details>
@@ -556,7 +556,7 @@
   </section>
 </section>
 </main>
-<footer>v0.33 / カルテ・条件編集 / ブラウザ内に保存</footer>
+<footer>夢シチュガチャ · v0.34</footer>
 </div>
 <div class="quick-nav" id="managerQuickNav" aria-label="キャラ管理クイック移動" hidden="">
   <button type="button" id="jumpTop">↑ 上へ</button>
@@ -599,8 +599,9 @@
 <div class="choice-modal" id="choiceModal" hidden="">
   <div class="choice-dialog" role="dialog" aria-modal="true" aria-labelledby="choiceTitle">
     <div class="choice-head"><div class="choice-title" id="choiceTitle">候補から選ぶ</div><button type="button" class="choice-close" id="choiceClose" aria-label="閉じる">×</button></div>
-    <div class="choice-search-wrap"><input id="choiceSearch" type="text" placeholder="候補を検索"></div>
-    <div class="choice-category-wrap" id="choiceCategoryWrap" hidden="">
+    <div class="choice-search-wrap"><input id="choiceSearch" type="text" aria-label="候補を検索" placeholder="名前・作品で検索" autocomplete="off"></div>
+    <div id="quickChoiceFilters" class="quick-choice-filters" hidden><select id="quickChoiceWork" aria-label="キャラの作品"><option value="">すべての作品</option></select><button type="button" class="favorite-toggle-btn" id="quickChoiceFavorite" aria-pressed="false">☆ お気に入り</button></div>
+    <details class="choice-category-wrap" id="choiceCategoryWrap" hidden><summary>カテゴリを選択・除外</summary>
       <div class="choice-category-headline">
         <div class="choice-category-title" id="choiceCategoryTitle">カテゴリ</div>
         <button type="button" class="choice-category-clear" id="choiceCategoryClear">すべて解除</button>
@@ -608,12 +609,12 @@
       <div class="choice-category-summary" id="choiceCategorySummary" aria-live="polite">絞り込みなし</div>
       <div class="choice-category-chips" id="choiceCategoryChips"></div>
       <div class="choice-category-help">カテゴリ名を押すとそのカテゴリだけに絞り込みます。「除外」で複数カテゴリを候補から外せます。</div>
-    </div>
-    <div class="choice-note">選んだだけでは固定されません。次のガチャでも残したい場合は、結果カードの「🔒 固定」をONにしてください。</div>
+    </details>
+    <div class="choice-note" id="choiceNote">選択後も残すときは「固定」をオンにします。</div>
     <div class="choice-list" id="choiceList"></div>
   </div>
 </div>
-<div class="toast" id="toast">ガチャ対象に戻しました</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <dialog id="characterCardDialog" class="character-card-dialog" aria-labelledby="characterCardTitle"></dialog>
 
 <script src="src/app-data.js?v=48"></script>
@@ -627,8 +628,9 @@
 <script src="src/stage-presets.js?v=44"></script>
 <script src="src/app-context-ui.js?v=48"></script>
 <script src="src/app-character-card-ui.js?v=48"></script>
-<script src="src/app-recipe.js?v=48"></script>
-<script src="src/app.js?v=48"></script>
+<script src="src/app-recipe.js?v=49"></script>
+<script src="src/app-experience.js?v=49"></script>
+<script src="src/app.js?v=49"></script>
 
 
 </body></html>

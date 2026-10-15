@@ -27,14 +27,14 @@ async function ready() {
 }
 
 async function openDetailsFor(selector) {
-  await page.locator(selector).evaluate(element => {
-    for (let parent = element.parentElement; parent; parent = parent.parentElement) {
-      if (parent.tagName === 'DETAILS') parent.open = true;
-    }
-  });
+  const details = page.locator(selector).locator('xpath=ancestor-or-self::details');
+  for (let i = 0; i < await details.count(); i++) {
+    if (!await details.nth(i).evaluate(el => el.open)) await details.nth(i).locator(':scope > summary').click();
+  }
 }
 
 async function prompt() {
+  await page.locator('[data-gacha-mode="custom"]').click();
   await page.locator('#buildPrompt').click();
   return page.locator('#output').inputValue();
 }
@@ -50,7 +50,7 @@ async function checkRecipeEditing() {
     // Exercise the copy route without changing the user's operating-system clipboard.
     copyTextToClipboard = async text => { window.qaRecipeCopied = text; return true; };
   });
-  await page.locator('#recipeEditor').evaluate(element => element.open = true);
+  await openDetailsFor('#recipeEditor');
   await page.locator('#recipe-relationship').fill('QA同僚。交際前。互いの好意は未確認。');
   await page.locator('#recipe-situation').fill('二人で本を読んでいる');
   await page.locator('#recipe-mood').fill('QA静かな余韻');
@@ -61,6 +61,7 @@ async function checkRecipeEditing() {
   assert.equal(await page.evaluate(() => state.values.extra), '', 'manual empty conditions are not refilled randomly');
   assert.equal(await page.locator('#promptFreshness').getAttribute('data-state'), 'current');
   const manuallyEdited = original + '\nQA完成欄の手編集を維持する。';
+  await openDetailsFor('#output');
   await page.locator('#output').fill(manuallyEdited);
   await page.locator('#recipe-relationship').fill('QA友人。交際前。まだ告白していない。');
   assert.equal(await page.locator('#promptFreshness').getAttribute('data-state'), 'stale');
@@ -105,6 +106,7 @@ async function checkRequestProtagonist() {
   await page.locator('#useStandardProtagonist').click();
   assert.equal(await page.locator('#requestProtagonistProfile').inputValue(), standard.protagonistProfile);
   await page.locator('#tab-library').click();
+  await page.locator('[data-library-pane="presets"]').click();
   await page.locator(`[data-apply-preset="${saved.id}"]`).click();
   assert.equal(await page.locator('#requestProtagonistProfile').inputValue(), saved.snapshot.protagonistProfile);
   assert.equal(await page.locator('#requestWorkProtagonistProfile').inputValue(), saved.snapshot.workProtagonistProfile);
@@ -233,7 +235,6 @@ async function checkCardPersistence(notes) {
   await page.locator('#novelViewClose').click();
   await page.locator('#tab-gacha').click();
   await openDetailsFor('#contextManager');
-  await page.locator('#contextManager').evaluate(element => element.open = true);
   await page.locator(`[data-context-edit="${notes.common.id}"]`).click();
   await page.locator('#contextBody').fill('QA共通カルテの更新後本文。');
   await page.locator('#contextEntrySave').click();
@@ -271,10 +272,11 @@ async function checkCardPersistence(notes) {
 
 async function checkResponsiveCards(common) {
   for (const width of [390, 1280]) {
-    await page.setViewportSize({ width, height: 900 });
+    await page.setViewportSize({ width, height: width === 390 ? 844 : 900 });
+    await page.locator('#tab-help').click();
     await page.locator('#themeMode').selectOption(width === 390 ? 'dark' : 'light');
     await page.locator('#tab-gacha').click();
-    await page.locator('#recipeEditor').evaluate(element => element.open = true);
+    await openDetailsFor('#recipeEditor');
     await openDetailsFor('#requestProtagonistProfile');
     for (const selector of ['#recipe-relationship', '#recipe-situation', '#recipeSupportingSituation', '#requestProtagonistProfile', '#requestWorkProtagonistProfile']) {
       assert.ok(await page.locator(selector).evaluate(element => {

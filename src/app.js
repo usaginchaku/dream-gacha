@@ -515,7 +515,7 @@ function prepareNovelSave(){
  $("#novelSnapshotPreview").innerHTML=`<strong>保存する条件</strong><div class="library-tags">${snapshotMetaHtml(novelDraftSnapshot)}</div>`;
  // The generated prompt belongs to the saved snapshot, not to a personal memo.
  renderNovelSavePrompt();
- switchScreen("library");setTimeout(()=>$("#novelBody").scrollIntoView({behavior:"smooth",block:"center"}),80);
+ switchScreen("library");globalThis.DreamGachaExperience?.pane("library","save");setTimeout(()=>$("#novelBody").scrollIntoView({behavior:"smooth",block:"center"}),80);
 }
 async function saveNovelArchive(){
   const body=$("#novelBody").value;if(!body.trim())return showToast("夢小説本文を貼り付けてください");
@@ -526,7 +526,7 @@ async function saveNovelArchive(){
    DreamGachaUI.resetNovelForm();
    renderNovelModelChoices();
    novelDraftSnapshot=null;$("#novelSnapshotPreview").textContent="直前に生成したプロンプトと条件を使用します";renderNovelSavePrompt();
-   await refreshNovelCache();renderNovelList();showToast("夢小説をアーカイブしました");
+   await refreshNovelCache();renderNovelList();globalThis.DreamGachaExperience?.pane("library","novels");showToast("夢小説をアーカイブしました");
  }catch(e){alert(`夢小説を保存できませんでした：${e.message}`)}
 }
 async function renderNovelList(){
@@ -578,8 +578,9 @@ function downloadNovelTxt(n){
 async function copyNovelArchive(n){await copyTextToClipboard(`${novelTextValue(n?.title,"無題")}\n\n${String(n?.body||"")}`);showToast("タイトルと本文をコピーしました")}
 async function copyNovelFromView(){try{const n=novelCache.find(item=>item.id===viewingNovelId);if(n)await copyNovelArchive(n)}catch(error){alert(`夢小説をコピーできませんでした：${error.message}`)}}
 function exportNovelFromView(){try{const n=novelCache.find(item=>item.id===viewingNovelId);if(!n)return;downloadNovelTxt(n);showToast("TXTを書き出しました")}catch(error){alert(`TXTを書き出せませんでした：${error.message}`)}}
-function openNovelView(n){
+function openNovelView(n,trigger){
   if(!n)return;
+  if($("#novelModal").hidden)globalThis.DreamGachaExperience?.dialogOpened(trigger);
   viewingNovelId=n.id;novelEditOriginal=null;$("#novelViewRead").hidden=false;$("#novelViewActions").hidden=false;$("#novelEditPanel").hidden=true;$("#startNovelEdit").hidden=false;updateNovelViewActions(n);
   $("#novelViewTitle").textContent=novelDisplayTitle(n);$("#novelViewMeta").textContent=[n.snapshot?.character?.name,n.snapshot?.character?.work,fmtChars(n.charCount??novelCharCount(n.body)),fmtDate(n.createdAt),n.updatedAt?`編集 ${fmtDate(n.updatedAt)}`:""].filter(Boolean).join(" / ");$("#novelViewBody").textContent=n.body;
  const s=n.snapshot||{},items=[["キャラ",s.character?.name],["作品",s.character?.work],["部・シリーズ",s.character?.series],["世界観",WORLD_MODES[s.worldMode]?.label],["関係性",s.relationship],["シチュ",s.situation],["補助シチュ",s.supportingSituation],["雰囲気",s.mood],["追加条件",s.extra],["自由指定",s.freeExtra],["共通の夢主設定",s.protagonistProfile],["作品別の夢主設定",s.workProtagonistProfile]].filter(x=>x[1]);
@@ -588,10 +589,11 @@ function openNovelView(n){
   renderPromptRecord("#novelViewPromptInfo",{...s,prompt:novelPromptSnapshot(n)});
   $("#novelModal").hidden=false;document.body.style.overflow="hidden";
   $("#novelDialogContent").scrollTop=0;
+  $("#novelViewClose").focus({preventScroll:true});
 }
 function hasNovelEditChanges(){return !!novelEditOriginal&&["title","body","memo","generationAi","generationModel"].some(k=>$("#novelEdit"+k[0].toUpperCase()+k.slice(1)).value!==(novelEditOriginal[k]||""))}
 function updateNovelViewActions(n){$("#favoriteNovelFromView").textContent=n?.favorite?"★ お気に入り解除":"☆ お気に入り"}
-function closeNovelView(discard=false){if(!discard&&hasNovelEditChanges()&&!confirm("保存していない変更を破棄しますか？"))return false;viewingNovelId=null;novelEditOriginal=null;$("#novelModal").hidden=true;document.body.style.overflow="";return true}
+function closeNovelView(discard=false){if(discard!==true&&hasNovelEditChanges()&&!confirm("保存していない変更を破棄しますか？"))return false;viewingNovelId=null;novelEditOriginal=null;$("#novelModal").hidden=true;document.body.style.overflow="";globalThis.DreamGachaExperience?.dialogClosed();return true}
 function startNovelEdit(){
  const n=novelCache.find(item=>item.id===viewingNovelId);if(!n)return;
  $("#novelDialogContent").scrollTop=0;
@@ -615,21 +617,24 @@ function switchScreen(name){
  document.querySelectorAll(".tab-btn").forEach(b=>{const active=b.dataset.screen===name;b.classList.toggle("active",active);b.setAttribute("aria-selected",String(active));b.tabIndex=active?0:-1});
  if(name==="manager") renderManager();
  if(name==="library") renderLibrary();
- $("#managerQuickNav").hidden=name!=="manager";
- document.title=`${{gacha:"ガチャ",library:"ライブラリ",manager:"キャラ管理",help:"使い方"}[name]}｜夢小説シチュガチャ`;
- window.scrollTo?.({top:0,behavior:"smooth"});
+ $("#managerQuickNav").hidden=true;
+ document.title=`${{gacha:"ガチャ",library:"アーカイブ",manager:"キャラ管理",help:"使い方・設定"}[name]}｜夢シチュガチャ`;
+ window.scrollTo?.({top:0,behavior:"instant"});
 }
 
 function goToScreen(name,targetId){
  switchScreen(name);
+ globalThis.DreamGachaExperience?.reveal(targetId);
  if(targetId)setTimeout(()=>document.querySelector(`#${targetId}`)?.scrollIntoView({behavior:"smooth",block:"start"}),120);
 }
 
 
-let chooserKey=null;
+let chooserKey=null,quickCharacterChoice=false;
 function chooserEntries(key){
  if(key==="character"){
-   return baseFilteredCharacters().filter(c=>categoryPass("character",c)).map(c=>({
+   const work=$("#quickChoiceWork")?.value,favorites=$("#quickChoiceFavorite")?.getAttribute("aria-pressed")==="true";
+   const characters=quickCharacterChoice?activeCharacters().filter(c=>(!work||c.work===work)&&(!favorites||c.favorite)):baseFilteredCharacters().filter(c=>categoryPass("character",c));
+   return characters.map(c=>({
      value:c.id,
      label:(c.favorite?"★ ":"")+c.name,
      meta:[c.work,c.series,Number.isFinite(c.heightCm)?`${c.heightCm}cm`:""].filter(Boolean).join(" / ")
@@ -639,6 +644,7 @@ function chooserEntries(key){
 }
 function renderChooserCategoryChips(){
   if(!chooserKey)return;
+  if(quickCharacterChoice){$("#choiceCategoryWrap").hidden=true;return;}
   const counts=categoryCounts(chooserKey),order=categoryOrderFor(chooserKey);
   $("#choiceCategoryWrap").hidden=!order.length;
   const include=state.categoryInclude[chooserKey],excluded=state.categoryExcluded[chooserKey];
@@ -659,18 +665,29 @@ function renderChooserCategoryChips(){
       </div>`;
     }).join("");
 }
-function openChooser(key){
+function openChooser(key,quick=false,trigger){
   if(key!=="character")syncScenario();
-  chooserKey=key;
+  chooserKey=key;quickCharacterChoice=key==="character"&&quick;
+  $("#quickChoiceFilters").hidden=!quickCharacterChoice;
+  if(quickCharacterChoice){
+    $("#quickChoiceWork").innerHTML='<option value="">すべての作品</option>'+unique(activeCharacters().map(c=>c.work)).map(work=>`<option value="${esc(work)}">${esc(work)}</option>`).join("");
+    $("#quickChoiceFavorite").setAttribute("aria-pressed","false");$("#quickChoiceFavorite").classList.remove("active");
+  }
+  $("#choiceNote").textContent=quickCharacterChoice?"選んだキャラは固定され、シチュだけを回せます。":"選択後も残すときは「固定」をオンにします。";
+  $("#choiceCategoryWrap").open=false;
  $("#choiceTitle").textContent=`${META[key].label}を候補から選ぶ`;
  $("#choiceSearch").value="";
+ $("#choiceSearch").placeholder=key==="character"?"名前・作品で検索":"候補を検索";
  renderChooserCategoryChips();renderChooserList();
+ globalThis.DreamGachaExperience?.dialogOpened(trigger);
  $("#choiceModal").hidden=false;
  document.body.style.overflow="hidden";
- setTimeout(()=>$("#choiceSearch").focus(),0);
+ // Do not open the software keyboard before a phone user chooses to search.
+ ($(window.matchMedia?.("(pointer: coarse)").matches?"#choiceClose":"#choiceSearch")).focus({preventScroll:true});
 }
 function closeChooser(){
  chooserKey=null;$("#choiceModal").hidden=true;document.body.style.overflow="";
+ globalThis.DreamGachaExperience?.dialogClosed();
 }
 function renderChooserList(){
  if(!chooserKey)return;
@@ -678,19 +695,29 @@ function renderChooserList(){
  const current=chooserKey==="character"?state.characterId:state.values[chooserKey];
  const arr=chooserEntries(chooserKey).filter(x=>(x.label+" "+x.meta).toLowerCase().includes(q));
  $("#choiceList").innerHTML=arr.length?arr.map(x=>{
-   const badge=`<span class="category-badge">${esc(categoryFor(chooserKey,x.value))}</span>`;
+   const badge=quickCharacterChoice?"":`<span class="category-badge">${esc(categoryFor(chooserKey,x.value))}</span>`;
    return `<button type="button" class="choice-item${x.value===current?" current":""}" data-choice-value="${esc(x.value)}"><span>${esc(x.label)}${badge}</span>${x.meta?`<span class="choice-item-meta">${esc(x.meta)}</span>`:""}</button>`;
- }).join(""):`<div class="choice-empty">該当する候補がありません</div>`;
+ }).join(""):`<div class="choice-empty">${quickCharacterChoice&&$("#quickChoiceFavorite").getAttribute("aria-pressed")==="true"?"お気に入りが見つかりません。☆を解除して、名前や作品から選べます。":"該当する候補がありません。検索や絞り込みを変えてください。"}</div>`;
 }
 function chooseValue(value){
- if(!chooserKey)return;state.conditionEditMode=true;
+ if(!chooserKey)return;
+ const key=chooserKey,before={characterId:state.characterId,values:{...state.values},locks:{...state.locks},conditionEditMode:state.conditionEditMode};
+ state.conditionEditMode=true;
  if(chooserKey==="character"){
    if(!state.characters.some(c=>c.id===value&&!c.archived))return;
-   state.characterId=value;updateCard("character");renderPicker();
+   state.characterId=value;
+   if(quickCharacterChoice){state.locks.character=true;const lock=document.querySelector('[data-lock="character"]');if(lock)lock.checked=true;updateLock("character");}
+   updateCard("character");renderPicker();
  }else{
    state.values[chooserKey]=value;updateCard(chooserKey);
  }
- DreamGachaRecipe.render();save();closeChooser();
+ DreamGachaRecipe.render();
+ try{save();}catch(error){
+   Object.assign(state,before);
+   const lock=document.querySelector('[data-lock="character"]');if(lock)lock.checked=state.locks.character;
+   updateCard(key);updateLock("character");renderPicker();DreamGachaRecipe.render();return;
+ }
+ closeChooser();
 }
 function updateCategoryStatus(key){
   const el=document.querySelector(`[data-category-status="${key}"]`);if(!el)return;
@@ -728,25 +755,30 @@ function resetAllCategoryRules(){
 }
 function renderResultCards(){
  const grid=$("#resultGrid");grid.innerHTML="";
- const compact=window.matchMedia?.("(max-width: 780px)")?.matches;
+ const characterSlot=$("#gachaCharacterSlot");characterSlot.innerHTML="";
  for(const key of Object.keys(META)){
   const card=document.createElement("div");card.className="result-card";card.dataset.key=key;
-  card.innerHTML=`<div class="result-main"><div class="label">${META[key].icon} ${META[key].label}</div><div class="value" data-value="${key}">—</div></div>
-  <div class="result-quick-actions"><button class="small-btn" data-reroll="${key}">🎲 <span>引き直す</span></button><label class="lock-label"><input type="checkbox" data-lock="${key}"> 🔒 <span>固定</span></label></div>
-  <details class="result-detail" ${compact?"":"open"}><summary>選択・カテゴリ詳細</summary><div class="result-detail-content"><div class="result-category-status" data-category-status="${key}">カテゴリ指定なし</div><div class="card-actions"><button class="small-btn choose-btn" data-choose="${key}" type="button">☰ 選ぶ・カテゴリ</button>${key==="character"?`<button class="favorite-btn" data-favorite-current type="button">☆ お気に入り</button>`:""}</div></div></details>`;
+  const character=key==="character";
+  card.innerHTML=`<div class="result-main"><div class="label">${META[key].label}<span class="locked-indicator">固定中</span></div><div class="value" data-value="${key}">—</div></div>
+  ${character?'<button class="choose-character" data-quick-choose type="button">キャラを選ぶ <span aria-hidden="true">↗</span></button>':""}
+  <div class="result-quick-actions${character?"":" custom-only"}"><button class="small-btn" data-reroll="${key}" aria-label="${META[key].label}を引き直す">↻ <span>引き直す</span></button><label class="lock-label"><input type="checkbox" data-lock="${key}" aria-label="${META[key].label}を固定"> <span>${character?"このキャラを固定":"固定"}</span></label>${character?'<button class="favorite-btn" data-favorite-current type="button" aria-label="現在のキャラをお気に入りにする">☆</button>':""}</div>
+  <details class="result-detail custom-only"><summary>選ぶ・カテゴリ</summary><div class="result-detail-content"><div class="result-category-status" data-category-status="${key}">カテゴリ指定なし</div><div class="card-actions"><button class="small-btn choose-btn" data-choose="${key}" type="button">候補から選ぶ</button></div></div></details>`;
   const lockInput=card.querySelector(`[data-lock="${key}"]`);
   if(lockInput)lockInput.checked=!!state.locks[key];
   card.classList.toggle("locked",!!state.locks[key]);
-  grid.appendChild(card);updateCategoryStatus(key);
+  (character?characterSlot:grid).appendChild(card);updateCategoryStatus(key);
  }
- grid.addEventListener("click",e=>{
-  const ch=e.target.closest("[data-choose]");if(ch)return openChooser(ch.dataset.choose);
+ for(const container of [grid,characterSlot]){
+ container.addEventListener("click",e=>{
+  const quick=e.target.closest("[data-quick-choose]");if(quick)return openChooser("character",true,quick);
+  const ch=e.target.closest("[data-choose]");if(ch)return openChooser(ch.dataset.choose,false,ch);
   const b=e.target.closest("[data-reroll]");if(b)return rollOne(b.dataset.reroll,true);
   const f=e.target.closest("[data-favorite-current]");if(f&&currentCharacter())toggleFavorite([currentCharacter().id])
  });
- grid.addEventListener("change",e=>{const i=e.target.closest("[data-lock]");if(!i)return;state.locks[i.dataset.lock]=i.checked;updateLock(i.dataset.lock);save()});
+ container.addEventListener("change",e=>{const i=e.target.closest("[data-lock]");if(!i)return;state.locks[i.dataset.lock]=i.checked;updateLock(i.dataset.lock);save()});
+ }
 }
-function updateLock(k){document.querySelector(`.result-card[data-key="${k}"]`)?.classList.toggle("locked",!!state.locks[k]);updateResultBulkActions()}
+function updateLock(k){document.querySelector(`.result-card[data-key="${k}"]`)?.classList.toggle("locked",!!state.locks[k]);updateResultBulkActions();globalThis.DreamGachaExperience?.refresh()}
 function currentCharacter(){return state.characters.find(c=>c.id===state.characterId&&!c.archived)||null}
 function activeCharacters(){return state.characters.filter(c=>!c.archived)}
 function baseFilteredCharacters(){
@@ -919,7 +951,7 @@ function updateCard(k){
 }
 function updateCurrentFavoriteButton(){
  const b=document.querySelector("[data-favorite-current]");if(!b)return;const c=currentCharacter();
- b.classList.toggle("active",!!c?.favorite);b.textContent=c?.favorite?"★ お気に入り":"☆ お気に入り";b.disabled=!c;
+ b.classList.toggle("active",!!c?.favorite);b.textContent=c?.favorite?"★":"☆";b.setAttribute("aria-label",c?.favorite?"現在のキャラのお気に入りを解除":"現在のキャラをお気に入りにする");b.setAttribute("aria-pressed",String(!!c?.favorite));b.disabled=!c;
 }
 function randomItem(arr,current){
  if(!arr.length)return null;if(arr.length===1)return arr[0];let n=current,g=0;
@@ -967,7 +999,18 @@ function rollOne(k,force=false){
  if(!pool.length){showToast(`${META[k].label}のカテゴリ条件で候補が0件です`);return}
  state.values[k]=randomItem(pool,state.values[k]);updateCard(k);
 }
-function rollAll(){state.conditionEditMode=false;for(const k of Object.keys(META))rollOne(k,false);DreamGachaRecipe.render();buildPrompt(false)}
+function rollAll(){
+ syncScenario();
+ // A failed draw must not quietly reuse the previous character or partially change conditions.
+ const emptyKey=Object.keys(META).find(key=>!state.locks[key]&&!(key==="character"?filteredCharacters():worldEligiblePool(key).filter(value=>categoryPass(key,value))).length);
+ if(emptyKey){const message=`${META[emptyKey].label}の候補が0件です。絞り込みを見直してください`;showToast(message);if($("#rollFeedback"))$("#rollFeedback").textContent=message;globalThis.DreamGachaExperience?.showCustom(emptyKey==="character"?"gachaFilterDetails":"resultGrid");return false;}
+ if(Object.keys(META).every(key=>state.locks[key])){showToast("すべて固定中です。引き直す項目の固定を解除してください");return false;}
+ state.conditionEditMode=false;
+ for(const key of Object.keys(META))rollOne(key,false);
+ DreamGachaRecipe.render();const built=buildPrompt(false);
+ if(built&&$("#rollFeedback"))$("#rollFeedback").textContent="組み合わせを更新しました";
+ return built;
+}
 function buildPrompt(scroll=true){return DreamGachaRecipe.build(scroll)}
 async function copyPrompt(){return DreamGachaRecipe.copy()}
 function schedulePromptDraftSave(){clearTimeout(schedulePromptDraftSave.timer);schedulePromptDraftSave.timer=setTimeout(()=>save(),350)}
@@ -1097,30 +1140,36 @@ function saveInlineCharacter(id){
  showToast("キャラ情報を更新しました");
 }
 
+let managerVisibleLimit=40,managerFilterSignature="";
 function renderManager(){
  DreamGachaRecipe.renderOrphanNotes();
  renderFavoriteRepair();
  renderManagerFilters();renderStats();renderSuggestions();
  const arr=managerFiltered(), table=$("#characterTable");
+ const signature=JSON.stringify([state.filters.search,state.filters.favorite,state.filters.minHeight,state.filters.maxHeight,state.manage.status,state.manage.sort,...["workIncluded","workExcluded","seriesIncluded","seriesExcluded"].map(key=>[...state.filters[key]])]);
+ if(signature!==managerFilterSignature){managerVisibleLimit=40;managerFilterSignature=signature;}
+ const visible=arr.slice(0,managerVisibleLimit);
  state.selectedIds=new Set([...state.selectedIds].filter(id=>state.characters.some(c=>c.id===id)));
  if(!arr.length) table.innerHTML=`<div class="empty">条件に合うキャラはいません</div>`;
- else table.innerHTML=arr.map(c=>{
+ else table.innerHTML=visible.map(c=>{
    const row=`<div class="char-row${c.archived?" archived":""}">
-   <input class="row-check" type="checkbox" data-select="${esc(c.id)}" ${state.selectedIds.has(c.id)?"checked":""}>
-   <div><div class="char-name">${c.favorite?`<span class="favorite-mark">★</span>`:""}${esc(c.name)}</div><div class="char-sub">${c.archived?"📦 アーカイブ":"🎲 ガチャ対象"}${c.favorite?` ・ ★お気に入り（${esc(FAVORITE_SOURCE_LABELS[favoriteSource(c)])}）`:""}</div></div>
+   <input class="row-check" type="checkbox" aria-label="${esc(c.name)}を一括操作の対象にする" data-select="${esc(c.id)}" ${state.selectedIds.has(c.id)?"checked":""}>
+   <div><div class="char-name">${c.favorite?`<span class="favorite-mark">★</span>`:""}${esc(c.name)}</div><div class="char-sub">${c.archived?"アーカイブ":"ガチャ対象"}</div></div>
    <div class="work-cell"><div>${esc(c.work||"作品未設定")}</div><div class="char-sub">${esc(c.series||"部・シリーズ未設定")}</div></div>
    <div class="tags-cell mini-tags">${c.tags.map(t=>`<span class="mini-tag">${esc(t)}</span>`).join("")||`<span class="char-sub">タグなし</span>`}</div>
    <div class="height-cell"><div class="height-main">${esc(c.heightText||"不明")}</div></div>
-   <div class="row-actions"><button class="favorite-btn${c.favorite?" active":""}" data-favorite="${esc(c.id)}">${c.favorite?"★":"☆"}</button><button class="small-btn" data-character-card="${esc(c.id)}">カルテ</button><button class="small-btn" data-edit="${esc(c.id)}">${state.inlineEditingId===c.id?"閉じる":"編集"}</button>
+   <div class="row-actions"><button class="favorite-btn${c.favorite?" active":""}" aria-label="${esc(c.name)}の${c.favorite?"お気に入りを解除":"お気に入りに登録"}" aria-pressed="${!!c.favorite}" data-favorite="${esc(c.id)}">${c.favorite?"★":"☆"}</button><button class="small-btn" data-character-card="${esc(c.id)}">カルテ</button><button class="small-btn" data-edit="${esc(c.id)}">${state.inlineEditingId===c.id?"閉じる":"編集"}</button>
      <button class="${c.archived?"ok-btn":"small-btn"}" data-archive="${esc(c.id)}">${c.archived?"復元":"アーカイブ"}</button></div>
    </div>`;
    return row+(state.inlineEditingId===c.id?inlineEditorHtml(c):"");
  }).join("");
- $("#manageCount").textContent=`表示 ${arr.length}件 / 全${state.characters.length}件`;
+ $("#manageCount").textContent=`${visible.length} / ${arr.length}件を表示`;
+ const more=$("#manageMore");if(more){more.hidden=visible.length>=arr.length;more.textContent=`さらに${Math.min(40,arr.length-visible.length)}件を表示`;}
  updateSelectedUI();
 }
 function updateSelectedUI(){
  $("#selectedCount").textContent=`${state.selectedIds.size}件選択`;
+ const summary=$("#bulkSelectionSummary");if(summary)summary.textContent=state.selectedIds.size?`${state.selectedIds.size}件選択`:"";
  const arr=managerFiltered();$("#selectAllVisible").checked=arr.length>0&&arr.every(c=>state.selectedIds.has(c.id));
 }
 function clearForm(){
@@ -1423,7 +1472,6 @@ function init(){
   b.addEventListener("keydown",e=>{if(!["ArrowLeft","ArrowRight","Home","End"].includes(e.key))return;e.preventDefault();const next=e.key==="Home"?0:e.key==="End"?tabs.length-1:(index+(e.key==="ArrowRight"?1:-1)+tabs.length)%tabs.length;switchScreen(tabs[next].dataset.screen);tabs[next].focus()});
  });
  document.addEventListener("click",e=>{const b=e.target.closest("[data-go-screen]");if(b)goToScreen(b.dataset.goScreen,b.dataset.scrollTarget)});
- const compactResults=window.matchMedia?.("(max-width: 780px)");compactResults?.addEventListener?.("change",e=>document.querySelectorAll(".result-detail").forEach(detail=>detail.open=!e.matches));
  const colorScheme=window.matchMedia?.("(prefers-color-scheme: dark)");colorScheme?.addEventListener?.("change",()=>{if(state.themeMode==="system")applyTheme()});
 
  load();applyTheme();DreamGachaContextUI.init();if(typeof DreamGachaCharacterCardUI!=="undefined")DreamGachaCharacterCardUI.init();DreamGachaRecipe.init();renderResultCards();renderPoolEditors();renderGachaFilters();renderAddTagPicker();renderCharacterImportGuide();renderLibrary();
@@ -1473,7 +1521,7 @@ function init(){
  $("#saveCurrentPreset").addEventListener("click",saveCurrentConditionsPreset);$("#openNovelSave").addEventListener("click",prepareNovelSave);$("#savePresetFromLibrary").addEventListener("click",saveCurrentConditionsPreset);$("#saveNovel").addEventListener("click",saveNovelArchive);
   $("#novelSearch").addEventListener("input",renderNovelList);$("#novelBody").addEventListener("input",()=>$("#novelBodyCount").textContent=fmtChars(novelCharCount($("#novelBody").value)));$("#novelFavoriteOnly").addEventListener("click",()=>{novelFavoriteOnly=!novelFavoriteOnly;$("#novelFavoriteOnly").classList.toggle("active",novelFavoriteOnly);renderNovelList()});$("#output").addEventListener("input",()=>{if(state.promptDraftSnapshot?.prompt)state.promptDraftSnapshot.prompt=$("#output").value;else state.promptDraftSnapshot=DreamGachaRecipe.manualSnapshot();refreshPromptStatus();schedulePromptDraftSave()});
  $("#presetList").addEventListener("click",e=>{const a=e.target.closest("[data-apply-preset]");if(a){const p=state.presets.find(x=>x.id===a.dataset.applyPreset);if(p)applySnapshot(p.snapshot,p.id);return}const r=e.target.closest("[data-reroll-preset]");if(r){const p=state.presets.find(x=>x.id===r.dataset.rerollPreset);if(p)rerollSnapshotScenario(p.snapshot);return}const d=e.target.closest("[data-delete-preset]");if(d){const p=state.presets.find(x=>x.id===d.dataset.deletePreset);if(p&&confirm(`「${p.name}」を削除しますか？`)){state.presets=state.presets.filter(x=>x.id!==p.id);save();renderPresetList()}}});
-  $("#novelList").addEventListener("click",async e=>{try{const o=e.target.closest("[data-open-novel]");if(o){openNovelView(novelCache.find(n=>n.id===o.dataset.openNovel));return}const edit=e.target.closest("[data-edit-novel]");if(edit){openNovelView(novelCache.find(n=>n.id===edit.dataset.editNovel));startNovelEdit();return}const r=e.target.closest("[data-reuse-novel]");if(r){const n=novelCache.find(n=>n.id===r.dataset.reuseNovel);if(n)applySnapshot(n.snapshot);return}const s=e.target.closest("[data-reroll-novel]");if(s){const n=novelCache.find(n=>n.id===s.dataset.rerollNovel);if(n)rerollSnapshotScenario(n.snapshot)}}catch(err){alert(`夢小説アーカイブを更新できませんでした：${err.message}`)}});
+  $("#novelList").addEventListener("click",async e=>{try{const o=e.target.closest("[data-open-novel]");if(o){openNovelView(novelCache.find(n=>n.id===o.dataset.openNovel),o);return}const edit=e.target.closest("[data-edit-novel]");if(edit){openNovelView(novelCache.find(n=>n.id===edit.dataset.editNovel),edit);startNovelEdit();return}const r=e.target.closest("[data-reuse-novel]");if(r){const n=novelCache.find(n=>n.id===r.dataset.reuseNovel);if(n)applySnapshot(n.snapshot);return}const s=e.target.closest("[data-reroll-novel]");if(s){const n=novelCache.find(n=>n.id===s.dataset.rerollNovel);if(n)rerollSnapshotScenario(n.snapshot)}}catch(err){alert(`夢小説アーカイブを更新できませんでした：${err.message}`)}});
   $("#novelViewClose").addEventListener("click",closeNovelView);$("#startNovelEdit").addEventListener("click",startNovelEdit);$("#cancelNovelEdit").addEventListener("click",cancelNovelEdit);$("#saveNovelEdit").addEventListener("click",()=>saveNovelEdit().catch(err=>alert(`夢小説を更新できませんでした：${err.message}`)));$("#deleteNovelFromEdit").addEventListener("click",()=>deleteNovelArchive(viewingNovelId,true).catch(err=>alert(`夢小説を削除できませんでした：${err.message}`)));$("#copyNovelFromView").addEventListener("click",copyNovelFromView);$("#exportNovelFromView").addEventListener("click",exportNovelFromView);$("#favoriteNovelFromView").addEventListener("click",()=>toggleNovelFavorite(viewingNovelId).catch(err=>alert(`夢小説を更新できませんでした：${err.message}`)));$("#novelEditBody").addEventListener("input",()=>$("#novelEditCount").textContent=fmtChars(novelCharCount($("#novelEditBody").value)));$("#novelModal").addEventListener("click",e=>{if(e.target===$("#novelModal"))closeNovelView()});
  $("#saveSettings").addEventListener("click",()=>{syncScenario();rememberPromptRevision();save(true);renderPromptVersionEditor()});$("#resetScenarioSettings").addEventListener("click",resetScenario);$("#freeExtra").addEventListener("change",()=>save());
  $("#novelBody").addEventListener("paste",handleNovelPaste);
@@ -1487,6 +1535,7 @@ function init(){
 
  $("#manageSearch").addEventListener("input",e=>{state.filters.search=e.target.value;renderManager();renderGachaFilters()});
  $("#manageSort").addEventListener("change",e=>{state.manage.sort=e.target.value;renderManager()});
+ $("#manageMore").addEventListener("click",()=>{managerVisibleLimit+=40;renderManager();});
  $("#manageStatusButtons").addEventListener("click",e=>{const b=e.target.closest("[data-manage-status]");if(!b)return;state.manage.status=state.manage.status===b.dataset.manageStatus?"all":b.dataset.manageStatus;renderManager()});
  $("#clearSharedManagerFilters").addEventListener("click",()=>{state.filters.search="";state.filters.workIncluded.clear();state.filters.workExcluded.clear();state.filters.seriesIncluded.clear();state.filters.seriesExcluded.clear();state.filters.favorite="all";state.filters.minHeight=null;state.filters.maxHeight=null;renderManager();renderGachaFilters();showToast("共通検索条件を解除しました")});
  $("#selectAllVisible").addEventListener("change",e=>{for(const c of managerFiltered())e.target.checked?state.selectedIds.add(c.id):state.selectedIds.delete(c.id);renderManager()});
@@ -1520,12 +1569,13 @@ function init(){
  $("#fullBackupFile").addEventListener("change",async e=>{const f=e.target.files?.[0];if(!f)return;try{await handleFullBackupFile(f)}catch(err){alert(`完全バックアップの復元失敗：${err.message}`)}finally{e.target.value=""}});
  $("#importFile").addEventListener("change",async e=>{const f=e.target.files?.[0],mode=pendingCharacterImportMode||$("#importMode").value;pendingCharacterImportMode=null;if(!f)return;try{const r=await handleImportFile(f,mode);if(r)showToast(r.work?`「${r.work}」を更新：追加${r.added} / 引継ぎ${r.updated} / 削除${r.removed}`:`読み込み完了：追加${r.added} / 更新${r.updated}`)}catch(err){alert(`インポート失敗：${err.message}`)}finally{e.target.value=""}});
  $("#jumpTop").addEventListener("click",()=>document.querySelector("#pageTop").scrollIntoView({behavior:"smooth",block:"start"}));
- $("#jumpIO").addEventListener("click",()=>document.querySelector("#ioPanel").scrollIntoView({behavior:"smooth",block:"start"}));
+ $("#jumpIO").addEventListener("click",()=>goToScreen("manager","ioPanel"));
 
  const hasSavedRoll=!!state.characterId||["relationship","situation","mood","extra"].some(k=>!!state.values[k]);
  if(hasSavedRoll){
    for(const k of ["character","relationship","situation","mood","extra"]){updateCard(k);updateLock(k)}
  }else rollAll();
  DreamGachaRecipe.render();
+ globalThis.DreamGachaExperience?.init();
 }
 init();
