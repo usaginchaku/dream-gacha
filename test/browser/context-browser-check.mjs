@@ -23,7 +23,7 @@ try{
  await showSettings();
  const standard=await page.locator('#basePrompt').inputValue();
  const initialEntryCount=await page.evaluate(()=>state.promptSettings.entries.length);
- assert.equal(initialEntryCount,14);assert.equal(await page.locator('#contextStage').inputValue(),'');
+ assert.equal(initialEntryCount,20);assert.equal(await page.locator('#contextStage').inputValue(),'');
  const bundled=await page.evaluate(()=>structuredClone(state.promptSettings.entries));
  for(const e of bundled){
    await page.locator('#contextStage').selectOption(e.id);await page.locator('#buildPrompt').click();
@@ -138,7 +138,7 @@ try{
    if(process.argv[3]){await mkdir(process.argv[3],{recursive:true});await page.screenshot({path:path.join(process.argv[3],`context-${width}.png`)});}
  }
  assert.deepEqual(errors,[]);assert.deepEqual(requests,[]);
- console.log('PASS: all 14 bundled stages, edit/disable retention, stage/mode, scopes, manual and exclusion, protagonist replacement/conflict, references, output options, snapshots and reuse, reload, quota rollback, invalid/valid backup restore, legacy empty settings, XSS escaping, 390px/1280px and themes; no page errors or external requests');
+ console.log('PASS: all 20 bundled stages, edit/disable retention, stage/mode, scopes, manual and exclusion, protagonist replacement/conflict, references, output options, snapshots and reuse, reload, quota rollback, invalid/valid backup restore, legacy empty settings, XSS escaping, 390px/1280px and themes; no page errors or external requests');
 }finally{
  if(browser)await browser.close();
  const checked=path.resolve(profile);if(path.dirname(checked)!==path.resolve(tmpdir())||!path.basename(checked).startsWith('dream-gacha-context-qa-'))throw new Error('Unexpected QA cleanup path');

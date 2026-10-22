@@ -212,6 +212,8 @@ function prepareSettings(raw,strict=false){
   const prepared=DreamGachaStorage.decodeSettings(raw,{pools:DEFAULT_POOLS,basePrompt:DEFAULT_BASE_PROMPT,protagonistProfile:DEFAULT_PROTAGONIST_PROFILE,worldMode:DEFAULT_WORLD_MODE},strict);
   if(Number(prepared.version||0)<40)prepared.pools=reviseCandidatePools40(prepared.pools);
   if(Number(prepared.version||0)<43)prepared.promptSettings=DreamGachaStagePresets.addMissing(prepared.promptSettings);
+  // v46: 新しいガチャ候補と舞台を、既存の編集や削除を残したまま足す。
+  if(Number(prepared.version||0)<46){prepared.pools=addCandidatePools46(prepared.pools);prepared.promptSettings=DreamGachaStagePresets.addMissing(prepared.promptSettings,DreamGachaStagePresets.SINCE_46);}
   const previousBundledPrompt=prepared.basePrompt.replace("\n\n## 身長差・体格差\n\n夢主は160cmです。\n\n","\n\n## 身長差・体格差\n\n");
   const shouldMigrateBundledPrompt=Number(prepared.version||0)<DreamGachaData.SETTINGS_VERSION&&(LEGACY_BASE_PROMPTS.includes(prepared.basePrompt)||LEGACY_BASE_PROMPTS.includes(previousBundledPrompt)||previousBundledPrompt===DEFAULT_BASE_PROMPT);
  if(!prepared.basePrompt||(shouldMigrateBundledPrompt&&prepared.basePrompt!==DEFAULT_BASE_PROMPT)){prepared.basePrompt=DEFAULT_BASE_PROMPT;prepared.basePromptReference=null;prepared.basePromptLabel=""}

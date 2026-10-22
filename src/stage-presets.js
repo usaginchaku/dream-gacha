@@ -71,6 +71,36 @@
       adaptation:otherworld
     },
     {
+      key:"mystery-mansion",title:"怪奇・ミステリー館パロ",worldMode:"unrestricted",
+      text:"奇妙な事件や不思議な現象が起きる古い洋館、霧の町、閉ざされた屋敷などを舞台にします。謎の手紙、消える足音、開かない扉など、二人の距離を縮める仕掛けを場面に必要な分だけ使ってください。怖さは雰囲気づくりにとどめ、謎解きや緊迫した場面での互いへの信頼と、ふとした安心の瞬間を描きます。原作の能力や頭脳は、この舞台の謎への向き合い方に自然に反映してください。",
+      adaptation:otherworld
+    },
+    {
+      key:"journey",title:"長い旅路パロ（ロードムービー）",worldMode:"unrestricted",
+      text:"目的地を目指して長い旅を続ける一行、または二人旅を舞台にします。砂漠、港町、山道、夜行の乗り物、野営など、移動の途中で出会う景色や出来事から場面に合うものを選んでください。旅の目的・同行者・追っ手の有無は指定を優先し、足りない部分は物語に必要な範囲で補います。過酷な道中だからこそ見える素顔や、旅の終わりを意識する切なさを描けます。",
+      adaptation:otherworld
+    },
+    {
+      key:"underworld",title:"裏社会・マフィアパロ",worldMode:"unrestricted",
+      text:"組織の掟や縄張りがある、架空の街の裏社会を舞台にします。組織での立場、夢主が一般人か関係者かは指定を優先し、場面に必要な範囲だけ補ってください。暴力や犯罪は詳細に描かず、緊張感・忠誠・守りたいものの葛藤を中心にします。危険な世界に生きるキャラが、夢主の前でだけ見せる迷いや優しさを描けます。",
+      adaptation:otherworld
+    },
+    {
+      key:"luxury-liner",title:"豪華客船パロ",worldMode:"unrestricted",
+      text:"数日間の航海を続ける豪華客船を舞台にします。乗客・乗員・招待客などの立場は指定を優先してください。舞踏会、甲板の夜風、船室、寄港地など、閉ざされた空間ならではの近さと非日常を場面に合わせて使えます。事件や陰謀は指定がなければ大きくしすぎず、船旅が終わる日を意識した高揚と名残惜しさを描きます。",
+      adaptation:otherworld
+    },
+    {
+      key:"hot-spring",title:"温泉旅館パロ（季節の宿）",worldMode:"modern",
+      text:"山あいや海辺の温泉旅館を舞台にします。宿の従業員と客、偶然同じ宿に泊まった二人など、立場は指定を優先してください。浴衣、縁側、露天風呂、季節の料理、雪景色や紅葉など、季節感のある要素から場面に合うものを選びます。入浴場面を描く場合も露骨な描写は避け、湯上がりの空気や夜の静けさで距離の変化を表してください。",
+      adaptation:everyday
+    },
+    {
+      key:"seaside-summer",title:"海辺の町パロ（夏）",worldMode:"modern",
+      text:"夏の海辺の小さな町を舞台にします。地元の住人、帰省中、短期の滞在など、二人の立場は指定を優先してください。潮風、夕立、商店街、夏祭り、灯台、夜の浜辺などから場面に合うものを選びます。夏が終わる期限や、日焼けや汗といった季節の手触りを使い、眩しさと少しの切なさを描きます。",
+      adaptation:everyday
+    },
+    {
       key:"reincarnation",title:"転生現パロ",worldMode:"modern",
       text:"原作での生を前世とし、現代に生まれ直した世界を舞台にします。前世の記憶の有無、どちらが相手に気づいているか、現世の付き合いは今回の指定を優先し、足りない部分だけ自然に補ってください。見覚えのある仕草、無意識の習慣、名前の響きなどで過去の気配を表せます。夢主との前世の恋愛や悲劇的な死を自動的に作らず、記憶がある場合も回想や説明を重ねず現在の二人の選択を描いてください。",
       adaptation:everyday
@@ -81,12 +111,14 @@
     scope:{works:[],series:[],characterIds:[],worldModes:[],stageIds:[]},
     reference:{name:"",version:"",excerpt:""}
   }));
-  function addMissing(settings){
+  // v46で追加した舞台。v43〜v45の利用者には、これだけを足す（自分で消した既存の舞台は戻さない）。
+  const SINCE_46=["mystery-mansion","journey","underworld","luxury-liner","hot-spring","seaside-summer"].map(key=>`builtin-stage-${key}`);
+  function addMissing(settings,onlyIds=null){
     const result=JSON.parse(JSON.stringify(settings)),ids=new Set(result.entries.map(e=>e.id));
     // Identity, not title, preserves renamed, edited and disabled user copies.
-    result.entries.push(...JSON.parse(JSON.stringify(entries.filter(e=>!ids.has(e.id)))));
+    result.entries.push(...JSON.parse(JSON.stringify(entries.filter(e=>!ids.has(e.id)&&(!onlyIds||onlyIds.includes(e.id))))));
     return result;
   }
-  root.DreamGachaStagePresets={entries,addMissing};
+  root.DreamGachaStagePresets={entries,addMissing,SINCE_46};
   if(typeof module!=="undefined"&&module.exports)module.exports=root.DreamGachaStagePresets;
 })(typeof globalThis!=="undefined"?globalThis:this);
