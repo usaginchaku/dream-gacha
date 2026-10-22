@@ -21,7 +21,7 @@ function makeApp(){
    indexedDB:{open(){throw new Error("IndexedDB mock must be replaced by test")}},CSS:{escape:x=>x},Blob:function(){},URL:{createObjectURL:()=>"blob:x",revokeObjectURL(){}},setTimeout:(fn)=>{fn();return 1},clearTimeout(){}};
  context.globalThis=context;
  vm.createContext(context);
- for(const file of ["src/app-data.js","src/app-context.js","src/app-domain.js","src/app-prompts.js","src/app-storage.js","src/app-ui.js","data/character-data.generated.js","src/seed-data.js","src/stage-presets.js","src/app-context-ui.js","src/app-character-card-ui.js","src/app-recipe.js"])
+ for(const file of ["src/app-data.js","src/app-context.js","src/app-domain.js","src/app-prompts.js","src/app-storage.js","src/app-ui.js","src/character-format.js","data/character-data.generated.js","src/seed-data.js","src/stage-presets.js","src/app-context-ui.js","src/app-character-card-ui.js","src/app-recipe.js"])
    vm.runInContext(fs.readFileSync(path.join(root,file),"utf8"),context,{filename:file});
  let app=fs.readFileSync(path.join(root,"src/app.js"),"utf8");
  app=app.replace(/\ninit\(\);\s*$/,"\n// init stripped for controlled integration tests\n");

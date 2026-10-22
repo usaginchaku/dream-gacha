@@ -95,10 +95,10 @@ async function main(){
  const appSource=fs.readFileSync(path.join(root,"src/app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"assets/styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,6),["src/app-data.js?v=48","src/app-context.js?v=48","src/app-domain.js?v=48","src/app-prompts.js?v=48","src/app-storage.js?v=48","src/app-ui.js?v=46"]);
- assert.match(src[6],/^data\/character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(7),["src/seed-data.js?v=44","src/stage-presets.js?v=44","src/app-context-ui.js?v=48","src/app-character-card-ui.js?v=48","src/app-recipe.js?v=49","src/app-experience.js?v=49","src/app.js?v=49"]);
-  for(const stylesheet of ["styles.css","mobile-ui.css"])assert.ok(index.includes(`href="assets/${stylesheet}?v=49"`));
+  assert.deepEqual(src.slice(0,7),["src/app-data.js?v=48","src/app-context.js?v=48","src/app-domain.js?v=48","src/app-prompts.js?v=48","src/app-storage.js?v=48","src/app-ui.js?v=46","src/character-format.js?v=50"]);
+ assert.match(src[7],/^data\/character-data\.generated\.js\?v=[a-f0-9]{12}$/);
+  assert.deepEqual(src.slice(8),["src/seed-data.js?v=44","src/stage-presets.js?v=44","src/app-context-ui.js?v=48","src/app-character-card-ui.js?v=48","src/app-recipe.js?v=49","src/app-works-ui.js?v=50","src/app-experience.js?v=50","src/app.js?v=50"]);
+  for(const stylesheet of ["styles.css","mobile-ui.css"])assert.ok(index.includes(`href="assets/${stylesheet}?v=50"`));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
@@ -122,7 +122,7 @@ async function main(){
  assert.match(index,/<details class="candidate-selector" id="candidatePreviewBox">/);
  for(const id of ["worldModeOptions","worldModeSummary","workProfileWork","workProtagonistProfile","resetWorkProfile"])assert.ok(index.includes(`id="${id}"`));
  for(const id of ["tab-help","screen-help","help-basic","help-details","help-character-json","characterResearchWork","characterResearchPromptPreview","allowedTagGuide","help-faq"])assert.ok(index.includes(`id="${id}"`));
- for(const phrase of ["好きなキャラ","アーカイブしたキャラは消えますか？","完全バックアップ","data-go-screen=\"manager\""])assert.ok(index.includes(phrase));
+ for(const phrase of ["好きなキャラ","お休みにしたキャラは消えますか？","完全バックアップ","data-go-screen=\"manager\""])assert.ok(index.includes(phrase));
  assert.match(index,/role="tab" aria-controls="screen-help" aria-selected="false"/);
 
  const a=makeApp();
@@ -171,7 +171,9 @@ async function main(){
  a.get("#characterResearchWork").value="架空の作品";
  run(a,"renderCharacterImportGuide()");
  assert.match(a.get("#characterResearchPromptPreview").value,/「架空の作品」に登場する男性キャラクター/);
- assert.match(a.get("#characterResearchPromptPreview").value,/heightSource/);
+ assert.match(a.get("#characterResearchPromptPreview").value,/"version": 2/);
+ assert.match(a.get("#characterResearchPromptPreview").value,/"work": "架空の作品"/);
+ assert.match(a.get("#characterResearchPromptPreview").value,/heightDefaults/);
  assert.equal(run(a,"TAG_GROUP_ORDER.every(k=>CANONICAL_TAGS[k].every(t=>document.querySelector('#allowedTagGuide').innerHTML.includes(t)))"),true);
  const exported=run(a,"exportCharacterPayload([{id:'1',name:'A',work:'W',series:'S',tags:['冷静'],archived:false,favorite:false,heightText:'180cm',heightCm:180,heightStatus:'verified',heightSource:'公式資料'}]).characters[0]");
  assert.equal(exported.heightStatus,"verified");assert.equal(exported.heightSource,"公式資料");
@@ -279,6 +281,13 @@ async function main(){
  assert.equal(run(workImport,"state.characters.find(c=>c.name==='A').favorite&&state.characters.find(c=>c.name==='A').archived"),true);
  assert.equal(run(workImport,"state.characters.find(c=>c.name==='A').heightCm"),181);
  assert.throws(()=>run(workImport,`importCharactersData({characters:[{name:"X",work:"W",tags:[]},{name:"Y",work:"",tags:[]}]},"work-replace")`),/同じ作品名/);
+ // The compact work-file format imports through the same paths as version 1.
+ const v2Result=JSON.parse(JSON.stringify(run(workImport,`importCharactersData({schema:"dream-gacha.characters",version:2,work:"W2",characters:[{name:"F",tags:["冷静"],height:177},{name:"G",gacha:false}]},"merge")`)));
+ assert.deepEqual(v2Result,{added:2,updated:0,removed:0,total:2});
+ assert.equal(run(workImport,"state.characters.find(c=>c.name==='F').heightCm"),177);
+ assert.equal(run(workImport,"state.characters.find(c=>c.name==='F').work"),"W2");
+ assert.equal(run(workImport,"state.characters.find(c=>c.name==='G').archived"),true);
+ assert.throws(()=>run(workImport,`importCharactersData({schema:"dream-gacha.characters",version:2,characters:[{name:"H"}]},"merge")`),/work（作品名）は必須/);
  const workPlan=JSON.parse(JSON.stringify(run(workImport,`analyzeWorkReplacement(dedupeImported([{name:"A",work:"W",series:"new",tags:[]},{name:"E",work:"W",tags:[]}]))`)));
  assert.deepEqual({current:workPlan.current,total:workPlan.total,added:workPlan.added,updated:workPlan.updated,removed:workPlan.removed},{current:2,total:2,added:1,updated:1,removed:1});
 
@@ -500,7 +509,7 @@ async function main(){
  assert.match(g.get("#novelList").innerHTML,/Restored/);
  assert.equal(restoreCounts.before.novels,1);assert.equal(restoreCounts.after.novels,1);
  assert.equal(typeof restoreCounts.before.favorites,"number");assert.equal(typeof restoreCounts.before.archived,"number");
- assert.match(g.get("#backupRestoreStatus").textContent,/お気に入り\d+件・アーカイブ\d+件/);
+ assert.match(g.get("#backupRestoreStatus").textContent,/お気に入り\d+件・お休み\d+件/);
  assert.match(g.get("#backupRestoreStatus").textContent,/復元前/);assert.match(g.get("#backupRestoreStatus").textContent,/復元後/);
 
  // Corrupt existing settings do not block a valid backup, and an interrupted

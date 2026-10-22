@@ -45,7 +45,7 @@ function repairLegacyFavorites(){
  const allowed=new Set(legacyFavoriteEntries().filter(e=>e.current?.favorite).map(e=>e.current.id));
  const selected=new Set([...document.querySelectorAll("[data-repair-favorite]:checked")].map(el=>el.dataset.repairFavorite).filter(id=>allowed.has(id)));
  if(!selected.size)return showToast("解除するキャラにチェックを入れてください");
- if(!confirm(`選択した${selected.size}件のキャラのお気に入りを解除しますか？\n未選択のキャラ・アーカイブ・小説は変更しません。`))return;
+ if(!confirm(`選択した${selected.size}件のキャラのお気に入りを解除しますか？\n未選択のキャラ・お休み状態・小説は変更しません。`))return;
  const before=state.characters;
  state.characters=before.map(c=>selected.has(c.id)?{...c,favorite:false,favoriteSource:"user"}:c);
  try{save()}catch(error){state.characters=before;return}
@@ -526,7 +526,7 @@ async function saveNovelArchive(){
    DreamGachaUI.resetNovelForm();
    renderNovelModelChoices();
    novelDraftSnapshot=null;$("#novelSnapshotPreview").textContent="直前に生成したプロンプトと条件を使用します";renderNovelSavePrompt();
-   await refreshNovelCache();renderNovelList();globalThis.DreamGachaExperience?.pane("library","novels");showToast("夢小説をアーカイブしました");
+   await refreshNovelCache();renderNovelList();globalThis.DreamGachaExperience?.pane("library","novels");showToast("夢小説を本棚に保存しました");
  }catch(e){alert(`夢小説を保存できませんでした：${e.message}`)}
 }
 async function renderNovelList(){
@@ -543,7 +543,7 @@ async function renderNovelList(){
  </div>`).join("");
 }
 async function refreshNovelCache(){novelCache=await novelAll();return novelCache}
-async function renderLibrary(){renderPresetList();renderNovelSavePrompt();try{await refreshNovelCache();renderNovelList()}catch(e){const box=$("#novelList");if(box)box.innerHTML=`<div class="empty-library">アーカイブを読み込めませんでした</div>`}}
+async function renderLibrary(){renderPresetList();renderNovelSavePrompt();try{await refreshNovelCache();renderNovelList()}catch(e){const box=$("#novelList");if(box)box.innerHTML=`<div class="empty-library">本棚を読み込めませんでした</div>`}}
 let viewingNovelId=null,novelEditOriginal=null;
 function novelPromptSnapshot(n){return String(n?.promptSnapshot??n?.snapshot?.prompt??"")}
 function novelTextValue(value,fallback="未記録"){const text=String(value||"").trim();return text||fallback}
@@ -618,7 +618,7 @@ function switchScreen(name){
  if(name==="manager") renderManager();
  if(name==="library") renderLibrary();
  $("#managerQuickNav").hidden=true;
- document.title=`${{gacha:"ガチャ",library:"アーカイブ",manager:"キャラ管理",help:"使い方・設定"}[name]}｜夢シチュガチャ`;
+ document.title=`${{gacha:"ガチャ",library:"本棚",manager:"キャラ管理",help:"使い方・設定"}[name]}｜夢シチュガチャ`;
  window.scrollTo?.({top:0,behavior:"instant"});
 }
 
@@ -633,10 +633,13 @@ let chooserKey=null,quickCharacterChoice=false;
 function chooserEntries(key){
  if(key==="character"){
    const work=$("#quickChoiceWork")?.value,favorites=$("#quickChoiceFavorite")?.getAttribute("aria-pressed")==="true";
-   const characters=quickCharacterChoice?activeCharacters().filter(c=>(!work||c.work===work)&&(!favorites||c.favorite)):baseFilteredCharacters().filter(c=>categoryPass("character",c));
+   let characters=quickCharacterChoice?activeCharacters().filter(c=>(!work||c.work===work)&&(!favorites||c.favorite)):baseFilteredCharacters().filter(c=>categoryPass("character",c));
+   // 推しを探しやすいよう、お気に入りを先頭に、残りは作品ごとにまとめる。
+   if(quickCharacterChoice)characters=[...characters].sort((a,b)=>(b.favorite-a.favorite)||(a.favorite&&b.favorite?0:a.work.localeCompare(b.work,"ja")));
    return characters.map(c=>({
      value:c.id,
      label:(c.favorite?"★ ":"")+c.name,
+     group:quickCharacterChoice?(c.favorite?"★ お気に入り":c.work||"作品未設定"):"",
      meta:[c.work,c.series,Number.isFinite(c.heightCm)?`${c.heightCm}cm`:""].filter(Boolean).join(" / ")
    }));
  }
@@ -669,6 +672,7 @@ function openChooser(key,quick=false,trigger){
   if(key!=="character")syncScenario();
   chooserKey=key;quickCharacterChoice=key==="character"&&quick;
   $("#quickChoiceFilters").hidden=!quickCharacterChoice;
+  $("#choiceManageWorks").hidden=!quickCharacterChoice;
   if(quickCharacterChoice){
     $("#quickChoiceWork").innerHTML='<option value="">すべての作品</option>'+unique(activeCharacters().map(c=>c.work)).map(work=>`<option value="${esc(work)}">${esc(work)}</option>`).join("");
     $("#quickChoiceFavorite").setAttribute("aria-pressed","false");$("#quickChoiceFavorite").classList.remove("active");
@@ -694,9 +698,11 @@ function renderChooserList(){
  const q=$("#choiceSearch").value.trim().toLowerCase();
  const current=chooserKey==="character"?state.characterId:state.values[chooserKey];
  const arr=chooserEntries(chooserKey).filter(x=>(x.label+" "+x.meta).toLowerCase().includes(q));
+ let group="";
  $("#choiceList").innerHTML=arr.length?arr.map(x=>{
    const badge=quickCharacterChoice?"":`<span class="category-badge">${esc(categoryFor(chooserKey,x.value))}</span>`;
-   return `<button type="button" class="choice-item${x.value===current?" current":""}" data-choice-value="${esc(x.value)}"><span>${esc(x.label)}${badge}</span>${x.meta?`<span class="choice-item-meta">${esc(x.meta)}</span>`:""}</button>`;
+   const heading=x.group&&x.group!==group?`<div class="choice-group" role="presentation">${esc(x.group)}</div>`:"";group=x.group||group;
+   return `${heading}<button type="button" class="choice-item${x.value===current?" current":""}" data-choice-value="${esc(x.value)}"><span>${esc(x.label)}${badge}</span>${x.meta?`<span class="choice-item-meta">${esc(x.meta)}</span>`:""}</button>`;
  }).join(""):`<div class="choice-empty">${quickCharacterChoice&&$("#quickChoiceFavorite").getAttribute("aria-pressed")==="true"?"お気に入りが見つかりません。☆を解除して、名前や作品から選べます。":"該当する候補がありません。検索や絞り込みを変えてください。"}</div>`;
 }
 function chooseValue(value){
@@ -772,7 +778,7 @@ function renderResultCards(){
  container.addEventListener("click",e=>{
   const quick=e.target.closest("[data-quick-choose]");if(quick)return openChooser("character",true,quick);
   const ch=e.target.closest("[data-choose]");if(ch)return openChooser(ch.dataset.choose,false,ch);
-  const b=e.target.closest("[data-reroll]");if(b)return rollOne(b.dataset.reroll,true);
+  const b=e.target.closest("[data-reroll]");if(b){rollOne(b.dataset.reroll,true);return revealResults([b.dataset.reroll]);}
   const f=e.target.closest("[data-favorite-current]");if(f&&currentCharacter())toggleFavorite([currentCharacter().id])
  });
  container.addEventListener("change",e=>{const i=e.target.closest("[data-lock]");if(!i)return;state.locks[i.dataset.lock]=i.checked;updateLock(i.dataset.lock);save()});
@@ -830,7 +836,7 @@ function renderSharedFilterControls(){
  for(const id of ["gachaSearch","manageSearch"]){const e=$("#"+id);if(e&&e.value!==state.filters.search)e.value=state.filters.search}
 
  const dynamicMin=getHeightSliderMin(),dynamicMax=getHeightSliderMax();
- // アーカイブ・復元・インポート等で実データ範囲が変わったら、端の条件を自動で「指定なし」に戻す
+ // お休み・ガチャに戻す・インポート等で実データ範囲が変わったら、端の条件を自動で「指定なし」に戻す
  if(state.filters.minHeight!==null&&state.filters.minHeight<=dynamicMin)state.filters.minHeight=null;
  if(state.filters.maxHeight!==null&&state.filters.maxHeight>=dynamicMax)state.filters.maxHeight=null;
  // 範囲外になった古い値も現在の実データ範囲へ丸める
@@ -1009,7 +1015,16 @@ function rollAll(){
  for(const key of Object.keys(META))rollOne(key,false);
  DreamGachaRecipe.render();const built=buildPrompt(false);
  if(built&&$("#rollFeedback"))$("#rollFeedback").textContent="組み合わせを更新しました";
+ if(built)revealResults(Object.keys(META).filter(key=>!state.locks[key]));
  return built;
+}
+// 引いた項目だけをふわっと表示し直す。動きを減らす設定ではCSS側で止める。
+function revealResults(keys){
+ for(const key of keys){
+  const card=document.querySelector(`.result-card[data-key="${key}"]`);if(!card)continue;
+  card.classList.remove("revealing");void card.offsetWidth;card.classList.add("revealing");
+ }
+ const button=$("#rollAll");if(button){button.classList.remove("rolling");void button.offsetWidth;button.classList.add("rolling");}
 }
 function buildPrompt(scroll=true){return DreamGachaRecipe.build(scroll)}
 async function copyPrompt(){return DreamGachaRecipe.copy()}
@@ -1031,7 +1046,7 @@ function renderPoolEditors(){
 }
 
 function compareManagerCharacters(a,b){
- if(a.archived!==b.archived)return a.archived?1:-1; // アーカイブは常に最後
+ if(a.archived!==b.archived)return a.archived?1:-1; // お休み中は常に最後
  const byName=(x,y)=>x.name.localeCompare(y.name,"ja",{numeric:true});
  switch(state.manage.sort){
    case "name-asc": return byName(a,b);
@@ -1143,6 +1158,7 @@ function saveInlineCharacter(id){
 let managerVisibleLimit=40,managerFilterSignature="";
 function renderManager(){
  DreamGachaRecipe.renderOrphanNotes();
+ globalThis.DreamGachaWorksUI?.render();
  renderFavoriteRepair();
  renderManagerFilters();renderStats();renderSuggestions();
  const arr=managerFiltered(), table=$("#characterTable");
@@ -1154,12 +1170,12 @@ function renderManager(){
  else table.innerHTML=visible.map(c=>{
    const row=`<div class="char-row${c.archived?" archived":""}">
    <input class="row-check" type="checkbox" aria-label="${esc(c.name)}を一括操作の対象にする" data-select="${esc(c.id)}" ${state.selectedIds.has(c.id)?"checked":""}>
-   <div><div class="char-name">${c.favorite?`<span class="favorite-mark">★</span>`:""}${esc(c.name)}</div><div class="char-sub">${c.archived?"アーカイブ":"ガチャ対象"}</div></div>
+   <div><div class="char-name">${c.favorite?`<span class="favorite-mark">★</span>`:""}${esc(c.name)}</div><div class="char-sub">${c.archived?"お休み中":"ガチャ対象"}</div></div>
    <div class="work-cell"><div>${esc(c.work||"作品未設定")}</div><div class="char-sub">${esc(c.series||"部・シリーズ未設定")}</div></div>
-   <div class="tags-cell mini-tags">${c.tags.map(t=>`<span class="mini-tag">${esc(t)}</span>`).join("")||`<span class="char-sub">タグなし</span>`}</div>
+   <div class="tags-cell mini-tags">${c.tags.slice(0,5).map(t=>`<span class="mini-tag">${esc(t)}</span>`).join("")||`<span class="char-sub">タグなし</span>`}${c.tags.length>5?`<span class="mini-tag more-tags" title="${esc(c.tags.slice(5).join("、"))}">+${c.tags.length-5}</span>`:""}</div>
    <div class="height-cell"><div class="height-main">${esc(c.heightText||"不明")}</div></div>
    <div class="row-actions"><button class="favorite-btn${c.favorite?" active":""}" aria-label="${esc(c.name)}の${c.favorite?"お気に入りを解除":"お気に入りに登録"}" aria-pressed="${!!c.favorite}" data-favorite="${esc(c.id)}">${c.favorite?"★":"☆"}</button><button class="small-btn" data-character-card="${esc(c.id)}">カルテ</button><button class="small-btn" data-edit="${esc(c.id)}">${state.inlineEditingId===c.id?"閉じる":"編集"}</button>
-     <button class="${c.archived?"ok-btn":"small-btn"}" data-archive="${esc(c.id)}">${c.archived?"復元":"アーカイブ"}</button></div>
+     <button class="${c.archived?"ok-btn":"small-btn"}" data-archive="${esc(c.id)}">${c.archived?"ガチャに戻す":"お休み"}</button></div>
    </div>`;
    return row+(state.inlineEditingId===c.id?inlineEditorHtml(c):"");
  }).join("");
@@ -1201,11 +1217,11 @@ function toggleArchive(ids,archived){
  for(const id of ids){const c=state.characters.find(c=>c.id===id);if(c)c.archived=archived}
  if(archived)for(const id of ids){state.filters.characterIncluded.delete(id);state.filters.characterExcluded.delete(id)}
  if(currentCharacter()?.archived||!state.characters.some(c=>c.id===state.characterId&&!c.archived)){state.characterId=null;updateCard("character")}
- state.selectedIds.clear();save();renderManager();renderGachaFilters();showToast(archived?"アーカイブしました":"ガチャ対象に戻しました");
+ state.selectedIds.clear();save();renderManager();renderGachaFilters();showToast(archived?"お休みにしました":"ガチャに戻しました");
 }
 function deleteIds(ids){
  const arr=state.characters.filter(c=>ids.includes(c.id));if(!arr.length)return;
- if(!confirm(`${arr.length}件のキャラを完全に削除しますか？\nアーカイブなら後から戻せます。`))return;
+ if(!confirm(`${arr.length}件のキャラを完全に削除しますか？\n「お休み」なら後から戻せます。`))return;
  for(const c of arr)if(c.id.startsWith("seed-"))state.deletedSeedIds.add(c.id);
  // Startup also matches legacy IDs by name/work; suppress the same bundled records here.
  for(const seed of DEFAULT_CHARACTERS)if(arr.some(c=>c.id===seed.id||(c.name===seed.name&&c.work===seed.work)))state.deletedSeedIds.add(seed.id);
@@ -1244,10 +1260,10 @@ function exportCharacters(mode){
  downloadJson(exportCharacterPayload(arr),`dream-gacha-characters-${mode}-${stamp}.json`);showToast(`${arr.length}件を書き出しました`);
 }
 function exportTemplate(){
- const data={schema:"dream-gacha.characters",version:1,instructions:"characters にキャラを追加してください。name は必須です。tags は許可された共通タグだけを使い、身長不明なら heightCm=null、heightStatus=unknown にしてください。",characters:[{
-   name:"キャラクター名",work:"作品名",series:"部・シリーズ",tags:["年上系","冷静","優しい"],archived:false,favorite:false,
-   heightText:"180cm",heightCm:180,heightStatus:"verified",heightSource:"公式プロフィール名またはURL"
- }]};
+ const data={schema:"dream-gacha.characters",version:2,work:"作品名",note:"1ファイルに1作品。name は必須です。tags は許可された共通タグだけを使います。身長は数値（cm）で書き、不明なら height を省略します。ガチャから外すキャラは \"gacha\": false にします。",heightDefaults:{status:"verified",source:"公式プロフィール名またはURL"},characters:[
+   {name:"キャラクター名",series:"部・シリーズ",tags:["年上系","冷静","優しい"],height:180},
+   {name:"身長不明のキャラ",tags:["明るい"]}
+ ]};
  downloadJson(data,"dream-gacha-character-template.json");showToast("ChatGPT用テンプレートを書き出しました");
 }
 function allowedTagPromptText(){return TAG_GROUP_ORDER.map(key=>`${TAG_GROUP_LABELS[key]}：${CANONICAL_TAGS[key].join(" / ")}`).join("\n")}
@@ -1263,10 +1279,10 @@ function buildCharacterResearchPrompt(workName=""){
 - ウェブ検索が使える場合は、公式サイト、公式プロフィール、出版社・制作会社、公式設定資料を優先して確認してください。
 
 【身長と出典】
-- 公称身長を確認し、heightText に表示用の値、heightCm に代表値をcm単位の数値で入れてください。
-- 媒体や時期で公式値が異なる場合は heightText に併記し、heightSource にどの値を採用したか分かる出典名またはURLを書いてください。
-- 公称値を確認できない場合は推測せず、heightText は「不明」、heightCm は null、heightStatus は "unknown" としてください。
-- 公称値を確認できた場合だけ heightStatus を "verified" としてください。
+- 公称身長を確認できたキャラだけ height を書いてください。推測した値は書かないでください。
+- 基本は "height": 180 のように数値（cm）だけを書きます。出典はファイル先頭の heightDefaults.source にまとめます。
+- 媒体で公式値が異なる場合や、出典がほかと違う場合だけ "height": { "cm": 180, "text": "180cm（アニメ）／178cm（原作）", "source": "出典名またはURL" } のように書いてください。
+- 公称値を確認できない場合は height を書かずに省略してください。
 
 【印象タグ】
 - 各キャラの公式描写に合うものを、次の許可タグから2〜6個程度選んでください。
@@ -1276,23 +1292,16 @@ ${allowedTagPromptText()}
 【JSON形式】
 {
   "schema": "dream-gacha.characters",
-  "version": 1,
+  "version": 2,
+  "work": ${workJson},
+  "heightDefaults": { "status": "verified", "source": "主に参照した公式資料名またはURL" },
   "characters": [
-    {
-      "name": "キャラクター名",
-      "work": ${workJson},
-      "series": "部・シリーズ。なければ空文字",
-      "tags": ["冷静", "知的"],
-      "archived": false,
-      "favorite": false,
-      "heightText": "180cm",
-      "heightCm": 180,
-      "heightStatus": "verified",
-      "heightSource": "具体的な出典名またはURL"
-    }
+    { "name": "キャラクター名", "series": "部・シリーズ（なければ省略）", "tags": ["冷静", "知的"], "height": 180 },
+    { "name": "身長が不明なキャラクター", "tags": ["明るい"] }
   ]
 }
 
+作品名はファイル先頭の work に1回だけ書き、各キャラには書かないでください。
 出力前に、重複、女性キャラクターの混入、架空の身長、許可外タグがないか確認してください。
 最終出力は有効なJSONだけにし、説明文・注釈・Markdownのコードフェンスは付けないでください。`;
 }
@@ -1340,8 +1349,7 @@ function analyzeWorkReplacement(raws){
  return {work,oldWork,matches,current:oldWork.length,total:raws.length,added:matches.filter(x=>!x).length,updated:matches.filter(Boolean).length,removed:oldWork.filter(c=>!used.has(c.id)).length};
 }
 function importCharactersData(data,mode){
- const list=Array.isArray(data)?data:Array.isArray(data?.characters)?data.characters:null;
- if(!list)throw new Error("characters 配列が見つかりません");
+ const list=DreamGachaCharacterFormat.charactersFrom(data);
  const raws=dedupeImported(list);if(!raws.length)throw new Error("有効なキャラが1件もありません");
  let added=0,updated=0;
  if(mode==="work-replace"){
@@ -1390,11 +1398,9 @@ async function handleImportFile(file,requestedMode){
  try{data=JSON.parse(text)}catch(e){throw new Error("JSONとして読み込めませんでした")}
  const mode=requestedMode||$("#importMode").value;
  if(mode==="work-replace"){
-  const list=Array.isArray(data)?data:data?.characters;
-  if(!Array.isArray(list))throw new Error("characters 配列が見つかりません");
-  const raws=dedupeImported(list);if(!raws.length)throw new Error("有効なキャラが1件もありません");
+  const raws=dedupeImported(DreamGachaCharacterFormat.charactersFrom(data));if(!raws.length)throw new Error("有効なキャラが1件もありません");
   const plan=analyzeWorkReplacement(raws);
-  if(!confirm(`【${plan.work}】を作品単位で置換します。\n現在：${plan.current}人 ／ JSON：${plan.total}人\n新規：${plan.added}人 ／ 更新：${plan.updated}人 ／ 削除候補：${plan.removed}人\n\n同じキャラのお気に入り・アーカイブ・手動登録した身長は引き継ぎます。続けますか？`))return null;
+  if(!confirm(`【${plan.work}】を作品単位で置換します。\n現在：${plan.current}人 ／ JSON：${plan.total}人\n新規：${plan.added}人 ／ 更新：${plan.updated}人 ／ 削除候補：${plan.removed}人\n\n同じキャラのお気に入り・お休み状態・手動登録した身長は引き継ぎます。続けますか？`))return null;
  }
  if(mode==="replace"&&!confirm("現在のキャラ一覧を、読み込むファイルの内容で置き換えます。\nシチュ設定は変更しません。続けますか？"))return null;
  return importCharactersData(data,mode);
@@ -1408,7 +1414,7 @@ async function fullBackupPayload(){
 function backupTimestamp(){const d=new Date(),pad=n=>String(n).padStart(2,"0");return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`}
 async function exportFullBackup(){try{const stamp=backupTimestamp(),payload=await fullBackupPayload();downloadJson(payload,`dream-gacha-full-backup-${stamp}.json`);showToast("完全バックアップを書き出しました")}catch(e){alert(`完全バックアップを書き出せませんでした：${e.message}`)}}
 function backupCounts(settings,novels){const characters=settings?.characters||[];return {characters:characters.length,favorites:characters.filter(c=>c.favorite).length,archived:characters.filter(c=>c.archived).length,presets:(settings?.presets||[]).length,workProfiles:Object.keys(settings?.workProtagonistProfiles||{}).length,novels:(novels||[]).length}}
-function backupCountText(counts){return `ブラウザ設定：キャラ${counts.characters}件（お気に入り${counts.favorites}件・アーカイブ${counts.archived}件）・保存条件${counts.presets}件・作品別設定${counts.workProfiles}件 ／ 夢小説：${counts.novels}本`}
+function backupCountText(counts){return `ブラウザ設定：キャラ${counts.characters}件（お気に入り${counts.favorites}件・お休み${counts.archived}件）・保存条件${counts.presets}件・作品別設定${counts.workProfiles}件 ／ 夢小説：${counts.novels}本`}
 function renderBackupRestoreStatus(kind,message){const box=$("#backupRestoreStatus");if(!box)return;box.className=`backup-restore-status${kind?` ${kind}`:""}`;box.textContent=message}
 async function restoreFullBackup(data){
  let phase="バックアップ内容の検証";
@@ -1441,7 +1447,7 @@ async function restoreFullBackup(data){
 }
 async function handleFullBackupFile(file){
  const text=await file.text();let data;try{data=JSON.parse(text)}catch(e){const message="JSONファイルの解析で失敗しました：JSONとして読み込めませんでした";renderBackupRestoreStatus("error",message);throw new Error(message)}
- if(!confirm("現在のキャラ・アーカイブ・お気に入り・シチュ候補・固定プロンプト・保存条件・夢小説アーカイブ等を、バックアップ内容で丸ごと置き換えます。続けますか？"))return;
+ if(!confirm("現在のキャラ・お休み状態・お気に入り・シチュ候補・固定プロンプト・保存条件・夢小説アーカイブ等を、バックアップ内容で丸ごと置き換えます。続けますか？"))return;
  await restoreFullBackup(data);
 }
 
@@ -1461,6 +1467,7 @@ function showSettingsSavedState(){
 function showToast(m){const e=$("#toast");e.textContent=m;e.classList.add("show");clearTimeout(showToast.t);showToast.t=setTimeout(()=>e.classList.remove("show"),1700)}
 
 function init(){
+ globalThis.DreamGachaWorksUI?.init();
  $("#favoriteRepair").addEventListener("toggle",renderFavoriteRepair);
  $("#repairLegacyFavorites").addEventListener("click",repairLegacyFavorites);
  renderNovelModelChoices();
@@ -1476,6 +1483,7 @@ function init(){
 
  load();applyTheme();DreamGachaContextUI.init();if(typeof DreamGachaCharacterCardUI!=="undefined")DreamGachaCharacterCardUI.init();DreamGachaRecipe.init();renderResultCards();renderPoolEditors();renderGachaFilters();renderAddTagPicker();renderCharacterImportGuide();renderLibrary();
   $("#choiceClose").addEventListener("click",closeChooser);
+  $("#choiceManageWorks").addEventListener("click",()=>{closeChooser();goToScreen("manager","workPanel")});
   $("#choiceSearch").addEventListener("input",renderChooserList);
   $("#choiceCategoryClear").addEventListener("click",()=>{if(chooserKey)clearCategoryRules(chooserKey)});
   $("#choiceCategoryChips").addEventListener("click",e=>{

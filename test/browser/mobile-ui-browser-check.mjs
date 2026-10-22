@@ -80,6 +80,34 @@ try {
     await page.locator('#choiceClose').click();
     assert.equal(await page.locator('[data-quick-choose]').evaluate(el=>el===document.activeElement),true);
   });
+  await check('picker groups favorites first and the works tab toggles who appears in the gacha', async () => {
+    await page.evaluate(() => { const c=state.characters.find(x=>x.id==='jojo-fugo'); c.favorite=true; save(); });
+    await page.locator('[data-quick-choose]').click();
+    assert.equal(await page.locator('#choiceList .choice-group').first().innerText(),'★ お気に入り');
+    assert.equal(await page.locator('#choiceList .choice-item').first().getAttribute('data-choice-value'),'jojo-fugo');
+    await page.locator('#choiceManageWorks').click();
+    assert.equal(await page.locator('#workPanel').isVisible(),true);
+    assert.equal(await page.locator('#manager-tab-works').getAttribute('aria-selected'),'true');
+    await noOverflow('works tab');
+    const row=page.locator('.work-row[data-work="ジョジョの奇妙な冒険"]');
+    await row.locator('summary').click();
+    const chip=row.locator('[data-work-character="jojo-caesar"]');
+    const before=await page.evaluate(()=>state.characters.find(c=>c.id==='jojo-caesar').archived);
+    await chip.click();
+    assert.equal(await page.evaluate(()=>state.characters.find(c=>c.id==='jojo-caesar').archived),!before);
+    assert.equal(await row.locator('[data-work-character="jojo-caesar"]').getAttribute('aria-pressed'),String(before));
+    await page.reload();
+    await page.waitForFunction(() => state.characters.length);
+    assert.equal(await page.evaluate(()=>state.characters.find(c=>c.id==='jojo-caesar').archived),!before,'toggle persists');
+    await page.evaluate(() => { const c=state.characters.find(x=>x.id==='jojo-fugo'); c.favorite=false; save(); });
+    await page.locator('#tab-manager').click();
+    await page.locator('#manager-tab-works').click();
+    await page.locator('.work-row[data-work="ジョジョの奇妙な冒険"] summary').click();
+    await page.locator('[data-work-character="jojo-caesar"]').click();
+    assert.equal(await page.evaluate(()=>state.characters.find(c=>c.id==='jojo-caesar').archived),before);
+    await screenshot('iphone14-works');
+    await page.locator('#tab-gacha').click();
+  });
   await check('mode switching and reload retain custom conditions, locks, and manual prompt text', async () => {
     await page.locator('[data-gacha-mode="custom"]').click();
     await page.locator('#recipeEditor > summary').click();
