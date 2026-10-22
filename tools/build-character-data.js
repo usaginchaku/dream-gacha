@@ -7,13 +7,15 @@
  * This file intentionally uses only Node's standard library so that updating
  * the data also works from a copied file:// application without npm.
  */
+const crypto = require("node:crypto");
 const fs = require("node:fs");
 const path = require("node:path");
+const format = require("../src/character-format.js");
 
 const ROOT = path.resolve(__dirname, "..");
 const DEFAULT_DATA_DIR = path.join(ROOT, "data", "characters");
 const DEFAULT_OUTPUT = path.join(ROOT, "data", "character-data.generated.js");
-const SCHEMA = "dream-gacha.characters";
+const SCHEMA = format.SCHEMA;
 const VERSION = 1;
 
 if (Number(process.versions.node.split(".")[0]) < 18) {
@@ -103,15 +105,29 @@ function validateCharacter(character, source, index) {
   }
 }
 
-function validateDocument(document, source) {
-  if (!document || typeof document !== "object" || Array.isArray(document)) {
+// id を省略したキャラには、作品名とキャラ名から毎回同じIDを付ける。
+function deriveId(work, name) {
+  return `c-${crypto.createHash("sha256").update(`${work}\u0000${name}`, "utf8").digest("hex").slice(0, 12)}`;
+}
+
+// version 2（作品ファイル形式）は従来形式のキャラ配列へ展開してから同じ規則で検証する。
+function validateDocument(input, source) {
+  if (!input || typeof input !== "object" || Array.isArray(input)) {
     throw usageError(`${source}: JSONのルートはオブジェクトで指定してください`);
   }
-  if (document.schema !== SCHEMA) {
+  if (input.schema !== SCHEMA) {
     throw usageError(`${source}: schema は ${SCHEMA} で指定してください`);
   }
-  if (document.version !== VERSION) {
-    throw usageError(`${source}: version は ${VERSION} で指定してください`);
+  if (input.version !== VERSION && input.version !== 2) {
+    throw usageError(`${source}: version は 2（作品ファイル形式）または ${VERSION} で指定してください`);
+  }
+  let document = input;
+  if (input.version === 2) {
+    try {
+      document = { schema: SCHEMA, version: 2, work: input.work, characters: format.expandWorkFile(input, { source, deriveId }) };
+    } catch (error) {
+      throw usageError(error.message);
+    }
   }
   if (!Array.isArray(document.characters)) {
     throw usageError(`${source}: characters 配列が見つかりません`);
@@ -213,7 +229,7 @@ function updateIndexCacheKey(output, source) {
 }
 
 function parseOptions(argv) {
-  const options = { dataDir: DEFAULT_DATA_DIR, output: DEFAULT_OUTPUT, check: false };
+  const options = { dataDir: DEFAULT_DATA_DIR, output: DEFAULT_OUTPUT, check: false, format: false };
   const optionValue = (name, index) => {
     const value = argv[index + 1];
     if (value === undefined || value.startsWith("--")) throw usageError(`${name} の値を指定してください`);
@@ -222,6 +238,7 @@ function parseOptions(argv) {
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--check") options.check = true;
+    else if (arg === "--format") options.format = true;
     else if (arg === "--data-dir") { options.dataDir = path.resolve(optionValue(arg, index)); index += 1; }
     else if (arg === "--output") { options.output = path.resolve(optionValue(arg, index)); index += 1; }
     else throw usageError(`不明なオプションです: ${arg}`);
@@ -229,9 +246,30 @@ function parseOptions(argv) {
   return options;
 }
 
+// 各JSONを作品ファイル形式（version 2・1キャラ1行・既定値は省略）に書き直す。
+function formatDocuments(dataDir, documents) {
+  let changed = 0;
+  for (const { file, document } of documents) {
+    const records = flattenDocuments([{ file, document }]);
+    const compact = format.compactWorkFile(records);
+    const expanded = format.expandWorkFile(compact, { source: file, deriveId });
+    const strip = list => JSON.stringify(list.map(orderedCharacter));
+    if (strip(expanded) !== strip(records)) throw usageError(`${file}: 整形前後で内容が一致しません`);
+    const text = format.formatWorkFile(compact);
+    const target = path.join(dataDir, file);
+    if (fs.readFileSync(target, "utf8") !== text) { fs.writeFileSync(target, text, "utf8"); changed += 1; }
+  }
+  return changed;
+}
+
 function main(argv = process.argv.slice(2)) {
   const options = parseOptions(argv);
-  const documents = readDocuments(options.dataDir);
+  let documents = readDocuments(options.dataDir);
+  if (options.format) {
+    const changed = formatDocuments(options.dataDir, documents);
+    console.log(`整形: ${changed}ファイルを書き直しました`);
+    documents = readDocuments(options.dataDir);
+  }
   const characters = flattenDocuments(documents);
   if (!options.check) {
     const generated = generateSource(characters);
@@ -248,4 +286,4 @@ if (require.main === module) {
   catch (error) { console.error(`キャラデータ更新に失敗しました: ${error.message}`); process.exitCode = 1; }
 }
 
-module.exports = { ALLOWED_TAGS, flattenDocuments, generateSource, main, readDocuments, validateCharacter, validateDocument };
+module.exports = { ALLOWED_TAGS, deriveId, flattenDocuments, formatDocuments, generateSource, main, readDocuments, validateCharacter, validateDocument };

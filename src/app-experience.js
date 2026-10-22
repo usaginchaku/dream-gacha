@@ -1,7 +1,7 @@
 (function(root){
   "use strict";
   const preferenceKey="dreamGachaDisplayMode";
-  const panes={library:{novels:"novelArchivePanel",presets:"presetPanel",save:"novelSavePanel"},manager:{list:"characterListPanel",add:"characterFormPanel",files:"ioPanel"}};
+  const panes={library:{novels:"novelArchivePanel",presets:"presetPanel",save:"novelSavePanel"},manager:{list:"characterListPanel",works:"workPanel",add:"characterFormPanel",files:"ioPanel"}};
   let ready=false,dialogTrigger=null,dialogTriggerSelector="";
 
   function mode(){return document.querySelector("#screen-gacha")?.dataset.mode||"simple";}

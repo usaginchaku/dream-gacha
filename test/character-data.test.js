@@ -8,6 +8,7 @@ const path = require("node:path");
 const vm = require("node:vm");
 const test = require("node:test");
 const builder = require("../tools/build-character-data.js");
+const format = require("../src/character-format.js");
 
 const root = path.resolve(__dirname, "..");
 const dataDir = path.join(root, "data", "characters");
@@ -32,7 +33,7 @@ function withFixture(document, callback) {
 test("generated bundle preserves every seeded character and major fields", () => {
   const characters = generatedCharacters();
   assert.equal(characters.length, 1303);
-  assert.equal(crypto.createHash("sha256").update(JSON.stringify(characters)).digest("hex"), "9320c34775835cc7d82d08976caa2d35ae73ef7ba992c4b019fc97ca352e36cb");
+  assert.equal(crypto.createHash("sha256").update(JSON.stringify(characters)).digest("hex"), "b0a2167a6849c8da81126a08d280da419af796a828c6355ad9f4f674c90b295c");
   assert.deepEqual(JSON.parse(JSON.stringify(characters.find(character => character.id === "jojo-caesar"))), {
     id: "jojo-caesar", name: "シーザー・A・ツェペリ", work: "ジョジョの奇妙な冒険", series: "2部",
     tags: ["キザ", "自信家", "女好き", "情熱的", "年上系", "包容力", "優しい"], archived: false,
@@ -103,4 +104,57 @@ test("validator rejects duplicate IDs across works", () => {
     ]
   };
   assert.throws(() => withFixture(document, dir => builder.main(["--check", "--data-dir", dir])), /キャラIDが重複/);
+});
+
+test("published work files use the compact version 2 format and are already formatted", () => {
+  for (const file of fs.readdirSync(dataDir).filter(name => name.endsWith(".json"))) {
+    const text = fs.readFileSync(path.join(dataDir, file), "utf8");
+    const document = JSON.parse(text);
+    assert.equal(document.version, 2, file);
+    assert.equal(format.formatWorkFile(document), text, `${file} は --format 済みの書式です`);
+  }
+  const documents = builder.readDocuments(dataDir);
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "dream-gacha-format-"));
+  try {
+    for (const file of fs.readdirSync(dataDir)) fs.copyFileSync(path.join(dataDir, file), path.join(directory, file));
+    assert.equal(builder.formatDocuments(directory, documents), 0, "formatting must be idempotent");
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("version 2 expands defaults, compact heights and gacha flags into full records", () => {
+  const document = {
+    schema: "dream-gacha.characters", version: 2, work: "W",
+    heightDefaults: { status: "verified", source: "公式資料" },
+    characters: [
+      { id: "a", name: "A", series: "1部", tags: ["冷静"], height: 180 },
+      { id: "b", name: "B", height: "175cm（アニメ）／172cm（原作）", gacha: false },
+      { id: "c", name: "C" },
+      { id: "d", name: "D", height: { cm: 190, status: "manual", source: "手動" } },
+      { name: "E", height: { text: "成人版は未設定", status: "verified", cm: null } }
+    ]
+  };
+  const records = format.expandWorkFile(document, { deriveId: builder.deriveId });
+  assert.deepEqual(records[0], { id: "a", name: "A", work: "W", series: "1部", tags: ["冷静"], archived: false, favorite: false, heightText: "180cm", heightCm: 180, heightStatus: "verified", heightSource: "公式資料" });
+  assert.equal(records[1].heightCm, 175);
+  assert.equal(records[1].archived, true);
+  assert.deepEqual([records[2].heightText, records[2].heightCm, records[2].heightStatus, records[2].heightSource], ["不明", null, "unknown", format.UNKNOWN_SOURCE]);
+  assert.deepEqual([records[3].heightStatus, records[3].heightSource], ["manual", "手動"]);
+  assert.equal(records[4].id, builder.deriveId("W", "E"));
+  assert.equal(records[4].heightCm, null);
+  const roundTrip = format.expandWorkFile(format.compactWorkFile(records), {});
+  assert.deepEqual(roundTrip, records);
+});
+
+test("version 2 reports typos and misplaced fields in plain Japanese", () => {
+  const base = { schema: "dream-gacha.characters", version: 2, work: "W", characters: [{ name: "A" }] };
+  assert.throws(() => format.expandWorkFile({ ...base, characters: [{ name: "A", tag: ["冷静"] }] }), /使えない項目があります: tag/);
+  assert.throws(() => format.expandWorkFile({ ...base, characters: [{ name: "A", work: "W" }] }), /作品名はファイル先頭の work/);
+  assert.throws(() => format.expandWorkFile({ ...base, work: "" }), /work（作品名）は必須/);
+  assert.throws(() => format.expandWorkFile({ ...base, characters: [{ name: "A", height: { cm: 170, status: "unknown" } }] }), /cm を書かないで/);
+  assert.throws(() => format.expandWorkFile({ ...base, characters: [{ name: "A", gacha: "no" }] }), /gacha は true か false/);
+  assert.throws(() => withFixture({ ...base, characters: [{ name: "A", tags: ["自由タグ"] }] }, dir => builder.main(["--check", "--data-dir", dir])), /許可されていないタグ/);
+  assert.deepEqual(format.charactersFrom([{ name: "X" }]), [{ name: "X" }]);
+  assert.throws(() => format.charactersFrom({}), /characters 配列/);
 });

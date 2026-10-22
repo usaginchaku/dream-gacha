@@ -297,4 +297,44 @@ footer{font-size:.7rem;padding:22px 0}
  .library-search-row{grid-template-columns:1fr}
  .tab-btn{font-size:.6rem}
 }
+/* 2026-10 改修：作品タブ・選択画面の見出し・ガチャ演出 */
+.section-nav{grid-template-columns:none;grid-auto-columns:minmax(0,1fr);grid-auto-flow:column}
+.screen>.panel{scroll-margin-top:76px}
+#gachaCharacterSlot .result-card{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--soft) 0%,color-mix(in srgb,var(--accent2) 16%,var(--soft)) 100%)}
+#gachaCharacterSlot .result-card::after{content:"✦";position:absolute;top:10px;right:14px;font-size:1rem;color:color-mix(in srgb,var(--accent2) 55%,transparent);pointer-events:none}
+.gacha-primary-actions .primary,#rollAll{background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 70%,var(--accent2)));color:#fff;border:0}
+@keyframes dg-reveal{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes dg-glow{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent2) 45%,transparent)}100%{box-shadow:0 0 0 14px transparent}}
+@keyframes dg-roll{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.result-card.revealing .value{animation:dg-reveal .45s cubic-bezier(.2,.8,.2,1) both}
+#gachaCharacterSlot .result-card.revealing{animation:dg-glow .8s ease-out}
+.result-card.revealing[data-key="situation"] .value{animation-delay:.06s}
+.result-card.revealing[data-key="mood"] .value{animation-delay:.12s}
+.result-card.revealing[data-key="extra"] .value{animation-delay:.18s}
+#rollAll.rolling svg{animation:dg-roll .5s ease-out}
+.choice-group{position:sticky;top:0;z-index:1;margin:10px 0 4px;padding:6px 4px;font-size:.74rem;font-weight:700;color:var(--accent);background:var(--panel)}
+.choice-group:first-child{margin-top:0}
+.choice-manage-works{display:block;width:calc(100% - 32px);margin:0 16px 14px;padding:10px 12px;min-height:44px;border:1px dashed var(--line);border-radius:12px;background:transparent;color:var(--accent);font-size:.78rem;text-align:left}
+.work-list{display:grid;gap:8px;margin-top:12px}
+.work-row{border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.work-row>summary{display:grid;grid-template-columns:minmax(0,1fr) auto 18px;grid-template-rows:auto auto;align-items:center;gap:6px 10px;padding:12px 14px;cursor:pointer;list-style:none}
+.work-row>summary::-webkit-details-marker{display:none}
+.work-row>summary::after{grid-column:3;grid-row:1}
+.work-row-name{font-weight:700;font-size:.9rem;overflow-wrap:anywhere}
+.work-row-count{font-size:.78rem;color:var(--muted);white-space:nowrap;font-weight:500}
+.work-row-count strong{color:var(--accent);font-size:.95rem}
+.work-row-meter{grid-column:1/-1;height:4px;border-radius:4px;background:var(--soft);overflow:hidden}
+.work-row-meter span{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.work-body{padding:0 14px 14px}
+.work-actions{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.work-actions .small-btn{min-height:40px;font-size:.76rem}
+.work-chips{display:flex;flex-wrap:wrap;gap:6px}
+.work-series{display:flex;justify-content:space-between;gap:8px;margin:14px 0 6px;font-size:.74rem;font-weight:700;color:var(--muted)}
+.work-series:first-of-type{margin-top:4px}
+.work-series span{font-weight:500}
+.work-chip{min-height:38px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel2);color:var(--muted);font-size:.8rem;font-weight:500}
+.work-chip.on{background:var(--soft);border-color:color-mix(in srgb,var(--accent) 45%,var(--line));color:var(--text);font-weight:700}
+.work-chip.on::before{content:"✓ ";color:var(--accent)}
+.work-chip .favorite-mark{margin-right:2px}
+.more-tags{background:transparent!important;color:var(--muted)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
