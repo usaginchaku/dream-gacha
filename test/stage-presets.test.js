@@ -5,7 +5,7 @@ const P=require('../src/stage-presets.js');
 
 test('bundled stages are valid independent choices and never apply until selected',()=>{
  const settings=P.addMissing(C.emptySettings());
- assert.equal(settings.entries.length,14);
+ assert.equal(settings.entries.length,20);
  C.validateSettings(settings);
  const context={character:{id:'c',work:'任意作品',series:'任意部'},worldMode:'canon',protagonistProfile:'成人女性、160cm',workProtagonistProfile:'作品別夢主'};
  assert.deepEqual(C.resolve(settings,C.emptySelection(),C.emptyOutput(),context).sections,[]);
@@ -34,4 +34,14 @@ test('adding missing stages preserves user edits, disabled entries, references a
  assert.deepEqual(P.addMissing(result),result);
  const second=P.addMissing(C.emptySettings());result.entries.at(-1).body='後から変更';
  assert.notEqual(second.entries.at(-1).body,'後から変更');
+});
+
+test('v46 stages are added alone, without restoring stages the user deleted',()=>{
+ const withoutNew=P.entries.filter(e=>!P.SINCE_46.includes(e.id));
+ const userDeletedOne={style:'',entries:structuredClone(withoutNew.slice(1))};
+ const result=P.addMissing(userDeletedOne,P.SINCE_46);
+ C.validateSettings(result);
+ assert.equal(result.entries.some(e=>e.id===withoutNew[0].id),false);
+ assert.deepEqual(result.entries.slice(-6).map(e=>e.id),P.SINCE_46);
+ assert.deepEqual(P.addMissing(result,P.SINCE_46),result);
 });

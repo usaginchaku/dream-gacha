@@ -90,14 +90,19 @@ async function main(){
  assert.ok(migratedPool.extra===undefined);
  assert.ok(migratedPool.pools.extra.includes("独自の追加"));
  assert.equal(migratedPool.values.mood,"普段強い側が弱さを見せる");
- assert.equal(run(poolApp,"prepareSettings({version:40,pools:{relationship:[],situation:[],mood:[],extra:['独自']},characters:[]},false).pools.extra.length"),1);
+ assert.equal(run(poolApp,"prepareSettings({version:45,pools:{relationship:[],situation:[],mood:[],extra:['独自']},characters:[]},false).pools.extra.length"),1+run(poolApp,"POOL_ADDITIONS_46.extra.length"));
+ // v46 additions append once, keep custom text first, and never refill a pool the user emptied.
+ const pool46=run(poolApp,"prepareSettings({version:45,pools:{relationship:[],situation:['自作シチュ'],mood:[],extra:['独自']},characters:[]},false).pools");
+ assert.equal(pool46.situation[0],"自作シチュ");assert.equal(pool46.relationship.length,0);
+ assert.ok(pool46.situation.includes("線香花火の火が落ちるまで黙って見つめる"));
+ assert.equal(run(poolApp,"prepareSettings({version:46,pools:{relationship:[],situation:['自作シチュ'],mood:[],extra:['独自']},characters:[]},false).pools.situation.length"),1);
  const index=fs.readFileSync(path.join(root,"index.html"),"utf8");
  const appSource=fs.readFileSync(path.join(root,"src/app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"assets/styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,7),["src/app-data.js?v=48","src/app-context.js?v=48","src/app-domain.js?v=48","src/app-prompts.js?v=48","src/app-storage.js?v=48","src/app-ui.js?v=46","src/character-format.js?v=50"]);
+  assert.deepEqual(src.slice(0,7),["src/app-data.js?v=52","src/app-context.js?v=48","src/app-domain.js?v=48","src/app-prompts.js?v=48","src/app-storage.js?v=52","src/app-ui.js?v=46","src/character-format.js?v=50"]);
  assert.match(src[7],/^data\/character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(8),["src/seed-data.js?v=44","src/stage-presets.js?v=44","src/app-context-ui.js?v=48","src/app-character-card-ui.js?v=48","src/app-recipe.js?v=49","src/app-works-ui.js?v=51","src/app-experience.js?v=50","src/app.js?v=51"]);
+  assert.deepEqual(src.slice(8),["src/seed-data.js?v=52","src/stage-presets.js?v=52","src/app-context-ui.js?v=48","src/app-character-card-ui.js?v=48","src/app-recipe.js?v=49","src/app-works-ui.js?v=51","src/app-experience.js?v=50","src/app.js?v=52"]);
   for(const stylesheet of ["styles.css","mobile-ui.css"])assert.ok(index.includes(`href="assets/${stylesheet}?v=51"`));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
@@ -194,7 +199,7 @@ async function main(){
  migration.local.set("dreamGachaSettings",JSON.stringify({version:38,characters:[historicalSnapshot.character],characterId:"old-id",values:{relationship:"旧条件"},pools:{},basePrompt:historicalSnapshot.prompt,promptDraftSnapshot:historicalSnapshot,presets:[historicalPreset]}));
  run(migration,"init();save()");
  const migratedSettings=JSON.parse(migration.local.get("dreamGachaSettings"));
- assert.equal(migratedSettings.version,45);
+ assert.equal(migratedSettings.version,46);
  assert.equal(migratedSettings.basePrompt,canonicalPrompt);
  assert.deepStrictEqual(migratedSettings.promptDraftSnapshot,historicalSnapshot);
  assert.deepStrictEqual(migratedSettings.presets,[historicalPreset]);
@@ -227,15 +232,16 @@ async function main(){
  stages.local.set('dreamGachaSettings',JSON.stringify(stageRaw));
  run(stages,"init();save()");
  const stageSaved=JSON.parse(stages.local.get('dreamGachaSettings'));
- assert.equal(stageSaved.version,45);
- assert.equal(stageSaved.promptSettings.entries.length,14);
+ assert.equal(stageSaved.version,46);
+ assert.equal(stageSaved.promptSettings.entries.length,20);
  assert.equal(stageSaved.basePromptLabel,stageRaw.basePromptLabel);
  assert.deepStrictEqual(stageSaved.promptContextOverride,oldContext);
  assert.deepStrictEqual(stageSaved.promptDraftSnapshot,oldStageSnapshot);
  assert.deepStrictEqual(stageSaved.presets,stageRaw.presets);
  run(stages,"load();save()");
- assert.equal(JSON.parse(stages.local.get('dreamGachaSettings')).promptSettings.entries.length,14);
- assert.equal(run(stages,"prepareSettings({version:43,characters:[],pools:{},promptSettings:DreamGachaContext.emptySettings()}).promptSettings.entries.length"),0);
+ assert.equal(JSON.parse(stages.local.get('dreamGachaSettings')).promptSettings.entries.length,20);
+ assert.equal(run(stages,"prepareSettings({version:43,characters:[],pools:{},promptSettings:DreamGachaContext.emptySettings()}).promptSettings.entries.map(e=>e.id).join()"),run(stages,"DreamGachaStagePresets.SINCE_46.join()"));
+ assert.equal(run(stages,"prepareSettings({version:46,characters:[],pools:{},promptSettings:DreamGachaContext.emptySettings()}).promptSettings.entries.length"),0);
 
  // Every category exposes separate, unambiguous include and exclude actions.
  run(a,"chooserKey='relationship';state.pools.relationship=DEFAULT_POOLS.relationship;renderChooserCategoryChips()");
