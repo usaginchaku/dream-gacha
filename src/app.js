@@ -677,7 +677,7 @@ function openChooser(key,quick=false,trigger){
     $("#quickChoiceWork").innerHTML='<option value="">すべての作品</option>'+unique(activeCharacters().map(c=>c.work)).map(work=>`<option value="${esc(work)}">${esc(work)}</option>`).join("");
     $("#quickChoiceFavorite").setAttribute("aria-pressed","false");$("#quickChoiceFavorite").classList.remove("active");
   }
-  $("#choiceNote").textContent=quickCharacterChoice?"選んだキャラは固定され、シチュだけを回せます。":"選択後も残すときは「固定」をオンにします。";
+  $("#choiceNote").textContent=quickCharacterChoice?"選んだキャラは固定され、シチュだけを回せます。名前で検索すると、お休み中のキャラも見つかります。":"選択後も残すときは「固定」をオンにします。";
   $("#choiceCategoryWrap").open=false;
  $("#choiceTitle").textContent=`${META[key].label}を候補から選ぶ`;
  $("#choiceSearch").value="";
@@ -698,6 +698,14 @@ function renderChooserList(){
  const q=$("#choiceSearch").value.trim().toLowerCase();
  const current=chooserKey==="character"?state.characterId:state.values[chooserKey];
  const arr=chooserEntries(chooserKey).filter(x=>(x.label+" "+x.meta).toLowerCase().includes(q));
+ // 検索したときは、お休み中のキャラも見つかるようにする。選ぶとガチャに戻して選択する。
+ if(quickCharacterChoice&&q){
+   const work=$("#quickChoiceWork")?.value,favorites=$("#quickChoiceFavorite")?.getAttribute("aria-pressed")==="true";
+   for(const c of state.characters.filter(c=>c.archived&&(!work||c.work===work)&&(!favorites||c.favorite))){
+     const entry={value:c.id,label:(c.favorite?"★ ":"")+c.name,group:"お休み中のキャラ（選ぶとガチャに戻ります）",meta:[c.work,c.series].filter(Boolean).join(" / ")};
+     if((entry.label+" "+entry.meta).toLowerCase().includes(q))arr.push(entry);
+   }
+ }
  let group="";
  $("#choiceList").innerHTML=arr.length?arr.map(x=>{
    const badge=quickCharacterChoice?"":`<span class="category-badge">${esc(categoryFor(chooserKey,x.value))}</span>`;
@@ -709,7 +717,9 @@ function chooseValue(value){
  if(!chooserKey)return;
  const key=chooserKey,before={characterId:state.characterId,values:{...state.values},locks:{...state.locks},conditionEditMode:state.conditionEditMode};
  state.conditionEditMode=true;
+ const benched=chooserKey==="character"&&quickCharacterChoice?state.characters.find(c=>c.id===value&&c.archived):null;
  if(chooserKey==="character"){
+   if(benched)benched.archived=false;
    if(!state.characters.some(c=>c.id===value&&!c.archived))return;
    state.characterId=value;
    if(quickCharacterChoice){state.locks.character=true;const lock=document.querySelector('[data-lock="character"]');if(lock)lock.checked=true;updateLock("character");}
@@ -719,11 +729,13 @@ function chooseValue(value){
  }
  DreamGachaRecipe.render();
  try{save();}catch(error){
+   if(benched)benched.archived=true;
    Object.assign(state,before);
    const lock=document.querySelector('[data-lock="character"]');if(lock)lock.checked=state.locks.character;
    updateCard(key);updateLock("character");renderPicker();DreamGachaRecipe.render();return;
  }
  closeChooser();
+ if(benched){renderGachaFilters();showToast(`${benched.name}をガチャに戻して選びました`);}
 }
 function updateCategoryStatus(key){
   const el=document.querySelector(`[data-category-status="${key}"]`);if(!el)return;

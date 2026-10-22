@@ -85,6 +85,9 @@ try {
     await page.locator('[data-quick-choose]').click();
     assert.equal(await page.locator('#choiceList .choice-group').first().innerText(),'★ お気に入り');
     assert.equal(await page.locator('#choiceList .choice-item').first().getAttribute('data-choice-value'),'jojo-fugo');
+    await page.locator('#choiceSearch').fill('伊東鴨太郎');
+    assert.match(await page.locator('#choiceList').innerText(),/お休み中のキャラ/,'search also finds benched characters');
+    await page.locator('#choiceSearch').fill('');
     await page.locator('#choiceManageWorks').click();
     assert.equal(await page.locator('#workPanel').isVisible(),true);
     assert.equal(await page.locator('#manager-tab-works').getAttribute('aria-selected'),'true');

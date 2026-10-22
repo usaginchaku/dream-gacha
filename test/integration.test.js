@@ -97,8 +97,8 @@ async function main(){
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
   assert.deepEqual(src.slice(0,7),["src/app-data.js?v=48","src/app-context.js?v=48","src/app-domain.js?v=48","src/app-prompts.js?v=48","src/app-storage.js?v=48","src/app-ui.js?v=46","src/character-format.js?v=50"]);
  assert.match(src[7],/^data\/character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(8),["src/seed-data.js?v=44","src/stage-presets.js?v=44","src/app-context-ui.js?v=48","src/app-character-card-ui.js?v=48","src/app-recipe.js?v=49","src/app-works-ui.js?v=50","src/app-experience.js?v=50","src/app.js?v=50"]);
-  for(const stylesheet of ["styles.css","mobile-ui.css"])assert.ok(index.includes(`href="assets/${stylesheet}?v=50"`));
+  assert.deepEqual(src.slice(8),["src/seed-data.js?v=44","src/stage-presets.js?v=44","src/app-context-ui.js?v=48","src/app-character-card-ui.js?v=48","src/app-recipe.js?v=49","src/app-works-ui.js?v=51","src/app-experience.js?v=50","src/app.js?v=51"]);
+  for(const stylesheet of ["styles.css","mobile-ui.css"])assert.ok(index.includes(`href="assets/${stylesheet}?v=51"`));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
