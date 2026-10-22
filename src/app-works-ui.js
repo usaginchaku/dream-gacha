@@ -26,8 +26,11 @@
     const bySeries=new Map(seriesList.map(series=>[series,[]]));
     for(const c of group.characters){if(!bySeries.has(c.series||""))bySeries.set(c.series||"",[]);bySeries.get(c.series||"").push(c);}
     const sections=[...bySeries.entries()].filter(([,list])=>list.length);
+    // 細かく分かれすぎる作品は見出しがかえって邪魔になるため、まとめて並べる。
+    const useHeadings=sections.length>1&&sections.length<=10&&group.characters.length/sections.length>=3;
+    if(!useHeadings)return `<div class="work-chips">${sections.flatMap(([,list])=>list).map(chip).join("")}</div>`;
     return sections.map(([series,list])=>{
-      const heading=sections.length>1?`<div class="work-series">${esc(series||"部・シリーズ未設定")}<span>${list.filter(c=>!c.archived).length} / ${list.length}</span></div>`:"";
+      const heading=useHeadings?`<div class="work-series">${esc(series||"部・シリーズ未設定")}<span>${list.filter(c=>!c.archived).length} / ${list.length}</span></div>`:"";
       return `${heading}<div class="work-chips">${list.map(chip).join("")}</div>`;
     }).join("");
   }

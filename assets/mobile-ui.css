@@ -303,6 +303,7 @@ footer{font-size:.7rem;padding:22px 0}
 #gachaCharacterSlot .result-card{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--soft) 0%,color-mix(in srgb,var(--accent2) 16%,var(--soft)) 100%)}
 #gachaCharacterSlot .result-card::after{content:"✦";position:absolute;top:10px;right:14px;font-size:1rem;color:color-mix(in srgb,var(--accent2) 55%,transparent);pointer-events:none}
 .gacha-primary-actions .primary,#rollAll{background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 70%,var(--accent2)));color:#fff;border:0}
+:root[data-theme="dark"] .gacha-primary-actions .primary,:root[data-theme="dark"] #rollAll{color:#20162c}
 @keyframes dg-reveal{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes dg-glow{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent2) 45%,transparent)}100%{box-shadow:0 0 0 14px transparent}}
 @keyframes dg-roll{from{transform:rotate(0)}to{transform:rotate(360deg)}}
@@ -314,7 +315,7 @@ footer{font-size:.7rem;padding:22px 0}
 #rollAll.rolling svg{animation:dg-roll .5s ease-out}
 .choice-group{position:sticky;top:0;z-index:1;margin:10px 0 4px;padding:6px 4px;font-size:.74rem;font-weight:700;color:var(--accent);background:var(--panel)}
 .choice-group:first-child{margin-top:0}
-.choice-manage-works{display:block;width:calc(100% - 32px);margin:0 16px 14px;padding:10px 12px;min-height:44px;border:1px dashed var(--line);border-radius:12px;background:transparent;color:var(--accent);font-size:.78rem;text-align:left}
+.choice-manage-works{display:block;flex-shrink:0;width:calc(100% - 32px);margin:0 16px 14px;padding:10px 12px;min-height:44px;border:1px dashed var(--line);border-radius:12px;background:transparent;color:var(--accent);font-size:.78rem;text-align:left}
 .work-list{display:grid;gap:8px;margin-top:12px}
 .work-row{border:1px solid var(--line);border-radius:14px;background:var(--panel)}
 .work-row>summary{display:grid;grid-template-columns:minmax(0,1fr) auto 18px;grid-template-rows:auto auto;align-items:center;gap:6px 10px;padding:12px 14px;cursor:pointer;list-style:none}
