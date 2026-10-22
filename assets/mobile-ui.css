@@ -298,3 +298,9 @@ footer{font-size:.7rem;padding:22px 0}
  .tab-btn{font-size:.6rem}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Line breaking: avoid stray last characters */
+body{line-break:strict;text-wrap-style:pretty}
+h1,h2,h3,h4,h5,h6,button,label,summary,legend,dt,th,.value{text-wrap-style:balance}
+.value,.char-meta{word-break:keep-all;overflow-wrap:anywhere}
+[data-phrased]{word-break:keep-all;overflow-wrap:anywhere}
