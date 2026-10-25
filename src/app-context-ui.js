@@ -44,7 +44,7 @@
     for(const {entry:e,active,reason} of result.rows){
       textRows.push(`<div class="context-applied-row"><label><input type="checkbox" data-context-apply="${esc(e.id)}"${active?" checked":""}> ${esc(e.title)}</label><span class="label">${esc(reason)}・版 ${e.revision}</span><details><summary>内容と適用条件</summary><p>${esc(readableScope(e))}${e.characterNote?`・${esc(C.characterNoteLabel(e,setting))}`:""}${e.kind==="protagonist"?`・${e.protagonistMode==="replace"?"共通・作品別の夢主設定を置き換え":"夢主設定に追加"}`:""}</p><pre>${esc(e.body)}</pre>${referenceHtml(e)}</details></div>`);
     }
-    list.innerHTML=textRows.join("")||'<p class="manager-note">該当する舞台・補足はありません。共通の夢主設定と作品別設定を使用します。</p>';
+    list.innerHTML=textRows.join("")||'<p class="manager-note">該当なし</p>';
     $("#contextAppliedCount").textContent=`舞台 ${result.stage?1:0}件・補足 ${result.rows.filter(r=>r.active).length}件${result.replacement?"・夢主を置き換え":""}`;
     if(!outputDirty){$("#contextOutputLength").value=state.promptOutput.length;$("#contextOutputPov").value=state.promptOutput.pov;}
     if(typeof refreshPromptStatus==="function")refreshPromptStatus();
@@ -62,7 +62,7 @@
   function renderList(){
     const type=$("#contextFilterKind").value,work=$("#contextFilterWork").value;
     const visible=state.promptSettings.entries.filter(e=>(!type||e.kind===type)&&(!work||e.scope.works.includes(work)));
-    $("#contextEntryList").innerHTML=visible.map(e=>`<button type="button" class="context-entry-button small-btn" data-context-edit="${esc(e.id)}"><strong>${esc(e.title)}</strong><span>${kinds[e.kind]}・版 ${e.revision}${e.enabled?"":"・無効"}</span></button>`).join("")||'<p class="manager-note">登録した設定がここに表示されます。</p>';
+    $("#contextEntryList").innerHTML=visible.map(e=>`<button type="button" class="context-entry-button small-btn" data-context-edit="${esc(e.id)}"><strong>${esc(e.title)}</strong><span>${kinds[e.kind]}・版 ${e.revision}${e.enabled?"":"・無効"}</span></button>`).join("")||'';
   }
   function render(){
     if(!$("#contextStyle"))return;

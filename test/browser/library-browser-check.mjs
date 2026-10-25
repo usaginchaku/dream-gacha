@@ -87,7 +87,7 @@ try {
   // First launch automatically rolls once, so the standard revision also exists.
   assert.equal(versions.length, 3);assert.equal(versions.filter(r => r.label === '試験版 A').length, 1);assert.equal(versions.filter(r => r.label === '試験版 B').length, 1);
   assert.equal(JSON.stringify((await page.evaluate(() => novelAll()))[0].snapshot), frozenPrompt);
-  await page.locator('summary').filter({ hasText: '配布標準との差分・保存した版' }).click();
+  await page.locator('summary').filter({ hasText: '標準との差分・版履歴' }).click();
   await page.locator('#promptVersionHistory').selectOption(versions.find(r => r.label === '試験版 A').id);
   await page.locator('#usePromptVersion').click();
   assert.equal(await page.locator('#basePromptLabel').inputValue(), '試験版 A');
