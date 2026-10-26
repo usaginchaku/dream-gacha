@@ -41,14 +41,14 @@
     const list=document.querySelector("#workList");if(!list)return;
     const groups=works();
     const active=state.characters.filter(c=>!c.archived).length;
-    document.querySelector("#workSummary").textContent=`ガチャに出るキャラ ${active}人`;
+    document.querySelector("#workSummary").textContent=`ガチャに出る ${active}人`;
     list.innerHTML=groups.map(group=>`<details class="work-row" data-work="${esc(group.work)}"${openWorks.has(group.work)?" open":""}><summary>${summary(group)}</summary><div class="work-body">${openWorks.has(group.work)?body(group):""}</div></details>`).join("")||'<div class="empty">キャラが登録されていません</div>';
   }
   function refreshRow(row){
     const group=works().find(g=>g.work===row.dataset.work);if(!group)return render();
     row.querySelector("summary").innerHTML=summary(group);
     row.querySelector(".work-body").innerHTML=row.open?body(group):"";
-    document.querySelector("#workSummary").textContent=`ガチャに出るキャラ ${state.characters.filter(c=>!c.archived).length}人`;
+    document.querySelector("#workSummary").textContent=`ガチャに出る ${state.characters.filter(c=>!c.archived).length}人`;
   }
   function apply(ids,archived,message){
     const changed=state.characters.filter(c=>ids.includes(c.id)&&c.archived!==archived);

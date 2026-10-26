@@ -102,8 +102,8 @@ async function main(){
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
   assert.deepEqual(src.slice(0,7),["src/app-data.js?v=52","src/app-context.js?v=48","src/app-domain.js?v=48","src/app-prompts.js?v=48","src/app-storage.js?v=52","src/app-ui.js?v=46","src/character-format.js?v=50"]);
  assert.match(src[7],/^data\/character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(8),["src/seed-data.js?v=52","src/stage-presets.js?v=52","src/app-context-ui.js?v=48","src/app-character-card-ui.js?v=48","src/app-recipe.js?v=49","src/app-works-ui.js?v=51","src/app-experience.js?v=50","src/app.js?v=52"]);
-  for(const stylesheet of ["styles.css","mobile-ui.css"])assert.ok(index.includes(`href="assets/${stylesheet}?v=51"`));
+  assert.deepEqual(src.slice(8),["src/seed-data.js?v=52","src/stage-presets.js?v=52","src/app-context-ui.js?v=49","src/app-character-card-ui.js?v=48","src/app-recipe.js?v=49","src/app-works-ui.js?v=52","src/app-experience.js?v=51","src/app.js?v=53"]);
+  for(const stylesheet of ["styles.css","mobile-ui.css"])assert.ok(index.includes(`href="assets/${stylesheet}?v=52"`));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
  assert.equal(index.includes('id="characterPicker"'),false);
@@ -116,7 +116,7 @@ async function main(){
  for(const pane of ["list","add","files"])assert.ok(index.includes(`data-manager-pane="${pane}"`));
  assert.doesNotMatch(index,/<details class="filter-box filter-disclosure" id="gachaFilterDetails"\s+open/);
  assert.doesNotMatch(index,/<select id="importMode"[^>]*>[\s\S]*?<option value="replace"/);
- assert.match(appSource,/result-quick-actions/);assert.match(appSource,/result-detail/);
+ assert.match(appSource,/result-quick-actions/);assert.match(appSource,/data-choose="\$\{key\}"/);
  assert.match(styleSource,/:root\[data-theme="dark"\]/);assert.match(styleSource,/\.value\{[^}]*white-space:normal[^}]*overflow-wrap:anywhere/);
  assert.match(styleSource,/:root\[data-theme="dark"\] \.tabs\{background:transparent\}/);
  assert.match(styleSource,/:root\[data-theme="dark"\] \.help-hero\{background:linear-gradient\(135deg,var\(--surface-accent\)/);
@@ -126,9 +126,12 @@ async function main(){
  assert.match(styleSource,/\.backup-box,.inline-editor\)\{background:linear-gradient\(135deg,var\(--surface-soft\),var\(--surface-accent\)\)/);
  assert.match(index,/<details class="candidate-selector" id="candidatePreviewBox">/);
  for(const id of ["worldModeOptions","worldModeSummary","workProfileWork","workProtagonistProfile","resetWorkProfile"])assert.ok(index.includes(`id="${id}"`));
- for(const id of ["tab-help","screen-help","help-basic","help-details","help-character-json","characterResearchWork","characterResearchPromptPreview","allowedTagGuide","help-faq"])assert.ok(index.includes(`id="${id}"`));
- for(const phrase of ["好きなキャラ","お休みにしたキャラは消えますか？","完全バックアップ","data-go-screen=\"manager\""])assert.ok(index.includes(phrase));
+ for(const id of ["tab-help","screen-help","help-character-json","characterResearchWork","characterResearchPromptPreview","allowedTagGuide","help-faq"])assert.ok(index.includes(`id="${id}"`));
+ for(const phrase of ["お休みにしたキャラは消えますか？","完全バックアップ","data-go-screen=\"manager\""])assert.ok(index.includes(phrase));
  assert.match(index,/role="tab" aria-controls="screen-help" aria-selected="false"/);
+ assert.match(index,/<meta name="viewport" content="[^"]*maximum-scale=1, user-scalable=no/);
+ assert.match(fs.readFileSync(path.join(root,"assets/mobile-ui.css"),"utf8"),/html\{[^}]*touch-action:pan-x pan-y/);
+ assert.match(fs.readFileSync(path.join(root,"src/app-experience.js"),"utf8"),/gesturestart/);
 
  const a=makeApp();
  // The bundled writing prompt asks for a title, while the concrete protagonist

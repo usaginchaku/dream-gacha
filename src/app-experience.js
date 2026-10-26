@@ -48,7 +48,7 @@
     const filtered=filters.search||filters.favorite!=="all"||filters.minHeight!==null||filters.maxHeight!==null||["workIncluded","workExcluded","seriesIncluded","seriesExcluded","tags","characterIncluded","characterExcluded"].some(key=>filters[key].size);
     const customized=locked.length||filtered||state.worldMode!==DEFAULT_WORLD_MODE||state.supportingSituation||state.requestProtagonist||document.querySelector("#freeExtra").value||settings.style||state.promptSelection.stageId||state.promptSelection.manualIds.length||state.promptSelection.excludedIds.length||state.promptOutput.length||state.promptOutput.pov||settings.entries.some(entry=>entry.enabled&&entry.kind!=="stage");
     link.hidden=mode()!=="simple"||!customized;
-    link.textContent=locked.length?`固定中の条件 ${locked.length}件・設定を確認`:"追加の設定を確認";
+    link.textContent=locked.length?`固定 ${locked.length}件 ›`:"カスタム設定あり ›";
     const errors=document.querySelector("#recipeError")?.textContent||document.querySelector("#contextErrors:not([hidden])")?.textContent;
     if(errors&&mode()==="simple")setMode("custom",false);
     const lock=document.querySelector('[data-lock="character"]');
@@ -77,8 +77,17 @@
     if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
     else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
   }
+  function lockZoom(){
+    // iOS Safari ignores user-scalable=no, so cancel its pinch gesture directly.
+    const cancel=event=>event.preventDefault();
+    for(const type of ["gesturestart","gesturechange","gestureend"])document.addEventListener(type,cancel);
+    // Trackpad pinch arrives as Ctrl+wheel; also block the keyboard zoom shortcuts.
+    document.addEventListener("wheel",event=>{if(event.ctrlKey)event.preventDefault();},{passive:false});
+    document.addEventListener("keydown",event=>{if((event.ctrlKey||event.metaKey)&&["+","-","=","0",";"].includes(event.key))event.preventDefault();});
+  }
   function init(){
     ready=true;
+    lockZoom();
     let saved="simple";try{saved=localStorage.getItem(preferenceKey)||saved;}catch(error){}
     setMode(saved==="custom"?"custom":"simple",false);
     document.querySelectorAll("[data-gacha-mode]").forEach(button=>button.addEventListener("click",()=>setMode(button.dataset.gachaMode)));
@@ -100,7 +109,7 @@
       button.setAttribute("aria-pressed",String(active));button.classList.toggle("active",active);renderChooserList();
     });
     document.addEventListener("keydown",trapFocus);
-    // Keep action bars out of the software keyboard's way without disabling zoom.
+    // Keep action bars out of the software keyboard's way.
     window.visualViewport?.addEventListener("resize",()=>document.body.classList.toggle("keyboard-open",window.innerHeight-window.visualViewport.height>150));
     refresh();
   }
