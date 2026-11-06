@@ -2,9 +2,16 @@
   "use strict";
   function text(value){return String(value??"")}
   function clone(value){return value===undefined?undefined:JSON.parse(JSON.stringify(value))}
+  const CONDITION_PLACEHOLDER="（ここに今回の条件が入ります）";
   function formatPrompt(input){
     const c=input.character||null,free=text(input.freeExtra).trim();
-    const parts=[text(input.basePrompt),"","【キャラ】",c?.name||""];
+    const base=text(input.basePrompt),mark=base.indexOf(CONDITION_PLACEHOLDER);
+    // A base prompt may put the placeholder between its first half and its
+    // closing half (final check / output). Conditions belong at the placeholder;
+    // without one they keep following the whole base prompt, as before.
+    const head=mark>=0?base.slice(0,mark).replace(/\s+$/,""):base;
+    const tail=mark>=0?base.slice(mark+CONDITION_PLACEHOLDER.length).replace(/^\s+/,""):"";
+    const parts=[head,"","【キャラ】",c?.name||""];
     if(c?.work)parts.push("","【作品】",c.work);
     if(c?.series)parts.push("","【部・シリーズ】",c.series);
     if(c?.heightText)parts.push("","【公称身長】",c.heightText);
@@ -15,6 +22,7 @@
     if(input.workProtagonistProfile)parts.push("",`【作品別の夢主設定${c?.work?`：${c.work}`:""}】`,text(input.workProtagonistProfile));
     for(const section of input.contextSections||[])if(section.text)parts.push("",`【${section.title}】`,text(section.text));
     if(free)parts.push("","【自由な追加指定】",free);
+    if(tail)parts.push("",tail);
     return parts.join("\n").trim()+"\n";
   }
   function makeSnapshot(input,now){
