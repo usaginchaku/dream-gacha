@@ -8,6 +8,15 @@ test("prompt formatting is pure and includes world and protagonist layers",()=>{
   assert.equal(JSON.stringify(input),before);assert.match(out,/【キャラ】\nA/);assert.match(out,/【世界観モード】\n原作準拠：原作世界を使う/);assert.match(out,/【夢主設定】\n共通設定/);assert.match(out,/【作品別の夢主設定：W】\n作品設定/);assert.match(out,/【自由な追加指定】\n今回だけ/);
 });
 
+test("prompt formatting inserts conditions at the placeholder when the base prompt has one",()=>{
+  const base="HEAD\n\n以下が今回の条件です。\n\n（ここに今回の条件が入ります）\n\n## 最終確認\nTAIL";
+  const out=domain.formatPrompt({basePrompt:base,character:{name:"A"},relationship:"恋人",situation:"雨",mood:"甘い",extra:"夜"});
+  assert.ok(out.indexOf("HEAD")<out.indexOf("【キャラ】"));
+  assert.ok(out.indexOf("【追加条件】")<out.indexOf("## 最終確認"));
+  assert.equal(out.includes("（ここに今回の条件が入ります）"),false);
+  assert.ok(out.endsWith("TAIL\n"));
+});
+
 test("snapshot preserves edited prompt and copies character tags",()=>{
   const source={character:{id:"1",name:"A",work:"W",tags:["x"]},prompt:"手編集した文",relationship:"",workProtagonistProfile:"作品設定",worldMode:"school"};
   const snap=domain.makeSnapshot(source,"2026-01-01T00:00:00Z");source.character.tags.push("y");

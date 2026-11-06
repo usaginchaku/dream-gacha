@@ -100,9 +100,9 @@ async function main(){
  const appSource=fs.readFileSync(path.join(root,"src/app.js"),"utf8");
  const styleSource=fs.readFileSync(path.join(root,"assets/styles.css"),"utf8");
  const src=[...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(x=>x[1]);
-  assert.deepEqual(src.slice(0,7),["src/app-data.js?v=52","src/app-context.js?v=48","src/app-domain.js?v=48","src/app-prompts.js?v=48","src/app-storage.js?v=52","src/app-ui.js?v=46","src/character-format.js?v=50"]);
+  assert.deepEqual(src.slice(0,7),["src/app-data.js?v=53","src/app-context.js?v=48","src/app-domain.js?v=49","src/app-prompts.js?v=48","src/app-storage.js?v=53","src/app-ui.js?v=46","src/character-format.js?v=50"]);
  assert.match(src[7],/^data\/character-data\.generated\.js\?v=[a-f0-9]{12}$/);
-  assert.deepEqual(src.slice(8),["src/seed-data.js?v=52","src/stage-presets.js?v=52","src/app-context-ui.js?v=48","src/app-character-card-ui.js?v=48","src/app-recipe.js?v=49","src/app-works-ui.js?v=51","src/app-experience.js?v=50","src/app.js?v=52"]);
+  assert.deepEqual(src.slice(8),["src/seed-data.js?v=53","src/stage-presets.js?v=52","src/app-context-ui.js?v=48","src/app-character-card-ui.js?v=48","src/app-recipe.js?v=49","src/app-works-ui.js?v=51","src/app-experience.js?v=50","src/app.js?v=52"]);
   for(const stylesheet of ["styles.css","mobile-ui.css"])assert.ok(index.includes(`href="assets/${stylesheet}?v=51"`));
  assert.equal(index.includes("お嬢様"),false);
  assert.equal(index.includes("data-mobile-category-mode"),false);
@@ -133,16 +133,19 @@ async function main(){
  const a=makeApp();
  // The bundled writing prompt asks for a title, while the concrete protagonist
  // profile lives only in the separate profile setting.
- const canonicalPrompt=fs.readFileSync(path.join(root,"prompts/dream-novel-0.1.3.3.md"),"utf8").replace(/\r\n/g,"\n").trimEnd();
+ const canonicalPrompt=fs.readFileSync(path.join(root,"prompts/dream-novel-0.1.4.1.md"),"utf8").replace(/\r\n/g,"\n").trimEnd();
  assert.equal(run(a,"DEFAULT_BASE_PROMPT"),canonicalPrompt);
- assert.ok(canonicalPrompt.startsWith("# 夢小説生成プロンプト Ver.0.1.3.3\n"));
+ assert.ok(canonicalPrompt.startsWith("# 夢小説生成プロンプト Ver.0.1.4.1\n"));
+ const previous0133=fs.readFileSync(path.join(root,"prompts/dream-novel-0.1.3.3.md"),"utf8").replace(/\r\n/g,"\n").trimEnd();
+ assert.equal(run(a,"PREVIOUS_BASE_PROMPT_0133"),previous0133);
  const previous0132=fs.readFileSync(path.join(root,"prompts/dream-novel-0.1.3.2.md"),"utf8").replace(/\r\n/g,"\n").trimEnd();
- const supportingCastSection="\n\n\n## 脇役の登場と場面の把握\n\nその場にいる脇役キャラについても、早い段階で名前・呼称と存在が自然に分かるようにしてください。初めから同席している人物を「三人」「彼ら」などの集合表現に含めたまま、途中で突然名前や行動を出し、そこで初めて存在が判明する書き方は避けてください。\n\n全員の名前を冒頭で列挙したり、人物紹介を挟んだりする必要はありません。会話・挨拶・動作・視点人物の認識へ織り込み、誰がその場にいるのか、途中で誰が加わったのかを読者が自然に把握できるようにしてください。";
  assert.equal(run(a,"PREVIOUS_BASE_PROMPT_0132"),previous0132);
- assert.equal(canonicalPrompt.split(supportingCastSection).length,2);
- assert.equal(canonicalPrompt.replace(supportingCastSection,"").replace('Ver.0.1.3.3','Ver.0.1.3.2'),previous0132);
- assert.ok(canonicalPrompt.indexOf(supportingCastSection)>canonicalPrompt.indexOf('冒頭付近で、現在の行動や知覚を通して、場所・状況・二人の普段の関係'));
- assert.ok(canonicalPrompt.endsWith("以下が今回の条件です。"));
+ // Ver.0.1.4.1 splits the fixed prompt around the conditions: the placeholder
+ // sits after the first half, and 最終確認・出力 close the assembled prompt.
+ assert.ok(canonicalPrompt.includes("以下が今回の条件です。\n\n（ここに今回の条件が入ります）"));
+ assert.ok(canonicalPrompt.indexOf("（ここに今回の条件が入ります）")<canonicalPrompt.indexOf("## 最終確認"));
+ assert.ok(canonicalPrompt.indexOf("## 最終確認")<canonicalPrompt.indexOf("## 出力"));
+ assert.ok(canonicalPrompt.endsWith("は表示しないでください。"));
  assert.ok(canonicalPrompt.includes("短編小説らしいタイトルを最初の一行に置いてください。"));
  assert.ok(canonicalPrompt.includes("## 身体・動作"));
  assert.ok(canonicalPrompt.includes("二人の向き、姿勢、左右の手"));
@@ -199,7 +202,7 @@ async function main(){
  migration.local.set("dreamGachaSettings",JSON.stringify({version:38,characters:[historicalSnapshot.character],characterId:"old-id",values:{relationship:"旧条件"},pools:{},basePrompt:historicalSnapshot.prompt,promptDraftSnapshot:historicalSnapshot,presets:[historicalPreset]}));
  run(migration,"init();save()");
  const migratedSettings=JSON.parse(migration.local.get("dreamGachaSettings"));
- assert.equal(migratedSettings.version,46);
+ assert.equal(migratedSettings.version,47);
  assert.equal(migratedSettings.basePrompt,canonicalPrompt);
  assert.deepStrictEqual(migratedSettings.promptDraftSnapshot,historicalSnapshot);
  assert.deepStrictEqual(migratedSettings.presets,[historicalPreset]);
@@ -211,11 +214,11 @@ async function main(){
  const generated0132={prompt:previous0132+'\n【関係性】\n知人',relationship:'知人',promptRecord:{revision:revision0132,assembledPrompt:previous0132+'\n【関係性】\n知人'}};
  const stored0132={version:43,characters:[],pools:{},values:{relationship:'知人'},basePrompt:previous0132,promptVersions:[revision0132],promptDraftSnapshot:generated0132,presets:[{id:'preset-0132',snapshot:generated0132}]};
  promptUpdate.local.set('dreamGachaSettings',JSON.stringify(stored0132));run(promptUpdate,'init();save()');
- const updated0133=JSON.parse(promptUpdate.local.get('dreamGachaSettings'));
- assert.equal(updated0133.basePrompt,canonicalPrompt);
- assert.deepStrictEqual(updated0133.promptDraftSnapshot,generated0132);
- assert.deepStrictEqual(updated0133.promptVersions,stored0132.promptVersions);
- assert.deepStrictEqual(updated0133.presets,stored0132.presets);
+ const updatedStandard=JSON.parse(promptUpdate.local.get('dreamGachaSettings'));
+ assert.equal(updatedStandard.basePrompt,canonicalPrompt);
+ assert.deepStrictEqual(updatedStandard.promptDraftSnapshot,generated0132);
+ assert.deepStrictEqual(updatedStandard.promptVersions,stored0132.promptVersions);
+ assert.deepStrictEqual(updatedStandard.presets,stored0132.presets);
  assert.equal(promptUpdate.get('#output').value,generated0132.prompt);
  const customUpdate=makeApp(),custom0132={...stored0132,basePrompt:previous0132+'\n自分の追加条件',basePromptLabel:'自分の版'};
  customUpdate.local.set('dreamGachaSettings',JSON.stringify(custom0132));run(customUpdate,'init();save()');
@@ -232,7 +235,7 @@ async function main(){
  stages.local.set('dreamGachaSettings',JSON.stringify(stageRaw));
  run(stages,"init();save()");
  const stageSaved=JSON.parse(stages.local.get('dreamGachaSettings'));
- assert.equal(stageSaved.version,46);
+ assert.equal(stageSaved.version,47);
  assert.equal(stageSaved.promptSettings.entries.length,20);
  assert.equal(stageSaved.basePromptLabel,stageRaw.basePromptLabel);
  assert.deepStrictEqual(stageSaved.promptContextOverride,oldContext);
@@ -365,7 +368,7 @@ async function main(){
   assert.equal(run(frozen,"__frozenNovel.snapshot.relationship"),"generated R");
   assert.equal(run(frozen,"__frozenNovel.generationAi"),"");assert.equal(run(frozen,"__frozenNovel.generationModel"),"");
   assert.equal(run(frozen,"__frozenNovel.promptSnapshot"),run(frozen,"state.promptDraftSnapshot.prompt"));
-  assert.equal(run(frozen,"__frozenNovel.snapshot.promptRecord.revision.standardVersion"),"0.1.3.3");
+  assert.equal(run(frozen,"__frozenNovel.snapshot.promptRecord.revision.standardVersion"),"0.1.4.1");
   assert.equal(run(frozen,"state.promptVersions.length"),1);
   const savedRecord=JSON.stringify(run(frozen,"__frozenNovel.snapshot.promptRecord"));
   run(frozen,"state.basePrompt='custom fixed prompt';state.basePromptLabel='trial';rememberPromptRevision();save();");
